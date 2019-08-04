@@ -41,7 +41,18 @@ public class VittoFrame extends javax.swing.JFrame {
         
         DefaultComboBoxModel employeeModel = new DefaultComboBoxModel(employeeList.toArray());
         this.employeeNameCombo.setModel(employeeModel);
+        this.selectOrderView();
+        
     }
+    
+    
+    
+    private void selectOrderView() {
+        SelectOrder.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
+        SelectOrder.setSize(700, 500);        
+        SelectOrder.setVisible(true); 
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -56,6 +67,10 @@ public class VittoFrame extends javax.swing.JFrame {
         employeeNameCombo = new javax.swing.JComboBox<>();
         tableOne = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        tableTwo = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        tableThree = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         employeeNameCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,6 +107,24 @@ public class VittoFrame extends javax.swing.JFrame {
 
         jLabel1.setText("Mesa");
 
+        tableTwo.setText("2");
+        tableTwo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tableTwoActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Mesa");
+
+        tableThree.setText("3");
+        tableThree.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tableThreeActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Mesa");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -103,16 +136,38 @@ public class VittoFrame extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addComponent(jLabel1)))
-                .addContainerGap(375, Short.MAX_VALUE))
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tableTwo, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(jLabel2)))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(tableThree, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(jLabel3)))
+                .addContainerGap(622, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tableOne, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(462, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tableThree, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tableTwo, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tableOne, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(758, Short.MAX_VALUE))
         );
 
         pack();
@@ -122,17 +177,24 @@ public class VittoFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         System.out.println("click...");
-        this.chargeEmployee();
-        
-        SelectOrder.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
-        SelectOrder.setSize(700, 500);        
-        SelectOrder.setVisible(true);    
+        this.chargeEmployee();           
     
     }//GEN-LAST:event_tableOneActionPerformed
 
     private void employeeNameComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeeNameComboActionPerformed
         // TODO add your handling code here:
+        this.chargeEmployee();    
     }//GEN-LAST:event_employeeNameComboActionPerformed
+
+    private void tableTwoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tableTwoActionPerformed
+        // TODO add your handling code here:
+        this.chargeEmployee();    
+    }//GEN-LAST:event_tableTwoActionPerformed
+
+    private void tableThreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tableThreeActionPerformed
+        // TODO add your handling code here:
+        this.chargeEmployee();    
+    }//GEN-LAST:event_tableThreeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -177,6 +239,10 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JFrame SelectOrder;
     private javax.swing.JComboBox<String> employeeNameCombo;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JButton tableOne;
+    private javax.swing.JButton tableThree;
+    private javax.swing.JButton tableTwo;
     // End of variables declaration//GEN-END:variables
 }
