@@ -1,5 +1,5 @@
 # target mvn
-target/
+/target/**
 .classpath
 .settings/
 .project
