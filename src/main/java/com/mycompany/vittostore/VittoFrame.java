@@ -126,6 +126,8 @@ public class VittoFrame extends javax.swing.JFrame {
         teMilkSpinner = new javax.swing.JSpinner();
         otherCoffee = new javax.swing.JCheckBox();
         otherCoffeeSpinner = new javax.swing.JSpinner();
+        acceptNoAlcoholDrinks = new javax.swing.JButton();
+        cancelNoAlcoholDrinks = new javax.swing.JButton();
         DrinkAlcoholFrame = new javax.swing.JFrame();
         CandyProductsFrame = new javax.swing.JFrame();
         SaladsProductFrame = new javax.swing.JFrame();
@@ -358,6 +360,20 @@ public class VittoFrame extends javax.swing.JFrame {
 
         otherCoffee.setText("Otro");
 
+        acceptNoAlcoholDrinks.setText("Aceptar");
+        acceptNoAlcoholDrinks.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                acceptNoAlcoholDrinksActionPerformed(evt);
+            }
+        });
+
+        cancelNoAlcoholDrinks.setText("Cancelar");
+        cancelNoAlcoholDrinks.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelNoAlcoholDrinksActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout DrinkNoAlcoholFrameLayout = new javax.swing.GroupLayout(DrinkNoAlcoholFrame.getContentPane());
         DrinkNoAlcoholFrame.getContentPane().setLayout(DrinkNoAlcoholFrameLayout);
         DrinkNoAlcoholFrameLayout.setHorizontalGroup(
@@ -480,7 +496,11 @@ public class VittoFrame extends javax.swing.JFrame {
                                     .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
                                         .addComponent(otherCoffee)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(otherCoffeeSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addComponent(otherCoffeeSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DrinkNoAlcoholFrameLayout.createSequentialGroup()
+                                .addComponent(acceptNoAlcoholDrinks, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cancelNoAlcoholDrinks)))
                         .addContainerGap(49, Short.MAX_VALUE))))
         );
         DrinkNoAlcoholFrameLayout.setVerticalGroup(
@@ -581,7 +601,11 @@ public class VittoFrame extends javax.swing.JFrame {
                             .addComponent(coffeeMilkDoubleSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(otherCoffee)
                             .addComponent(otherCoffeeSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(109, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(acceptNoAlcoholDrinks)
+                    .addComponent(cancelNoAlcoholDrinks))
+                .addGap(28, 28, 28))
         );
 
         javax.swing.GroupLayout DrinkAlcoholFrameLayout = new javax.swing.GroupLayout(DrinkAlcoholFrame.getContentPane());
@@ -829,6 +853,24 @@ public class VittoFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_spriteActionPerformed
 
+    private void acceptNoAlcoholDrinksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptNoAlcoholDrinksActionPerformed
+        // TODO add your handling code here:
+        /*
+            Contabilizar todos los productos que se cargan 
+            Cambiar el estado de la mesa
+            Guardarlos en la bbdd
+        */
+    }//GEN-LAST:event_acceptNoAlcoholDrinksActionPerformed
+
+    private void cancelNoAlcoholDrinksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelNoAlcoholDrinksActionPerformed
+        // TODO add your handling code here:
+        
+        /*
+            Vaciar todos los contadores
+            No modificar el estado de la cuenta
+        */
+    }//GEN-LAST:event_cancelNoAlcoholDrinksActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -875,6 +917,8 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JFrame SaladsProductFrame;
     private javax.swing.JFrame SelectOrder;
     private javax.swing.JFrame SuggestedPromosFrame;
+    private javax.swing.JButton acceptNoAlcoholDrinks;
+    private javax.swing.JButton cancelNoAlcoholDrinks;
     private javax.swing.JButton candyProducts;
     private javax.swing.JButton closeTable;
     private javax.swing.JCheckBox cocaCola;
