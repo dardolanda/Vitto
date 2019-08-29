@@ -11,7 +11,11 @@ import java.awt.Toolkit;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.mycompany.vittostore.generalitems.Product;
+import java.awt.event.WindowEvent;
+
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.SpinnerNumberModel;
 
 
 /**
@@ -22,6 +26,7 @@ public class VittoFrame extends javax.swing.JFrame {
     
     Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
     List<String> employeeList = new ArrayList<>();
+    List<Product> productList = new ArrayList<>();
 
     /**
      * Creates new form VittoFrame
@@ -799,7 +804,8 @@ public class VittoFrame extends javax.swing.JFrame {
         
         System.out.println("click...");
         System.out.println(evt);
-        this.chargeEmployee();
+        this.tableOne.setBackground(Color.red);
+        this.chargeEmployee(); 
     
     }//GEN-LAST:event_tableOneActionPerformed
 
@@ -914,6 +920,17 @@ public class VittoFrame extends javax.swing.JFrame {
             Cambiar el estado de la mesa
             Guardarlos en la bbdd
         */
+        
+        
+        if(cocaColaCheck.isSelected() && Integer.parseInt(this.cocaSpinner.getValue().toString()) != 0 ) {
+            System.out.println("model " + this.cocaSpinner.getValue());
+            //Tener en cuenta quién es la mesa elegida - buscar la manera de identificar quién es el que está ejecuntando la acción.
+            //this.tableOne.setBackground(Color.red);
+            this.DrinkNoAlcoholFrame.dispatchEvent(new WindowEvent(this.DrinkNoAlcoholFrame, WindowEvent.WINDOW_CLOSING));
+            
+        }         
+        
+        
     }//GEN-LAST:event_acceptNoAlcoholDrinksActionPerformed
 
     private void cancelNoAlcoholDrinksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelNoAlcoholDrinksActionPerformed
@@ -929,10 +946,12 @@ public class VittoFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         if(cocaColaCheck.isSelected()) {
+            SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);            
             this.cocaSpinner.setEnabled(true);
+            this.cocaSpinner.setModel(model);            
         } else {
             this.cocaSpinner.setEnabled(false);
-        }
+        }               
             
         
         
