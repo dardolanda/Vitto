@@ -1,4 +1,8 @@
 # target mvn
+*/target/*
+*/target/**
+target/
+*.class
 /target/**
 .classpath
 .settings/

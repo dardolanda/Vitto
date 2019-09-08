@@ -19,5 +19,11 @@ public enum NoAlcoholDrinksEnum {
     LEVITE_MANZANA,
     LEVITE_LIMONADA,
     AGUA,
-    AGUA_GAS
+    AGUA_GAS,
+    EXPRIMIDO,
+    LICUADO_LECHE,
+    LICUADO_AGUA,
+    LIMONADA,
+    MILK_SHAKE_CHOCO,
+    MILK_SHAKE_DULCE_LECHE
 }
