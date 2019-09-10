@@ -245,12 +245,12 @@
                                                   <Group type="103" groupAlignment="0" attributes="0">
                                                       <Component id="tonicaSpinner" min="-2" max="-2" attributes="0"/>
                                                       <Component id="spriteZeroSpinner" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="torosSpinner" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="torosPomeloSpinner" alignment="0" min="-2" max="-2" attributes="0"/>
                                                       <Component id="fantaSpinner" alignment="0" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                               </Group>
-                                              <Component id="jCheckBox1" min="-2" max="-2" attributes="0"/>
-                                              <Component id="jCheckBox3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="fantaCheck" min="-2" max="-2" attributes="0"/>
+                                              <Component id="pomeloTorosCheck" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
@@ -274,7 +274,7 @@
                                                   <Group type="103" groupAlignment="0" attributes="0">
                                                       <Component id="limonadaCheck" alignment="0" min="-2" max="-2" attributes="0"/>
                                                       <Component id="waterCheck" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="jCheckBox2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="waterGasCheck" alignment="0" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -398,16 +398,16 @@
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jCheckBox3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="torosSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="pomeloTorosCheck" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="torosPomeloSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="waterCheck" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="waterSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jCheckBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="fantaCheck" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="fantaSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCheckBox2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="waterGasCheck" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="waterGasSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
@@ -541,12 +541,12 @@
         </Component>
         <Component class="javax.swing.JSpinner" name="tonicaSpinner">
         </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBox1">
+        <Component class="javax.swing.JCheckBox" name="fantaCheck">
           <Properties>
             <Property name="text" type="java.lang.String" value="fanta"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fantaCheckActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JSpinner" name="fantaSpinner">
@@ -588,12 +588,12 @@
         </Component>
         <Component class="javax.swing.JSpinner" name="limonadaSpinner">
         </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBox3">
+        <Component class="javax.swing.JCheckBox" name="pomeloTorosCheck">
           <Properties>
             <Property name="text" type="java.lang.String" value="toros pomelo"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JSpinner" name="torosSpinner">
+        <Component class="javax.swing.JSpinner" name="torosPomeloSpinner">
         </Component>
         <Component class="javax.swing.JCheckBox" name="waterCheck">
           <Properties>
@@ -602,7 +602,7 @@
         </Component>
         <Component class="javax.swing.JSpinner" name="waterSpinner">
         </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBox2">
+        <Component class="javax.swing.JCheckBox" name="waterGasCheck">
           <Properties>
             <Property name="text" type="java.lang.String" value="agua c/gas"/>
           </Properties>
@@ -613,6 +613,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="exprimido"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="exprimidoCheckActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JSpinner" name="exprimidoSpinner">
         </Component>
