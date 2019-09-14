@@ -213,6 +213,21 @@
                           <Component id="jSeparator2" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="shakeChocolateCheck" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="shakeChocolateSpinner" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="shakeDulceLecheCheck" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="shakeDulceLecheSpinner" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
@@ -243,7 +258,7 @@
                                                   </Group>
                                                   <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="tonicaSpinner" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="torosTonicaSpinner" min="-2" max="-2" attributes="0"/>
                                                       <Component id="spriteZeroSpinner" min="-2" max="-2" attributes="0"/>
                                                       <Component id="torosPomeloSpinner" alignment="0" min="-2" max="-2" attributes="0"/>
                                                       <Component id="fantaSpinner" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -274,10 +289,12 @@
                                                   <Group type="103" groupAlignment="0" attributes="0">
                                                       <Component id="limonadaCheck" alignment="0" min="-2" max="-2" attributes="0"/>
                                                       <Component id="waterCheck" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="waterGasCheck" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="cepitaCheck" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="waterGasCheck" min="-2" max="-2" attributes="0"/>
                                                   </Group>
                                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Component id="cepitaSpinner" min="-2" max="-2" attributes="0"/>
                                                       <Component id="waterGasSpinner" min="-2" max="-2" attributes="0"/>
                                                       <Component id="waterSpinner" min="-2" max="-2" attributes="0"/>
                                                       <Component id="limonadaSpinner" min="-2" max="-2" attributes="0"/>
@@ -319,26 +336,22 @@
                                               </Group>
                                           </Group>
                                       </Group>
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="scheweppesPomeloCheck" min="-2" max="-2" attributes="0"/>
+                                              <Component id="scheweppesTonicaCheck" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                              <Component id="scheweppesTonicaSpinner" alignment="1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="scheweppesPomeloSpinner" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                   </Group>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="shakeChocolateCheck" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="shakeChocolateSpinner" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="shakeDulceLecheCheck" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="shakeDulceLecheSpinner" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -394,7 +407,9 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="tonicaCheck" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="tonicaSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="torosTonicaSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cepitaCheck" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cepitaSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -410,52 +425,69 @@
                       <Component id="waterGasCheck" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="waterGasSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="jSeparator2" min="-2" pref="10" max="-2" attributes="0"/>
-                      <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="exprimidoCheck" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="exprimidoSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="3" pref="91" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="jSeparator2" min="-2" pref="10" max="-2" attributes="0"/>
+                              <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="limonadaElaboradoCheck" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="limonada_elaborada_Spinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="exprimidoCheck" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="exprimidoSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="limonadaElaboradoCheck" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="limonada_elaborada_Spinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="licuadoLecheCheck" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="licuadoLecheSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="licuadoAguaCheck" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="licuadoAguaSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
+                          <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="shakeDulceLecheSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="shakeDulceLecheCheck" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="shakeChocolateCheck" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="shakeChocolateSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="cancelNoAlcoholDrinks" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="acceptNoAlcoholDrinks" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="1" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="licuadoLecheCheck" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="licuadoLecheSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="scheweppesPomeloSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="scheweppesPomeloCheck" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="licuadoAguaCheck" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="licuadoAguaSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="scheweppesTonicaSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="scheweppesTonicaCheck" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="shakeDulceLecheSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="shakeDulceLecheCheck" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="shakeChocolateCheck" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="shakeChocolateSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace pref="40" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="cancelNoAlcoholDrinks" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="acceptNoAlcoholDrinks" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -539,7 +571,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tonicaCheckActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JSpinner" name="tonicaSpinner">
+        <Component class="javax.swing.JSpinner" name="torosTonicaSpinner">
         </Component>
         <Component class="javax.swing.JCheckBox" name="fantaCheck">
           <Properties>
@@ -585,6 +617,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="levite limonada"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="limonadaCheckActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JSpinner" name="limonadaSpinner">
         </Component>
@@ -592,6 +627,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="toros pomelo"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pomeloTorosCheckActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JSpinner" name="torosPomeloSpinner">
         </Component>
@@ -599,6 +637,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="agua"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="waterCheckActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JSpinner" name="waterSpinner">
         </Component>
@@ -606,6 +647,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="agua c/gas"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="waterGasCheckActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JSpinner" name="waterGasSpinner">
         </Component>
@@ -623,6 +667,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="limonada"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="limonadaElaboradoCheckActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JSpinner" name="limonada_elaborada_Spinner">
         </Component>
@@ -630,11 +677,17 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="licuado c/ leche"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="licuadoLecheCheckActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="licuadoAguaCheck">
           <Properties>
             <Property name="text" type="java.lang.String" value="licuado c/ agua"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="licuadoAguaCheckActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JSpinner" name="licuadoLecheSpinner">
         </Component>
@@ -654,8 +707,41 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Milk Shake (chocolate)"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="shakeChocolateCheckActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JSpinner" name="shakeChocolateSpinner">
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="cepitaCheck">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="cepita"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cepitaCheckActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JSpinner" name="cepitaSpinner">
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="scheweppesPomeloCheck">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="scheweppes pomelo"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="scheweppesPomeloCheckActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="scheweppesTonicaCheck">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="scheweppes tonica"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="scheweppesTonicaCheckActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JSpinner" name="scheweppesPomeloSpinner">
+        </Component>
+        <Component class="javax.swing.JSpinner" name="scheweppesTonicaSpinner">
         </Component>
       </SubComponents>
     </Container>
