@@ -906,9 +906,6 @@ public class VittoFrame extends javax.swing.JFrame {
             // hayan guardado
         } else {
             // no hay datos entoences se tiene que guardar los datos elegidos.
-            
-        }
-        
         cocaSpinner.setEnabled(false);
         cocaLightSpinner.setEnabled(false);
         spriteSpinner.setEnabled(false);
@@ -931,6 +928,8 @@ public class VittoFrame extends javax.swing.JFrame {
         limonada_elaborada_Spinner.setEnabled(false);
         shakeChocolateSpinner.setEnabled(false);
         shakeDulceLecheSpinner.setEnabled(false);
+            
+        }
         
         /*
         
