@@ -39,6 +39,7 @@ public class VittoFrame extends javax.swing.JFrame {
         initComponents();
         
         //init DDBB:
+        //https://www.youtube.com/watch?v=7CW2gYXiGY4
         
         
         // Tomar los valores de la bbdd 
