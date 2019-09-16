@@ -24,10 +24,6 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.SpinnerNumberModel;
 
 
-/**
- *
- * @author landa
- */
 public class VittoFrame extends javax.swing.JFrame {
     
     Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
@@ -39,8 +35,12 @@ public class VittoFrame extends javax.swing.JFrame {
     /**
      * Creates new form VittoFrame
      */
-    public VittoFrame() {        
+    public VittoFrame() {    
         initComponents();
+        
+        //init DDBB:
+        
+        
         // Tomar los valores de la bbdd 
         employeeList.add("Cristian Decarli");
         employeeList.add("Florencio Varela");
@@ -931,20 +931,7 @@ public class VittoFrame extends javax.swing.JFrame {
             
         }
         
-        /*
         
-            Bloquea los spinners :
-        
-        this.cocaSpinner.setEnabled(false);
-        this.cocaLightSpinner.setEnabled(false);
-        this.cocaZeroSpinner.setEnabled(false);
-        this.fantaSpinner.setEnabled(false);
-        this.pomeloSpinner.setEnabled(false);
-        this.schweppesSpinner.setEnabled(false);
-        this.spriteZeroSpinner.setEnabled(false);
-        this.spriteSpinner.setEnabled(false);
-        this.otherSodaSpinner.setEnabled(false);
-        */
     }//GEN-LAST:event_drinkNoAlcoholActionPerformed
 
     private void candyProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_candyProductsActionPerformed
@@ -1257,6 +1244,7 @@ public class VittoFrame extends javax.swing.JFrame {
         }
 
         /*
+        Otra forma de iterar el map
         noAlcoholDrinks.entrySet().stream().map((entry) -> {
             Object key = entry.getKey();
             return entry;
