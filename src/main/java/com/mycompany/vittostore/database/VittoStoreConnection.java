@@ -22,10 +22,10 @@ import java.util.*;
 public class VittoStoreConnection {
     private Connection DDBBConnection = null;
     
-    public VittoStoreConnection() throws SQLException {
+    public VittoStoreConnection() throws SQLException {              
         try {
             Class.forName("org.h2.Driver");
-            DDBBConnection = DriverManager.getConnection("jdbc:h2:./VittoStore","vito","vito");
+            this.DDBBConnection = DriverManager.getConnection("jdbc:h2:./VittoStore","vito","vito");
             // /media/landa/Eva-00/Desarrollo_Vitto/VittoStore/VittoDataBase.mv.db
             JOptionPane.showMessageDialog(null, "Conexión DDBB OK!");
             
@@ -36,11 +36,11 @@ public class VittoStoreConnection {
     
     
     public List<User> getUsers() {
-        List<User> users = new ArrayList<User>();
-        User user = null;
+        User user;
+        List<User> users = new ArrayList<>();        
         
         if (this.DDBBConnection != null ) {
-            String getUsers = "SELECT * FROM users ";
+            String getUsers = "SELECT * FROM USERS";
             
             try {
                 PreparedStatement statement = this.DDBBConnection.prepareStatement(getUsers);
@@ -52,7 +52,10 @@ public class VittoStoreConnection {
                     String apellido = resultSet.getString("apellido");
                     String dni = resultSet.getString("dni");
                     
-                    users.add(new User(id, nombre, apellido, dni));
+                    
+                    user = new User(id, nombre, apellido, dni);
+                    
+                    users.add(user);
                     
                 }
                 
@@ -60,6 +63,8 @@ public class VittoStoreConnection {
                 Logger.getLogger(VittoStoreConnection.class.getName()).log(Level.SEVERE, null, ex);
             }
                     
+        } else {
+            // TODO: Volver a conectarse -> enviar mensaje de error.
         }
         
         return users;

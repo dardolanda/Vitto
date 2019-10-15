@@ -18,6 +18,7 @@ import com.mycompany.vittostore.generalitems.Product;
 import com.mycompany.vittostore.generalitems.Table;
 import com.mycompany.vittostore.generalitems.NoAlcoholDrinksEnum;
 import com.mycompany.vittostore.database.VittoStoreConnection;
+import com.mycompany.vittostore.user.User;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -31,7 +32,7 @@ import javax.swing.SpinnerNumberModel;
 public class VittoFrame extends javax.swing.JFrame {
     
     Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-    List<String> employeeList = new ArrayList<>();
+    List<User> employeeList = new ArrayList<>();
     List<Product> productList = new ArrayList<>();
     Table selectedTable = new Table();
     VittoStoreConnection vittoDDBBStore = null;
@@ -47,18 +48,11 @@ public class VittoFrame extends javax.swing.JFrame {
             //init DDBB:
             //https://www.youtube.com/watch?v=7CW2gYXiGY4
             vittoDDBBStore = new VittoStoreConnection();
-            
-            
+            this.employeeList = vittoDDBBStore.getUsers();
             
         } catch (SQLException ex) {
             Logger.getLogger(VittoFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
-        
-        // Tomar los valores de la bbdd 
-        employeeList.add("Cristian Decarli");
-        employeeList.add("Florencio Varela");
         
         
         this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
