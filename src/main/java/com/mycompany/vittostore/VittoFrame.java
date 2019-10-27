@@ -40,13 +40,13 @@ public class VittoFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form VittoFrame
+     * 
+     * sout -> System.out.println(); -> shortCut
      */
     public VittoFrame() {    
         initComponents();
         
         try {
-            //init DDBB:
-            //https://www.youtube.com/watch?v=7CW2gYXiGY4
             vittoDDBBStore = new VittoStoreConnection();
             this.employeeList = vittoDDBBStore.getUsers();
             
@@ -60,8 +60,13 @@ public class VittoFrame extends javax.swing.JFrame {
     
     
     
-    private void chargeEmployee() {        
-        DefaultComboBoxModel employeeModel = new DefaultComboBoxModel(employeeList.toArray());
+    private void chargeEmployee() {
+        List<String> employeeNamesList = new ArrayList<>();
+        this.employeeList.forEach( t -> 
+                employeeNamesList.add(t.getNombre() + " " + t.getApellido())
+        );
+        
+        DefaultComboBoxModel employeeModel = new DefaultComboBoxModel(employeeNamesList.toArray());
         this.employeeNameCombo.setModel(employeeModel);        
         
     }
