@@ -51,7 +51,7 @@ public class User {
     public void setDNI(String DNI) {
         this.DNI = DNI;
     }
-
+    
     @Override
     public String toString() {
         return "User{" + "ID=" + ID + ", nombre=" + nombre + ", apellido=" + apellido + ", DNI=" + DNI + '}';

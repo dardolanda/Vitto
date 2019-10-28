@@ -17,7 +17,7 @@ import java.awt.event.WindowEvent;
 import com.mycompany.vittostore.generalitems.Product;
 import com.mycompany.vittostore.generalitems.Table;
 import com.mycompany.vittostore.generalitems.NoAlcoholDrinksEnum;
-import com.mycompany.vittostore.database.VittoStoreConnection;
+import com.mycompany.vittostore.database.VittoStoreDDBBRepository;
 import com.mycompany.vittostore.user.User;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -35,7 +35,12 @@ public class VittoFrame extends javax.swing.JFrame {
     List<User> employeeList = new ArrayList<>();
     List<Product> productList = new ArrayList<>();
     Table selectedTable = new Table();
-    VittoStoreConnection vittoDDBBStore = null;
+    VittoStoreDDBBRepository vittoDDBBStore = null;
+    Map<NoAlcoholDrinksEnum, Integer> noAlcoholDrinks;
+    Map<NoAlcoholDrinksEnum, Integer> AlcoholDrinks;
+    User tableUser;
+    // resto de las posibilidades por mesa
+    
         
 
     /**
@@ -47,7 +52,7 @@ public class VittoFrame extends javax.swing.JFrame {
         initComponents();
         
         try {
-            vittoDDBBStore = new VittoStoreConnection();
+            vittoDDBBStore = new VittoStoreDDBBRepository();
             this.employeeList = vittoDDBBStore.getUsers();
             
         } catch (SQLException ex) {
@@ -64,6 +69,7 @@ public class VittoFrame extends javax.swing.JFrame {
         List<String> employeeNamesList = new ArrayList<>();
         this.employeeList.forEach( t -> 
                 employeeNamesList.add(t.getNombre() + " " + t.getApellido())
+                
         );
         
         DefaultComboBoxModel employeeModel = new DefaultComboBoxModel(employeeNamesList.toArray());
@@ -105,6 +111,7 @@ public class VittoFrame extends javax.swing.JFrame {
         seeConsuming = new javax.swing.JButton();
         deleteTable = new javax.swing.JButton();
         closeTable = new javax.swing.JButton();
+        SaveButton = new javax.swing.JButton();
         DrinkNoAlcoholFrame = new javax.swing.JFrame();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -179,12 +186,12 @@ public class VittoFrame extends javax.swing.JFrame {
 
         drinkNoAlcohol.setText("Bebidas sin alcohol");
         drinkNoAlcohol.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 drinkNoAlcoholAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         drinkNoAlcohol.addActionListener(new java.awt.event.ActionListener() {
@@ -256,6 +263,13 @@ public class VittoFrame extends javax.swing.JFrame {
             }
         });
 
+        SaveButton.setText("Guardar");
+        SaveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SaveButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout SelectOrderLayout = new javax.swing.GroupLayout(SelectOrder.getContentPane());
         SelectOrder.getContentPane().setLayout(SelectOrderLayout);
         SelectOrderLayout.setHorizontalGroup(
@@ -282,23 +296,23 @@ public class VittoFrame extends javax.swing.JFrame {
                         .addGap(0, 34, Short.MAX_VALUE))
                     .addGroup(SelectOrderLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(consuming)
-                        .addGap(18, 18, 18)
-                        .addComponent(payAction, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(SelectOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(SelectOrderLayout.createSequentialGroup()
+                                .addComponent(consuming)
+                                .addGap(18, 18, 18)
+                                .addComponent(payAction, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(closeTable))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(seeConsuming)
+                        .addGroup(SelectOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(seeConsuming, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(SaveButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(29, 29, 29)
                         .addComponent(deleteTable, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SelectOrderLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(SelectOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SelectOrderLayout.createSequentialGroup()
-                        .addComponent(closeTable, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(264, 264, 264))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SelectOrderLayout.createSequentialGroup()
-                        .addComponent(employeeNameCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(231, 231, 231))))
+                .addComponent(employeeNameCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(231, 231, 231))
         );
         SelectOrderLayout.setVerticalGroup(
             SelectOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -324,9 +338,11 @@ public class VittoFrame extends javax.swing.JFrame {
                     .addComponent(payAction)
                     .addComponent(seeConsuming)
                     .addComponent(deleteTable))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-                .addComponent(closeTable, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
+                .addGap(39, 39, 39)
+                .addGroup(SelectOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(closeTable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(SaveButton))
+                .addGap(74, 74, 74))
         );
 
         jLabel6.setText("Línea Gaseosas");
@@ -876,8 +892,13 @@ public class VittoFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_tableOneActionPerformed
 
     private void employeeNameComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeeNameComboActionPerformed
-        // TODO add your handling code here:
-        this.chargeEmployee();    
+        
+                
+        String [] names = this.employeeNameCombo.getSelectedItem().toString().split(" ");
+        System.out.println(names[0] + names[1]);
+        
+        this.tableUser = this.vittoDDBBStore.findUserByCompleteName(names[0], names[1]);        
+        
     }//GEN-LAST:event_employeeNameComboActionPerformed
 
     private void tableTwoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tableTwoActionPerformed
@@ -1157,7 +1178,7 @@ public class VittoFrame extends javax.swing.JFrame {
         Guardarlos en la bbdd
         */
 
-        Map<NoAlcoholDrinksEnum, Integer> noAlcoholDrinks = new HashMap();
+        this.noAlcoholDrinks = new HashMap();
 
         if(cocaColaCheck.isSelected() && Integer.parseInt(this.cocaSpinner.getValue().toString()) > 0 ) {
             noAlcoholDrinks.put((NoAlcoholDrinksEnum.COCA_COLA), Integer.parseInt(this.cocaSpinner.getValue().toString()));
@@ -1252,8 +1273,8 @@ public class VittoFrame extends javax.swing.JFrame {
         //this.tableOne.setBackground(Color.red);
 
         for (Map.Entry<NoAlcoholDrinksEnum, Integer> entry : noAlcoholDrinks.entrySet()) {
-            System.out.println("key --> " + entry.getKey());
-            System.out.println("value --> " + entry.getValue());
+            //System.out.println("key --> " + entry.getKey());
+            //System.out.println("value --> " + entry.getValue());
 
         }
 
@@ -1370,6 +1391,24 @@ public class VittoFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_waterGasCheckActionPerformed
 
+    private void SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveButtonActionPerformed
+        // TODO add your handling code here:
+        
+        System.out.println("mesa elegida " + this.selectedTable.getState());
+        
+        System.out.println("Usuario mesa: " + this.tableUser.getNombre());
+        
+        for (Map.Entry<NoAlcoholDrinksEnum, Integer> entry : this.noAlcoholDrinks.entrySet()) {
+            System.out.println("key --> " + entry.getKey());
+            System.out.println("value --> " + entry.getValue());
+
+        }
+        
+        // Guardar en la bbdd "la sesión" del usuario con todos los elementos 
+        // de la mesa elegida
+        // tener en cuenta los precios de los productos.
+    }//GEN-LAST:event_SaveButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1414,6 +1453,7 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JFrame DrinkAlcoholFrame;
     private javax.swing.JFrame DrinkNoAlcoholFrame;
     private javax.swing.JFrame SaladsProductFrame;
+    private javax.swing.JButton SaveButton;
     private javax.swing.JFrame SelectOrder;
     private javax.swing.JFrame SuggestedPromosFrame;
     private javax.swing.JButton acceptNoAlcoholDrinks;

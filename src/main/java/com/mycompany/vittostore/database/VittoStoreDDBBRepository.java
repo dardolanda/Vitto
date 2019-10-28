@@ -19,10 +19,10 @@ import com.mycompany.vittostore.user.User;
 
 import java.util.*;
 
-public class VittoStoreConnection {
+public class VittoStoreDDBBRepository {
     private Connection DDBBConnection = null;
     
-    public VittoStoreConnection() throws SQLException {              
+    public VittoStoreDDBBRepository() throws SQLException {              
         try {
             Class.forName("org.h2.Driver");
             this.DDBBConnection = DriverManager.getConnection("jdbc:h2:./VittoStore","vito","vito");
@@ -30,7 +30,15 @@ public class VittoStoreConnection {
             JOptionPane.showMessageDialog(null, "Conexión DDBB OK!");
             
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(VittoStoreConnection.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(VittoStoreDDBBRepository.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void reconectDDBB() {
+        try {
+            VittoStoreDDBBRepository repo = new VittoStoreDDBBRepository();
+        } catch (SQLException ex) {
+            Logger.getLogger(VittoStoreDDBBRepository.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -60,15 +68,52 @@ public class VittoStoreConnection {
                 }
                 
             } catch (SQLException ex) {
-                Logger.getLogger(VittoStoreConnection.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(VittoStoreDDBBRepository.class.getName()).log(Level.SEVERE, null, ex);
             }
                     
         } else {
-            // TODO: Volver a conectarse -> enviar mensaje de error.
+            /*
+                En caso de que no se encuentre activa la conexión
+            */
+            this.reconectDDBB();
+            return getUsers();
         }
         
         return users;
         
+    }
+    
+    public User findUserByCompleteName(String name, String surname) {
+        User user = null;
+        
+            if (this.DDBBConnection != null ) {
+                
+                String getUser = "SELECT * FROM USERS WHERE nombre = ? AND apellido = ?";
+            
+                try {
+                    PreparedStatement statement = this.DDBBConnection.prepareStatement(getUser);
+                    statement.setString(1, name);
+                    statement.setString(2, surname);
+                    ResultSet resultSet = statement.executeQuery();
+                    
+                    if (resultSet.next()) {
+                        int id = resultSet.getInt("id");
+                        String nombre = resultSet.getString("nombre");
+                        String apellido = resultSet.getString("apellido");
+                        String dni = resultSet.getString("dni");
+                    
+                    
+                        user = new User(id, nombre, apellido, dni);
+                    }
+                
+                } catch (SQLException ex) {
+                    Logger.getLogger(VittoStoreDDBBRepository.class.getName()).log(Level.SEVERE, null, ex);
+                }
+        
+            }
+        
+            return user;
+    
     }
     
 }
