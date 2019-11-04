@@ -6,10 +6,12 @@
 package com.mycompany.vittostore.dataStore;
 
 import com.mycompany.vittostore.generalitems.NoAlcoholDrinksEnum;
+
 import java.util.Map;
 
 public class DataStore {
     private Map<NoAlcoholDrinksEnum, Integer> noAlcoholDrinks;
+    
 
     public Map<NoAlcoholDrinksEnum, Integer> getNoAlcoholDrinks() {
         return noAlcoholDrinks;

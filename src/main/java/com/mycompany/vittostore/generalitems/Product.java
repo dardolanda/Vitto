@@ -12,13 +12,29 @@ public class Product {
     private String brand;
     private double price;
 
-    public int getQuantity() {
+    public Product(Long id, int amountConsumed, String brand, double price) {
+        this.id = id;
+        this.amountConsumed = amountConsumed;
+        this.brand = brand;
+        this.price = price;
+    }
+            
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public int getAmountConsumed() {
         return amountConsumed;
     }
 
-    public void setQuantity(int quantity) {
-        this.amountConsumed = quantity;
-    }
+    public void setAmountConsumed(int amountConsumed) {
+        this.amountConsumed = amountConsumed;
+    }            
 
     public String getBrand() {
         return brand;
@@ -35,5 +51,7 @@ public class Product {
     public void setPrice(double price) {
         this.price = price;
     }
+    
+    
     
 }
