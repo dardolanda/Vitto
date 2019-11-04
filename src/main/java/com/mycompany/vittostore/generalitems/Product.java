@@ -7,15 +7,17 @@ package com.mycompany.vittostore.generalitems;
 
 public class Product {
     
-    private int quantity;
+    private Long id;
+    private int amountConsumed;
     private String brand;
+    private double price;
 
     public int getQuantity() {
-        return quantity;
+        return amountConsumed;
     }
 
     public void setQuantity(int quantity) {
-        this.quantity = quantity;
+        this.amountConsumed = quantity;
     }
 
     public String getBrand() {
@@ -25,8 +27,13 @@ public class Product {
     public void setBrand(String brand) {
         this.brand = brand;
     }
-    
-    
-    
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
     
 }

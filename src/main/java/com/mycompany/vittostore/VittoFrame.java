@@ -19,6 +19,9 @@ import com.mycompany.vittostore.generalitems.Table;
 import com.mycompany.vittostore.generalitems.NoAlcoholDrinksEnum;
 import com.mycompany.vittostore.database.VittoStoreDDBBRepository;
 import com.mycompany.vittostore.user.User;
+import com.mycompany.vittostore.dataStore.DataStore;
+import com.mycompany.vittostore.productsManager.PriceManager;
+
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,6 +30,7 @@ import java.util.logging.Logger;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.SpinnerNumberModel;
+import jdk.nashorn.internal.objects.NativeArray;
 
 
 public class VittoFrame extends javax.swing.JFrame {
@@ -39,6 +43,8 @@ public class VittoFrame extends javax.swing.JFrame {
     Map<NoAlcoholDrinksEnum, Integer> noAlcoholDrinks;
     Map<NoAlcoholDrinksEnum, Integer> AlcoholDrinks;
     User tableUser;
+    DataStore dataStore;
+    PriceManager priceManager;
     // resto de las posibilidades por mesa
     
         
@@ -904,7 +910,7 @@ public class VittoFrame extends javax.swing.JFrame {
     private void tableTwoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tableTwoActionPerformed
         // TODO add your handling code here:
         this.selectedTable.setState("TableTwo");
-        this.tableOne.setBackground(Color.red);
+        this.tableTwo.setBackground(Color.red);
         this.chargeEmployee(); 
         this.selectOrderView(2);
 
@@ -1393,20 +1399,38 @@ public class VittoFrame extends javax.swing.JFrame {
 
     private void SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveButtonActionPerformed
         // TODO add your handling code here:
+        this.dataStore = new DataStore();
+        this.priceManager = new PriceManager();
         
         System.out.println("mesa elegida " + this.selectedTable.getState());
         
         System.out.println("Usuario mesa: " + this.tableUser.getNombre());
         
+
         for (Map.Entry<NoAlcoholDrinksEnum, Integer> entry : this.noAlcoholDrinks.entrySet()) {
             System.out.println("key --> " + entry.getKey());
             System.out.println("value --> " + entry.getValue());
 
         }
         
+        
+        if(!noAlcoholDrinks.isEmpty()) {
+            dataStore.setNoAlcoholDrinks(noAlcoholDrinks);
+        }
+        
+        
+        
+        //TODO: inser bbdd
+        this.vittoDDBBStore.insertProduct(
+                this.priceManager.getPricesFromDataStore(dataStore , this.vittoDDBBStore)
+        );
+        
+        
+        
+        
+        
         // Guardar en la bbdd "la sesión" del usuario con todos los elementos 
         // de la mesa elegida
-        // tener en cuenta los precios de los productos.
     }//GEN-LAST:event_SaveButtonActionPerformed
 
     /**

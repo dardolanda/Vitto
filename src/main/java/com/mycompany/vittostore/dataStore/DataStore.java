@@ -10,6 +10,14 @@ import java.util.Map;
 
 public class DataStore {
     private Map<NoAlcoholDrinksEnum, Integer> noAlcoholDrinks;
+
+    public Map<NoAlcoholDrinksEnum, Integer> getNoAlcoholDrinks() {
+        return noAlcoholDrinks;
+    }
+
+    public void setNoAlcoholDrinks(Map<NoAlcoholDrinksEnum, Integer> noAlcoholDrinks) {
+        this.noAlcoholDrinks = noAlcoholDrinks;
+    }
     
     
 }

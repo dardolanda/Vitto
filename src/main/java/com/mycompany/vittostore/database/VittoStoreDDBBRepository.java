@@ -16,6 +16,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 import com.mycompany.vittostore.user.User;
+import com.mycompany.vittostore.generalitems.Product;
 
 import java.util.*;
 
@@ -115,5 +116,18 @@ public class VittoStoreDDBBRepository {
             return user;
     
     }
+    
+    
+    public double getPriceFromProductName(String productName) {
+        return 22;
+    } 
+    
+    
+    public void insertProduct(List<Product> productList) {
+        
+        //TODO: inserta BBDD por producto de la lista.
+        
+    }
+    
     
 }
