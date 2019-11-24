@@ -17,7 +17,8 @@ import java.awt.event.WindowEvent;
 import com.mycompany.vittostore.generalitems.Product;
 import com.mycompany.vittostore.generalitems.Table;
 import com.mycompany.vittostore.generalitems.NoAlcoholDrinksEnum;
-import com.mycompany.vittostore.database.VittoStoreDDBBRepository;
+import com.mycompany.vittostore.controller.Users;
+import com.mycompany.vittostore.controllerImpl.UsersImpl;
 import com.mycompany.vittostore.user.User;
 import com.mycompany.vittostore.dataStore.DataStore;
 import com.mycompany.vittostore.productsManager.PriceManager;
@@ -30,7 +31,6 @@ import java.util.logging.Logger;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.SpinnerNumberModel;
-import jdk.nashorn.internal.objects.NativeArray;
 
 
 public class VittoFrame extends javax.swing.JFrame {
@@ -39,7 +39,7 @@ public class VittoFrame extends javax.swing.JFrame {
     List<User> employeeList = new ArrayList<>();
     List<Product> productList = new ArrayList<>();
     Table selectedTable = new Table();
-    VittoStoreDDBBRepository vittoDDBBStore = null;
+    Users usersImpl = new UsersImpl();
     Map<NoAlcoholDrinksEnum, Integer> noAlcoholDrinks;
     Map<NoAlcoholDrinksEnum, Integer> AlcoholDrinks;
     User tableUser;
@@ -52,18 +52,11 @@ public class VittoFrame extends javax.swing.JFrame {
     /**
      * Creates new form VittoFrame
      * 
-     * sout -> System.out.println(); -> shortCut
+     * sout -> System.out.println(); -> shortCut 
      */
     public VittoFrame() {    
         initComponents();
-        
-        try {
-            vittoDDBBStore = new VittoStoreDDBBRepository();
-            this.employeeList = vittoDDBBStore.getUsers();
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(VittoFrame.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        this.employeeList = this.usersImpl.getUsers();
         
         
         this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
@@ -903,7 +896,7 @@ public class VittoFrame extends javax.swing.JFrame {
         String [] names = this.employeeNameCombo.getSelectedItem().toString().split(" ");
         System.out.println(names[0] + names[1]);
         
-        this.tableUser = this.vittoDDBBStore.findUserByCompleteName(names[0], names[1]);        
+        this.tableUser = this.usersImpl.findUserByCompleteName(names[0], names[1]);        
         
     }//GEN-LAST:event_employeeNameComboActionPerformed
 
