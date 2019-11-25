@@ -1,10 +1,11 @@
- /*
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package com.mycompany.vittostore;
 
+import com.mycompany.vittostore.controller.Products;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -13,79 +14,64 @@ import java.util.List;
 import java.util.*;
 import java.awt.event.WindowEvent;
 
-
 import com.mycompany.vittostore.generalitems.Product;
 import com.mycompany.vittostore.generalitems.Table;
 import com.mycompany.vittostore.generalitems.NoAlcoholDrinksEnum;
 import com.mycompany.vittostore.controller.Users;
-import com.mycompany.vittostore.controllerImpl.UsersImpl;
 import com.mycompany.vittostore.user.User;
 import com.mycompany.vittostore.dataStore.DataStore;
-import com.mycompany.vittostore.productsManager.PriceManager;
 
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-
+import com.mycompany.vittostore.controllerImpl.ProductsImpl;
+import com.mycompany.vittostore.controllerImpl.UsersImpl;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.SpinnerNumberModel;
 
-
 public class VittoFrame extends javax.swing.JFrame {
-    
+
     Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
     List<User> employeeList = new ArrayList<>();
     List<Product> productList = new ArrayList<>();
     Table selectedTable = new Table();
-    Users usersImpl = new UsersImpl();
+    Users usersImpl = new UsersImpl(1);
+    Products productsImpl = new ProductsImpl(2);
     Map<NoAlcoholDrinksEnum, Integer> noAlcoholDrinks;
     Map<NoAlcoholDrinksEnum, Integer> AlcoholDrinks;
     User tableUser;
     DataStore dataStore;
-    PriceManager priceManager;
     // resto de las posibilidades por mesa
-    
-        
 
     /**
      * Creates new form VittoFrame
-     * 
-     * sout -> System.out.println(); -> shortCut 
+     *
+     * sout -> System.out.println(); -> shortCut
      */
-    public VittoFrame() {    
+    public VittoFrame() {
         initComponents();
         this.employeeList = this.usersImpl.getUsers();
-        
-        
-        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
+
+        this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
     }
-    
-    
-    
+
     private void chargeEmployee() {
         List<String> employeeNamesList = new ArrayList<>();
-        this.employeeList.forEach( t -> 
+        this.employeeList.forEach(t -> 
                 employeeNamesList.add(t.getNombre() + " " + t.getApellido())
-                
         );
-        
+
         DefaultComboBoxModel employeeModel = new DefaultComboBoxModel(employeeNamesList.toArray());
-        this.employeeNameCombo.setModel(employeeModel);        
-        
+        this.employeeNameCombo.setModel(employeeModel);
+
+        this.tableUser = this.usersImpl.findUserByCompleteName(employeeList.get(0).getNombre(), employeeList.get(0).getApellido());
+
     }
-    
-    
-    
+
     private void selectOrderView(int table) {
-        SelectOrder.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
-        SelectOrder.setSize(700, 500);        
+        SelectOrder.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
+        SelectOrder.setSize(800, 600);
         SelectOrder.setVisible(true);
-        
-        
+
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -879,32 +865,31 @@ public class VittoFrame extends javax.swing.JFrame {
 
     private void tableOneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tableOneActionPerformed
         // TODO add your handling code here:
-        
+
         System.out.println("click...");
-        System.out.println(evt);        
-        
+        System.out.println(evt);
+
         this.selectedTable.setState("trableOne");
         this.tableOne.setBackground(Color.red);
-        this.chargeEmployee(); 
+        this.chargeEmployee();
         this.selectOrderView(1);
-    
+
     }//GEN-LAST:event_tableOneActionPerformed
 
     private void employeeNameComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_employeeNameComboActionPerformed
-        
-                
-        String [] names = this.employeeNameCombo.getSelectedItem().toString().split(" ");
-        System.out.println(names[0] + names[1]);
-        
-        this.tableUser = this.usersImpl.findUserByCompleteName(names[0], names[1]);        
-        
+
+        String[] names = this.employeeNameCombo.getSelectedItem().toString().split(" ");
+        System.out.println("selected name (employee combo) : " + names[0] + " ___ " + names[1]);
+
+        this.tableUser = this.usersImpl.findUserByCompleteName(names[0], names[1]);
+
     }//GEN-LAST:event_employeeNameComboActionPerformed
 
     private void tableTwoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tableTwoActionPerformed
         // TODO add your handling code here:
         this.selectedTable.setState("TableTwo");
         this.tableTwo.setBackground(Color.red);
-        this.chargeEmployee(); 
+        this.chargeEmployee();
         this.selectOrderView(2);
 
     }//GEN-LAST:event_tableTwoActionPerformed
@@ -913,90 +898,89 @@ public class VittoFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.selectedTable.setState("TableThree");
         this.tableOne.setBackground(Color.red);
-        this.chargeEmployee(); 
+        this.chargeEmployee();
         this.selectOrderView(3);
 
     }//GEN-LAST:event_tableThreeActionPerformed
 
     private void drinkNoAlcoholActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drinkNoAlcoholActionPerformed
-        
-        DrinkNoAlcoholFrame.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
+
+        DrinkNoAlcoholFrame.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
         DrinkNoAlcoholFrame.setSize(550, 700);
-        DrinkNoAlcoholFrame.setVisible(true);     
-        
+        DrinkNoAlcoholFrame.setVisible(true);
+
         System.out.println("Table selected.......");
         System.out.println(this.selectedTable.getState());
-        
+
 
         /*
             Buscar de la base de datos, si hay algo que ya se había pedido 
             para esa mesa
         
-        */
-        
-        if(false) {
+         */
+        if (false) {
             // no se encontraron datos en la bbdd
             // por lo tanto hay que cargar las cantidades que se 
             // hayan guardado
         } else {
             // no hay datos entoences se tiene que guardar los datos elegidos.
-        cocaSpinner.setEnabled(false);
-        cocaLightSpinner.setEnabled(false);
-        spriteSpinner.setEnabled(false);
-        spriteZeroSpinner.setEnabled(false);
-        torosPomeloSpinner.setEnabled(false);
-        torosTonicaSpinner.setEnabled(false);
-        fantaSpinner.setEnabled(false);
-        naranjaSpinner.setEnabled(false);
-        pomeloSpinner.setEnabled(false);
-        manzanaSpinner.setEnabled(false);
-        limonadaSpinner.setEnabled(false);
-        cepitaSpinner.setEnabled(false);
-        scheweppesPomeloSpinner.setEnabled(false);
-        scheweppesTonicaSpinner.setEnabled(false);
-        waterSpinner.setEnabled(false);
-        waterGasSpinner.setEnabled(false);
-        exprimidoSpinner.setEnabled(false);
-        licuadoAguaSpinner.setEnabled(false);
-        licuadoLecheSpinner.setEnabled(false);
-        limonada_elaborada_Spinner.setEnabled(false);
-        shakeChocolateSpinner.setEnabled(false);
-        shakeDulceLecheSpinner.setEnabled(false);
-            
+            cocaSpinner.setEnabled(false);
+            cocaLightSpinner.setEnabled(false);
+            spriteSpinner.setEnabled(false);
+            spriteZeroSpinner.setEnabled(false);
+            torosPomeloSpinner.setEnabled(false);
+            torosTonicaSpinner.setEnabled(false);
+            fantaSpinner.setEnabled(false);
+            naranjaSpinner.setEnabled(false);
+            pomeloSpinner.setEnabled(false);
+            manzanaSpinner.setEnabled(false);
+            limonadaSpinner.setEnabled(false);
+            cepitaSpinner.setEnabled(false);
+            scheweppesPomeloSpinner.setEnabled(false);
+            scheweppesTonicaSpinner.setEnabled(false);
+            waterSpinner.setEnabled(false);
+            waterGasSpinner.setEnabled(false);
+            exprimidoSpinner.setEnabled(false);
+            licuadoAguaSpinner.setEnabled(false);
+            licuadoLecheSpinner.setEnabled(false);
+            limonada_elaborada_Spinner.setEnabled(false);
+            shakeChocolateSpinner.setEnabled(false);
+            shakeDulceLecheSpinner.setEnabled(false);
+
         }
-        
-        
+
+
     }//GEN-LAST:event_drinkNoAlcoholActionPerformed
 
     private void candyProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_candyProductsActionPerformed
-        
-        CandyProductsFrame.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
+
+        CandyProductsFrame.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
         CandyProductsFrame.setSize(650, 700);
-        CandyProductsFrame.setVisible(true);  
-        
+        CandyProductsFrame.setVisible(true);
+
     }//GEN-LAST:event_candyProductsActionPerformed
 
     private void promotionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_promotionsActionPerformed
         // TODO add your handling code here:
-        SuggestedPromosFrame.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
+        SuggestedPromosFrame.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
         SuggestedPromosFrame.setSize(650, 700);
-        SuggestedPromosFrame.setVisible(true);  
-        
+        SuggestedPromosFrame.setVisible(true);
+
     }//GEN-LAST:event_promotionsActionPerformed
 
     private void saladProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saladProductsActionPerformed
         // TODO add your handling code here:
-        SaladsProductFrame.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
+        SaladsProductFrame.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
         SaladsProductFrame.setSize(650, 700);
-        SaladsProductFrame.setVisible(true);  
+        SaladsProductFrame.setVisible(true);
     }//GEN-LAST:event_saladProductsActionPerformed
 
     private void drinkAlcoholActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drinkAlcoholActionPerformed
         // TODO add your handling code here:
-        DrinkAlcoholFrame.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
+        DrinkAlcoholFrame.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
         DrinkAlcoholFrame.setSize(650, 700);
         DrinkAlcoholFrame.setVisible(true);
-        
+
     }//GEN-LAST:event_drinkAlcoholActionPerformed
 
     private void consumingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consumingActionPerformed
@@ -1023,18 +1007,18 @@ public class VittoFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.selectedTable.setState("TableFour");
         this.tableOne.setBackground(Color.red);
-        this.chargeEmployee(); 
+        this.chargeEmployee();
         this.selectOrderView(4);
 
     }//GEN-LAST:event_tableFourActionPerformed
 
     private void drinkNoAlcoholAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_drinkNoAlcoholAncestorAdded
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_drinkNoAlcoholAncestorAdded
 
     private void scheweppesTonicaCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scheweppesTonicaCheckActionPerformed
-        if(scheweppesTonicaCheck.isSelected()) {
+        if (scheweppesTonicaCheck.isSelected()) {
             SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
             this.scheweppesTonicaSpinner.setEnabled(true);
             this.scheweppesTonicaSpinner.setModel(model);
@@ -1044,7 +1028,7 @@ public class VittoFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_scheweppesTonicaCheckActionPerformed
 
     private void shakeDulceLecheCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shakeDulceLecheCheckActionPerformed
-        if(shakeDulceLecheCheck.isSelected()) {
+        if (shakeDulceLecheCheck.isSelected()) {
             SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
             this.shakeDulceLecheSpinner.setEnabled(true);
             this.shakeDulceLecheSpinner.setModel(model);
@@ -1054,7 +1038,7 @@ public class VittoFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_shakeDulceLecheCheckActionPerformed
 
     private void exprimidoCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exprimidoCheckActionPerformed
-        if(exprimidoCheck.isSelected()) {
+        if (exprimidoCheck.isSelected()) {
             SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
             this.exprimidoSpinner.setEnabled(true);
             this.exprimidoSpinner.setModel(model);
@@ -1064,7 +1048,7 @@ public class VittoFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_exprimidoCheckActionPerformed
 
     private void manzanaCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manzanaCheckActionPerformed
-        if(manzanaCheck.isSelected()) {
+        if (manzanaCheck.isSelected()) {
             SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
             this.manzanaSpinner.setEnabled(true);
             this.manzanaSpinner.setModel(model);
@@ -1074,7 +1058,7 @@ public class VittoFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_manzanaCheckActionPerformed
 
     private void pomeloCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pomeloCheckActionPerformed
-        if(pomeloCheck.isSelected()) {
+        if (pomeloCheck.isSelected()) {
             SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
             this.pomeloSpinner.setEnabled(true);
             this.pomeloSpinner.setModel(model);
@@ -1084,7 +1068,7 @@ public class VittoFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_pomeloCheckActionPerformed
 
     private void naranjaCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_naranjaCheckActionPerformed
-        if(naranjaCheck.isSelected()) {
+        if (naranjaCheck.isSelected()) {
             SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
             this.naranjaSpinner.setEnabled(true);
             this.naranjaSpinner.setModel(model);
@@ -1094,18 +1078,18 @@ public class VittoFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_naranjaCheckActionPerformed
 
     private void fantaCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fantaCheckActionPerformed
-        if(fantaCheck.isSelected()) {
+        if (fantaCheck.isSelected()) {
             SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
             this.fantaSpinner.setEnabled(true);
             this.fantaSpinner.setModel(model);
         } else {
             this.fantaSpinner.setEnabled(false);
         }
-        
+
     }//GEN-LAST:event_fantaCheckActionPerformed
 
     private void tonicaCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tonicaCheckActionPerformed
-        if(tonicaCheck.isSelected()) {
+        if (tonicaCheck.isSelected()) {
             SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
             this.torosTonicaSpinner.setEnabled(true);
             this.torosTonicaSpinner.setModel(model);
@@ -1116,17 +1100,17 @@ public class VittoFrame extends javax.swing.JFrame {
 
     private void spriteZeroCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spriteZeroCheckActionPerformed
         // TODO add your handling code here:
-        if(spriteZeroCheck.isSelected()) {
+        if (spriteZeroCheck.isSelected()) {
             SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
             this.spriteZeroSpinner.setEnabled(true);
             this.spriteZeroSpinner.setModel(model);
         } else {
             this.spriteZeroSpinner.setEnabled(false);
-        }        
+        }
     }//GEN-LAST:event_spriteZeroCheckActionPerformed
 
     private void spriteCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_spriteCheckActionPerformed
-        if(spriteCheck.isSelected()) {
+        if (spriteCheck.isSelected()) {
             SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
             this.spriteSpinner.setEnabled(true);
             this.spriteSpinner.setModel(model);
@@ -1136,7 +1120,7 @@ public class VittoFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_spriteCheckActionPerformed
 
     private void cocaLightCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cocaLightCheckActionPerformed
-        if(cocaLightCheck.isSelected()) {
+        if (cocaLightCheck.isSelected()) {
             SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
             this.cocaLightSpinner.setEnabled(true);
             this.cocaLightSpinner.setModel(model);
@@ -1148,7 +1132,7 @@ public class VittoFrame extends javax.swing.JFrame {
     private void cocaColaCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cocaColaCheckActionPerformed
         // TODO add your handling code here:
 
-        if(cocaColaCheck.isSelected()) {
+        if (cocaColaCheck.isSelected()) {
             SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
             this.cocaSpinner.setEnabled(true);
             this.cocaSpinner.setModel(model);
@@ -1163,8 +1147,7 @@ public class VittoFrame extends javax.swing.JFrame {
         /*
         Vaciar todos los contadores
         No modificar el estado de la cuenta
-        */
-        
+         */
         this.DrinkNoAlcoholFrame.dispatchEvent(new WindowEvent(this.DrinkNoAlcoholFrame, WindowEvent.WINDOW_CLOSING));
     }//GEN-LAST:event_cancelNoAlcoholDrinksActionPerformed
 
@@ -1175,95 +1158,94 @@ public class VittoFrame extends javax.swing.JFrame {
         Contabilizar todos los productos que se cargan
         Cambiar el estado de la mesa
         Guardarlos en la bbdd
-        */
-
+         */
         this.noAlcoholDrinks = new HashMap();
 
-        if(cocaColaCheck.isSelected() && Integer.parseInt(this.cocaSpinner.getValue().toString()) > 0 ) {
+        if (cocaColaCheck.isSelected() && Integer.parseInt(this.cocaSpinner.getValue().toString()) > 0) {
             noAlcoholDrinks.put((NoAlcoholDrinksEnum.COCA_COLA), Integer.parseInt(this.cocaSpinner.getValue().toString()));
         }
 
-        if(cocaLightCheck.isSelected() && Integer.parseInt(this.cocaLightSpinner.getValue().toString()) > 0 ) {
+        if (cocaLightCheck.isSelected() && Integer.parseInt(this.cocaLightSpinner.getValue().toString()) > 0) {
             noAlcoholDrinks.put((NoAlcoholDrinksEnum.COCA_LIGHT), Integer.parseInt(this.cocaLightSpinner.getValue().toString()));
         }
 
-        if(spriteCheck.isSelected() && Integer.parseInt(this.spriteSpinner.getValue().toString()) > 0 ) {
+        if (spriteCheck.isSelected() && Integer.parseInt(this.spriteSpinner.getValue().toString()) > 0) {
             noAlcoholDrinks.put((NoAlcoholDrinksEnum.SPRITE), Integer.parseInt(this.spriteSpinner.getValue().toString()));
         }
 
-        if(spriteZeroCheck.isSelected() && Integer.parseInt(this.spriteZeroSpinner.getValue().toString()) > 0 ) {
+        if (spriteZeroCheck.isSelected() && Integer.parseInt(this.spriteZeroSpinner.getValue().toString()) > 0) {
             noAlcoholDrinks.put((NoAlcoholDrinksEnum.SPRITE_ZERO), Integer.parseInt(this.spriteZeroSpinner.getValue().toString()));
         }
 
-        if(tonicaCheck.isSelected() && Integer.parseInt(this.torosTonicaSpinner.getValue().toString()) > 0 ) {
+        if (tonicaCheck.isSelected() && Integer.parseInt(this.torosTonicaSpinner.getValue().toString()) > 0) {
             noAlcoholDrinks.put((NoAlcoholDrinksEnum.PASO_TOROS_TONICA), Integer.parseInt(this.torosTonicaSpinner.getValue().toString()));
         }
 
-        if(pomeloTorosCheck.isSelected() && Integer.parseInt(this.torosPomeloSpinner.getValue().toString()) > 0 ) {
+        if (pomeloTorosCheck.isSelected() && Integer.parseInt(this.torosPomeloSpinner.getValue().toString()) > 0) {
             noAlcoholDrinks.put((NoAlcoholDrinksEnum.PASO_TOROS_POMELO), Integer.parseInt(this.torosPomeloSpinner.getValue().toString()));
         }
 
-        if(fantaCheck.isSelected() && Integer.parseInt(this.fantaSpinner.getValue().toString()) > 0 ) {
+        if (fantaCheck.isSelected() && Integer.parseInt(this.fantaSpinner.getValue().toString()) > 0) {
             noAlcoholDrinks.put((NoAlcoholDrinksEnum.FANTA), Integer.parseInt(this.fantaSpinner.getValue().toString()));
         }
 
-        if(naranjaCheck.isSelected() && Integer.parseInt(this.naranjaSpinner.getValue().toString()) > 0 ) {
+        if (naranjaCheck.isSelected() && Integer.parseInt(this.naranjaSpinner.getValue().toString()) > 0) {
             noAlcoholDrinks.put((NoAlcoholDrinksEnum.LEVITE_NARANJA), Integer.parseInt(this.naranjaSpinner.getValue().toString()));
         }
 
-        if(pomeloCheck.isSelected() && Integer.parseInt(this.naranjaSpinner.getValue().toString()) > 0 ) {
+        if (pomeloCheck.isSelected() && Integer.parseInt(this.naranjaSpinner.getValue().toString()) > 0) {
             noAlcoholDrinks.put((NoAlcoholDrinksEnum.LEVITE_POMELO), Integer.parseInt(this.naranjaSpinner.getValue().toString()));
         }
 
-        if(manzanaCheck.isSelected() && Integer.parseInt(this.manzanaSpinner.getValue().toString()) > 0 ) {
+        if (manzanaCheck.isSelected() && Integer.parseInt(this.manzanaSpinner.getValue().toString()) > 0) {
             noAlcoholDrinks.put((NoAlcoholDrinksEnum.LEVITE_MANZANA), Integer.parseInt(this.manzanaSpinner.getValue().toString()));
         }
 
-        if(limonadaCheck.isSelected() && Integer.parseInt(this.limonadaSpinner.getValue().toString()) > 0 ) {
+        if (limonadaCheck.isSelected() && Integer.parseInt(this.limonadaSpinner.getValue().toString()) > 0) {
             noAlcoholDrinks.put((NoAlcoholDrinksEnum.LEVITE_LIMONADA), Integer.parseInt(this.limonadaSpinner.getValue().toString()));
         }
-        
-        if(cepitaCheck.isSelected() && Integer.parseInt(this.cepitaSpinner.getValue().toString()) > 0 ) {
+
+        if (cepitaCheck.isSelected() && Integer.parseInt(this.cepitaSpinner.getValue().toString()) > 0) {
             noAlcoholDrinks.put((NoAlcoholDrinksEnum.CEPITA), Integer.parseInt(this.cepitaSpinner.getValue().toString()));
         }
 
-        if(scheweppesPomeloCheck.isSelected() && Integer.parseInt(this.scheweppesPomeloSpinner.getValue().toString()) > 0 ) {
+        if (scheweppesPomeloCheck.isSelected() && Integer.parseInt(this.scheweppesPomeloSpinner.getValue().toString()) > 0) {
             noAlcoholDrinks.put((NoAlcoholDrinksEnum.SCHEWEPPES_POMELO), Integer.parseInt(this.scheweppesPomeloSpinner.getValue().toString()));
         }
 
-        if(scheweppesTonicaCheck.isSelected() && Integer.parseInt(this.scheweppesTonicaSpinner.getValue().toString()) > 0 ) {
+        if (scheweppesTonicaCheck.isSelected() && Integer.parseInt(this.scheweppesTonicaSpinner.getValue().toString()) > 0) {
             noAlcoholDrinks.put((NoAlcoholDrinksEnum.LEVITE_LIMONADA), Integer.parseInt(this.scheweppesTonicaSpinner.getValue().toString()));
-        }        
+        }
 
-        if(waterCheck.isSelected() && Integer.parseInt(this.waterSpinner.getValue().toString()) > 0 ) {
+        if (waterCheck.isSelected() && Integer.parseInt(this.waterSpinner.getValue().toString()) > 0) {
             noAlcoholDrinks.put((NoAlcoholDrinksEnum.AGUA), Integer.parseInt(this.waterSpinner.getValue().toString()));
         }
 
-        if(waterGasCheck.isSelected() && Integer.parseInt(this.waterGasSpinner.getValue().toString()) > 0 ) {
+        if (waterGasCheck.isSelected() && Integer.parseInt(this.waterGasSpinner.getValue().toString()) > 0) {
             noAlcoholDrinks.put((NoAlcoholDrinksEnum.AGUA_GAS), Integer.parseInt(this.waterGasSpinner.getValue().toString()));
         }
 
-        if(exprimidoCheck.isSelected() && Integer.parseInt(this.exprimidoSpinner.getValue().toString()) > 0 ) {
+        if (exprimidoCheck.isSelected() && Integer.parseInt(this.exprimidoSpinner.getValue().toString()) > 0) {
             noAlcoholDrinks.put((NoAlcoholDrinksEnum.EXPRIMIDO), Integer.parseInt(this.exprimidoSpinner.getValue().toString()));
         }
 
-        if(licuadoLecheCheck.isSelected() && Integer.parseInt(this.licuadoLecheSpinner.getValue().toString()) > 0 ) {
+        if (licuadoLecheCheck.isSelected() && Integer.parseInt(this.licuadoLecheSpinner.getValue().toString()) > 0) {
             noAlcoholDrinks.put((NoAlcoholDrinksEnum.LICUADO_LECHE), Integer.parseInt(this.licuadoLecheSpinner.getValue().toString()));
         }
 
-        if(licuadoAguaCheck.isSelected() && Integer.parseInt(this.licuadoAguaSpinner.getValue().toString()) > 0 ) {
+        if (licuadoAguaCheck.isSelected() && Integer.parseInt(this.licuadoAguaSpinner.getValue().toString()) > 0) {
             noAlcoholDrinks.put((NoAlcoholDrinksEnum.LICUADO_AGUA), Integer.parseInt(this.licuadoAguaSpinner.getValue().toString()));
         }
 
-        if(limonadaCheck.isSelected() && Integer.parseInt(this.limonadaSpinner.getValue().toString()) > 0 ) {
+        if (limonadaCheck.isSelected() && Integer.parseInt(this.limonadaSpinner.getValue().toString()) > 0) {
             noAlcoholDrinks.put((NoAlcoholDrinksEnum.LIMONADA), Integer.parseInt(this.limonadaSpinner.getValue().toString()));
         }
 
-        if(shakeChocolateCheck.isSelected() && Integer.parseInt(this.shakeChocolateSpinner.getValue().toString()) > 0 ) {
+        if (shakeChocolateCheck.isSelected() && Integer.parseInt(this.shakeChocolateSpinner.getValue().toString()) > 0) {
             noAlcoholDrinks.put((NoAlcoholDrinksEnum.MILK_SHAKE_CHOCO), Integer.parseInt(this.shakeChocolateSpinner.getValue().toString()));
         }
 
-        if(shakeDulceLecheCheck.isSelected() && Integer.parseInt(this.shakeDulceLecheSpinner.getValue().toString()) > 0 ) {
+        if (shakeDulceLecheCheck.isSelected() && Integer.parseInt(this.shakeDulceLecheSpinner.getValue().toString()) > 0) {
             noAlcoholDrinks.put((NoAlcoholDrinksEnum.MILK_SHAKE_DULCE_LECHE), Integer.parseInt(this.shakeDulceLecheSpinner.getValue().toString()));
         }
 
@@ -1285,13 +1267,12 @@ public class VittoFrame extends javax.swing.JFrame {
         }).forEachOrdered((entry) -> {
             Object value = entry.getValue();
         });
-        */
-
+         */
         this.DrinkNoAlcoholFrame.dispatchEvent(new WindowEvent(this.DrinkNoAlcoholFrame, WindowEvent.WINDOW_CLOSING));
     }//GEN-LAST:event_acceptNoAlcoholDrinksActionPerformed
 
     private void pomeloTorosCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pomeloTorosCheckActionPerformed
-        if(pomeloTorosCheck.isSelected()) {
+        if (pomeloTorosCheck.isSelected()) {
             SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
             this.torosPomeloSpinner.setEnabled(true);
             this.torosPomeloSpinner.setModel(model);
@@ -1301,7 +1282,7 @@ public class VittoFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_pomeloTorosCheckActionPerformed
 
     private void scheweppesPomeloCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scheweppesPomeloCheckActionPerformed
-        if(scheweppesPomeloCheck.isSelected()) {
+        if (scheweppesPomeloCheck.isSelected()) {
             SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
             this.scheweppesPomeloSpinner.setEnabled(true);
             this.scheweppesPomeloSpinner.setModel(model);
@@ -1311,7 +1292,7 @@ public class VittoFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_scheweppesPomeloCheckActionPerformed
 
     private void limonadaElaboradoCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limonadaElaboradoCheckActionPerformed
-        if(limonadaElaboradoCheck.isSelected()) {
+        if (limonadaElaboradoCheck.isSelected()) {
             SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
             this.limonada_elaborada_Spinner.setEnabled(true);
             this.limonada_elaborada_Spinner.setModel(model);
@@ -1321,7 +1302,7 @@ public class VittoFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_limonadaElaboradoCheckActionPerformed
 
     private void licuadoLecheCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_licuadoLecheCheckActionPerformed
-        if(licuadoLecheCheck.isSelected()) {
+        if (licuadoLecheCheck.isSelected()) {
             SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
             this.licuadoLecheSpinner.setEnabled(true);
             this.licuadoLecheSpinner.setModel(model);
@@ -1331,7 +1312,7 @@ public class VittoFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_licuadoLecheCheckActionPerformed
 
     private void licuadoAguaCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_licuadoAguaCheckActionPerformed
-        if(licuadoAguaCheck.isSelected()) {
+        if (licuadoAguaCheck.isSelected()) {
             SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
             this.licuadoAguaSpinner.setEnabled(true);
             this.licuadoAguaSpinner.setModel(model);
@@ -1341,7 +1322,7 @@ public class VittoFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_licuadoAguaCheckActionPerformed
 
     private void shakeChocolateCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shakeChocolateCheckActionPerformed
-        if(shakeChocolateCheck.isSelected()) {
+        if (shakeChocolateCheck.isSelected()) {
             SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
             this.shakeChocolateSpinner.setEnabled(true);
             this.shakeChocolateSpinner.setModel(model);
@@ -1351,7 +1332,7 @@ public class VittoFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_shakeChocolateCheckActionPerformed
 
     private void limonadaCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limonadaCheckActionPerformed
-        if(limonadaCheck.isSelected()) {
+        if (limonadaCheck.isSelected()) {
             SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
             this.limonadaSpinner.setEnabled(true);
             this.limonadaSpinner.setModel(model);
@@ -1361,7 +1342,7 @@ public class VittoFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_limonadaCheckActionPerformed
 
     private void cepitaCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cepitaCheckActionPerformed
-        if(cepitaCheck.isSelected()) {
+        if (cepitaCheck.isSelected()) {
             SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
             this.cepitaSpinner.setEnabled(true);
             this.cepitaSpinner.setModel(model);
@@ -1371,7 +1352,7 @@ public class VittoFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_cepitaCheckActionPerformed
 
     private void waterCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_waterCheckActionPerformed
-        if(waterCheck.isSelected()) {
+        if (waterCheck.isSelected()) {
             SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
             this.waterSpinner.setEnabled(true);
             this.waterSpinner.setModel(model);
@@ -1381,7 +1362,7 @@ public class VittoFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_waterCheckActionPerformed
 
     private void waterGasCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_waterGasCheckActionPerformed
-        if(waterGasCheck.isSelected()) {
+        if (waterGasCheck.isSelected()) {
             SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
             this.waterGasSpinner.setEnabled(true);
             this.waterGasSpinner.setModel(model);
@@ -1393,35 +1374,29 @@ public class VittoFrame extends javax.swing.JFrame {
     private void SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveButtonActionPerformed
         // TODO add your handling code here:
         this.dataStore = new DataStore();
-        this.priceManager = new PriceManager();
-        
+
         System.out.println("mesa elegida " + this.selectedTable.getState());
-        
-        System.out.println("Usuario mesa: " + this.tableUser.getNombre());
-        
+
+        if (this.tableUser != null && this.tableUser.getNombre() != null) {
+            System.out.println("Usuario mesa: " + this.tableUser.getNombre());
+        } else {
+            this.tableUser.setNombre(this.employeeList.get(0).getNombre());
+            this.tableUser.setApellido(this.employeeList.get(0).getApellido());
+        }
 
         for (Map.Entry<NoAlcoholDrinksEnum, Integer> entry : this.noAlcoholDrinks.entrySet()) {
             System.out.println("key --> " + entry.getKey());
             System.out.println("value --> " + entry.getValue());
 
         }
-        
-        
-        if(!noAlcoholDrinks.isEmpty()) {
+
+        if (!noAlcoholDrinks.isEmpty()) {
             dataStore.setNoAlcoholDrinks(noAlcoholDrinks);
         }
-        
-        
-        
-        //TODO: inser bbdd
-        this.vittoDDBBStore.insertProduct(
-                this.priceManager.getPricesFromDataStore(dataStore , this.vittoDDBBStore)
-        );
-        
-        
-        
-        
-        
+
+        //TODO: insert bbdd
+        this.productsImpl.insertProduct(dataStore);
+
         // Guardar en la bbdd "la sesión" del usuario con todos los elementos 
         // de la mesa elegida
     }//GEN-LAST:event_SaveButtonActionPerformed
@@ -1435,9 +1410,9 @@ public class VittoFrame extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        
+
         System.out.println("Start Vitto Project");
-        
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {

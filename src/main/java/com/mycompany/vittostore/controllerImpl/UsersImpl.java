@@ -5,29 +5,16 @@
  */
 package com.mycompany.vittostore.controllerImpl;
 
-import com.mycompany.vittostore.VittoFrame;
 import com.mycompany.vittostore.controller.Users;
 import com.mycompany.vittostore.user.User;
-import com.mycompany.vittostore.database.VittoStoreDDBBRepository;
 
-import java.sql.SQLException;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-public class UsersImpl implements Users {
-    VittoStoreDDBBRepository vittoDDBBStore;
-    
 
-    public UsersImpl() {
-        try {
-            
-            this.vittoDDBBStore = new VittoStoreDDBBRepository();
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(VittoFrame.class.getName()).log(Level.SEVERE, null, ex);
-        }
+public class UsersImpl extends VittoConnection implements Users {
 
+    public UsersImpl(int sequence) {
+        super(sequence);
     }
 
     @Override

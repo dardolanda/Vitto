@@ -10,7 +10,7 @@ import com.mycompany.vittostore.generalitems.NoAlcoholDrinksEnum;
 import java.util.Map;
 
 public class DataStore {
-    private Map<NoAlcoholDrinksEnum, Integer> noAlcoholDrinks;
+    private Map<NoAlcoholDrinksEnum, Integer> noAlcoholDrinks;    
     
 
     public Map<NoAlcoholDrinksEnum, Integer> getNoAlcoholDrinks() {

@@ -11,6 +11,8 @@ public class Product {
     private int amountConsumed;
     private String brand;
     private double price;
+    
+    public Product() {}
 
     public Product(Long id, int amountConsumed, String brand, double price) {
         this.id = id;
