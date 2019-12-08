@@ -23,8 +23,12 @@ import com.mycompany.vittostore.dataStore.DataStore;
 
 import com.mycompany.vittostore.controllerImpl.ProductsImpl;
 import com.mycompany.vittostore.controllerImpl.UsersImpl;
+import java.awt.Component;
+import javafx.scene.control.CheckBox;
 
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JCheckBox;
+import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 
 public class VittoFrame extends javax.swing.JFrame {
@@ -152,6 +156,16 @@ public class VittoFrame extends javax.swing.JFrame {
         CandyProductsFrame = new javax.swing.JFrame();
         SaladsProductFrame = new javax.swing.JFrame();
         SuggestedPromosFrame = new javax.swing.JFrame();
+        jLabel8 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        productDescriptionTable = new javax.swing.JTable();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        MozoLabel = new javax.swing.JLabel();
+        MesaLabel = new javax.swing.JLabel();
+        TotalLabel = new javax.swing.JLabel();
+        CloseTableButton = new javax.swing.JButton();
+        CloseTable = new javax.swing.JFrame();
         tableOne = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         tableTwo = new javax.swing.JButton();
@@ -171,12 +185,12 @@ public class VittoFrame extends javax.swing.JFrame {
 
         drinkNoAlcohol.setText("Bebidas sin alcohol");
         drinkNoAlcohol.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 drinkNoAlcoholAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         drinkNoAlcohol.addActionListener(new java.awt.event.ActionListener() {
@@ -755,14 +769,112 @@ public class VittoFrame extends javax.swing.JFrame {
             .addGap(0, 517, Short.MAX_VALUE)
         );
 
+        jLabel8.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel8.setText("Cerrar Mesa Nº: ");
+
+        productDescriptionTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Producto", "Cantidad", "Precio Unitario", "Precio Total"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(productDescriptionTable);
+
+        jLabel9.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel9.setText("Total: ");
+
+        jLabel10.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel10.setText("Mesa atendida por: ");
+
+        MozoLabel.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        MozoLabel.setText(".");
+
+        MesaLabel.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        MesaLabel.setText(".");
+
+        TotalLabel.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        TotalLabel.setText(".");
+
+        CloseTableButton.setText("Cerrar Mesa");
+
         javax.swing.GroupLayout SuggestedPromosFrameLayout = new javax.swing.GroupLayout(SuggestedPromosFrame.getContentPane());
         SuggestedPromosFrame.getContentPane().setLayout(SuggestedPromosFrameLayout);
         SuggestedPromosFrameLayout.setHorizontalGroup(
             SuggestedPromosFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 712, Short.MAX_VALUE)
+            .addGroup(SuggestedPromosFrameLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addGroup(SuggestedPromosFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(MesaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MozoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(SuggestedPromosFrameLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(SuggestedPromosFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
+                    .addGroup(SuggestedPromosFrameLayout.createSequentialGroup()
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(TotalLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SuggestedPromosFrameLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(CloseTableButton, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+            .addGroup(SuggestedPromosFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(SuggestedPromosFrameLayout.createSequentialGroup()
+                    .addGap(16, 16, 16)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(486, Short.MAX_VALUE)))
         );
         SuggestedPromosFrameLayout.setVerticalGroup(
             SuggestedPromosFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SuggestedPromosFrameLayout.createSequentialGroup()
+                .addGap(13, 13, 13)
+                .addGroup(SuggestedPromosFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(MesaLabel)
+                    .addComponent(jLabel8))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(MozoLabel)
+                .addGap(27, 27, 27)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41)
+                .addGroup(SuggestedPromosFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(TotalLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                .addComponent(CloseTableButton)
+                .addGap(24, 24, 24))
+            .addGroup(SuggestedPromosFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(SuggestedPromosFrameLayout.createSequentialGroup()
+                    .addGap(50, 50, 50)
+                    .addComponent(jLabel10)
+                    .addContainerGap(313, Short.MAX_VALUE)))
+        );
+
+        javax.swing.GroupLayout CloseTableLayout = new javax.swing.GroupLayout(CloseTable.getContentPane());
+        CloseTable.getContentPane().setLayout(CloseTableLayout);
+        CloseTableLayout.setHorizontalGroup(
+            CloseTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 712, Short.MAX_VALUE)
+        );
+        CloseTableLayout.setVerticalGroup(
+            CloseTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 517, Short.MAX_VALUE)
         );
 
@@ -922,34 +1034,38 @@ public class VittoFrame extends javax.swing.JFrame {
         
          */
         if (false) {
-            // no se encontraron datos en la bbdd
+            // Se encontraron datos en la bbdd
             // por lo tanto hay que cargar las cantidades que se 
             // hayan guardado
         } else {
-            // no hay datos entoences se tiene que guardar los datos elegidos.
-            cocaSpinner.setEnabled(false);
-            cocaLightSpinner.setEnabled(false);
-            spriteSpinner.setEnabled(false);
-            spriteZeroSpinner.setEnabled(false);
-            torosPomeloSpinner.setEnabled(false);
-            torosTonicaSpinner.setEnabled(false);
-            fantaSpinner.setEnabled(false);
-            naranjaSpinner.setEnabled(false);
-            pomeloSpinner.setEnabled(false);
-            manzanaSpinner.setEnabled(false);
-            limonadaSpinner.setEnabled(false);
-            cepitaSpinner.setEnabled(false);
-            scheweppesPomeloSpinner.setEnabled(false);
-            scheweppesTonicaSpinner.setEnabled(false);
-            waterSpinner.setEnabled(false);
-            waterGasSpinner.setEnabled(false);
-            exprimidoSpinner.setEnabled(false);
-            licuadoAguaSpinner.setEnabled(false);
-            licuadoLecheSpinner.setEnabled(false);
-            limonada_elaborada_Spinner.setEnabled(false);
-            shakeChocolateSpinner.setEnabled(false);
-            shakeDulceLecheSpinner.setEnabled(false);
-
+            /**
+             * Caso contrario: no hay datos de la mesa en la bbdd
+             * por lo tanto hay que resetear todo, para que el formulario
+             * quede limpio.
+            */
+            for (Component component : DrinkNoAlcoholFrame.getContentPane().getComponents()) {
+                if (component instanceof JCheckBox) {
+                    ((JCheckBox) component).setSelected(false);
+                }
+                
+                if (component instanceof JSpinner) {
+                    
+                    /*
+                        Tenemos dos maneras de hacer lo mismo, 
+                        esta en particular crea un JSpinner a partir del casteo del component
+                        y luego, le aplica la propiedad que se esté buscando
+                        
+                        JSpinner spinner = (JSpinner) component;
+                        spinner.setEnabled(false);
+                    */
+                    
+                    /*
+                        Es igual al caso anterior, pero se hace todo en una línea.
+                    */
+                    ((JSpinner) component).setEnabled(false);
+                    ((JSpinner) component).setValue(0);
+                }
+            }
         }
 
 
@@ -1398,16 +1514,24 @@ public class VittoFrame extends javax.swing.JFrame {
 
         }
 
-        if (!noAlcoholDrinks.isEmpty()) {
+        // TODO: Validación: hacerlo con todos los productos.
+        if (!this.noAlcoholDrinks.isEmpty()) {
             dataStore.setNoAlcoholDrinks(noAlcoholDrinks);
         }
 
-        //TODO: insert bbdd
-        String nombreCompleto = this.tableUser.getNombre() + " " + this.tableUser.getApellido();
-        this.productsImpl.insertProduct(dataStore );
+        this.productsImpl.insertProduct(dataStore);
+        
+        
+        
+        // Crear un metodo que vacíe todos los maps
+        this.noAlcoholDrinks.clear();
+        
+        // validar -> nullPointerException.
+        // this.AlcoholDrinks.clear();
+        
+        
+        
 
-        // Guardar en la bbdd "la sesión" del usuario con todos los elementos 
-        // de la mesa elegida
         
         // TODO: cuando termina de insetar , todos los campos tienenen que ser reseteados.
         // Para que la próxima mesa empiece con los productos vaciós.
@@ -1456,12 +1580,17 @@ public class VittoFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFrame CandyProductsFrame;
+    private javax.swing.JFrame CloseTable;
+    private javax.swing.JButton CloseTableButton;
     private javax.swing.JFrame DrinkAlcoholFrame;
     private javax.swing.JFrame DrinkNoAlcoholFrame;
+    private javax.swing.JLabel MesaLabel;
+    private javax.swing.JLabel MozoLabel;
     private javax.swing.JFrame SaladsProductFrame;
     private javax.swing.JButton SaveButton;
     private javax.swing.JFrame SelectOrder;
     private javax.swing.JFrame SuggestedPromosFrame;
+    private javax.swing.JLabel TotalLabel;
     private javax.swing.JButton acceptNoAlcoholDrinks;
     private javax.swing.JButton cancelNoAlcoholDrinks;
     private javax.swing.JButton candyProducts;
@@ -1482,12 +1611,16 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JCheckBox fantaCheck;
     private javax.swing.JSpinner fantaSpinner;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
@@ -1507,6 +1640,7 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JCheckBox pomeloCheck;
     private javax.swing.JSpinner pomeloSpinner;
     private javax.swing.JCheckBox pomeloTorosCheck;
+    private javax.swing.JTable productDescriptionTable;
     private javax.swing.JButton promotions;
     private javax.swing.JButton saladProducts;
     private javax.swing.JCheckBox scheweppesPomeloCheck;
