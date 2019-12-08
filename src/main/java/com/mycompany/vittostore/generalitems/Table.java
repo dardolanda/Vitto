@@ -6,13 +6,15 @@
 package com.mycompany.vittostore.generalitems;
 
 public class Table {
+    private int id;
     private String name;
     
     public Table(){}
 
     
-    public Table(String name) {
+    public Table(String name, int id) {
         this.name = name;
+        this.id = id;
     }
 
     public String getState() {
@@ -22,6 +24,17 @@ public class Table {
     public void setState(String state) {
         this.name = state;
     }
+    
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+    public int getId() {
+        return this.id;
+    }
+    
+    
+    
     
     @Override
     public String toString() {

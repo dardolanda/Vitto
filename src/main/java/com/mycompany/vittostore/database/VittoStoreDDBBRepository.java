@@ -10,6 +10,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Date;
+import java.sql.Timestamp;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -17,6 +19,8 @@ import javax.swing.JOptionPane;
 
 import com.mycompany.vittostore.user.User;
 import com.mycompany.vittostore.generalitems.Product;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 import java.util.*;
 
@@ -121,20 +125,25 @@ public class VittoStoreDDBBRepository {
 
     }
 
-    public double getPriceFromProductName(String productName) {
+    public Map<String, Double> getProductFromProductName(String productName) {
+        Map<String, Double> productIdPrice = new HashMap<>();
         double productPrice = 0;
 
         if (this.DDBBConnection != null) {
-            String getPrice = "SELECT precio FROM product WHERE nombre = ?";
+            String getPrice = "SELECT id, precio FROM product WHERE nombre = ?";
             try {
                 PreparedStatement statement = this.DDBBConnection.prepareStatement(getPrice);
                 statement.setString(1, productName);
                 ResultSet resultSet = statement.executeQuery();
 
                 if (resultSet.next()) {
+                    int id = resultSet.getInt("id");
                     double precio = resultSet.getDouble("precio");
+                    double doubleId = id;
 
-                    productPrice = precio;
+                    productIdPrice.put("ID", doubleId);
+                    productIdPrice.put("PRECIO", precio);
+                    
                 }
 
             } catch (SQLException ex) {
@@ -145,24 +154,44 @@ public class VittoStoreDDBBRepository {
 
         System.out.println("(getPriceFromProducts) =>  PRODUCT PRICE --> " + productPrice);
 
-        return productPrice;
+        return productIdPrice;
     }
 
-    public void insertProduct(List<Product> productList) {
+    public void insertProduct(List<Product> productList , int mesa , String nombreMozo ) {
 
         if (this.DDBBConnection != null) {
-            String getPrice = "insert into table_consuming ";
+            System.out.println("ddbb inserting OPERATING_TABLE");
+            StringBuffer insertOperatingTableQuery = new StringBuffer();
+            insertOperatingTableQuery.append("INSERT INTO operating_table ");
+            insertOperatingTableQuery.append(" (mesa, nombre_mozo, producto_id, producto_nombre, producto_cantidad, producto_precio_unitario, actividad, horario_apertura)");
+            insertOperatingTableQuery.append(" VALUES (?,?,?,?,?,?,?,?)");
+                        
+            Calendar cal = Calendar.getInstance();                        
             
-            for (Product product : productList) {
-                
-                
+            Timestamp timeStampNow = new Timestamp(cal.getTimeInMillis());                        
 
-                System.out.println("PRODUCT TO INSERT --> brand : " + product.getBrand()
-                        + "amount: " + product.getAmountConsumed() + " precio: " + product.getPrice());
+            for (Product product : productList) {
+                System.out.println("product to insert: (BRAND) --> " + product.getBrand());
+                try {
+                    PreparedStatement preparedStatement = this.DDBBConnection.prepareStatement(insertOperatingTableQuery.toString());
+                    
+                    preparedStatement.setInt(1, mesa);
+                    preparedStatement.setString(2, nombreMozo);
+                    preparedStatement.setInt(3, product.getId());
+                    preparedStatement.setString(4, product.getBrand());
+                    preparedStatement.setInt(5,product.getAmountConsumed());
+                    preparedStatement.setDouble(6, product.getPrice());
+                    preparedStatement.setBoolean(7, true);
+                    preparedStatement.setTimestamp(8, timeStampNow);
+                    
+                    preparedStatement.execute();
+                    
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
             }
         }
-
-        //TODO: inserta BBDD por producto de la lista.
     }
 
 }

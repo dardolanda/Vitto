@@ -28,10 +28,10 @@ public class ProductsImpl extends VittoConnection implements Products {
         List<Product> productList = this.getPricesFromDataStore(dataStore);
         
         productList.forEach(product -> 
-                System.out.println("product to get inserte --> " + product.getBrand())
+                System.out.println("product to insert (PRODUCT IMPL)  --> " + product.getBrand())
         );
         
-        vittoDDBBStore.insertProduct(productList);
+        vittoDDBBStore.insertProduct(productList, dataStore.getMesa(), dataStore.getNombreMozo());
     }
 
     private List<Product> getPricesFromDataStore(DataStore dataStore) {
@@ -42,9 +42,12 @@ public class ProductsImpl extends VittoConnection implements Products {
             for (Map.Entry<NoAlcoholDrinksEnum, Integer> entry : dataStore.getNoAlcoholDrinks().entrySet()) {
                 System.out.println("key --> " + entry.getKey());
                 System.out.println("value --> " + entry.getValue());
+                
+                Map<String, Double> priceIDProduct = vittoDDBBStore.getProductFromProductName(entry.getKey().toString());
 
                 Product product = new Product();
-                product.setPrice(vittoDDBBStore.getPriceFromProductName(entry.getKey().toString()));
+                product.setId(priceIDProduct.get("ID").intValue());
+                product.setPrice(priceIDProduct.get("PRECIO"));
                 product.setAmountConsumed(entry.getValue());
                 product.setBrand(entry.getKey().toString());
 

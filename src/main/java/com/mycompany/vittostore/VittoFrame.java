@@ -870,6 +870,7 @@ public class VittoFrame extends javax.swing.JFrame {
         System.out.println(evt);
 
         this.selectedTable.setState("trableOne");
+        this.selectedTable.setId(1);
         this.tableOne.setBackground(Color.red);
         this.chargeEmployee();
         this.selectOrderView(1);
@@ -888,6 +889,7 @@ public class VittoFrame extends javax.swing.JFrame {
     private void tableTwoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tableTwoActionPerformed
         // TODO add your handling code here:
         this.selectedTable.setState("TableTwo");
+        this.selectedTable.setId(2);
         this.tableTwo.setBackground(Color.red);
         this.chargeEmployee();
         this.selectOrderView(2);
@@ -897,6 +899,7 @@ public class VittoFrame extends javax.swing.JFrame {
     private void tableThreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tableThreeActionPerformed
         // TODO add your handling code here:
         this.selectedTable.setState("TableThree");
+        this.selectedTable.setId(3);
         this.tableOne.setBackground(Color.red);
         this.chargeEmployee();
         this.selectOrderView(3);
@@ -1006,6 +1009,7 @@ public class VittoFrame extends javax.swing.JFrame {
     private void tableFourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tableFourActionPerformed
         // TODO add your handling code here:
         this.selectedTable.setState("TableFour");
+        this.selectedTable.setId(4);
         this.tableOne.setBackground(Color.red);
         this.chargeEmployee();
         this.selectOrderView(4);
@@ -1383,7 +1387,11 @@ public class VittoFrame extends javax.swing.JFrame {
             this.tableUser.setNombre(this.employeeList.get(0).getNombre());
             this.tableUser.setApellido(this.employeeList.get(0).getApellido());
         }
+        
+        this.dataStore.setMesa(this.selectedTable.getId());
+        this.dataStore.setNombreMozo(this.tableUser.getNombre() + "_" + this.tableUser.getApellido());
 
+        
         for (Map.Entry<NoAlcoholDrinksEnum, Integer> entry : this.noAlcoholDrinks.entrySet()) {
             System.out.println("key --> " + entry.getKey());
             System.out.println("value --> " + entry.getValue());
@@ -1395,10 +1403,16 @@ public class VittoFrame extends javax.swing.JFrame {
         }
 
         //TODO: insert bbdd
-        this.productsImpl.insertProduct(dataStore);
+        String nombreCompleto = this.tableUser.getNombre() + " " + this.tableUser.getApellido();
+        this.productsImpl.insertProduct(dataStore );
 
         // Guardar en la bbdd "la sesión" del usuario con todos los elementos 
         // de la mesa elegida
+        
+        // TODO: cuando termina de insetar , todos los campos tienenen que ser reseteados.
+        // Para que la próxima mesa empiece con los productos vaciós.
+        // Y si se elige la mesa en cuestión tenemos que traer todos los resultados de la BBDD,
+        // no puede quedar nada en memoria.
     }//GEN-LAST:event_SaveButtonActionPerformed
 
     /**

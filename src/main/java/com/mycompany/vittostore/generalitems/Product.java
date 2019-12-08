@@ -7,14 +7,14 @@ package com.mycompany.vittostore.generalitems;
 
 public class Product {
     
-    private Long id;
+    private int id;
     private int amountConsumed;
     private String brand;
     private double price;
     
     public Product() {}
 
-    public Product(Long id, int amountConsumed, String brand, double price) {
+    public Product(int id, int amountConsumed, String brand, double price) {
         this.id = id;
         this.amountConsumed = amountConsumed;
         this.brand = brand;
@@ -22,11 +22,11 @@ public class Product {
     }
             
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
