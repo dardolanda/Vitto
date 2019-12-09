@@ -11,6 +11,7 @@ public class Product {
     private int amountConsumed;
     private String brand;
     private double price;
+    private double total;
     
     public Product() {}
 
@@ -52,6 +53,14 @@ public class Product {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
     }
     
     

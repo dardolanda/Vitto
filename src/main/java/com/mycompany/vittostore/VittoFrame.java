@@ -30,6 +30,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JCheckBox;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
+import javax.swing.table.DefaultTableModel;
 
 public class VittoFrame extends javax.swing.JFrame {
 
@@ -59,8 +60,8 @@ public class VittoFrame extends javax.swing.JFrame {
 
     private void chargeEmployee() {
         List<String> employeeNamesList = new ArrayList<>();
-        this.employeeList.forEach(t -> 
-                employeeNamesList.add(t.getNombre() + " " + t.getApellido())
+        this.employeeList.forEach(t
+                -> employeeNamesList.add(t.getNombre() + " " + t.getApellido())
         );
 
         DefaultComboBoxModel employeeModel = new DefaultComboBoxModel(employeeNamesList.toArray());
@@ -155,7 +156,7 @@ public class VittoFrame extends javax.swing.JFrame {
         DrinkAlcoholFrame = new javax.swing.JFrame();
         CandyProductsFrame = new javax.swing.JFrame();
         SaladsProductFrame = new javax.swing.JFrame();
-        SuggestedPromosFrame = new javax.swing.JFrame();
+        CloseTableFrame = new javax.swing.JFrame();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         productDescriptionTable = new javax.swing.JTable();
@@ -165,7 +166,7 @@ public class VittoFrame extends javax.swing.JFrame {
         MesaLabel = new javax.swing.JLabel();
         TotalLabel = new javax.swing.JLabel();
         CloseTableButton = new javax.swing.JButton();
-        CloseTable = new javax.swing.JFrame();
+        SuggestPromosFrm = new javax.swing.JFrame();
         tableOne = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         tableTwo = new javax.swing.JButton();
@@ -769,7 +770,7 @@ public class VittoFrame extends javax.swing.JFrame {
             .addGap(0, 517, Short.MAX_VALUE)
         );
 
-        jLabel8.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel8.setText("Cerrar Mesa Nº: ");
 
         productDescriptionTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -784,9 +785,16 @@ public class VittoFrame extends javax.swing.JFrame {
                 "Producto", "Cantidad", "Precio Unitario", "Precio Total"
             }
         ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false
             };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
@@ -797,13 +805,13 @@ public class VittoFrame extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel9.setText("Total: ");
 
-        jLabel10.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel10.setText("Mesa atendida por: ");
 
-        MozoLabel.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        MozoLabel.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         MozoLabel.setText(".");
 
-        MesaLabel.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        MesaLabel.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         MesaLabel.setText(".");
 
         TotalLabel.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -811,42 +819,42 @@ public class VittoFrame extends javax.swing.JFrame {
 
         CloseTableButton.setText("Cerrar Mesa");
 
-        javax.swing.GroupLayout SuggestedPromosFrameLayout = new javax.swing.GroupLayout(SuggestedPromosFrame.getContentPane());
-        SuggestedPromosFrame.getContentPane().setLayout(SuggestedPromosFrameLayout);
-        SuggestedPromosFrameLayout.setHorizontalGroup(
-            SuggestedPromosFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(SuggestedPromosFrameLayout.createSequentialGroup()
+        javax.swing.GroupLayout CloseTableFrameLayout = new javax.swing.GroupLayout(CloseTableFrame.getContentPane());
+        CloseTableFrame.getContentPane().setLayout(CloseTableFrameLayout);
+        CloseTableFrameLayout.setHorizontalGroup(
+            CloseTableFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CloseTableFrameLayout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
-                .addGroup(SuggestedPromosFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(CloseTableFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(MesaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(MozoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(SuggestedPromosFrameLayout.createSequentialGroup()
+                    .addComponent(MozoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(250, Short.MAX_VALUE))
+            .addGroup(CloseTableFrameLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(SuggestedPromosFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 700, Short.MAX_VALUE)
-                    .addGroup(SuggestedPromosFrameLayout.createSequentialGroup()
+                .addGroup(CloseTableFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(CloseTableFrameLayout.createSequentialGroup()
                         .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(TotalLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SuggestedPromosFrameLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CloseTableFrameLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(CloseTableButton, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
-            .addGroup(SuggestedPromosFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(SuggestedPromosFrameLayout.createSequentialGroup()
+            .addGroup(CloseTableFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(CloseTableFrameLayout.createSequentialGroup()
                     .addGap(16, 16, 16)
                     .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(486, Short.MAX_VALUE)))
         );
-        SuggestedPromosFrameLayout.setVerticalGroup(
-            SuggestedPromosFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(SuggestedPromosFrameLayout.createSequentialGroup()
+        CloseTableFrameLayout.setVerticalGroup(
+            CloseTableFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CloseTableFrameLayout.createSequentialGroup()
                 .addGap(13, 13, 13)
-                .addGroup(SuggestedPromosFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(CloseTableFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(MesaLabel)
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -854,27 +862,27 @@ public class VittoFrame extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
-                .addGroup(SuggestedPromosFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(CloseTableFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(TotalLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
                 .addComponent(CloseTableButton)
                 .addGap(24, 24, 24))
-            .addGroup(SuggestedPromosFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(SuggestedPromosFrameLayout.createSequentialGroup()
+            .addGroup(CloseTableFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(CloseTableFrameLayout.createSequentialGroup()
                     .addGap(50, 50, 50)
                     .addComponent(jLabel10)
                     .addContainerGap(313, Short.MAX_VALUE)))
         );
 
-        javax.swing.GroupLayout CloseTableLayout = new javax.swing.GroupLayout(CloseTable.getContentPane());
-        CloseTable.getContentPane().setLayout(CloseTableLayout);
-        CloseTableLayout.setHorizontalGroup(
-            CloseTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout SuggestPromosFrmLayout = new javax.swing.GroupLayout(SuggestPromosFrm.getContentPane());
+        SuggestPromosFrm.getContentPane().setLayout(SuggestPromosFrmLayout);
+        SuggestPromosFrmLayout.setHorizontalGroup(
+            SuggestPromosFrmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 712, Short.MAX_VALUE)
         );
-        CloseTableLayout.setVerticalGroup(
-            CloseTableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        SuggestPromosFrmLayout.setVerticalGroup(
+            SuggestPromosFrmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 517, Short.MAX_VALUE)
         );
 
@@ -1039,17 +1047,16 @@ public class VittoFrame extends javax.swing.JFrame {
             // hayan guardado
         } else {
             /**
-             * Caso contrario: no hay datos de la mesa en la bbdd
-             * por lo tanto hay que resetear todo, para que el formulario
-             * quede limpio.
-            */
+             * Caso contrario: no hay datos de la mesa en la bbdd por lo tanto
+             * hay que resetear todo, para que el formulario quede limpio.
+             */
             for (Component component : DrinkNoAlcoholFrame.getContentPane().getComponents()) {
                 if (component instanceof JCheckBox) {
                     ((JCheckBox) component).setSelected(false);
                 }
-                
+
                 if (component instanceof JSpinner) {
-                    
+
                     /*
                         Tenemos dos maneras de hacer lo mismo, 
                         esta en particular crea un JSpinner a partir del casteo del component
@@ -1057,11 +1064,10 @@ public class VittoFrame extends javax.swing.JFrame {
                         
                         JSpinner spinner = (JSpinner) component;
                         spinner.setEnabled(false);
-                    */
-                    
-                    /*
+                     */
+ /*
                         Es igual al caso anterior, pero se hace todo en una línea.
-                    */
+                     */
                     ((JSpinner) component).setEnabled(false);
                     ((JSpinner) component).setValue(0);
                 }
@@ -1081,9 +1087,9 @@ public class VittoFrame extends javax.swing.JFrame {
 
     private void promotionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_promotionsActionPerformed
         // TODO add your handling code here:
-        SuggestedPromosFrame.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
-        SuggestedPromosFrame.setSize(650, 700);
-        SuggestedPromosFrame.setVisible(true);
+        CloseTableFrame.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
+        CloseTableFrame.setSize(650, 700);
+        CloseTableFrame.setVisible(true);
 
     }//GEN-LAST:event_promotionsActionPerformed
 
@@ -1112,6 +1118,59 @@ public class VittoFrame extends javax.swing.JFrame {
 
     private void closeTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeTableActionPerformed
         // TODO add your handling code here:
+
+        System.out.println("MESA elegida --> state:  " + this.selectedTable.getState() + " ID: " + this.selectedTable.getId());
+
+        if (this.tableUser != null && this.tableUser.getNombre() != null) {
+            System.out.println("Usuario mesa: " + this.tableUser.getNombre());
+        } else {
+            this.tableUser.setNombre(this.employeeList.get(0).getNombre());
+            this.tableUser.setApellido(this.employeeList.get(0).getApellido());
+        }
+
+        this.MesaLabel.setText(Integer.toString(this.selectedTable.getId()));
+        this.MozoLabel.setText(this.tableUser.getNombre() + " " + this.tableUser.getApellido());
+        
+        
+        
+        List<Product> consumingProductList = this.productsImpl.getConsumingProduct(this.selectedTable.getId(), this.tableUser.getNombre() + "_" + this.tableUser.getApellido());
+        
+        
+        
+        // para elegir intervalos.
+        // productDescriptionTable.addRowSelectionInterval(0, 1);
+        
+        DefaultTableModel model = new DefaultTableModel();
+        List<String> list = new ArrayList<String>();
+          
+        
+        model.addColumn("Producto");
+        model.addColumn("Cantidad");
+        model.addColumn("Precio Unitario");
+        model.addColumn("Total");
+        
+        list.add("coca");
+        list.add("2");
+        list.add("150");
+        list.add("300");
+        model.addRow(list.toArray());
+
+        list.add("coca");
+        list.add("2");
+        list.add("150");
+        list.add("300");
+        model.addRow(list.toArray());
+
+        list.add("coca");
+        list.add("2");
+        list.add("150");
+        list.add("300");
+        model.addRow(list.toArray());        
+        productDescriptionTable.setModel(model);
+
+        CloseTableFrame.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
+        CloseTableFrame.setSize(650, 500);
+        CloseTableFrame.setVisible(true);
     }//GEN-LAST:event_closeTableActionPerformed
 
     private void deleteTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteTableActionPerformed
@@ -1503,11 +1562,10 @@ public class VittoFrame extends javax.swing.JFrame {
             this.tableUser.setNombre(this.employeeList.get(0).getNombre());
             this.tableUser.setApellido(this.employeeList.get(0).getApellido());
         }
-        
+
         this.dataStore.setMesa(this.selectedTable.getId());
         this.dataStore.setNombreMozo(this.tableUser.getNombre() + "_" + this.tableUser.getApellido());
 
-        
         for (Map.Entry<NoAlcoholDrinksEnum, Integer> entry : this.noAlcoholDrinks.entrySet()) {
             System.out.println("key --> " + entry.getKey());
             System.out.println("value --> " + entry.getValue());
@@ -1520,19 +1578,12 @@ public class VittoFrame extends javax.swing.JFrame {
         }
 
         this.productsImpl.insertProduct(dataStore);
-        
-        
-        
+
         // Crear un metodo que vacíe todos los maps
         this.noAlcoholDrinks.clear();
-        
+
         // validar -> nullPointerException.
         // this.AlcoholDrinks.clear();
-        
-        
-        
-
-        
         // TODO: cuando termina de insetar , todos los campos tienenen que ser reseteados.
         // Para que la próxima mesa empiece con los productos vaciós.
         // Y si se elige la mesa en cuestión tenemos que traer todos los resultados de la BBDD,
@@ -1580,8 +1631,8 @@ public class VittoFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFrame CandyProductsFrame;
-    private javax.swing.JFrame CloseTable;
     private javax.swing.JButton CloseTableButton;
+    private javax.swing.JFrame CloseTableFrame;
     private javax.swing.JFrame DrinkAlcoholFrame;
     private javax.swing.JFrame DrinkNoAlcoholFrame;
     private javax.swing.JLabel MesaLabel;
@@ -1589,7 +1640,7 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JFrame SaladsProductFrame;
     private javax.swing.JButton SaveButton;
     private javax.swing.JFrame SelectOrder;
-    private javax.swing.JFrame SuggestedPromosFrame;
+    private javax.swing.JFrame SuggestPromosFrm;
     private javax.swing.JLabel TotalLabel;
     private javax.swing.JButton acceptNoAlcoholDrinks;
     private javax.swing.JButton cancelNoAlcoholDrinks;

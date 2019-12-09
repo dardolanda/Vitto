@@ -10,7 +10,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Date;
 import java.sql.Timestamp;
 
 import java.util.logging.Level;
@@ -19,8 +18,6 @@ import javax.swing.JOptionPane;
 
 import com.mycompany.vittostore.user.User;
 import com.mycompany.vittostore.generalitems.Product;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 
 import java.util.*;
 
@@ -143,7 +140,7 @@ public class VittoStoreDDBBRepository {
 
                     productIdPrice.put("ID", doubleId);
                     productIdPrice.put("PRECIO", precio);
-                    
+
                 }
 
             } catch (SQLException ex) {
@@ -157,7 +154,7 @@ public class VittoStoreDDBBRepository {
         return productIdPrice;
     }
 
-    public void insertProduct(List<Product> productList , int mesa , String nombreMozo ) {
+    public void insertProduct(List<Product> productList, int mesa, String nombreMozo) {
 
         if (this.DDBBConnection != null) {
             System.out.println("ddbb inserting OPERATING_TABLE");
@@ -165,33 +162,71 @@ public class VittoStoreDDBBRepository {
             insertOperatingTableQuery.append("INSERT INTO operating_table ");
             insertOperatingTableQuery.append(" (mesa, nombre_mozo, producto_id, producto_nombre, producto_cantidad, producto_precio_unitario, actividad, horario_apertura)");
             insertOperatingTableQuery.append(" VALUES (?,?,?,?,?,?,?,?)");
-                        
-            Calendar cal = Calendar.getInstance();                        
-            
-            Timestamp timeStampNow = new Timestamp(cal.getTimeInMillis());                        
+
+            Calendar cal = Calendar.getInstance();
+
+            Timestamp timeStampNow = new Timestamp(cal.getTimeInMillis());
 
             for (Product product : productList) {
                 System.out.println("product to insert: (BRAND) --> " + product.getBrand());
                 try {
                     PreparedStatement preparedStatement = this.DDBBConnection.prepareStatement(insertOperatingTableQuery.toString());
-                    
+
                     preparedStatement.setInt(1, mesa);
                     preparedStatement.setString(2, nombreMozo);
                     preparedStatement.setInt(3, product.getId());
                     preparedStatement.setString(4, product.getBrand());
-                    preparedStatement.setInt(5,product.getAmountConsumed());
+                    preparedStatement.setInt(5, product.getAmountConsumed());
                     preparedStatement.setDouble(6, product.getPrice());
                     preparedStatement.setBoolean(7, true);
                     preparedStatement.setTimestamp(8, timeStampNow);
-                    
+
                     preparedStatement.execute();
-                    
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
 
             }
         }
+    }
+
+    /**
+     * Tener en cuenta que el tableUser espera el nombre del mozo con el siguiente formato:
+     * Nombre_Apellido -> (letras iniciales en mayúsculas)
+     */
+    public List<Product> getConsumingProduct(int tableId, String tableUser) {
+        List<Product> consumingProductList = new ArrayList<>();
+        Product product;
+
+        if (this.DDBBConnection != null) {
+            String getConsumingProducts = "SELECT * FROM operating_table "
+                    + " WHERE mesa = ? "
+                    + " AND actividad = true "
+                    + " AND nombre_mozo = ? ";
+            try {
+                PreparedStatement statement = this.DDBBConnection.prepareStatement(getConsumingProducts);
+                statement.setInt(1, tableId);
+                statement.setString(2, tableUser);
+                ResultSet resultSet = statement.executeQuery();
+
+                if (resultSet.next()) {
+                    product = new Product( resultSet.getInt("PRODUCTO_ID"), 
+                                           resultSet.getInt("PRODUCTO_CANTIDAD"), 
+                                           resultSet.getString("PRODUCTO_NOMBRE"), 
+                                           resultSet.getDouble("PRODUCTO_PRECIO"));
+                    
+                    consumingProductList.add(product);
+                    
+                }
+
+            } catch (SQLException ex) {
+                Logger.getLogger(VittoStoreDDBBRepository.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+
+        return consumingProductList;
     }
 
 }

@@ -6,10 +6,14 @@
 package com.mycompany.vittostore.controller;
 
 import com.mycompany.vittostore.dataStore.DataStore;
+import com.mycompany.vittostore.generalitems.Product;
+import java.util.List;
 
 public interface Products {
     
     public void insertProduct(DataStore dataStore);
+    
+    public List<Product> getConsumingProduct(int tableId, String tableUser);
     
     
     

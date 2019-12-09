@@ -72,4 +72,19 @@ public class ProductsImpl extends VittoConnection implements Products {
         return productList;
     }
 
+    @Override
+    public List<Product> getConsumingProduct(int tableId, String tableUser) {
+        List<Product> consumingProductList = vittoDDBBStore.getConsumingProduct(tableId, tableUser);
+        
+        /**
+         * Calculamos el total, ya que no guardamos el precio total, sino 
+         * que se guarda el precio unitario.
+         */
+        consumingProductList.forEach(product ->
+                product.setTotal(product.getAmountConsumed() * product.getPrice())
+        );
+        
+        return consumingProductList;
+    }
+
 }

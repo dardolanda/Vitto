@@ -33,3 +33,8 @@ SET DATA TYPE TIMESTAMP;
 
 
 insert into operating_table (mesa, nombre_mozo, producto_id, producto_nombre, producto_cantidad, producto_precio_unitario, actividad, horario_apertura, horario_cierre) values (?,?,?,?,?,?,?,?,?)
+
+
+
+delete from operating_table
+where id between 27 and 38;
