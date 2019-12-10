@@ -18,12 +18,18 @@ import javax.swing.JOptionPane;
 
 import com.mycompany.vittostore.user.User;
 import com.mycompany.vittostore.generalitems.Product;
+import com.mycompany.vittostore.dialogs.GenericDialog;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 
 import java.util.*;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
 
 public class VittoStoreDDBBRepository {
 
     private Connection DDBBConnection = null;
+    Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
 
     public VittoStoreDDBBRepository(int sequence) throws SQLException {
         try {
@@ -164,7 +170,6 @@ public class VittoStoreDDBBRepository {
             insertOperatingTableQuery.append(" VALUES (?,?,?,?,?,?,?,?)");
 
             Calendar cal = Calendar.getInstance();
-
             Timestamp timeStampNow = new Timestamp(cal.getTimeInMillis());
 
             for (Product product : productList) {
@@ -192,8 +197,8 @@ public class VittoStoreDDBBRepository {
     }
 
     /**
-     * Tener en cuenta que el tableUser espera el nombre del mozo con el siguiente formato:
-     * Nombre_Apellido -> (letras iniciales en mayúsculas)
+     * Tener en cuenta que el tableUser espera el nombre del mozo con el
+     * siguiente formato: Nombre_Apellido -> (letras iniciales en mayúsculas)
      */
     public List<Product> getConsumingProduct(int tableId, String tableUser) {
         List<Product> consumingProductList = new ArrayList<>();
@@ -210,14 +215,14 @@ public class VittoStoreDDBBRepository {
                 statement.setString(2, tableUser);
                 ResultSet resultSet = statement.executeQuery();
 
-                if (resultSet.next()) {
-                    product = new Product( resultSet.getInt("PRODUCTO_ID"), 
-                                           resultSet.getInt("PRODUCTO_CANTIDAD"), 
-                                           resultSet.getString("PRODUCTO_NOMBRE"), 
-                                           resultSet.getDouble("PRODUCTO_PRECIO"));
-                    
+                while (resultSet.next()) {
+                    product = new Product(resultSet.getInt("PRODUCTO_ID"),
+                            resultSet.getInt("PRODUCTO_CANTIDAD"),
+                            resultSet.getString("PRODUCTO_NOMBRE"),
+                            resultSet.getDouble("PRODUCTO_PRECIO_UNITARIO"));
+
                     consumingProductList.add(product);
-                    
+
                 }
 
             } catch (SQLException ex) {
@@ -227,6 +232,38 @@ public class VittoStoreDDBBRepository {
         }
 
         return consumingProductList;
+    }
+
+    /**
+     * Tener en cuenta que el nombre mozo espera el siguiente formato:
+     * Nombre_Apellido -> con las letras iniciales en mayúsculas.
+     */
+    public void closeTable(int tableId, String tableUser) {
+        if (this.DDBBConnection != null) {
+            System.out.println("(closeTable): DDBB Updating OPERATING_TABLE");
+            StringBuffer udateOperatingTableQuery = new StringBuffer();
+            udateOperatingTableQuery.append(" UPDATE operating_table ");
+            udateOperatingTableQuery.append(" SET actividad = false , ");
+            udateOperatingTableQuery.append(" horario_cierre = ? ");
+            udateOperatingTableQuery.append(" WHERE mesa = ? AND actividad = true AND nombre_mozo = ? ");
+
+            Calendar cal = Calendar.getInstance();
+            Timestamp timeStampNow = new Timestamp(cal.getTimeInMillis());
+
+            try {
+                PreparedStatement preparedStatement = this.DDBBConnection.prepareStatement(udateOperatingTableQuery.toString());
+                
+                preparedStatement.setTimestamp(1, timeStampNow);
+                preparedStatement.setInt(2, tableId);
+                preparedStatement.setString(3, tableUser);
+
+                preparedStatement.execute();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
     }
 
 }

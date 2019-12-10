@@ -26,11 +26,6 @@ public class ProductsImpl extends VittoConnection implements Products {
     @Override
     public void insertProduct(DataStore dataStore) {
         List<Product> productList = this.getPricesFromDataStore(dataStore);
-        
-        productList.forEach(product -> 
-                System.out.println("product to insert (PRODUCT IMPL)  --> " + product.getBrand())
-        );
-        
         vittoDDBBStore.insertProduct(productList, dataStore.getMesa(), dataStore.getNombreMozo());
     }
 
@@ -42,7 +37,7 @@ public class ProductsImpl extends VittoConnection implements Products {
             for (Map.Entry<NoAlcoholDrinksEnum, Integer> entry : dataStore.getNoAlcoholDrinks().entrySet()) {
                 System.out.println("key --> " + entry.getKey());
                 System.out.println("value --> " + entry.getValue());
-                
+
                 Map<String, Double> priceIDProduct = vittoDDBBStore.getProductFromProductName(entry.getKey().toString());
 
                 Product product = new Product();
@@ -54,19 +49,14 @@ public class ProductsImpl extends VittoConnection implements Products {
                 productList.add(product);
             }
         }
-        
-        
-        
+
         // TODO: tener en cuenta que:
         //      1) Hay que hacer todas las validaciones de 
         //         dataStore para devolver una lista completa de artículos.
         //         validacion -> if (!dataStore.getNoAlcoholDrinks().isEmpty())
         //         hay que hacerlas con todos los productos:
         //         bebidas sin alcohol, sólidos, promociones, etc............
-        
         //      2) Hacer new Product por cada collection que se itere
-        
-        
         // Por último retornar la lista con todos los productos, teniendo en 
         // cuenta que es una lista que puede tener cualquier tipo de producto.
         return productList;
@@ -75,16 +65,22 @@ public class ProductsImpl extends VittoConnection implements Products {
     @Override
     public List<Product> getConsumingProduct(int tableId, String tableUser) {
         List<Product> consumingProductList = vittoDDBBStore.getConsumingProduct(tableId, tableUser);
-        
+
         /**
-         * Calculamos el total, ya que no guardamos el precio total, sino 
-         * que se guarda el precio unitario.
+         * Calculamos el total, ya que solamente guardamos el precio unitario.
          */
-        consumingProductList.forEach(product ->
-                product.setTotal(product.getAmountConsumed() * product.getPrice())
+        consumingProductList.forEach(product
+                -> product.setTotal(product.getAmountConsumed() * product.getPrice())
         );
-        
+
         return consumingProductList;
+    }
+
+    @Override
+    public void closeTable(int tableId, String tableUser) {
+        
+        vittoDDBBStore.closeTable(tableId, tableUser);
+        
     }
 
 }

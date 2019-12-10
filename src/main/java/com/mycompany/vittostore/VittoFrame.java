@@ -28,6 +28,8 @@ import javafx.scene.control.CheckBox;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.table.DefaultTableModel;
@@ -818,6 +820,11 @@ public class VittoFrame extends javax.swing.JFrame {
         TotalLabel.setText(".");
 
         CloseTableButton.setText("Cerrar Mesa");
+        CloseTableButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CloseTableButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout CloseTableFrameLayout = new javax.swing.GroupLayout(CloseTableFrame.getContentPane());
         CloseTableFrame.getContentPane().setLayout(CloseTableFrameLayout);
@@ -984,14 +991,13 @@ public class VittoFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tableOneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tableOneActionPerformed
-        // TODO add your handling code here:
+        // TODO recuperar todos los valores de la BBDD -> para luego inyectarlos 
+        //      en el modelo.
 
-        System.out.println("click...");
         System.out.println(evt);
 
         this.selectedTable.setState("trableOne");
         this.selectedTable.setId(1);
-        this.tableOne.setBackground(Color.red);
         this.chargeEmployee();
         this.selectOrderView(1);
 
@@ -1003,6 +1009,8 @@ public class VittoFrame extends javax.swing.JFrame {
         System.out.println("selected name (employee combo) : " + names[0] + " ___ " + names[1]);
 
         this.tableUser = this.usersImpl.findUserByCompleteName(names[0], names[1]);
+        
+        System.out.println("tableUser --> " + this.tableUser.getNombre() + "- - - " + this.tableUser.getApellido() );
 
     }//GEN-LAST:event_employeeNameComboActionPerformed
 
@@ -1010,7 +1018,6 @@ public class VittoFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.selectedTable.setState("TableTwo");
         this.selectedTable.setId(2);
-        this.tableTwo.setBackground(Color.red);
         this.chargeEmployee();
         this.selectOrderView(2);
 
@@ -1020,7 +1027,6 @@ public class VittoFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.selectedTable.setState("TableThree");
         this.selectedTable.setId(3);
-        this.tableOne.setBackground(Color.red);
         this.chargeEmployee();
         this.selectOrderView(3);
 
@@ -1130,43 +1136,40 @@ public class VittoFrame extends javax.swing.JFrame {
 
         this.MesaLabel.setText(Integer.toString(this.selectedTable.getId()));
         this.MozoLabel.setText(this.tableUser.getNombre() + " " + this.tableUser.getApellido());
-        
-        
-        
+
+        /**
+         *
+         *
+         * TODO: Cerrar mesa -> preparar la acción que termine seteando en false
+         * la actividad de la mesa. Además tiene que pintar la mesa de color
+         * Verde -> ya que queda liberada.
+         *
+         */
+        Double total = 0.0;
         List<Product> consumingProductList = this.productsImpl.getConsumingProduct(this.selectedTable.getId(), this.tableUser.getNombre() + "_" + this.tableUser.getApellido());
-        
-        
-        
         // para elegir intervalos.
         // productDescriptionTable.addRowSelectionInterval(0, 1);
-        
+
         DefaultTableModel model = new DefaultTableModel();
-        List<String> list = new ArrayList<String>();
-          
-        
+        List<String> modelList;
+
         model.addColumn("Producto");
         model.addColumn("Cantidad");
         model.addColumn("Precio Unitario");
         model.addColumn("Total");
-        
-        list.add("coca");
-        list.add("2");
-        list.add("150");
-        list.add("300");
-        model.addRow(list.toArray());
 
-        list.add("coca");
-        list.add("2");
-        list.add("150");
-        list.add("300");
-        model.addRow(list.toArray());
+        for (Product product : consumingProductList) {
+            modelList = new ArrayList<String>();
+            modelList.add(product.getBrand());
+            modelList.add(Integer.toString(product.getAmountConsumed()));
+            modelList.add(Double.toString(product.getPrice()));
+            modelList.add(Double.toString(product.getTotal()));
+            total += product.getTotal();
+            model.addRow(modelList.toArray());
+        }
 
-        list.add("coca");
-        list.add("2");
-        list.add("150");
-        list.add("300");
-        model.addRow(list.toArray());        
         productDescriptionTable.setModel(model);
+        this.TotalLabel.setText(Double.toString(total));
 
         CloseTableFrame.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
         CloseTableFrame.setSize(650, 500);
@@ -1327,7 +1330,7 @@ public class VittoFrame extends javax.swing.JFrame {
         Vaciar todos los contadores
         No modificar el estado de la cuenta
          */
-        this.DrinkNoAlcoholFrame.dispatchEvent(new WindowEvent(this.DrinkNoAlcoholFrame, WindowEvent.WINDOW_CLOSING));
+        this.closeGenericFrame(this.DrinkNoAlcoholFrame);
     }//GEN-LAST:event_cancelNoAlcoholDrinksActionPerformed
 
     private void acceptNoAlcoholDrinksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptNoAlcoholDrinksActionPerformed
@@ -1447,7 +1450,7 @@ public class VittoFrame extends javax.swing.JFrame {
             Object value = entry.getValue();
         });
          */
-        this.DrinkNoAlcoholFrame.dispatchEvent(new WindowEvent(this.DrinkNoAlcoholFrame, WindowEvent.WINDOW_CLOSING));
+        this.closeGenericFrame(this.DrinkNoAlcoholFrame);
     }//GEN-LAST:event_acceptNoAlcoholDrinksActionPerformed
 
     private void pomeloTorosCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pomeloTorosCheckActionPerformed
@@ -1554,7 +1557,9 @@ public class VittoFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.dataStore = new DataStore();
 
-        System.out.println("mesa elegida " + this.selectedTable.getState());
+        System.out.println("mesa elegida state --> " + this.selectedTable.getState() + " mesa elegida ID -> " + this.selectedTable.getId());
+        
+        
 
         if (this.tableUser != null && this.tableUser.getNombre() != null) {
             System.out.println("Usuario mesa: " + this.tableUser.getNombre());
@@ -1578,9 +1583,12 @@ public class VittoFrame extends javax.swing.JFrame {
         }
 
         this.productsImpl.insertProduct(dataStore);
+        
+        this.setColorTable(this.selectedTable.getId() , Color.red);
+
 
         // Crear un metodo que vacíe todos los maps
-        this.noAlcoholDrinks.clear();
+        this.emptyAllMenu();
 
         // validar -> nullPointerException.
         // this.AlcoholDrinks.clear();
@@ -1589,6 +1597,64 @@ public class VittoFrame extends javax.swing.JFrame {
         // Y si se elige la mesa en cuestión tenemos que traer todos los resultados de la BBDD,
         // no puede quedar nada en memoria.
     }//GEN-LAST:event_SaveButtonActionPerformed
+
+    private void emptyAllMenu() {
+        if (!this.noAlcoholDrinks.isEmpty()) {
+            this.noAlcoholDrinks.clear();
+        }
+
+        /*
+        if (!this.AlcoholDrinks.isEmpty()) {
+            this.noAlcoholDrinks.clear();
+        }
+         */
+        /**
+         * Terminar de hacer lo mismo con los demas Maps que tienen toda la info
+         * del menu.
+         */
+    }
+
+
+    private void CloseTableButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseTableButtonActionPerformed
+
+        
+        this.productsImpl.closeTable(this.selectedTable.getId(), this.tableUser.getNombre() + "_" + this.tableUser.getApellido());
+
+        this.closeGenericFrame(CloseTableFrame);
+        this.closeGenericFrame(this.SelectOrder);
+
+        JOptionPane.showMessageDialog(null, "La mesa Nº: " + this.selectedTable.getId() + " fue Cerrada con éxito");
+        
+        this.setColorTable(this.selectedTable.getId(), Color.green);
+
+    }//GEN-LAST:event_CloseTableButtonActionPerformed
+
+    
+    private void setColorTable(int tableId , Color color) {
+        
+        switch (tableId) {
+            case 1:
+                this.tableOne.setBackground(color);
+                break;
+            case 2:
+                this.tableTwo.setBackground(color);
+                break;
+            case 3:
+                this.tableThree.setBackground(color);
+                break;
+            case 4:
+                this.tableFour.setBackground(color);
+                break;
+            default:
+                System.out.println("Error en el cerrado de la mesa");
+
+        }        
+    }
+    
+    
+    private void closeGenericFrame(JFrame jframe) {
+        jframe.dispatchEvent(new WindowEvent(jframe, WindowEvent.WINDOW_CLOSING));
+    }
 
     /**
      * @param args the command line arguments

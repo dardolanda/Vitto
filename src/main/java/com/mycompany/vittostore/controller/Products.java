@@ -15,6 +15,8 @@ public interface Products {
     
     public List<Product> getConsumingProduct(int tableId, String tableUser);
     
+    public void closeTable(int tableId, String tableUser);
+    
     
     
     
