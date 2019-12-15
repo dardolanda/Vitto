@@ -17,6 +17,8 @@ public interface Products {
     
     public void closeTable(int tableId, String tableUser);
     
+    public List<Integer> getOperatingTable();
+    
     
     
     

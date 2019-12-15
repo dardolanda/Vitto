@@ -83,4 +83,11 @@ public class ProductsImpl extends VittoConnection implements Products {
         
     }
 
+    @Override
+    public List<Integer> getOperatingTable() {
+        
+        return vittoDDBBStore.getOperatingTable();
+        
+    }
+
 }

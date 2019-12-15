@@ -55,6 +55,16 @@ public class VittoFrame extends javax.swing.JFrame {
      */
     public VittoFrame() {
         initComponents();
+        
+        List<Integer> operatingTableList = this.productsImpl.getOperatingTable();
+        
+        operatingTableList.forEach(table -> 
+                this.setTableColour(table, Color.yellow)
+        );
+        
+        
+        
+        
         this.employeeList = this.usersImpl.getUsers();
 
         this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
@@ -1584,7 +1594,7 @@ public class VittoFrame extends javax.swing.JFrame {
 
         this.productsImpl.insertProduct(dataStore);
         
-        this.setColorTable(this.selectedTable.getId() , Color.red);
+        this.setTableColour(this.selectedTable.getId() , Color.red);
 
 
         // Crear un metodo que vacíe todos los maps
@@ -1625,12 +1635,12 @@ public class VittoFrame extends javax.swing.JFrame {
 
         JOptionPane.showMessageDialog(null, "La mesa Nº: " + this.selectedTable.getId() + " fue Cerrada con éxito");
         
-        this.setColorTable(this.selectedTable.getId(), Color.green);
+        this.setTableColour(this.selectedTable.getId(), Color.green);
 
     }//GEN-LAST:event_CloseTableButtonActionPerformed
 
     
-    private void setColorTable(int tableId , Color color) {
+    private void setTableColour(int tableId , Color color) {
         
         switch (tableId) {
             case 1:

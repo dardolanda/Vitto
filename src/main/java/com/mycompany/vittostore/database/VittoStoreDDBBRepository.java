@@ -96,6 +96,10 @@ public class VittoStoreDDBBRepository {
 
     }
 
+    /**
+     * Tener en cuenta de hacer la búsqueda agregando también el DNI del usuario
+     * operativo.
+     */
     public User findUserByCompleteName(String name, String surname) {
         User user = null;
 
@@ -109,6 +113,10 @@ public class VittoStoreDDBBRepository {
                 statement.setString(2, surname);
                 ResultSet resultSet = statement.executeQuery();
 
+                /**
+                 * Manejamos el resultSet.next con un if, ya que solo existe un único
+                 * usuario con nombre - apellido - dni
+                 */
                 if (resultSet.next()) {
                     int id = resultSet.getInt("id");
                     String nombre = resultSet.getString("nombre");
@@ -139,6 +147,10 @@ public class VittoStoreDDBBRepository {
                 statement.setString(1, productName);
                 ResultSet resultSet = statement.executeQuery();
 
+                /**
+                 * En este caso, manejamos el resultSet.next con un if
+                 * ya que siempre existirá un único producto identificado por el nombre.
+                 */
                 if (resultSet.next()) {
                     int id = resultSet.getInt("id");
                     double precio = resultSet.getDouble("precio");
@@ -263,7 +275,33 @@ public class VittoStoreDDBBRepository {
                 e.printStackTrace();
             }
         }
+    }
+    
+    public List<Integer> getOperatingTable() {
+        List<Integer> operatingTableList = new ArrayList<>();
+        System.out.println("Get Operating Table LIST");
+        
+        if (this.DDBBConnection != null) {
 
+            String getOperatingTableQuery = " SELECT DISTINCT mesa FROM operating_table WHERE actividad = true ";
+
+            try {
+                PreparedStatement statement = this.DDBBConnection.prepareStatement(getOperatingTableQuery);
+                ResultSet resultSet = statement.executeQuery();
+
+                while (resultSet.next()) {
+                    int id = resultSet.getInt("mesa");
+                    operatingTableList.add(id);
+                }
+
+            } catch (SQLException ex) {
+                Logger.getLogger(VittoStoreDDBBRepository.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        return operatingTableList;
     }
 
+    
+    
 }
