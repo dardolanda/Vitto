@@ -90,4 +90,9 @@ public class ProductsImpl extends VittoConnection implements Products {
         
     }
 
+    @Override
+    public String findTableUserByTableId(int tableId) {
+        return vittoDDBBStore.findTableUserByTableId(tableId);
+    }
+
 }

@@ -302,6 +302,36 @@ public class VittoStoreDDBBRepository {
         return operatingTableList;
     }
 
+    public String findTableUserByTableId(int tableId) {
+        String tableUser = null; 
+        
+        if (this.DDBBConnection != null) {
+
+            String getUser = "SELECT DISTINCT(nombre_mozo) "
+                    + " FROM operating_table WHERE mesa = ? "
+                    + " AND actividad = true";
+
+            try {
+                PreparedStatement statement = this.DDBBConnection.prepareStatement(getUser);
+                statement.setInt(1, tableId);
+                ResultSet resultSet = statement.executeQuery();
+
+                /**
+                 * Manejamos el resultSet.next con un if, ya que solo existe un único
+                 * usuario que hace referencia a una mesa activa.
+                 */
+                if (resultSet.next()) {
+                    tableUser = resultSet.getString("nombre_mozo");
+                }
+
+            } catch (SQLException ex) {
+                Logger.getLogger(VittoStoreDDBBRepository.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return tableUser;
+    }
+    
+    
     
     
 }

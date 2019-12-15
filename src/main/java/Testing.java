@@ -26,6 +26,11 @@ public class Testing {
         System.out.println(timeStampNow);
         
         System.out.println("------------------------FIN: Time testing----------------------------");
+        
+        String name = "Christian_Decarli";
+        System.out.print(name.split("_")[0] + "    "); 
+        System.out.print(name.split("_")[1]);
+        
     }
     
     

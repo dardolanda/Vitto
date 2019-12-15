@@ -19,6 +19,8 @@ public interface Products {
     
     public List<Integer> getOperatingTable();
     
+    public String findTableUserByTableId(int tableId);
+    
     
     
     
