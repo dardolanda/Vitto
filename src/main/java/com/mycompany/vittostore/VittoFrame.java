@@ -23,6 +23,7 @@ import com.mycompany.vittostore.dataStore.DataStore;
 
 import com.mycompany.vittostore.controllerImpl.ProductsImpl;
 import com.mycompany.vittostore.controllerImpl.UsersImpl;
+import com.mycompany.vittostore.generalitems.GenericSelectedComponent;
 import java.awt.Component;
 import javafx.scene.control.CheckBox;
 
@@ -42,6 +43,8 @@ public class VittoFrame extends javax.swing.JFrame {
     Table selectedTable = new Table();
     Users usersImpl = new UsersImpl(1);
     Products productsImpl = new ProductsImpl(2);
+    Map<String, GenericSelectedComponent> selectedComponentMap = new HashMap<>();
+    
     Map<NoAlcoholDrinksEnum, Integer> noAlcoholDrinks;
     Map<NoAlcoholDrinksEnum, Integer> AlcoholDrinks;
     User tableUser;
@@ -54,7 +57,8 @@ public class VittoFrame extends javax.swing.JFrame {
      * sout -> System.out.println(); -> shortCut
      */
     public VittoFrame() {
-        initComponents();
+        this.initComponents();
+        this.initSelectedComponent();
         
         List<Integer> operatingTableList = this.productsImpl.getOperatingTable();
         
@@ -62,12 +66,34 @@ public class VittoFrame extends javax.swing.JFrame {
                 this.setTableColour(table, Color.yellow)
         );
         
-        
-        
-        
         this.employeeList = this.usersImpl.getUsers();
 
         this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
+    }
+    
+    private void initSelectedComponent() {
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.COCA_COLA.name(),  new GenericSelectedComponent(this.cocaColaCheck, this.cocaSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.COCA_LIGHT.name(),  new GenericSelectedComponent(this.cocaLightCheck, this.cocaLightSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.SPRITE.name(),  new GenericSelectedComponent(this.cocaColaCheck, this.cocaSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.SPRITE_ZERO.name(),  new GenericSelectedComponent(this.cocaColaCheck, this.cocaSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.PASO_TOROS_POMELO.name(),  new GenericSelectedComponent(this.cocaColaCheck, this.cocaSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.PASO_TOROS_TONICA.name(),  new GenericSelectedComponent(this.cocaColaCheck, this.cocaSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.FANTA.name(),  new GenericSelectedComponent(this.cocaColaCheck, this.cocaSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.LEVITE_LIMONADA.name(),  new GenericSelectedComponent(this.cocaColaCheck, this.cocaSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.LEVITE_MANZANA.name(),  new GenericSelectedComponent(this.cocaColaCheck, this.cocaSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.LEVITE_NARANJA.name(),  new GenericSelectedComponent(this.cocaColaCheck, this.cocaSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.LEVITE_POMELO.name(),  new GenericSelectedComponent(this.cocaColaCheck, this.cocaSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.CEPITA.name(),  new GenericSelectedComponent(this.cocaColaCheck, this.cocaSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.SCHEWEPPES_POMELO.name(),  new GenericSelectedComponent(this.cocaColaCheck, this.cocaSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.SCHEWEPPES_TONICA.name(),  new GenericSelectedComponent(this.cocaColaCheck, this.cocaSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.AGUA.name(),  new GenericSelectedComponent(this.cocaColaCheck, this.cocaSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.AGUA_GAS.name(),  new GenericSelectedComponent(this.cocaColaCheck, this.cocaSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.EXPRIMIDO.name(),  new GenericSelectedComponent(this.cocaColaCheck, this.cocaSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.LICUADO_LECHE.name(),  new GenericSelectedComponent(this.cocaColaCheck, this.cocaSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.LICUADO_AGUA.name(),  new GenericSelectedComponent(this.cocaColaCheck, this.cocaSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.LIMONADA.name(),  new GenericSelectedComponent(this.cocaColaCheck, this.cocaSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.MILK_SHAKE_CHOCO.name(),  new GenericSelectedComponent(this.cocaColaCheck, this.cocaSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.MILK_SHAKE_DULCE_LECHE.name(),  new GenericSelectedComponent(this.cocaColaCheck, this.cocaSpinner));
     }
 
     private void chargeEmployee(String userTable) {
@@ -1061,6 +1087,8 @@ public class VittoFrame extends javax.swing.JFrame {
 
     }//GEN-LAST:event_tableThreeActionPerformed
 
+    
+    
     private void drinkNoAlcoholActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drinkNoAlcoholActionPerformed
 
         DrinkNoAlcoholFrame.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
@@ -1071,6 +1099,11 @@ public class VittoFrame extends javax.swing.JFrame {
         System.out.println(this.selectedTable.getState());
         System.out.println(this.selectedTable.getId());
         System.out.println("---- END: Table Selected ----");
+        
+        
+        
+        
+        List<Product> selectedTableProducts = this.productsImpl.findTableSelectedProducts(this.selectedTable.getId());
         
         
         

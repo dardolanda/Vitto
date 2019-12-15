@@ -6,12 +6,10 @@
 package com.mycompany.vittostore.controllerImpl;
 
 import com.mycompany.vittostore.controller.Products;
-import com.mycompany.vittostore.dataStore.DataStore;
 
 import com.mycompany.vittostore.generalitems.Product;
 import com.mycompany.vittostore.dataStore.DataStore;
 import com.mycompany.vittostore.generalitems.NoAlcoholDrinksEnum;
-import com.mycompany.vittostore.database.VittoStoreDDBBRepository;
 import java.util.ArrayList;
 
 import java.util.Map;
@@ -93,6 +91,11 @@ public class ProductsImpl extends VittoConnection implements Products {
     @Override
     public String findTableUserByTableId(int tableId) {
         return vittoDDBBStore.findTableUserByTableId(tableId);
+    }
+
+    @Override
+    public List<Product> findTableSelectedProducts(int tableId) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

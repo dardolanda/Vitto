@@ -21,6 +21,8 @@ public interface Products {
     
     public String findTableUserByTableId(int tableId);
     
+    public List<Product> findTableSelectedProducts(int tableId);
+    
     
     
     
