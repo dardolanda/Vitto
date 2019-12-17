@@ -19,6 +19,17 @@ create table operating_table (
     horario_cierre date
 );
 
+create table payments (
+    id int not null auto_increment,
+    mesa int,
+    total double,
+    nombre_mozo varchar(100),
+    tipo_pago varchar(50) -- débito, crédito, efectivo, mercado_pago, cuenta corriente
+    horario_pago date
+);
+
+
+
 alter table operating_table 
 alter column horario_apertura 
 SET DATA TYPE TIMESTAMP;

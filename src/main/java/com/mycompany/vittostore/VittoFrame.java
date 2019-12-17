@@ -218,6 +218,20 @@ public class VittoFrame extends javax.swing.JFrame {
         TotalLabel = new javax.swing.JLabel();
         CloseTableButton = new javax.swing.JButton();
         SuggestPromosFrm = new javax.swing.JFrame();
+        PayTableFrm = new javax.swing.JFrame();
+        jLabel11 = new javax.swing.JLabel();
+        totalPayLabel = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        tableIdPayLabel = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        userTableCompleteNamePay = new javax.swing.JLabel();
+        jSeparator4 = new javax.swing.JSeparator();
+        jLabel15 = new javax.swing.JLabel();
+        debitPayment = new javax.swing.JButton();
+        creditPayment = new javax.swing.JButton();
+        cashPayment = new javax.swing.JButton();
+        mercadoPagoPayment = new javax.swing.JButton();
+        cuentaCorrientePayment = new javax.swing.JButton();
         tableOne = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         tableTwo = new javax.swing.JButton();
@@ -921,12 +935,12 @@ public class VittoFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(MozoLabel)
                 .addGap(27, 27, 27)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
                 .addGroup(CloseTableFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(TotalLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addComponent(CloseTableButton)
                 .addGap(24, 24, 24))
             .addGroup(CloseTableFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -945,6 +959,101 @@ public class VittoFrame extends javax.swing.JFrame {
         SuggestPromosFrmLayout.setVerticalGroup(
             SuggestPromosFrmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 517, Short.MAX_VALUE)
+        );
+
+        jLabel11.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jLabel11.setText("Total a pagar");
+
+        totalPayLabel.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        totalPayLabel.setText("Total_pago");
+
+        jLabel12.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jLabel12.setText("Mesa Nº ");
+
+        tableIdPayLabel.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        tableIdPayLabel.setText("mesa_id");
+
+        jLabel13.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jLabel13.setText("Nombre Mozo");
+
+        userTableCompleteNamePay.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        userTableCompleteNamePay.setText("nombre_mozo");
+
+        jLabel15.setText("Forma de pago");
+
+        debitPayment.setText("Débito");
+
+        creditPayment.setText("Crédito");
+
+        cashPayment.setText("Efectivo");
+
+        mercadoPagoPayment.setText("Mercado Pago");
+
+        cuentaCorrientePayment.setText("Cuenta Corriente");
+
+        javax.swing.GroupLayout PayTableFrmLayout = new javax.swing.GroupLayout(PayTableFrm.getContentPane());
+        PayTableFrm.getContentPane().setLayout(PayTableFrmLayout);
+        PayTableFrmLayout.setHorizontalGroup(
+            PayTableFrmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PayTableFrmLayout.createSequentialGroup()
+                .addGroup(PayTableFrmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(PayTableFrmLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jSeparator4))
+                    .addGroup(PayTableFrmLayout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(jLabel12)
+                        .addGap(18, 18, 18)
+                        .addComponent(tableIdPayLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel13)
+                        .addGap(18, 18, 18)
+                        .addComponent(userTableCompleteNamePay)
+                        .addGap(73, 73, 73)
+                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(totalPayLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(14, 14, 14))
+            .addGroup(PayTableFrmLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel15)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PayTableFrmLayout.createSequentialGroup()
+                .addContainerGap(35, Short.MAX_VALUE)
+                .addComponent(debitPayment, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(creditPayment)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cashPayment)
+                .addGap(98, 98, 98)
+                .addComponent(mercadoPagoPayment)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cuentaCorrientePayment)
+                .addGap(2, 2, 2))
+        );
+        PayTableFrmLayout.setVerticalGroup(
+            PayTableFrmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PayTableFrmLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(PayTableFrmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(totalPayLabel)
+                    .addComponent(jLabel12)
+                    .addComponent(tableIdPayLabel)
+                    .addComponent(jLabel13)
+                    .addComponent(userTableCompleteNamePay))
+                .addGap(26, 26, 26)
+                .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel15)
+                .addGap(18, 18, 18)
+                .addGroup(PayTableFrmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(debitPayment)
+                    .addComponent(creditPayment)
+                    .addComponent(cashPayment)
+                    .addComponent(mercadoPagoPayment)
+                    .addComponent(cuentaCorrientePayment))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1251,7 +1360,24 @@ public class VittoFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_deleteTableActionPerformed
 
     private void payActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payActionActionPerformed
-        // TODO add your handling code here:
+        PayTableFrm.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
+        PayTableFrm.setSize(650, 500);
+        PayTableFrm.setVisible(true);
+        
+        Double total = 0.0;
+        // TODO: Tener en cuenta que en este momento el actividad = false -> y está buscando por true
+        // TODO: Tener en cuenta que una vez cerrada la mesa se tiene que pagar -> mesa en rojo -> cancelar cualquier operación.
+        List<Product> consumingProductList = this.productsImpl.getConsumingProduct(this.selectedTable.getId(), this.tableUser.getNombre() + "_" + this.tableUser.getApellido());
+        
+        for (Product product : consumingProductList) {
+            total += product.getTotal();
+        }
+
+        
+        this.tableIdPayLabel.setText(Integer.toString(this.selectedTable.getId()));
+        this.userTableCompleteNamePay.setText(this.tableUser.getNombre() + " " + this.tableUser.getApellido());
+        this.totalPayLabel.setText(Double.toString(total));
+        
     }//GEN-LAST:event_payActionActionPerformed
 
     private void tableFourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tableFourActionPerformed
@@ -1261,7 +1387,7 @@ public class VittoFrame extends javax.swing.JFrame {
         
         String tableUser = this.productsImpl.findTableUserByTableId(this.selectedTable.getId());
         
-        this.tableOne.setBackground(Color.red);
+        this.tableFour.setBackground(Color.YELLOW);
         this.chargeEmployee(tableUser);
         this.selectOrderView(4);
 
@@ -1662,6 +1788,9 @@ public class VittoFrame extends javax.swing.JFrame {
 
         // Crear un metodo que vacíe todos los maps
         this.emptyAllMenu();
+        
+        
+        JOptionPane.showMessageDialog(null, "La mesa Nº: " + this.selectedTable.getId() + " Se ha guardado Correctamente");
 
         // validar -> nullPointerException.
         // this.AlcoholDrinks.clear();
@@ -1696,9 +1825,9 @@ public class VittoFrame extends javax.swing.JFrame {
         this.closeGenericFrame(CloseTableFrame);
         this.closeGenericFrame(this.SelectOrder);
 
-        JOptionPane.showMessageDialog(null, "La mesa Nº: " + this.selectedTable.getId() + " fue Cerrada con éxito");
+        // JOptionPane.showMessageDialog(null, "La mesa Nº: " + this.selectedTable.getId() + " fue Cerrada con éxito");
         
-        this.setTableColour(this.selectedTable.getId(), Color.green);
+        this.setTableColour(this.selectedTable.getId(), Color.RED);
 
     }//GEN-LAST:event_CloseTableButtonActionPerformed
 
@@ -1776,6 +1905,7 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JFrame DrinkNoAlcoholFrame;
     private javax.swing.JLabel MesaLabel;
     private javax.swing.JLabel MozoLabel;
+    private javax.swing.JFrame PayTableFrm;
     private javax.swing.JFrame SaladsProductFrame;
     private javax.swing.JButton SaveButton;
     private javax.swing.JFrame SelectOrder;
@@ -1784,6 +1914,7 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JButton acceptNoAlcoholDrinks;
     private javax.swing.JButton cancelNoAlcoholDrinks;
     private javax.swing.JButton candyProducts;
+    private javax.swing.JButton cashPayment;
     private javax.swing.JCheckBox cepitaCheck;
     private javax.swing.JSpinner cepitaSpinner;
     private javax.swing.JButton closeTable;
@@ -1792,6 +1923,9 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JSpinner cocaLightSpinner;
     private javax.swing.JSpinner cocaSpinner;
     private javax.swing.JButton consuming;
+    private javax.swing.JButton creditPayment;
+    private javax.swing.JButton cuentaCorrientePayment;
+    private javax.swing.JButton debitPayment;
     private javax.swing.JButton deleteTable;
     private javax.swing.JButton drinkAlcohol;
     private javax.swing.JButton drinkNoAlcohol;
@@ -1802,6 +1936,10 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JSpinner fantaSpinner;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1814,6 +1952,7 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
     private javax.swing.JCheckBox licuadoAguaCheck;
     private javax.swing.JSpinner licuadoAguaSpinner;
     private javax.swing.JCheckBox licuadoLecheCheck;
@@ -1824,6 +1963,7 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JSpinner limonada_elaborada_Spinner;
     private javax.swing.JCheckBox manzanaCheck;
     private javax.swing.JSpinner manzanaSpinner;
+    private javax.swing.JButton mercadoPagoPayment;
     private javax.swing.JCheckBox naranjaCheck;
     private javax.swing.JSpinner naranjaSpinner;
     private javax.swing.JButton payAction;
@@ -1847,12 +1987,15 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JCheckBox spriteZeroCheck;
     private javax.swing.JSpinner spriteZeroSpinner;
     private javax.swing.JButton tableFour;
+    private javax.swing.JLabel tableIdPayLabel;
     private javax.swing.JButton tableOne;
     private javax.swing.JButton tableThree;
     private javax.swing.JButton tableTwo;
     private javax.swing.JCheckBox tonicaCheck;
     private javax.swing.JSpinner torosPomeloSpinner;
     private javax.swing.JSpinner torosTonicaSpinner;
+    private javax.swing.JLabel totalPayLabel;
+    private javax.swing.JLabel userTableCompleteNamePay;
     private javax.swing.JCheckBox waterCheck;
     private javax.swing.JCheckBox waterGasCheck;
     private javax.swing.JSpinner waterGasSpinner;
