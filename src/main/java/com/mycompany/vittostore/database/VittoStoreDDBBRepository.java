@@ -114,8 +114,8 @@ public class VittoStoreDDBBRepository {
                 ResultSet resultSet = statement.executeQuery();
 
                 /**
-                 * Manejamos el resultSet.next con un if, ya que solo existe un único
-                 * usuario con nombre - apellido - dni
+                 * Manejamos el resultSet.next con un if, ya que solo existe un
+                 * único usuario con nombre - apellido - dni
                  */
                 if (resultSet.next()) {
                     int id = resultSet.getInt("id");
@@ -148,8 +148,9 @@ public class VittoStoreDDBBRepository {
                 ResultSet resultSet = statement.executeQuery();
 
                 /**
-                 * En este caso, manejamos el resultSet.next con un if
-                 * ya que siempre existirá un único producto identificado por el nombre.
+                 * En este caso, manejamos el resultSet.next con un if ya que
+                 * siempre existirá un único producto identificado por el
+                 * nombre.
                  */
                 if (resultSet.next()) {
                     int id = resultSet.getInt("id");
@@ -264,7 +265,7 @@ public class VittoStoreDDBBRepository {
 
             try {
                 PreparedStatement preparedStatement = this.DDBBConnection.prepareStatement(udateOperatingTableQuery.toString());
-                
+
                 preparedStatement.setTimestamp(1, timeStampNow);
                 preparedStatement.setInt(2, tableId);
                 preparedStatement.setString(3, tableUser);
@@ -276,11 +277,11 @@ public class VittoStoreDDBBRepository {
             }
         }
     }
-    
+
     public List<Integer> getOperatingTable() {
         List<Integer> operatingTableList = new ArrayList<>();
         System.out.println("Get Operating Table LIST");
-        
+
         if (this.DDBBConnection != null) {
 
             String getOperatingTableQuery = " SELECT DISTINCT mesa FROM operating_table WHERE actividad = true ";
@@ -298,13 +299,13 @@ public class VittoStoreDDBBRepository {
                 Logger.getLogger(VittoStoreDDBBRepository.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-        
+
         return operatingTableList;
     }
 
     public String findTableUserByTableId(int tableId) {
-        String tableUser = null; 
-        
+        String tableUser = null;
+
         if (this.DDBBConnection != null) {
 
             String getUser = "SELECT DISTINCT(nombre_mozo) "
@@ -317,8 +318,8 @@ public class VittoStoreDDBBRepository {
                 ResultSet resultSet = statement.executeQuery();
 
                 /**
-                 * Manejamos el resultSet.next con un if, ya que solo existe un único
-                 * usuario que hace referencia a una mesa activa.
+                 * Manejamos el resultSet.next con un if, ya que solo existe un
+                 * único usuario que hace referencia a una mesa activa.
                  */
                 if (resultSet.next()) {
                     tableUser = resultSet.getString("nombre_mozo");
@@ -330,8 +331,39 @@ public class VittoStoreDDBBRepository {
         }
         return tableUser;
     }
-    
-    
-    
-    
+
+    public List<Product> findtableSelectedProducts(int tableId) {
+        Product product;
+        List<Product> productList = new ArrayList<>();
+
+        if (this.DDBBConnection != null) {
+            String getConsumingProducts = "SELECT producto_nombre, producto_cantidad , producto_precio_unitario "
+                    + " FROM operating_table "
+                    + " WHERE mesa = ? "
+                    + " AND actividad = true ";
+            try {
+                PreparedStatement statement = this.DDBBConnection.prepareStatement(getConsumingProducts);
+                statement.setInt(1, tableId);
+                ResultSet resultSet = statement.executeQuery();
+
+                while (resultSet.next()) {
+                    product = new Product();
+                    
+                    product.setBrand(resultSet.getString("PRODUCTO_NOMBRE"));
+                    product.setAmountConsumed(resultSet.getInt("PRODUCTO_CANTIDAD"));
+                    product.setPrice(resultSet.getDouble("PRODUCTO_PRECIO_UNITARIO"));                    
+
+                    productList.add(product);
+
+                }
+
+            } catch (SQLException ex) {
+                Logger.getLogger(VittoStoreDDBBRepository.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+        
+        return productList;
+    }
+
 }

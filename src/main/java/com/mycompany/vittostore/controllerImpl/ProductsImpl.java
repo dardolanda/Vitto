@@ -95,7 +95,7 @@ public class ProductsImpl extends VittoConnection implements Products {
 
     @Override
     public List<Product> findTableSelectedProducts(int tableId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return vittoDDBBStore.findtableSelectedProducts(tableId);
     }
 
 }
