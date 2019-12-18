@@ -34,7 +34,8 @@ public class VittoStoreDDBBRepository {
     public VittoStoreDDBBRepository(int sequence) throws SQLException {
         try {
             Class.forName("org.h2.Driver");
-            this.DDBBConnection = DriverManager.getConnection("jdbc:h2:./VittoStore", "vito", "vito");
+            this.DDBBConnection = DriverManager.getConnection("jdbc:h2:./Vitto", "vito", "vito");
+            // ./VittoStore -> linux
             // /media/landa/Eva-00/Desarrollo_Vitto/VittoStore/VittoDataBase.mv.db
             if (sequence == 1) {
                 JOptionPane.showMessageDialog(null, "Conexión DDBB OK!");
@@ -88,8 +89,9 @@ public class VittoStoreDDBBRepository {
             /*
                 En caso de que no se encuentre activa la conexión
              */
-            this.reconectDDBB();
-            return getUsers();
+            // this.reconectDDBB();
+            // return getUsers();
+            JOptionPane.showMessageDialog(null, "No se ha encontrado la conexión");
         }
 
         return users;
