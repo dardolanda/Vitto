@@ -34,7 +34,7 @@ public class VittoStoreDDBBRepository {
     public VittoStoreDDBBRepository(int sequence) throws SQLException {
         try {
             Class.forName("org.h2.Driver");
-            this.DDBBConnection = DriverManager.getConnection("jdbc:h2:./Vitto", "vito", "vito");
+            this.DDBBConnection = DriverManager.getConnection("jdbc:h2:./VittoStore", "vito", "vito");
             // ./VittoStore -> linux
             // /media/landa/Eva-00/Desarrollo_Vitto/VittoStore/VittoDataBase.mv.db
             if (sequence == 1) {
