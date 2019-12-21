@@ -147,12 +147,14 @@ public class VittoFrame extends javax.swing.JFrame {
         saladProducts = new javax.swing.JButton();
         promotions = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
-        consuming = new javax.swing.JButton();
         payAction = new javax.swing.JButton();
         seeConsuming = new javax.swing.JButton();
         deleteTable = new javax.swing.JButton();
         closeTable = new javax.swing.JButton();
         SaveButton = new javax.swing.JButton();
+        jLabel40 = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
+        jLabel50 = new javax.swing.JLabel();
         DrinkNoAlcoholFrame = new javax.swing.JFrame();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -311,6 +313,7 @@ public class VittoFrame extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel4.setText("Quién sos ?");
 
         drinkNoAlcohol.setText("Bebidas sin alcohol");
@@ -357,13 +360,6 @@ public class VittoFrame extends javax.swing.JFrame {
             }
         });
 
-        consuming.setText("Consumiendo");
-        consuming.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                consumingActionPerformed(evt);
-            }
-        });
-
         payAction.setText("Pagar");
         payAction.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -392,20 +388,45 @@ public class VittoFrame extends javax.swing.JFrame {
             }
         });
 
-        SaveButton.setText("Guardar");
+        SaveButton.setText("Guardar Cambios");
         SaveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SaveButtonActionPerformed(evt);
             }
         });
 
+        jLabel40.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
+        jLabel40.setText("Requiere permisos de administrador");
+
+        jLabel43.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel43.setText("Productos a Elegir");
+
+        jLabel50.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel50.setText("Operaciones");
+
         javax.swing.GroupLayout SelectOrderLayout = new javax.swing.GroupLayout(SelectOrder.getContentPane());
         SelectOrder.getContentPane().setLayout(SelectOrderLayout);
         SelectOrderLayout.setHorizontalGroup(
             SelectOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SelectOrderLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(employeeNameCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(231, 231, 231))
             .addGroup(SelectOrderLayout.createSequentialGroup()
                 .addGroup(SelectOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SelectOrderLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel40))
+                    .addGroup(SelectOrderLayout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(seeConsuming)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(closeTable)
+                        .addGap(50, 50, 50)
+                        .addComponent(payAction, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(48, 48, 48)
+                        .addComponent(deleteTable, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35))
                     .addGroup(SelectOrderLayout.createSequentialGroup()
                         .addGroup(SelectOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(SelectOrderLayout.createSequentialGroup()
@@ -420,28 +441,27 @@ public class VittoFrame extends javax.swing.JFrame {
                                 .addGap(41, 41, 41)
                                 .addComponent(promotions, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(SelectOrderLayout.createSequentialGroup()
-                                .addGap(311, 311, 311)
-                                .addComponent(jLabel4)))
-                        .addGap(0, 34, Short.MAX_VALUE))
-                    .addGroup(SelectOrderLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(SelectOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(SelectOrderLayout.createSequentialGroup()
-                                .addComponent(consuming)
-                                .addGap(18, 18, 18)
-                                .addComponent(payAction, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(closeTable))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(SelectOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(seeConsuming, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(SaveButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(29, 29, 29)
-                        .addComponent(deleteTable, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(64, 64, 64)
+                                .addComponent(jLabel43)))
+                        .addGap(0, 39, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(SelectOrderLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jSeparator1)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SelectOrderLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(employeeNameCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(231, 231, 231))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(SaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(270, 270, 270))
+            .addGroup(SelectOrderLayout.createSequentialGroup()
+                .addGroup(SelectOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(SelectOrderLayout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(jLabel50))
+                    .addGroup(SelectOrderLayout.createSequentialGroup()
+                        .addGap(302, 302, 302)
+                        .addComponent(jLabel4)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         SelectOrderLayout.setVerticalGroup(
             SelectOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -450,7 +470,9 @@ public class VittoFrame extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(employeeNameCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
+                .addGap(14, 14, 14)
+                .addComponent(jLabel43)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(SelectOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(promotions, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
                     .addComponent(candyProducts, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -459,19 +481,21 @@ public class VittoFrame extends javax.swing.JFrame {
                 .addGroup(SelectOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(drinkAlcohol, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
                     .addComponent(saladProducts, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(58, 58, 58)
+                .addGap(31, 31, 31)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel50)
                 .addGap(18, 18, 18)
+                .addComponent(SaveButton)
+                .addGap(28, 28, 28)
                 .addGroup(SelectOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(consuming)
-                    .addComponent(payAction)
                     .addComponent(seeConsuming)
-                    .addComponent(deleteTable))
-                .addGap(39, 39, 39)
-                .addGroup(SelectOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(closeTable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(SaveButton))
-                .addGap(74, 74, 74))
+                    .addComponent(deleteTable)
+                    .addComponent(payAction))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel40)
+                .addGap(17, 17, 17))
         );
 
         jLabel6.setText("Línea Gaseosas");
@@ -956,7 +980,7 @@ public class VittoFrame extends javax.swing.JFrame {
         TotalLabel.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         TotalLabel.setText(".");
 
-        CloseTableButton.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        CloseTableButton.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         CloseTableButton.setText("Cerrar Mesa");
         CloseTableButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1010,7 +1034,7 @@ public class VittoFrame extends javax.swing.JFrame {
                 .addGroup(CloseTableFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(TotalLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addComponent(CloseTableButton)
                 .addGap(24, 24, 24))
             .addGroup(CloseTableFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1867,10 +1891,6 @@ public class VittoFrame extends javax.swing.JFrame {
 
     }//GEN-LAST:event_drinkAlcoholActionPerformed
 
-    private void consumingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consumingActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_consumingActionPerformed
-
     private void seeConsumingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seeConsumingActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_seeConsumingActionPerformed
@@ -2392,7 +2412,6 @@ public class VittoFrame extends javax.swing.JFrame {
 
 
     private void CloseTableButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseTableButtonActionPerformed
-
         
         this.productsImpl.closeTable(this.selectedTable.getId(), this.tableUser.getNombre() + "_" + this.tableUser.getApellido());
 
@@ -2549,7 +2568,6 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JCheckBox cocaLightCheck;
     private javax.swing.JSpinner cocaLightSpinner;
     private javax.swing.JSpinner cocaSpinner;
-    private javax.swing.JButton consuming;
     private javax.swing.JButton deleteTable;
     private javax.swing.JButton drinkAlcohol;
     private javax.swing.JButton drinkNoAlcohol;
@@ -2607,8 +2625,10 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
@@ -2616,6 +2636,7 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
