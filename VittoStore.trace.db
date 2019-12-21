@@ -4827,3 +4827,35 @@ Caused by: java.lang.IllegalStateException: The file is locked: nio:/media/landa
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PRODUCTS" no encontrada
 Table "PRODUCTS" not found; SQL statement:
 select * from products [42102-199]
+2019-12-21 13:02:08 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PAYMENTS" no encontrada
+Table "PAYMENTS" not found; SQL statement:
+drop table payments [42102-199]
+2019-12-21 13:02:15 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE PAYMENTS (
+    ID INT NOT NULL AUTO_INCREMENT,
+    MESA INT,
+    TOTAL DOUBLE,
+    DESCUENTO_APLICADO DOUBLE,
+    NOMBRE_MOZO VARCHAR(100),
+    TIPO_PAGO VARCHAR(50)                                                             
+    HORARIO_PAGO[*] DATE
+) "; se esperaba "FOR, UNSIGNED, INVISIBLE, VISIBLE, NOT, NULL, AS, DEFAULT, GENERATED, ON, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )"
+Syntax error in SQL statement "CREATE TABLE PAYMENTS (
+    ID INT NOT NULL AUTO_INCREMENT,
+    MESA INT,
+    TOTAL DOUBLE,
+    DESCUENTO_APLICADO DOUBLE,
+    NOMBRE_MOZO VARCHAR(100),
+    TIPO_PAGO VARCHAR(50)                                                             
+    HORARIO_PAGO[*] DATE
+) "; expected "FOR, UNSIGNED, INVISIBLE, VISIBLE, NOT, NULL, AS, DEFAULT, GENERATED, ON, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+create table payments (
+    id int not null auto_increment,
+    mesa int,
+    total double,
+    descuento_aplicado double,
+    nombre_mozo varchar(100),
+    tipo_pago varchar(50) -- débito, crédito, efectivo, mercado_pago, cuenta corriente
+    horario_pago date
+) [42001-199]

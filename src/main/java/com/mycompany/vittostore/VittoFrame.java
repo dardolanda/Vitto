@@ -251,6 +251,31 @@ public class VittoFrame extends javax.swing.JFrame {
         jLabel25 = new javax.swing.JLabel();
         jSeparator5 = new javax.swing.JSeparator();
         OtraFormaDePagoFrame = new javax.swing.JFrame();
+        cashDiscount2 = new javax.swing.JComboBox<>();
+        jLabel37 = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
+        efectivoSubTotal6 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
+        jLabel42 = new javax.swing.JLabel();
+        cashSubTotal2 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
+        jCheckBox3 = new javax.swing.JCheckBox();
+        jLabel45 = new javax.swing.JLabel();
+        jButton6 = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jSeparator8 = new javax.swing.JSeparator();
+        jSeparator9 = new javax.swing.JSeparator();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel46 = new javax.swing.JLabel();
+        jLabel47 = new javax.swing.JLabel();
+        jLabel48 = new javax.swing.JLabel();
+        jLabel49 = new javax.swing.JLabel();
+        cashPaymentLastName = new javax.swing.JTextField();
+        cashPaymentName = new javax.swing.JTextField();
+        cashPaymentDNI = new javax.swing.JTextField();
+        cashPaymentCelphone = new javax.swing.JTextField();
         PagoEfectivoFrame1 = new javax.swing.JFrame();
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
@@ -1257,15 +1282,197 @@ public class VittoFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        cashDiscount2.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        cashDiscount2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "5%", "10%", "15%", "20%", "25%", "30%", "50%", "100%" }));
+
+        jLabel37.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jLabel37.setText("Total a pagar");
+
+        jButton5.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jButton5.setText("Calcular");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        efectivoSubTotal6.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        efectivoSubTotal6.setText("total");
+
+        jLabel38.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jLabel38.setText("  Calcular Monto");
+
+        jLabel39.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel39.setText("$");
+
+        jLabel41.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel41.setText("Otro medio de Pago:");
+
+        jLabel42.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jLabel42.setText("  Subtotal a pagar");
+
+        cashSubTotal2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        cashSubTotal2.setText("total");
+
+        jLabel44.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel44.setText("$");
+
+        jCheckBox3.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jCheckBox3.setText("Aplica Descuento");
+        jCheckBox3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox3ActionPerformed(evt);
+            }
+        });
+
+        jLabel45.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jLabel45.setText("  Medio de Pago");
+
+        jButton6.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jButton6.setText("Pagar");
+
+        jComboBox1.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "debito", "credito", "cuenta_corriente", "mercado_pago" }));
+
+        jLabel36.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel36.setText("  Datos Personales");
+
+        jLabel46.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jLabel46.setText("  Nombre");
+
+        jLabel47.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jLabel47.setText("  D.N.I.");
+
+        jLabel48.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jLabel48.setText("  Apellido");
+
+        jLabel49.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jLabel49.setText("  Teléfono");
+
+        cashPaymentName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cashPaymentNameActionPerformed(evt);
+            }
+        });
+
+        cashPaymentCelphone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cashPaymentCelphoneActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout OtraFormaDePagoFrameLayout = new javax.swing.GroupLayout(OtraFormaDePagoFrame.getContentPane());
         OtraFormaDePagoFrame.getContentPane().setLayout(OtraFormaDePagoFrameLayout);
         OtraFormaDePagoFrameLayout.setHorizontalGroup(
             OtraFormaDePagoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 712, Short.MAX_VALUE)
+            .addGroup(OtraFormaDePagoFrameLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(OtraFormaDePagoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(OtraFormaDePagoFrameLayout.createSequentialGroup()
+                        .addGroup(OtraFormaDePagoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel45)
+                            .addComponent(jLabel38)
+                            .addComponent(jLabel42)
+                            .addComponent(jCheckBox3))
+                        .addGap(43, 43, 43)
+                        .addGroup(OtraFormaDePagoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cashDiscount2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(OtraFormaDePagoFrameLayout.createSequentialGroup()
+                                .addComponent(jLabel44)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cashSubTotal2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(OtraFormaDePagoFrameLayout.createSequentialGroup()
+                        .addComponent(jLabel37)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(OtraFormaDePagoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(OtraFormaDePagoFrameLayout.createSequentialGroup()
+                                .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(efectivoSubTotal6, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jButton6))
+                        .addGap(1, 1, 1))
+                    .addGroup(OtraFormaDePagoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(OtraFormaDePagoFrameLayout.createSequentialGroup()
+                            .addGroup(OtraFormaDePagoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel47)
+                                .addComponent(jLabel46)
+                                .addComponent(jLabel48)
+                                .addComponent(jLabel49))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(OtraFormaDePagoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(OtraFormaDePagoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(cashPaymentDNI)
+                                    .addComponent(cashPaymentCelphone, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(cashPaymentLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cashPaymentName, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jSeparator8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(22, Short.MAX_VALUE))
+            .addGroup(OtraFormaDePagoFrameLayout.createSequentialGroup()
+                .addGroup(OtraFormaDePagoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(OtraFormaDePagoFrameLayout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(OtraFormaDePagoFrameLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel36)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         OtraFormaDePagoFrameLayout.setVerticalGroup(
             OtraFormaDePagoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 517, Short.MAX_VALUE)
+            .addGroup(OtraFormaDePagoFrameLayout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addComponent(jLabel41)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(OtraFormaDePagoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(OtraFormaDePagoFrameLayout.createSequentialGroup()
+                        .addGroup(OtraFormaDePagoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel42)
+                            .addComponent(cashSubTotal2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel44))
+                        .addGap(25, 25, 25))
+                    .addGroup(OtraFormaDePagoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel45)))
+                .addGroup(OtraFormaDePagoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cashDiscount2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCheckBox3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(OtraFormaDePagoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel38)
+                    .addComponent(jButton5))
+                .addGap(27, 27, 27)
+                .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel36)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(OtraFormaDePagoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cashPaymentName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel46))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(OtraFormaDePagoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cashPaymentLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel48))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(OtraFormaDePagoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cashPaymentDNI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel47))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(OtraFormaDePagoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cashPaymentCelphone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel49))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(OtraFormaDePagoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel37)
+                    .addComponent(efectivoSubTotal6, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel39))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton6)
+                .addGap(16, 16, 16))
         );
 
         jLabel26.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -2222,6 +2429,22 @@ public class VittoFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox3ActionPerformed
+
+    private void cashPaymentNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cashPaymentNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cashPaymentNameActionPerformed
+
+    private void cashPaymentCelphoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cashPaymentCelphoneActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cashPaymentCelphoneActionPerformed
+
     
     private void setTableColour(int tableId , Color color) {
         
@@ -2310,9 +2533,15 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JButton candyProducts;
     private javax.swing.JComboBox<String> cashDiscount;
     private javax.swing.JComboBox<String> cashDiscount1;
+    private javax.swing.JComboBox<String> cashDiscount2;
     private javax.swing.JButton cashPayment;
+    private javax.swing.JTextField cashPaymentCelphone;
+    private javax.swing.JTextField cashPaymentDNI;
+    private javax.swing.JTextField cashPaymentLastName;
+    private javax.swing.JTextField cashPaymentName;
     private javax.swing.JLabel cashSubTotal;
     private javax.swing.JLabel cashSubTotal1;
+    private javax.swing.JLabel cashSubTotal2;
     private javax.swing.JCheckBox cepitaCheck;
     private javax.swing.JSpinner cepitaSpinner;
     private javax.swing.JButton closeTable;
@@ -2328,6 +2557,7 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JLabel efectivoSubTotal3;
     private javax.swing.JLabel efectivoSubTotal4;
     private javax.swing.JLabel efectivoSubTotal5;
+    private javax.swing.JLabel efectivoSubTotal6;
     private javax.swing.JComboBox<String> employeeNameCombo;
     private javax.swing.JCheckBox exprimidoCheck;
     private javax.swing.JSpinner exprimidoSpinner;
@@ -2337,8 +2567,12 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
+    private javax.swing.JCheckBox jCheckBox3;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -2368,7 +2602,19 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -2381,6 +2627,8 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JSeparator jSeparator8;
+    private javax.swing.JSeparator jSeparator9;
     private javax.swing.JCheckBox licuadoAguaCheck;
     private javax.swing.JSpinner licuadoAguaSpinner;
     private javax.swing.JCheckBox licuadoLecheCheck;
