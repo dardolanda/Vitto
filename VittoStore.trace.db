@@ -4823,3 +4823,7 @@ Caused by: java.lang.IllegalStateException: The file is locked: nio:/media/landa
 	at org.h2.mvstore.FileStore.open(FileStore.java:172)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:390)
 	... 37 more
+2019-12-21 09:50:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "PRODUCTS" no encontrada
+Table "PRODUCTS" not found; SQL statement:
+select * from products [42102-199]

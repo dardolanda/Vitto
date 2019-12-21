@@ -231,7 +231,46 @@ public class VittoFrame extends javax.swing.JFrame {
         otraFormaDePago = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         PagoEfectivoFrame = new javax.swing.JFrame();
-        PagoTarjetaFrame = new javax.swing.JFrame();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        cashSubTotal = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        efectivoSubTotal2 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        efectivoSubTotal3 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        jButton1 = new javax.swing.JButton();
+        paymentCash = new javax.swing.JTextField();
+        cashDiscount = new javax.swing.JComboBox<>();
+        jButton2 = new javax.swing.JButton();
+        jLabel25 = new javax.swing.JLabel();
+        jSeparator5 = new javax.swing.JSeparator();
+        OtraFormaDePagoFrame = new javax.swing.JFrame();
+        PagoEfectivoFrame1 = new javax.swing.JFrame();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        cashSubTotal1 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        efectivoSubTotal4 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        efectivoSubTotal5 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jCheckBox2 = new javax.swing.JCheckBox();
+        jButton3 = new javax.swing.JButton();
+        paymentCash1 = new javax.swing.JTextField();
+        cashDiscount1 = new javax.swing.JComboBox<>();
+        jButton4 = new javax.swing.JButton();
+        jLabel35 = new javax.swing.JLabel();
+        jSeparator6 = new javax.swing.JSeparator();
         tableOne = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         tableTwo = new javax.swing.JButton();
@@ -251,12 +290,12 @@ public class VittoFrame extends javax.swing.JFrame {
 
         drinkNoAlcohol.setText("Bebidas sin alcohol");
         drinkNoAlcohol.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 drinkNoAlcoholAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         drinkNoAlcohol.addActionListener(new java.awt.event.ActionListener() {
@@ -1060,26 +1099,328 @@ public class VittoFrame extends javax.swing.JFrame {
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
+        jLabel16.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel16.setText("Pago Efectivo");
+
+        jLabel17.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jLabel17.setText("Subtotal a pagar");
+
+        cashSubTotal.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        cashSubTotal.setText("total");
+
+        jLabel19.setText("$");
+
+        jLabel18.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jLabel18.setText("Efectivo recibido");
+
+        jLabel20.setText("$");
+
+        jLabel21.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jLabel21.setText("Total a pagar");
+
+        efectivoSubTotal2.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        efectivoSubTotal2.setText("total");
+
+        jLabel22.setText("$");
+
+        jLabel23.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jLabel23.setText("Vuelto");
+
+        efectivoSubTotal3.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        efectivoSubTotal3.setText("total");
+
+        jLabel24.setText("$");
+
+        jCheckBox1.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jCheckBox1.setText("Aplica Descuento");
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Pagar");
+
+        paymentCash.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                paymentCashActionPerformed(evt);
+            }
+        });
+
+        cashDiscount.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        cashDiscount.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "5%", "10%", "15%", "20%", "25%", "30%", "50%", "100%" }));
+
+        jButton2.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jButton2.setText("Calcular");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jLabel25.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jLabel25.setText("Calcular Monto");
+
         javax.swing.GroupLayout PagoEfectivoFrameLayout = new javax.swing.GroupLayout(PagoEfectivoFrame.getContentPane());
         PagoEfectivoFrame.getContentPane().setLayout(PagoEfectivoFrameLayout);
         PagoEfectivoFrameLayout.setHorizontalGroup(
             PagoEfectivoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 712, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PagoEfectivoFrameLayout.createSequentialGroup()
+                .addGroup(PagoEfectivoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(PagoEfectivoFrameLayout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addGroup(PagoEfectivoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PagoEfectivoFrameLayout.createSequentialGroup()
+                                .addGroup(PagoEfectivoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel21)
+                                    .addComponent(jLabel23))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(PagoEfectivoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PagoEfectivoFrameLayout.createSequentialGroup()
+                                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(efectivoSubTotal3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(efectivoSubTotal2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jSeparator5, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PagoEfectivoFrameLayout.createSequentialGroup()
+                                .addGroup(PagoEfectivoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PagoEfectivoFrameLayout.createSequentialGroup()
+                                        .addGroup(PagoEfectivoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel18)
+                                            .addComponent(jCheckBox1)
+                                            .addComponent(jLabel25))
+                                        .addGroup(PagoEfectivoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(PagoEfectivoFrameLayout.createSequentialGroup()
+                                                .addGap(36, 36, 36)
+                                                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PagoEfectivoFrameLayout.createSequentialGroup()
+                                                .addGap(28, 28, 28)
+                                                .addComponent(paymentCash, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(PagoEfectivoFrameLayout.createSequentialGroup()
+                                                .addGap(38, 38, 38)
+                                                .addGroup(PagoEfectivoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                    .addComponent(cashDiscount, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                    .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PagoEfectivoFrameLayout.createSequentialGroup()
+                                        .addComponent(jLabel17)
+                                        .addGap(67, 67, 67)
+                                        .addComponent(jLabel19)
+                                        .addGap(21, 21, 21)
+                                        .addComponent(cashSubTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE))))
+                    .addGroup(PagoEfectivoFrameLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(PagoEfectivoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1))))
+                .addGap(19, 19, 19))
         );
         PagoEfectivoFrameLayout.setVerticalGroup(
             PagoEfectivoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PagoEfectivoFrameLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel16)
+                .addGap(18, 18, 18)
+                .addGroup(PagoEfectivoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(cashSubTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel19))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PagoEfectivoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel18)
+                    .addComponent(jLabel20)
+                    .addComponent(paymentCash, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PagoEfectivoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCheckBox1)
+                    .addComponent(cashDiscount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PagoEfectivoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel25)
+                    .addComponent(jButton2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PagoEfectivoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel21)
+                    .addComponent(efectivoSubTotal2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel22))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PagoEfectivoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PagoEfectivoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(efectivoSubTotal3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel24))
+                    .addComponent(jLabel23))
+                .addGap(23, 23, 23)
+                .addComponent(jButton1)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout OtraFormaDePagoFrameLayout = new javax.swing.GroupLayout(OtraFormaDePagoFrame.getContentPane());
+        OtraFormaDePagoFrame.getContentPane().setLayout(OtraFormaDePagoFrameLayout);
+        OtraFormaDePagoFrameLayout.setHorizontalGroup(
+            OtraFormaDePagoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 712, Short.MAX_VALUE)
+        );
+        OtraFormaDePagoFrameLayout.setVerticalGroup(
+            OtraFormaDePagoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 517, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout PagoTarjetaFrameLayout = new javax.swing.GroupLayout(PagoTarjetaFrame.getContentPane());
-        PagoTarjetaFrame.getContentPane().setLayout(PagoTarjetaFrameLayout);
-        PagoTarjetaFrameLayout.setHorizontalGroup(
-            PagoTarjetaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 712, Short.MAX_VALUE)
+        jLabel26.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel26.setText("Pago Efectivo");
+
+        jLabel27.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jLabel27.setText("Subtotal a pagar");
+
+        cashSubTotal1.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        cashSubTotal1.setText("total");
+
+        jLabel28.setText("$");
+
+        jLabel29.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jLabel29.setText("Efectivo recibido");
+
+        jLabel30.setText("$");
+
+        jLabel31.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jLabel31.setText("Total a pagar");
+
+        efectivoSubTotal4.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        efectivoSubTotal4.setText("total");
+
+        jLabel32.setText("$");
+
+        jLabel33.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jLabel33.setText("Vuelto");
+
+        efectivoSubTotal5.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        efectivoSubTotal5.setText("total");
+
+        jLabel34.setText("$");
+
+        jCheckBox2.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jCheckBox2.setText("Aplica Descuento");
+        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("Pagar");
+
+        paymentCash1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                paymentCash1ActionPerformed(evt);
+            }
+        });
+
+        cashDiscount1.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        cashDiscount1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "5%", "10%", "15%", "20%", "25%", "30%", "50%", "100%" }));
+
+        jButton4.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jButton4.setText("Calcular");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        jLabel35.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jLabel35.setText("Calcular Monto");
+
+        javax.swing.GroupLayout PagoEfectivoFrame1Layout = new javax.swing.GroupLayout(PagoEfectivoFrame1.getContentPane());
+        PagoEfectivoFrame1.getContentPane().setLayout(PagoEfectivoFrame1Layout);
+        PagoEfectivoFrame1Layout.setHorizontalGroup(
+            PagoEfectivoFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PagoEfectivoFrame1Layout.createSequentialGroup()
+                .addGroup(PagoEfectivoFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(PagoEfectivoFrame1Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton3))
+                    .addGroup(PagoEfectivoFrame1Layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addGroup(PagoEfectivoFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PagoEfectivoFrame1Layout.createSequentialGroup()
+                                .addGroup(PagoEfectivoFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel31)
+                                    .addComponent(jLabel33))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(PagoEfectivoFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(PagoEfectivoFrame1Layout.createSequentialGroup()
+                                        .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(efectivoSubTotal5, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(PagoEfectivoFrame1Layout.createSequentialGroup()
+                                        .addComponent(jLabel32)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(efectivoSubTotal4, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PagoEfectivoFrame1Layout.createSequentialGroup()
+                                .addGroup(PagoEfectivoFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel26, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PagoEfectivoFrame1Layout.createSequentialGroup()
+                                        .addComponent(jLabel27)
+                                        .addGap(67, 67, 67)
+                                        .addComponent(jLabel28)
+                                        .addGap(21, 21, 21)
+                                        .addComponent(cashSubTotal1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PagoEfectivoFrame1Layout.createSequentialGroup()
+                                        .addGroup(PagoEfectivoFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel29)
+                                            .addComponent(jCheckBox2)
+                                            .addComponent(jLabel35))
+                                        .addGap(38, 38, 38)
+                                        .addGroup(PagoEfectivoFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addGroup(PagoEfectivoFrame1Layout.createSequentialGroup()
+                                                .addComponent(jLabel30)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(paymentCash1))
+                                            .addComponent(cashDiscount1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jSeparator6, javax.swing.GroupLayout.Alignment.LEADING))))
+                .addGap(19, 19, 19))
         );
-        PagoTarjetaFrameLayout.setVerticalGroup(
-            PagoTarjetaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 517, Short.MAX_VALUE)
+        PagoEfectivoFrame1Layout.setVerticalGroup(
+            PagoEfectivoFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PagoEfectivoFrame1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel26)
+                .addGap(18, 18, 18)
+                .addGroup(PagoEfectivoFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel27)
+                    .addComponent(cashSubTotal1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel28))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PagoEfectivoFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel29)
+                    .addComponent(jLabel30)
+                    .addComponent(paymentCash1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PagoEfectivoFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCheckBox2)
+                    .addComponent(cashDiscount1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PagoEfectivoFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel35)
+                    .addComponent(jButton4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PagoEfectivoFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel31)
+                    .addComponent(efectivoSubTotal4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel32))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PagoEfectivoFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PagoEfectivoFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(efectivoSubTotal5, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel34))
+                    .addComponent(jLabel33))
+                .addGap(44, 44, 44)
+                .addComponent(jButton3)
+                .addContainerGap())
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1857,6 +2198,30 @@ public class VittoFrame extends javax.swing.JFrame {
 
     }//GEN-LAST:event_CloseTableButtonActionPerformed
 
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
+
+    private void paymentCashActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paymentCashActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_paymentCashActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox2ActionPerformed
+
+    private void paymentCash1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paymentCash1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_paymentCash1ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
+
     
     private void setTableColour(int tableId , Color color) {
         
@@ -1931,8 +2296,9 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JFrame DrinkNoAlcoholFrame;
     private javax.swing.JLabel MesaLabel;
     private javax.swing.JLabel MozoLabel;
+    private javax.swing.JFrame OtraFormaDePagoFrame;
     private javax.swing.JFrame PagoEfectivoFrame;
-    private javax.swing.JFrame PagoTarjetaFrame;
+    private javax.swing.JFrame PagoEfectivoFrame1;
     private javax.swing.JFrame PayTableFrm;
     private javax.swing.JFrame SaladsProductFrame;
     private javax.swing.JButton SaveButton;
@@ -1942,7 +2308,11 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JButton acceptNoAlcoholDrinks;
     private javax.swing.JButton cancelNoAlcoholDrinks;
     private javax.swing.JButton candyProducts;
+    private javax.swing.JComboBox<String> cashDiscount;
+    private javax.swing.JComboBox<String> cashDiscount1;
     private javax.swing.JButton cashPayment;
+    private javax.swing.JLabel cashSubTotal;
+    private javax.swing.JLabel cashSubTotal1;
     private javax.swing.JCheckBox cepitaCheck;
     private javax.swing.JSpinner cepitaSpinner;
     private javax.swing.JButton closeTable;
@@ -1954,11 +2324,21 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JButton deleteTable;
     private javax.swing.JButton drinkAlcohol;
     private javax.swing.JButton drinkNoAlcohol;
+    private javax.swing.JLabel efectivoSubTotal2;
+    private javax.swing.JLabel efectivoSubTotal3;
+    private javax.swing.JLabel efectivoSubTotal4;
+    private javax.swing.JLabel efectivoSubTotal5;
     private javax.swing.JComboBox<String> employeeNameCombo;
     private javax.swing.JCheckBox exprimidoCheck;
     private javax.swing.JSpinner exprimidoSpinner;
     private javax.swing.JCheckBox fantaCheck;
     private javax.swing.JSpinner fantaSpinner;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1966,8 +2346,28 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1979,6 +2379,8 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
     private javax.swing.JCheckBox licuadoAguaCheck;
     private javax.swing.JSpinner licuadoAguaSpinner;
     private javax.swing.JCheckBox licuadoLecheCheck;
@@ -1993,6 +2395,8 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JSpinner naranjaSpinner;
     private javax.swing.JButton otraFormaDePago;
     private javax.swing.JButton payAction;
+    private javax.swing.JTextField paymentCash;
+    private javax.swing.JTextField paymentCash1;
     private javax.swing.JCheckBox pomeloCheck;
     private javax.swing.JSpinner pomeloSpinner;
     private javax.swing.JCheckBox pomeloTorosCheck;

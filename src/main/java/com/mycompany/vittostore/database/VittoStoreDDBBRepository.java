@@ -21,6 +21,7 @@ import com.mycompany.vittostore.generalitems.Product;
 import com.mycompany.vittostore.dialogs.GenericDialog;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.sql.Statement;
 
 import java.util.*;
 import javax.swing.JDialog;
@@ -140,7 +141,6 @@ public class VittoStoreDDBBRepository {
 
     public Map<String, Double> getProductFromProductName(String productName) {
         Map<String, Double> productIdPrice = new HashMap<>();
-        double productPrice = 0;
 
         if (this.DDBBConnection != null) {
             String getPrice = "SELECT id, precio FROM product WHERE nombre = ?";
@@ -161,6 +161,8 @@ public class VittoStoreDDBBRepository {
 
                     productIdPrice.put("ID", doubleId);
                     productIdPrice.put("PRECIO", precio);
+                    
+                    System.out.println("(getPriceFromProducts): Product ID: " +  id   + " PRODUCT PRICE --> " + precio);
 
                 }
 
@@ -169,8 +171,6 @@ public class VittoStoreDDBBRepository {
             }
 
         }
-
-        System.out.println("(getPriceFromProducts) =>  PRODUCT PRICE --> " + productPrice);
 
         return productIdPrice;
     }
@@ -189,9 +189,10 @@ public class VittoStoreDDBBRepository {
 
             for (Product product : productList) {
                 System.out.println("product to insert: (BRAND) --> " + product.getBrand());
-                try {
-                    PreparedStatement preparedStatement = this.DDBBConnection.prepareStatement(insertOperatingTableQuery.toString());
-
+                try(
+                    PreparedStatement preparedStatement = this.DDBBConnection.prepareStatement(insertOperatingTableQuery.toString() , Statement.RETURN_GENERATED_KEYS);    
+                ) {
+                    
                     preparedStatement.setInt(1, mesa);
                     preparedStatement.setString(2, nombreMozo);
                     preparedStatement.setInt(3, product.getId());
@@ -202,6 +203,14 @@ public class VittoStoreDDBBRepository {
                     preparedStatement.setTimestamp(8, timeStampNow);
 
                     preparedStatement.execute();
+                    
+                    ResultSet rs = preparedStatement.getGeneratedKeys();
+                    while(rs.next()) {
+                        
+                        System.out.println("rs -> getInt: id     = " + rs.getInt("id"));
+                        System.out.println("rs -> getObject: id  = " + rs.getObject("id"));
+                        
+                    }
 
                 } catch (Exception e) {
                     e.printStackTrace();
