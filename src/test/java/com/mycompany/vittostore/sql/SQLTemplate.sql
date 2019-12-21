@@ -1,7 +1,5 @@
 /*
-    Tener en cuenta que se modificó el tipo de dato de:
-    horario_apertura date --> timestamp
-    horario-cierre   date --> timestamp 
+    Creación de tablas:
 */
 create table operating_table (
     id int not null auto_increment,
@@ -12,18 +10,9 @@ create table operating_table (
     producto_cantidad int,
     producto_precio_unitario double,
     actividad boolean,
-    horario_apertura date,
-    horario_cierre date
+    horario_apertura timestamp,
+    horario_cierre timestamp
 );
-
-
-/*
-    cambio de tipo de dato:
-*/
-alter table operating_table 
-alter column horario_apertura 
-SET DATA TYPE TIMESTAMP;
-
 
 
 create table payments (
@@ -37,9 +26,54 @@ create table payments (
 );
 
 
-insert into operating_table (mesa, nombre_mozo, producto_id, producto_nombre, producto_cantidad, producto_precio_unitario, actividad, horario_apertura, horario_cierre) values (?,?,?,?,?,?,?,?,?)
+
+/*
+    cambio de tipo de dato:
+*/
+alter table operating_table 
+alter column horario_apertura 
+SET DATA TYPE TIMESTAMP;
+
+/*
+    Agrega primary key
+*/
+alter table payments
+add constraint payments_pk
+primary key (id);
 
 
+/*
+    Agrega foreign key
+*/
+alter table payments_customer_data
+add constraint payments__fk
+foreign key(payment_id) references payments (id)
+
+
+create table payments_customer_data (
+    id int not null auto_increment,
+    payment_id int not null,
+    nombre varchar(100),
+    apellido varchar(100),
+    dni varchar(50),
+    tel varchar(70)
+);
+
+
+/*
+    Inserta registros
+*/
+
+insert into operating_table 
+-- columnas: Tener en cuenta que como el id -> autoincremental -> no hace falta su mención en las columnas.
+(mesa, nombre_mozo, producto_id, producto_nombre, producto_cantidad, producto_precio_unitario, actividad, horario_apertura, horario_cierre) 
+-- valores:
+values (?,?,?,?,?,?,?,?,?)
+
+
+/*
+    Delete registros
+*/
 
 delete from operating_table
 where id between 27 and 38;

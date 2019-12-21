@@ -4859,3 +4859,66 @@ create table payments (
     tipo_pago varchar(50) -- débito, crédito, efectivo, mercado_pago, cuenta corriente
     horario_pago date
 ) [42001-199]
+2019-12-21 16:59:23 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "ALTER TABLE PAYMENTS
+ADD CONSTRAINT PAYMENTS_PK PRIMARYKEY[*](ID) "; se esperaba "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"
+Syntax error in SQL statement "ALTER TABLE PAYMENTS
+ADD CONSTRAINT PAYMENTS_PK PRIMARYKEY[*](ID) "; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+alter table payments
+add constraint payments_pk primarykey(id) [42001-199]
+2019-12-21 17:00:13 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "ALTER TABLE PAYMENTS
+ADD CONSTRAINT PAYMENTS_PK PRIMARYKEY[*](ID) "; se esperaba "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"
+Syntax error in SQL statement "ALTER TABLE PAYMENTS
+ADD CONSTRAINT PAYMENTS_PK PRIMARYKEY[*](ID) "; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+alter table payments
+add constraint payments_pk primarykey(id) [42001-199]
+2019-12-21 17:01:23 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "PRIMARY[*] KEY (ID) "
+Syntax error in SQL statement "PRIMARY[*] KEY (ID) "; SQL statement:
+primary key (id) [42000-199]
+2019-12-21 17:05:58 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE PAYMENTS_CUSTOMER_DATA (
+    ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    PAYMENT_ID INT NOT NULL FOREIGN[*] KEY(ID) REFERENCES PAYMENTS(ID),
+    NOMBRE VARCHAR(100),
+    APELLIDO VARCHAR(100),
+    DNI VARCHAR(50),
+    TEL VARCHAR(70)
+) "; se esperaba "AS, DEFAULT, GENERATED, ON, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )"
+Syntax error in SQL statement "CREATE TABLE PAYMENTS_CUSTOMER_DATA (
+    ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    PAYMENT_ID INT NOT NULL FOREIGN[*] KEY(ID) REFERENCES PAYMENTS(ID),
+    NOMBRE VARCHAR(100),
+    APELLIDO VARCHAR(100),
+    DNI VARCHAR(50),
+    TEL VARCHAR(70)
+) "; expected "AS, DEFAULT, GENERATED, ON, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+create table payments_customer_data (
+    id int not null auto_increment primary key,
+    payment_id int not null foreign key(id) references payments(id),
+    nombre varchar(100),
+    apellido varchar(100),
+    dni varchar(50),
+    tel varchar(70)
+) [42001-199]
+2019-12-21 17:10:41 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "ALTER TABLE PAYMENTS_CUSTOMER_DATA
+ADD CONSTRAINT PAYMENTS__FK
+FOREIGN KEY(ID))[*] REFERENCES PAYMENTS (ID) "; se esperaba "INDEX, REFERENCES"
+Syntax error in SQL statement "ALTER TABLE PAYMENTS_CUSTOMER_DATA
+ADD CONSTRAINT PAYMENTS__FK
+FOREIGN KEY(ID))[*] REFERENCES PAYMENTS (ID) "; expected "INDEX, REFERENCES"; SQL statement:
+alter table payments_customer_data
+add constraint payments__fk
+foreign key(id)) references payments (id) [42001-199]
+2019-12-21 17:11:46 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "ALTER TABLE PAYMENTS_CUSTOMER_DATA
+ADD CONSTRAINT PAYMENTS__FK
+FOREIGN KEY(PAYMENT_ID))[*] REFERENCES PAYMENTS (ID) "; se esperaba "INDEX, REFERENCES"
+Syntax error in SQL statement "ALTER TABLE PAYMENTS_CUSTOMER_DATA
+ADD CONSTRAINT PAYMENTS__FK
+FOREIGN KEY(PAYMENT_ID))[*] REFERENCES PAYMENTS (ID) "; expected "INDEX, REFERENCES"; SQL statement:
+alter table payments_customer_data
+add constraint payments__fk
+foreign key(payment_id)) references payments (id) [42001-199]
