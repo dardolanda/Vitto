@@ -1335,7 +1335,7 @@ public class VittoFrame extends javax.swing.JFrame {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "debito", "credito", "cuenta_corriente", "mercado_pago" }));
 
         jLabel36.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel36.setText("  Datos Personales");
+        jLabel36.setText("  Datos Personales:");
 
         jLabel46.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         jLabel46.setText("  Nombre");
