@@ -25,6 +25,8 @@ import com.mycompany.vittostore.controllerImpl.ProductsImpl;
 import com.mycompany.vittostore.controllerImpl.UsersImpl;
 import com.mycompany.vittostore.generalitems.GenericSelectedComponent;
 import java.awt.Component;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import javafx.scene.control.CheckBox;
 
 import javax.swing.DefaultComboBoxModel;
@@ -44,7 +46,7 @@ public class VittoFrame extends javax.swing.JFrame {
     Users usersImpl = new UsersImpl(1);
     Products productsImpl = new ProductsImpl(2);
     Map<String, GenericSelectedComponent> selectedComponentMap = new HashMap<>();
-    
+
     Map<NoAlcoholDrinksEnum, Integer> noAlcoholDrinks;
     Map<NoAlcoholDrinksEnum, Integer> AlcoholDrinks;
     User tableUser;
@@ -59,47 +61,45 @@ public class VittoFrame extends javax.swing.JFrame {
     public VittoFrame() {
         this.initComponents();
         this.initSelectedComponent();
-        
+
         List<Integer> operatingTableList = this.productsImpl.getOperatingTable();
-        
-        operatingTableList.forEach(table -> 
-                this.setTableColour(table, Color.yellow)
+
+        operatingTableList.forEach(table
+                -> this.setTableColour(table, Color.yellow)
         );
-        
+
         this.employeeList = this.usersImpl.getUsers();
 
         this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
     }
-    
-    
-    
+
     /**
-     * Carga el mapa selectedComponentMap para tener los componentes activos, 
-     * de esta manera podemos setearlos desde la BBDD.
+     * Carga el mapa selectedComponentMap para tener los componentes activos, de
+     * esta manera podemos setearlos desde la BBDD.
      */
     private void initSelectedComponent() {
-        this.selectedComponentMap.put(NoAlcoholDrinksEnum.COCA_COLA.name(),  new GenericSelectedComponent(this.cocaColaCheck, this.cocaSpinner));
-        this.selectedComponentMap.put(NoAlcoholDrinksEnum.COCA_LIGHT.name(),  new GenericSelectedComponent(this.cocaLightCheck, this.cocaLightSpinner));
-        this.selectedComponentMap.put(NoAlcoholDrinksEnum.SPRITE.name(),  new GenericSelectedComponent(this.spriteCheck, this.spriteSpinner));
-        this.selectedComponentMap.put(NoAlcoholDrinksEnum.SPRITE_ZERO.name(),  new GenericSelectedComponent(this.spriteZeroCheck, this.spriteZeroSpinner));
-        this.selectedComponentMap.put(NoAlcoholDrinksEnum.PASO_TOROS_POMELO.name(),  new GenericSelectedComponent(this.pomeloTorosCheck, this.torosPomeloSpinner));
-        this.selectedComponentMap.put(NoAlcoholDrinksEnum.PASO_TOROS_TONICA.name(),  new GenericSelectedComponent(this.tonicaCheck, this.torosTonicaSpinner));
-        this.selectedComponentMap.put(NoAlcoholDrinksEnum.FANTA.name(),  new GenericSelectedComponent(this.fantaCheck, this.fantaSpinner));
-        this.selectedComponentMap.put(NoAlcoholDrinksEnum.LEVITE_LIMONADA.name(),  new GenericSelectedComponent(this.limonadaCheck, this.limonadaSpinner));
-        this.selectedComponentMap.put(NoAlcoholDrinksEnum.LEVITE_MANZANA.name(),  new GenericSelectedComponent(this.manzanaCheck, this.manzanaSpinner));
-        this.selectedComponentMap.put(NoAlcoholDrinksEnum.LEVITE_NARANJA.name(),  new GenericSelectedComponent(this.naranjaCheck, this.naranjaSpinner));
-        this.selectedComponentMap.put(NoAlcoholDrinksEnum.LEVITE_POMELO.name(),  new GenericSelectedComponent(this.pomeloCheck, this.pomeloSpinner));
-        this.selectedComponentMap.put(NoAlcoholDrinksEnum.CEPITA.name(),  new GenericSelectedComponent(this.cepitaCheck, this.cepitaSpinner));
-        this.selectedComponentMap.put(NoAlcoholDrinksEnum.SCHEWEPPES_POMELO.name(),  new GenericSelectedComponent(this.scheweppesPomeloCheck, this.scheweppesPomeloSpinner));
-        this.selectedComponentMap.put(NoAlcoholDrinksEnum.SCHEWEPPES_TONICA.name(),  new GenericSelectedComponent(this.scheweppesTonicaCheck, this.scheweppesTonicaSpinner));
-        this.selectedComponentMap.put(NoAlcoholDrinksEnum.AGUA.name(),  new GenericSelectedComponent(this.waterCheck, this.waterSpinner));
-        this.selectedComponentMap.put(NoAlcoholDrinksEnum.AGUA_GAS.name(),  new GenericSelectedComponent(this.waterGasCheck, this.waterGasSpinner));
-        this.selectedComponentMap.put(NoAlcoholDrinksEnum.EXPRIMIDO.name(),  new GenericSelectedComponent(this.exprimidoCheck, this.exprimidoSpinner));
-        this.selectedComponentMap.put(NoAlcoholDrinksEnum.LICUADO_LECHE.name(),  new GenericSelectedComponent(this.licuadoLecheCheck, this.licuadoLecheSpinner));
-        this.selectedComponentMap.put(NoAlcoholDrinksEnum.LICUADO_AGUA.name(),  new GenericSelectedComponent(this.licuadoAguaCheck, this.licuadoAguaSpinner));
-        this.selectedComponentMap.put(NoAlcoholDrinksEnum.LIMONADA.name(),  new GenericSelectedComponent(this.limonadaElaboradoCheck, this.limonada_elaborada_Spinner));
-        this.selectedComponentMap.put(NoAlcoholDrinksEnum.MILK_SHAKE_CHOCO.name(),  new GenericSelectedComponent(this.shakeChocolateCheck, this.shakeChocolateSpinner));
-        this.selectedComponentMap.put(NoAlcoholDrinksEnum.MILK_SHAKE_DULCE_LECHE.name(),  new GenericSelectedComponent(this.shakeDulceLecheCheck, this.shakeDulceLecheSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.COCA_COLA.name(), new GenericSelectedComponent(this.cocaColaCheck, this.cocaSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.COCA_LIGHT.name(), new GenericSelectedComponent(this.cocaLightCheck, this.cocaLightSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.SPRITE.name(), new GenericSelectedComponent(this.spriteCheck, this.spriteSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.SPRITE_ZERO.name(), new GenericSelectedComponent(this.spriteZeroCheck, this.spriteZeroSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.PASO_TOROS_POMELO.name(), new GenericSelectedComponent(this.pomeloTorosCheck, this.torosPomeloSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.PASO_TOROS_TONICA.name(), new GenericSelectedComponent(this.tonicaCheck, this.torosTonicaSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.FANTA.name(), new GenericSelectedComponent(this.fantaCheck, this.fantaSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.LEVITE_LIMONADA.name(), new GenericSelectedComponent(this.limonadaCheck, this.limonadaSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.LEVITE_MANZANA.name(), new GenericSelectedComponent(this.manzanaCheck, this.manzanaSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.LEVITE_NARANJA.name(), new GenericSelectedComponent(this.naranjaCheck, this.naranjaSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.LEVITE_POMELO.name(), new GenericSelectedComponent(this.pomeloCheck, this.pomeloSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.CEPITA.name(), new GenericSelectedComponent(this.cepitaCheck, this.cepitaSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.SCHEWEPPES_POMELO.name(), new GenericSelectedComponent(this.scheweppesPomeloCheck, this.scheweppesPomeloSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.SCHEWEPPES_TONICA.name(), new GenericSelectedComponent(this.scheweppesTonicaCheck, this.scheweppesTonicaSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.AGUA.name(), new GenericSelectedComponent(this.waterCheck, this.waterSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.AGUA_GAS.name(), new GenericSelectedComponent(this.waterGasCheck, this.waterGasSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.EXPRIMIDO.name(), new GenericSelectedComponent(this.exprimidoCheck, this.exprimidoSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.LICUADO_LECHE.name(), new GenericSelectedComponent(this.licuadoLecheCheck, this.licuadoLecheSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.LICUADO_AGUA.name(), new GenericSelectedComponent(this.licuadoAguaCheck, this.licuadoAguaSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.LIMONADA.name(), new GenericSelectedComponent(this.limonadaElaboradoCheck, this.limonada_elaborada_Spinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.MILK_SHAKE_CHOCO.name(), new GenericSelectedComponent(this.shakeChocolateCheck, this.shakeChocolateSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.MILK_SHAKE_DULCE_LECHE.name(), new GenericSelectedComponent(this.shakeDulceLecheCheck, this.shakeDulceLecheSpinner));
     }
 
     private void chargeEmployee(String userTable) {
@@ -110,9 +110,8 @@ public class VittoFrame extends javax.swing.JFrame {
 
         DefaultComboBoxModel employeeModel = new DefaultComboBoxModel(employeeNamesList.toArray());
         this.employeeNameCombo.setModel(employeeModel);
-        
+
         // this.employeeNameCombo
-        
         if (userTable != null) {
             String[] userTableArray = userTable.split("_");
             this.employeeNameCombo.setSelectedItem(userTableArray[0] + " " + userTableArray[1]);
@@ -124,7 +123,7 @@ public class VittoFrame extends javax.swing.JFrame {
 
     private void selectOrderView(int table) {
         SelectOrder.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
-        SelectOrder.setSize(800, 600);
+        SelectOrder.setSize(700, 600);
         SelectOrder.setVisible(true);
 
     }
@@ -140,7 +139,7 @@ public class VittoFrame extends javax.swing.JFrame {
 
         SelectOrder = new javax.swing.JFrame();
         employeeNameCombo = new javax.swing.JComboBox<>();
-        jLabel4 = new javax.swing.JLabel();
+        whoAmILbl = new javax.swing.JLabel();
         drinkNoAlcohol = new javax.swing.JButton();
         drinkAlcohol = new javax.swing.JButton();
         candyProducts = new javax.swing.JButton();
@@ -151,7 +150,6 @@ public class VittoFrame extends javax.swing.JFrame {
         seeConsuming = new javax.swing.JButton();
         deleteTable = new javax.swing.JButton();
         closeTable = new javax.swing.JButton();
-        SaveButton = new javax.swing.JButton();
         jLabel40 = new javax.swing.JLabel();
         jLabel43 = new javax.swing.JLabel();
         jLabel50 = new javax.swing.JLabel();
@@ -240,16 +238,16 @@ public class VittoFrame extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        efectivoSubTotal2 = new javax.swing.JLabel();
+        cashTotalPay = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
-        efectivoSubTotal3 = new javax.swing.JLabel();
+        cashChangeBack = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        cashPayDiscountCheck = new javax.swing.JCheckBox();
         jButton1 = new javax.swing.JButton();
         paymentCash = new javax.swing.JTextField();
-        cashDiscount = new javax.swing.JComboBox<>();
-        jButton2 = new javax.swing.JButton();
+        cashDiscountCombo = new javax.swing.JComboBox<>();
+        cashCalculateTotal = new javax.swing.JButton();
         jLabel25 = new javax.swing.JLabel();
         jSeparator5 = new javax.swing.JSeparator();
         OtraFormaDePagoFrame = new javax.swing.JFrame();
@@ -278,26 +276,6 @@ public class VittoFrame extends javax.swing.JFrame {
         cashPaymentName = new javax.swing.JTextField();
         cashPaymentDNI = new javax.swing.JTextField();
         cashPaymentCelphone = new javax.swing.JTextField();
-        PagoEfectivoFrame1 = new javax.swing.JFrame();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        cashSubTotal1 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        jLabel29 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
-        jLabel31 = new javax.swing.JLabel();
-        efectivoSubTotal4 = new javax.swing.JLabel();
-        jLabel32 = new javax.swing.JLabel();
-        jLabel33 = new javax.swing.JLabel();
-        efectivoSubTotal5 = new javax.swing.JLabel();
-        jLabel34 = new javax.swing.JLabel();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jButton3 = new javax.swing.JButton();
-        paymentCash1 = new javax.swing.JTextField();
-        cashDiscount1 = new javax.swing.JComboBox<>();
-        jButton4 = new javax.swing.JButton();
-        jLabel35 = new javax.swing.JLabel();
-        jSeparator6 = new javax.swing.JSeparator();
         tableOne = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         tableTwo = new javax.swing.JButton();
@@ -313,8 +291,8 @@ public class VittoFrame extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel4.setText("Quién sos ?");
+        whoAmILbl.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        whoAmILbl.setText("Quién sos ?");
 
         drinkNoAlcohol.setText("Bebidas sin alcohol");
         drinkNoAlcohol.addAncestorListener(new javax.swing.event.AncestorListener() {
@@ -388,13 +366,6 @@ public class VittoFrame extends javax.swing.JFrame {
             }
         });
 
-        SaveButton.setText("Guardar Cambios");
-        SaveButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SaveButtonActionPerformed(evt);
-            }
-        });
-
         jLabel40.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
         jLabel40.setText("Requiere permisos de administrador");
 
@@ -418,16 +389,6 @@ public class VittoFrame extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel40))
                     .addGroup(SelectOrderLayout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(seeConsuming)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(closeTable)
-                        .addGap(50, 50, 50)
-                        .addComponent(payAction, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(48, 48, 48)
-                        .addComponent(deleteTable, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35))
-                    .addGroup(SelectOrderLayout.createSequentialGroup()
                         .addGroup(SelectOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(SelectOrderLayout.createSequentialGroup()
                                 .addGap(56, 56, 56)
@@ -443,31 +404,37 @@ public class VittoFrame extends javax.swing.JFrame {
                             .addGroup(SelectOrderLayout.createSequentialGroup()
                                 .addGap(64, 64, 64)
                                 .addComponent(jLabel43)))
-                        .addGap(0, 39, Short.MAX_VALUE)))
+                        .addGap(0, 32, Short.MAX_VALUE))
+                    .addGroup(SelectOrderLayout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addGroup(SelectOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(SelectOrderLayout.createSequentialGroup()
+                                .addComponent(jLabel50)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(SelectOrderLayout.createSequentialGroup()
+                                .addComponent(seeConsuming)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(closeTable)
+                                .addGap(50, 50, 50)
+                                .addComponent(payAction, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(48, 48, 48)
+                                .addComponent(deleteTable, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(35, 35, 35)))))
                 .addContainerGap())
             .addGroup(SelectOrderLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jSeparator1)
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SelectOrderLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(SaveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(270, 270, 270))
             .addGroup(SelectOrderLayout.createSequentialGroup()
-                .addGroup(SelectOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(SelectOrderLayout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addComponent(jLabel50))
-                    .addGroup(SelectOrderLayout.createSequentialGroup()
-                        .addGap(302, 302, 302)
-                        .addComponent(jLabel4)))
+                .addGap(302, 302, 302)
+                .addComponent(whoAmILbl)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         SelectOrderLayout.setVerticalGroup(
             SelectOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SelectOrderLayout.createSequentialGroup()
                 .addGap(7, 7, 7)
-                .addComponent(jLabel4)
+                .addComponent(whoAmILbl)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(employeeNameCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
@@ -485,9 +452,7 @@ public class VittoFrame extends javax.swing.JFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel50)
-                .addGap(18, 18, 18)
-                .addComponent(SaveButton)
-                .addGap(28, 28, 28)
+                .addGap(33, 33, 33)
                 .addGroup(SelectOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(seeConsuming)
                     .addComponent(closeTable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -495,14 +460,14 @@ public class VittoFrame extends javax.swing.JFrame {
                     .addComponent(payAction))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel40)
-                .addGap(17, 17, 17))
+                .addContainerGap())
         );
 
         jLabel6.setText("Línea Gaseosas");
 
         jLabel7.setText("Línea Elaborados");
 
-        acceptNoAlcoholDrinks.setText("Aceptar");
+        acceptNoAlcoholDrinks.setText("Guardar Pedido");
         acceptNoAlcoholDrinks.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 acceptNoAlcoholDrinksActionPerformed(evt);
@@ -708,23 +673,16 @@ public class VittoFrame extends javax.swing.JFrame {
                                         .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(limonada_elaborada_Spinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(exprimidoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(68, 68, 68)
                                         .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
-                                                .addGap(101, 101, 101)
-                                                .addComponent(cancelNoAlcoholDrinks)
-                                                .addGap(41, 41, 41)
-                                                .addComponent(acceptNoAlcoholDrinks, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(licuadoAguaCheck)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(licuadoAguaSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
-                                                .addGap(68, 68, 68)
-                                                .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
-                                                        .addComponent(licuadoAguaCheck)
-                                                        .addGap(18, 18, 18)
-                                                        .addComponent(licuadoAguaSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                    .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
-                                                        .addComponent(licuadoLecheCheck)
-                                                        .addGap(18, 18, 18)
-                                                        .addComponent(licuadoLecheSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                                .addComponent(licuadoLecheCheck)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(licuadoLecheSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                     .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
                                         .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(scheweppesPomeloCheck)
@@ -733,7 +691,7 @@ public class VittoFrame extends javax.swing.JFrame {
                                         .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                             .addComponent(scheweppesTonicaSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(scheweppesPomeloSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addGap(0, 63, Short.MAX_VALUE))
                             .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
                                 .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(spriteCheck)
@@ -783,6 +741,12 @@ public class VittoFrame extends javax.swing.JFrame {
                                             .addComponent(limonadaSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addGap(56, 56, 56)))
                         .addContainerGap())))
+            .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(acceptNoAlcoholDrinks, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cancelNoAlcoholDrinks)
+                .addContainerGap())
         );
         DrinkNoAlcoholFrameLayout.setVerticalGroup(
             DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -878,11 +842,7 @@ public class VittoFrame extends javax.swing.JFrame {
                         .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(shakeChocolateCheck)
                             .addComponent(shakeChocolateSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(46, 46, 46)
-                        .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cancelNoAlcoholDrinks)
-                            .addComponent(acceptNoAlcoholDrinks))
-                        .addContainerGap())
+                        .addGap(46, 46, 46))
                     .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -892,7 +852,11 @@ public class VittoFrame extends javax.swing.JFrame {
                         .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(scheweppesTonicaSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(scheweppesTonicaCheck))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cancelNoAlcoholDrinks)
+                    .addComponent(acceptNoAlcoholDrinks))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout DrinkAlcoholFrameLayout = new javax.swing.GroupLayout(DrinkAlcoholFrame.getContentPane());
@@ -1078,6 +1042,11 @@ public class VittoFrame extends javax.swing.JFrame {
 
         cashPayment.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
         cashPayment.setText("Efectivo");
+        cashPayment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cashPaymentActionPerformed(evt);
+            }
+        });
 
         otraFormaDePago.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
         otraFormaDePago.setText("Otros");
@@ -1152,7 +1121,7 @@ public class VittoFrame extends javax.swing.JFrame {
         jLabel16.setText("Pago Efectivo");
 
         jLabel17.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        jLabel17.setText("Subtotal a pagar");
+        jLabel17.setText(" Subtotal a pagar");
 
         cashSubTotal.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         cashSubTotal.setText("total");
@@ -1160,31 +1129,30 @@ public class VittoFrame extends javax.swing.JFrame {
         jLabel19.setText("$");
 
         jLabel18.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        jLabel18.setText("Efectivo recibido");
+        jLabel18.setText(" Efectivo recibido");
 
         jLabel20.setText("$");
 
         jLabel21.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        jLabel21.setText("Total a pagar");
+        jLabel21.setText(" Total a pagar");
 
-        efectivoSubTotal2.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        efectivoSubTotal2.setText("total");
+        cashTotalPay.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
 
         jLabel22.setText("$");
 
         jLabel23.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        jLabel23.setText("Vuelto");
+        jLabel23.setText(" Vuelto");
 
-        efectivoSubTotal3.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        efectivoSubTotal3.setText("total");
+        cashChangeBack.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        cashChangeBack.setToolTipText("");
 
         jLabel24.setText("$");
 
-        jCheckBox1.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        jCheckBox1.setText("Aplica Descuento");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        cashPayDiscountCheck.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        cashPayDiscountCheck.setText("Aplica Descuento");
+        cashPayDiscountCheck.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                cashPayDiscountCheckActionPerformed(evt);
             }
         });
 
@@ -1196,19 +1164,19 @@ public class VittoFrame extends javax.swing.JFrame {
             }
         });
 
-        cashDiscount.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        cashDiscount.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "5%", "10%", "15%", "20%", "25%", "30%", "50%", "100%" }));
+        cashDiscountCombo.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        cashDiscountCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "5%", "10%", "15%", "20%", "25%", "30%", "50%", "100%" }));
 
-        jButton2.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        jButton2.setText("Calcular");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        cashCalculateTotal.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        cashCalculateTotal.setText("Calcular");
+        cashCalculateTotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                cashCalculateTotalActionPerformed(evt);
             }
         });
 
         jLabel25.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        jLabel25.setText("Calcular Monto");
+        jLabel25.setText(" Calcular Monto");
 
         javax.swing.GroupLayout PagoEfectivoFrameLayout = new javax.swing.GroupLayout(PagoEfectivoFrame.getContentPane());
         PagoEfectivoFrame.getContentPane().setLayout(PagoEfectivoFrameLayout);
@@ -1219,51 +1187,54 @@ public class VittoFrame extends javax.swing.JFrame {
                     .addGroup(PagoEfectivoFrameLayout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addGroup(PagoEfectivoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PagoEfectivoFrameLayout.createSequentialGroup()
-                                .addGroup(PagoEfectivoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel21)
-                                    .addComponent(jLabel23))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(PagoEfectivoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PagoEfectivoFrameLayout.createSequentialGroup()
-                                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(efectivoSubTotal3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(efectivoSubTotal2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jSeparator5, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PagoEfectivoFrameLayout.createSequentialGroup()
                                 .addGroup(PagoEfectivoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PagoEfectivoFrameLayout.createSequentialGroup()
-                                        .addGroup(PagoEfectivoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel18)
-                                            .addComponent(jCheckBox1)
-                                            .addComponent(jLabel25))
-                                        .addGroup(PagoEfectivoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(PagoEfectivoFrameLayout.createSequentialGroup()
-                                                .addGap(36, 36, 36)
-                                                .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PagoEfectivoFrameLayout.createSequentialGroup()
-                                                .addGap(28, 28, 28)
-                                                .addComponent(paymentCash, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(PagoEfectivoFrameLayout.createSequentialGroup()
-                                                .addGap(38, 38, 38)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PagoEfectivoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PagoEfectivoFrameLayout.createSequentialGroup()
+                                            .addGroup(PagoEfectivoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addGroup(PagoEfectivoFrameLayout.createSequentialGroup()
+                                                    .addGroup(PagoEfectivoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(cashPayDiscountCheck)
+                                                        .addComponent(jLabel25))
+                                                    .addGap(38, 38, 38))
+                                                .addGroup(PagoEfectivoFrameLayout.createSequentialGroup()
+                                                    .addComponent(jLabel18)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                                            .addGroup(PagoEfectivoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(paymentCash, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGroup(PagoEfectivoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                    .addComponent(cashDiscount, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                                    .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(cashDiscountCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(cashCalculateTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PagoEfectivoFrameLayout.createSequentialGroup()
+                                            .addComponent(jLabel17)
+                                            .addGap(48, 48, 48)
+                                            .addComponent(jLabel19)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(cashSubTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PagoEfectivoFrameLayout.createSequentialGroup()
-                                        .addComponent(jLabel17)
-                                        .addGap(67, 67, 67)
-                                        .addComponent(jLabel19)
-                                        .addGap(21, 21, 21)
-                                        .addComponent(cashSubTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE))))
+                                        .addGroup(PagoEfectivoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel21)
+                                            .addComponent(jLabel23))
+                                        .addGap(77, 77, 77)
+                                        .addGroup(PagoEfectivoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, 12, Short.MAX_VALUE)
+                                            .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(PagoEfectivoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(cashChangeBack, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE)
+                                            .addComponent(cashTotalPay, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addGap(0, 10, Short.MAX_VALUE))))
                     .addGroup(PagoEfectivoFrameLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(PagoEfectivoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1))))
+                        .addComponent(jButton1)))
                 .addGap(19, 19, 19))
+            .addGroup(PagoEfectivoFrameLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel16)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PagoEfectivoFrameLayout.setVerticalGroup(
             PagoEfectivoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1282,23 +1253,23 @@ public class VittoFrame extends javax.swing.JFrame {
                     .addComponent(paymentCash, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PagoEfectivoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox1)
-                    .addComponent(cashDiscount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cashPayDiscountCheck)
+                    .addComponent(cashDiscountCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PagoEfectivoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel25)
-                    .addComponent(jButton2))
+                    .addComponent(cashCalculateTotal))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jSeparator5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PagoEfectivoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel21)
-                    .addComponent(efectivoSubTotal2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cashTotalPay, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel22))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PagoEfectivoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PagoEfectivoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(efectivoSubTotal3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cashChangeBack, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel24))
                     .addComponent(jLabel23))
                 .addGap(23, 23, 23)
@@ -1499,161 +1470,6 @@ public class VittoFrame extends javax.swing.JFrame {
                 .addGap(16, 16, 16))
         );
 
-        jLabel26.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel26.setText("Pago Efectivo");
-
-        jLabel27.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        jLabel27.setText("Subtotal a pagar");
-
-        cashSubTotal1.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        cashSubTotal1.setText("total");
-
-        jLabel28.setText("$");
-
-        jLabel29.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        jLabel29.setText("Efectivo recibido");
-
-        jLabel30.setText("$");
-
-        jLabel31.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        jLabel31.setText("Total a pagar");
-
-        efectivoSubTotal4.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        efectivoSubTotal4.setText("total");
-
-        jLabel32.setText("$");
-
-        jLabel33.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        jLabel33.setText("Vuelto");
-
-        efectivoSubTotal5.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        efectivoSubTotal5.setText("total");
-
-        jLabel34.setText("$");
-
-        jCheckBox2.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        jCheckBox2.setText("Aplica Descuento");
-        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox2ActionPerformed(evt);
-            }
-        });
-
-        jButton3.setText("Pagar");
-
-        paymentCash1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                paymentCash1ActionPerformed(evt);
-            }
-        });
-
-        cashDiscount1.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        cashDiscount1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "5%", "10%", "15%", "20%", "25%", "30%", "50%", "100%" }));
-
-        jButton4.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        jButton4.setText("Calcular");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-
-        jLabel35.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        jLabel35.setText("Calcular Monto");
-
-        javax.swing.GroupLayout PagoEfectivoFrame1Layout = new javax.swing.GroupLayout(PagoEfectivoFrame1.getContentPane());
-        PagoEfectivoFrame1.getContentPane().setLayout(PagoEfectivoFrame1Layout);
-        PagoEfectivoFrame1Layout.setHorizontalGroup(
-            PagoEfectivoFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PagoEfectivoFrame1Layout.createSequentialGroup()
-                .addGroup(PagoEfectivoFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(PagoEfectivoFrame1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton3))
-                    .addGroup(PagoEfectivoFrame1Layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addGroup(PagoEfectivoFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PagoEfectivoFrame1Layout.createSequentialGroup()
-                                .addGroup(PagoEfectivoFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel31)
-                                    .addComponent(jLabel33))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(PagoEfectivoFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(PagoEfectivoFrame1Layout.createSequentialGroup()
-                                        .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(efectivoSubTotal5, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(PagoEfectivoFrame1Layout.createSequentialGroup()
-                                        .addComponent(jLabel32)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(efectivoSubTotal4, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PagoEfectivoFrame1Layout.createSequentialGroup()
-                                .addGroup(PagoEfectivoFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel26, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PagoEfectivoFrame1Layout.createSequentialGroup()
-                                        .addComponent(jLabel27)
-                                        .addGap(67, 67, 67)
-                                        .addComponent(jLabel28)
-                                        .addGap(21, 21, 21)
-                                        .addComponent(cashSubTotal1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PagoEfectivoFrame1Layout.createSequentialGroup()
-                                        .addGroup(PagoEfectivoFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel29)
-                                            .addComponent(jCheckBox2)
-                                            .addComponent(jLabel35))
-                                        .addGap(38, 38, 38)
-                                        .addGroup(PagoEfectivoFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addGroup(PagoEfectivoFrame1Layout.createSequentialGroup()
-                                                .addComponent(jLabel30)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(paymentCash1))
-                                            .addComponent(cashDiscount1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jSeparator6, javax.swing.GroupLayout.Alignment.LEADING))))
-                .addGap(19, 19, 19))
-        );
-        PagoEfectivoFrame1Layout.setVerticalGroup(
-            PagoEfectivoFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PagoEfectivoFrame1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel26)
-                .addGap(18, 18, 18)
-                .addGroup(PagoEfectivoFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel27)
-                    .addComponent(cashSubTotal1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel28))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(PagoEfectivoFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel29)
-                    .addComponent(jLabel30)
-                    .addComponent(paymentCash1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(PagoEfectivoFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox2)
-                    .addComponent(cashDiscount1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(PagoEfectivoFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel35)
-                    .addComponent(jButton4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(PagoEfectivoFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel31)
-                    .addComponent(efectivoSubTotal4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel32))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(PagoEfectivoFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PagoEfectivoFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(efectivoSubTotal5, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel34))
-                    .addComponent(jLabel33))
-                .addGap(44, 44, 44)
-                .addComponent(jButton3)
-                .addContainerGap())
-        );
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         tableOne.setBackground(new java.awt.Color(51, 204, 0));
@@ -1758,9 +1574,9 @@ public class VittoFrame extends javax.swing.JFrame {
         // System.out.println(evt);
         this.selectedTable.setState("tableOne");
         this.selectedTable.setId(1);
-        
+
         String tableUser = this.productsImpl.findTableUserByTableId(this.selectedTable.getId());
-        
+
         this.chargeEmployee(tableUser);
         this.selectOrderView(1);
 
@@ -1772,8 +1588,8 @@ public class VittoFrame extends javax.swing.JFrame {
         System.out.println("selected name (employee combo) : " + names[0] + " ___ " + names[1]);
 
         this.tableUser = this.usersImpl.findUserByCompleteName(names[0], names[1]);
-        
-        System.out.println("tableUser --> " + this.tableUser.getNombre() + "- - - " + this.tableUser.getApellido() );
+
+        System.out.println("tableUser --> " + this.tableUser.getNombre() + "- - - " + this.tableUser.getApellido());
 
     }//GEN-LAST:event_employeeNameComboActionPerformed
 
@@ -1781,9 +1597,9 @@ public class VittoFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.selectedTable.setState("TableTwo");
         this.selectedTable.setId(2);
-        
+
         String tableUser = this.productsImpl.findTableUserByTableId(this.selectedTable.getId());
-        
+
         this.chargeEmployee(tableUser);
         this.selectOrderView(2);
 
@@ -1793,15 +1609,14 @@ public class VittoFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.selectedTable.setState("TableThree");
         this.selectedTable.setId(3);
-        
+
         String tableUser = this.productsImpl.findTableUserByTableId(this.selectedTable.getId());
         this.chargeEmployee(tableUser);
         this.selectOrderView(3);
 
     }//GEN-LAST:event_tableThreeActionPerformed
 
-    
-    
+
     private void drinkNoAlcoholActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drinkNoAlcoholActionPerformed
 
         DrinkNoAlcoholFrame.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
@@ -1812,22 +1627,21 @@ public class VittoFrame extends javax.swing.JFrame {
         System.out.println(this.selectedTable.getState());
         System.out.println(this.selectedTable.getId());
         System.out.println("---- END: Table Selected ----");
-                
+
         List<Product> selectedTableProducts = this.productsImpl.findTableSelectedProducts(this.selectedTable.getId());
 
         if (selectedTableProducts.size() != 0) {
             /* Se encontraron datos en la bbdd
              *  por lo tanto hay que cargar las cantidades que se 
              *  hayan guardado.
-            */
-            
-            
+             */
+
             for (Product product : selectedTableProducts) {
                 this.selectedComponentMap.get(product.getBrand()).getCheckBox().setSelected(true);
                 this.selectedComponentMap.get(product.getBrand()).getSpinner().setEnabled(true);
                 this.selectedComponentMap.get(product.getBrand()).getSpinner().setValue(product.getAmountConsumed());
             }
-            
+
         } else {
             /**
              * Caso contrario: no hay datos de la mesa en la bbdd por lo tanto
@@ -1957,30 +1771,29 @@ public class VittoFrame extends javax.swing.JFrame {
         PayTableFrm.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
         PayTableFrm.setSize(650, 500);
         PayTableFrm.setVisible(true);
-        
+
         Double total = 0.0;
         // TODO: Tener en cuenta que en este momento el actividad = false -> y está buscando por true
         // TODO: Tener en cuenta que una vez cerrada la mesa se tiene que pagar -> mesa en rojo -> cancelar cualquier operación.
         List<Product> consumingProductList = this.productsImpl.getConsumingProduct(this.selectedTable.getId(), this.tableUser.getNombre() + "_" + this.tableUser.getApellido());
-        
+
         for (Product product : consumingProductList) {
             total += product.getTotal();
         }
 
-        
         this.tableIdPayLabel.setText(Integer.toString(this.selectedTable.getId()));
         this.userTableCompleteNamePay.setText(this.tableUser.getNombre() + " " + this.tableUser.getApellido());
         this.totalPayLabel.setText(Double.toString(total));
-        
+
     }//GEN-LAST:event_payActionActionPerformed
 
     private void tableFourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tableFourActionPerformed
         // TODO add your handling code here:
         this.selectedTable.setState("TableFour");
         this.selectedTable.setId(4);
-        
+
         String tableUser = this.productsImpl.findTableUserByTableId(this.selectedTable.getId());
-        
+
         this.tableFour.setBackground(Color.YELLOW);
         this.chargeEmployee(tableUser);
         this.selectOrderView(4);
@@ -2243,7 +2056,49 @@ public class VittoFrame extends javax.swing.JFrame {
             Object value = entry.getValue();
         });
          */
+        this.dataStore = new DataStore();
+
+        System.out.println("mesa elegida state --> " + this.selectedTable.getState() + " mesa elegida ID -> " + this.selectedTable.getId());
+
+        if (this.tableUser != null && this.tableUser.getNombre() != null) {
+            System.out.println("Usuario mesa: " + this.tableUser.getNombre());
+        } else {
+            this.tableUser.setNombre(this.employeeList.get(0).getNombre());
+            this.tableUser.setApellido(this.employeeList.get(0).getApellido());
+        }
+
+        this.dataStore.setMesa(this.selectedTable.getId());
+        this.dataStore.setNombreMozo(this.tableUser.getNombre() + "_" + this.tableUser.getApellido());
+
+        for (Map.Entry<NoAlcoholDrinksEnum, Integer> entry : this.noAlcoholDrinks.entrySet()) {
+            System.out.println("key --> " + entry.getKey());
+            System.out.println("value --> " + entry.getValue());
+
+        }
+
+        // TODO: Validación: hacerlo con todos los productos.
+        if (!this.noAlcoholDrinks.isEmpty()) {
+            dataStore.setNoAlcoholDrinks(noAlcoholDrinks);
+        }
+
+        this.productsImpl.insertProduct(dataStore);
+
+        this.setTableColour(this.selectedTable.getId(), Color.YELLOW);
+
+        // Crear un metodo que vacíe todos los maps
+        this.emptyAllMenu();
+
+        JOptionPane.showMessageDialog(null, "La mesa Nº: " + this.selectedTable.getId() + " Se ha guardado Correctamente");
+
+        // validar -> nullPointerException.
+        // this.AlcoholDrinks.clear();
+        // TODO: cuando termina de insetar , todos los campos tienenen que ser reseteados.
+        // Para que la próxima mesa empiece con los productos vaciós.
+        // Y si se elige la mesa en cuestión tenemos que traer todos los resultados de la BBDD,
+        // no puede quedar nada en memoria.
         this.closeGenericFrame(this.DrinkNoAlcoholFrame);
+
+
     }//GEN-LAST:event_acceptNoAlcoholDrinksActionPerformed
 
     private void pomeloTorosCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pomeloTorosCheckActionPerformed
@@ -2346,54 +2201,6 @@ public class VittoFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_waterGasCheckActionPerformed
 
-    private void SaveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveButtonActionPerformed
-        // TODO add your handling code here:
-        this.dataStore = new DataStore();
-
-        System.out.println("mesa elegida state --> " + this.selectedTable.getState() + " mesa elegida ID -> " + this.selectedTable.getId());
-        
-        
-
-        if (this.tableUser != null && this.tableUser.getNombre() != null) {
-            System.out.println("Usuario mesa: " + this.tableUser.getNombre());
-        } else {
-            this.tableUser.setNombre(this.employeeList.get(0).getNombre());
-            this.tableUser.setApellido(this.employeeList.get(0).getApellido());
-        }
-
-        this.dataStore.setMesa(this.selectedTable.getId());
-        this.dataStore.setNombreMozo(this.tableUser.getNombre() + "_" + this.tableUser.getApellido());
-
-        for (Map.Entry<NoAlcoholDrinksEnum, Integer> entry : this.noAlcoholDrinks.entrySet()) {
-            System.out.println("key --> " + entry.getKey());
-            System.out.println("value --> " + entry.getValue());
-
-        }
-
-        // TODO: Validación: hacerlo con todos los productos.
-        if (!this.noAlcoholDrinks.isEmpty()) {
-            dataStore.setNoAlcoholDrinks(noAlcoholDrinks);
-        }
-
-        this.productsImpl.insertProduct(dataStore);
-        
-        this.setTableColour(this.selectedTable.getId() , Color.YELLOW);
-
-
-        // Crear un metodo que vacíe todos los maps
-        this.emptyAllMenu();
-        
-        
-        JOptionPane.showMessageDialog(null, "La mesa Nº: " + this.selectedTable.getId() + " Se ha guardado Correctamente");
-
-        // validar -> nullPointerException.
-        // this.AlcoholDrinks.clear();
-        // TODO: cuando termina de insetar , todos los campos tienenen que ser reseteados.
-        // Para que la próxima mesa empiece con los productos vaciós.
-        // Y si se elige la mesa en cuestión tenemos que traer todos los resultados de la BBDD,
-        // no puede quedar nada en memoria.
-    }//GEN-LAST:event_SaveButtonActionPerformed
-
     private void emptyAllMenu() {
         if (!this.noAlcoholDrinks.isEmpty()) {
             this.noAlcoholDrinks.clear();
@@ -2412,41 +2219,47 @@ public class VittoFrame extends javax.swing.JFrame {
 
 
     private void CloseTableButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseTableButtonActionPerformed
-        
+
         this.productsImpl.closeTable(this.selectedTable.getId(), this.tableUser.getNombre() + "_" + this.tableUser.getApellido());
 
         this.closeGenericFrame(CloseTableFrame);
         this.closeGenericFrame(this.SelectOrder);
 
         // JOptionPane.showMessageDialog(null, "La mesa Nº: " + this.selectedTable.getId() + " fue Cerrada con éxito");
-        
         this.setTableColour(this.selectedTable.getId(), Color.RED);
 
     }//GEN-LAST:event_CloseTableButtonActionPerformed
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+    private void cashPayDiscountCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cashPayDiscountCheckActionPerformed
+        if(this.cashPayDiscountCheck.isSelected()) {
+            this.cashDiscountCombo.setEnabled(true);
+        } else {
+            this.cashDiscountCombo.setEnabled(false);
+        }
+        
+        
+    }//GEN-LAST:event_cashPayDiscountCheckActionPerformed
 
     private void paymentCashActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paymentCashActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_paymentCashActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox2ActionPerformed
-
-    private void paymentCash1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paymentCash1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_paymentCash1ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    private void cashCalculateTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cashCalculateTotalActionPerformed
+        
+        if (cashPayDiscountCheck.isSelected()) {
+            // aplica descuento
+            System.out.println("combo selected item -> " +this.cashDiscountCombo.getSelectedItem().toString());
+            
+            
+            
+            
+        } else {
+            // no aplica descuento
+        }
+        
+        this.cashDiscountCombo.setEnabled(false);
+        
+    }//GEN-LAST:event_cashCalculateTotalActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
@@ -2464,9 +2277,50 @@ public class VittoFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cashPaymentCelphoneActionPerformed
 
-    
-    private void setTableColour(int tableId , Color color) {
-        
+    private void cashPaymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cashPaymentActionPerformed
+        this.PagoEfectivoFrame.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
+        this.PagoEfectivoFrame.setSize(320, 350);
+        this.PagoEfectivoFrame.setVisible(true);
+
+        Double total = 0.0;
+
+        List<Product> consumingProductList = this.productsImpl.getConsumingProduct(this.selectedTable.getId(), this.tableUser.getNombre() + "_" + this.tableUser.getApellido());
+
+        for (Product product : consumingProductList) {
+            total += product.getTotal();
+        }
+
+        this.cashSubTotal.setText(Double.toString(total));
+
+        this.cashPayDiscountCheck.setSelected(false);
+        this.cashDiscountCombo.setEnabled(false);
+
+        /**
+         * Validación Caracteres Numéricos
+         */
+        this.paymentCash.addKeyListener(new KeyAdapter() {
+            public void keyPressed(KeyEvent keyEvent) {
+                String value = paymentCash.getText();
+                /**
+                 * Solo se permiten valores numéricos y se permite la tecla de
+                 * borrado. TODO: Chris: Validar la tecla de borrado
+                 */
+                if ((keyEvent.getKeyChar() >= '0' && keyEvent.getKeyChar() <= '9') || (keyEvent.getKeyCode() == 8)) {
+                    paymentCash.setEditable(true);
+                } else {
+                    System.out.println("caractar borrado --> " + keyEvent.getKeyCode());
+                    paymentCash.setEditable(false);
+                    JOptionPane.showMessageDialog(null, " Solo puede ingresar un valor Numérico");
+                    paymentCash.setEditable(true);
+                }
+            }
+        });
+
+
+    }//GEN-LAST:event_cashPaymentActionPerformed
+
+    private void setTableColour(int tableId, Color color) {
+
         switch (tableId) {
             case 1:
                 this.tableOne.setBackground(color);
@@ -2483,10 +2337,9 @@ public class VittoFrame extends javax.swing.JFrame {
             default:
                 System.out.println("Error en el cerrado de la mesa");
 
-        }        
+        }
     }
-    
-    
+
     private void closeGenericFrame(JFrame jframe) {
         jframe.dispatchEvent(new WindowEvent(jframe, WindowEvent.WINDOW_CLOSING));
     }
@@ -2540,27 +2393,27 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JLabel MozoLabel;
     private javax.swing.JFrame OtraFormaDePagoFrame;
     private javax.swing.JFrame PagoEfectivoFrame;
-    private javax.swing.JFrame PagoEfectivoFrame1;
     private javax.swing.JFrame PayTableFrm;
     private javax.swing.JFrame SaladsProductFrame;
-    private javax.swing.JButton SaveButton;
     private javax.swing.JFrame SelectOrder;
     private javax.swing.JFrame SuggestPromosFrm;
     private javax.swing.JLabel TotalLabel;
     private javax.swing.JButton acceptNoAlcoholDrinks;
     private javax.swing.JButton cancelNoAlcoholDrinks;
     private javax.swing.JButton candyProducts;
-    private javax.swing.JComboBox<String> cashDiscount;
-    private javax.swing.JComboBox<String> cashDiscount1;
+    private javax.swing.JButton cashCalculateTotal;
+    private javax.swing.JLabel cashChangeBack;
     private javax.swing.JComboBox<String> cashDiscount2;
+    private javax.swing.JComboBox<String> cashDiscountCombo;
+    private javax.swing.JCheckBox cashPayDiscountCheck;
     private javax.swing.JButton cashPayment;
     private javax.swing.JTextField cashPaymentCelphone;
     private javax.swing.JTextField cashPaymentDNI;
     private javax.swing.JTextField cashPaymentLastName;
     private javax.swing.JTextField cashPaymentName;
     private javax.swing.JLabel cashSubTotal;
-    private javax.swing.JLabel cashSubTotal1;
     private javax.swing.JLabel cashSubTotal2;
+    private javax.swing.JLabel cashTotalPay;
     private javax.swing.JCheckBox cepitaCheck;
     private javax.swing.JSpinner cepitaSpinner;
     private javax.swing.JButton closeTable;
@@ -2571,10 +2424,6 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JButton deleteTable;
     private javax.swing.JButton drinkAlcohol;
     private javax.swing.JButton drinkNoAlcohol;
-    private javax.swing.JLabel efectivoSubTotal2;
-    private javax.swing.JLabel efectivoSubTotal3;
-    private javax.swing.JLabel efectivoSubTotal4;
-    private javax.swing.JLabel efectivoSubTotal5;
     private javax.swing.JLabel efectivoSubTotal6;
     private javax.swing.JComboBox<String> employeeNameCombo;
     private javax.swing.JCheckBox exprimidoCheck;
@@ -2582,13 +2431,8 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JCheckBox fantaCheck;
     private javax.swing.JSpinner fantaSpinner;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JCheckBox jCheckBox3;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
@@ -2609,22 +2453,11 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
@@ -2647,7 +2480,6 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JCheckBox licuadoAguaCheck;
@@ -2665,7 +2497,6 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JButton otraFormaDePago;
     private javax.swing.JButton payAction;
     private javax.swing.JTextField paymentCash;
-    private javax.swing.JTextField paymentCash1;
     private javax.swing.JCheckBox pomeloCheck;
     private javax.swing.JSpinner pomeloSpinner;
     private javax.swing.JCheckBox pomeloTorosCheck;
@@ -2699,5 +2530,6 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JCheckBox waterGasCheck;
     private javax.swing.JSpinner waterGasSpinner;
     private javax.swing.JSpinner waterSpinner;
+    private javax.swing.JLabel whoAmILbl;
     // End of variables declaration//GEN-END:variables
 }

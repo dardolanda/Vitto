@@ -267,8 +267,7 @@ public class VittoStoreDDBBRepository {
             System.out.println("(closeTable): DDBB Updating OPERATING_TABLE");
             StringBuffer udateOperatingTableQuery = new StringBuffer();
             udateOperatingTableQuery.append(" UPDATE operating_table ");
-            udateOperatingTableQuery.append(" SET actividad = false , ");
-            udateOperatingTableQuery.append(" horario_cierre = ? ");
+            udateOperatingTableQuery.append(" SET horario_cierre = ? ");
             udateOperatingTableQuery.append(" WHERE mesa = ? AND actividad = true AND nombre_mozo = ? ");
 
             Calendar cal = Calendar.getInstance();
