@@ -17,6 +17,7 @@ import java.awt.event.WindowEvent;
 import com.mycompany.vittostore.generalitems.Product;
 import com.mycompany.vittostore.generalitems.Table;
 import com.mycompany.vittostore.generalitems.NoAlcoholDrinksEnum;
+import com.mycompany.vittostore.generalitems.OperatingTableStateEnum;
 import com.mycompany.vittostore.controller.Users;
 import com.mycompany.vittostore.user.User;
 import com.mycompany.vittostore.dataStore.DataStore;
@@ -62,12 +63,18 @@ public class VittoFrame extends javax.swing.JFrame {
         this.initComponents();
         this.initSelectedComponent();
 
-        List<Integer> operatingTableList = this.productsImpl.getOperatingTable();
-
-        operatingTableList.forEach(table
-                -> this.setTableColour(table, Color.yellow)
-        );
-
+        List<Map<Integer, String>> operatingTableStateList = this.productsImpl.getOperatingTable();
+        
+        for (Map<Integer, String> tableStateMap : operatingTableStateList) {
+            for(Map.Entry<Integer,String> entry : tableStateMap.entrySet()) {
+                this.setTableColour(
+                        entry.getKey(), 
+                        entry.getValue().equals(OperatingTableStateEnum.USO.toString()) 
+                                ? Color.yellow 
+                                : Color.RED);
+            }
+        }
+        
         this.employeeList = this.usersImpl.getUsers();
 
         this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);

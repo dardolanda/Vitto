@@ -34,6 +34,13 @@ alter table operating_table
 alter column horario_apertura 
 SET DATA TYPE TIMESTAMP;
 
+
+/*
+    Agrega columna
+*/
+alter table operating_table
+add estado varchar(30);
+
 /*
     Agrega primary key
 */
@@ -70,6 +77,12 @@ insert into operating_table
 -- valores:
 values (?,?,?,?,?,?,?,?,?)
 
+insert into operating_table 
+(estado) values 'CERRADA'
+
+
+update operating_table
+set estado = 'CERRADA'
 
 /*
     Delete registros
@@ -77,3 +90,34 @@ values (?,?,?,?,?,?,?,?,?)
 
 delete from operating_table
 where id between 27 and 38;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- https://www.xvideos.com/video23417958/huge_black_cock_inside_hot_babe_sadie_west

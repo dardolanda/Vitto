@@ -8,6 +8,7 @@ package com.mycompany.vittostore.controller;
 import com.mycompany.vittostore.dataStore.DataStore;
 import com.mycompany.vittostore.generalitems.Product;
 import java.util.List;
+import java.util.Map;
 
 public interface Products {
     
@@ -17,7 +18,7 @@ public interface Products {
     
     public void closeTable(int tableId, String tableUser);
     
-    public List<Integer> getOperatingTable();
+    public List<Map<Integer, String>> getOperatingTable();
     
     public String findTableUserByTableId(int tableId);
     

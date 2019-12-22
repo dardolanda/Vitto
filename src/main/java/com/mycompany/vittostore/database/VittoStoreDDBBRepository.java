@@ -288,21 +288,23 @@ public class VittoStoreDDBBRepository {
         }
     }
 
-    public List<Integer> getOperatingTable() {
-        List<Integer> operatingTableList = new ArrayList<>();
+    public List<Map<Integer, String>> getOperatingTable() {
+        Map<Integer, String> operatingStateTableMap;
+        List<Map<Integer, String>> operatingStateTableList = new ArrayList<>();
         System.out.println("Get Operating Table LIST");
 
         if (this.DDBBConnection != null) {
 
-            String getOperatingTableQuery = " SELECT DISTINCT mesa FROM operating_table WHERE actividad = true ";
+            String getOperatingTableQuery = " SELECT DISTINCT mesa, estado FROM operating_table WHERE actividad = true ";
 
             try {
                 PreparedStatement statement = this.DDBBConnection.prepareStatement(getOperatingTableQuery);
                 ResultSet resultSet = statement.executeQuery();
 
                 while (resultSet.next()) {
-                    int id = resultSet.getInt("mesa");
-                    operatingTableList.add(id);
+                    operatingStateTableMap = new HashMap<>();
+                    operatingStateTableMap.put(resultSet.getInt("mesa"), resultSet.getString("estado"));
+                    operatingStateTableList.add(operatingStateTableMap);
                 }
 
             } catch (SQLException ex) {
@@ -310,7 +312,7 @@ public class VittoStoreDDBBRepository {
             }
         }
 
-        return operatingTableList;
+        return operatingStateTableList;
     }
 
     public String findTableUserByTableId(int tableId) {
