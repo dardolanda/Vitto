@@ -1,6 +1,9 @@
 # target mvn
+.*/target/*
+.*/target/**
 */target/*
 */target/**
+.target/
 target/
 *.class
 /target/**

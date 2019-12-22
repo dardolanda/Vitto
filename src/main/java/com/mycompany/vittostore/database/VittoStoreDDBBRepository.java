@@ -19,6 +19,7 @@ import javax.swing.JOptionPane;
 import com.mycompany.vittostore.user.User;
 import com.mycompany.vittostore.generalitems.Product;
 import com.mycompany.vittostore.dialogs.GenericDialog;
+import com.mycompany.vittostore.generalitems.OperatingTableStateEnum;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.sql.Statement;
@@ -181,8 +182,8 @@ public class VittoStoreDDBBRepository {
             System.out.println("ddbb inserting OPERATING_TABLE");
             StringBuffer insertOperatingTableQuery = new StringBuffer();
             insertOperatingTableQuery.append("INSERT INTO operating_table ");
-            insertOperatingTableQuery.append(" (mesa, nombre_mozo, producto_id, producto_nombre, producto_cantidad, producto_precio_unitario, actividad, horario_apertura)");
-            insertOperatingTableQuery.append(" VALUES (?,?,?,?,?,?,?,?)");
+            insertOperatingTableQuery.append(" (mesa, nombre_mozo, producto_id, producto_nombre, producto_cantidad, producto_precio_unitario, actividad, horario_apertura, estado)");
+            insertOperatingTableQuery.append(" VALUES (?,?,?,?,?,?,?,?,?)");
 
             Calendar cal = Calendar.getInstance();
             Timestamp timeStampNow = new Timestamp(cal.getTimeInMillis());
@@ -201,12 +202,16 @@ public class VittoStoreDDBBRepository {
                     preparedStatement.setDouble(6, product.getPrice());
                     preparedStatement.setBoolean(7, true);
                     preparedStatement.setTimestamp(8, timeStampNow);
+                    preparedStatement.setString(9,OperatingTableStateEnum.USO.toString());
 
                     preparedStatement.execute();
                     
                     ResultSet rs = preparedStatement.getGeneratedKeys();
                     while(rs.next()) {
                         
+                        /*
+                            se obtienen los id's insertados en la BBDD.
+                        */
                         System.out.println("rs -> getInt: id     = " + rs.getInt("id"));
                         System.out.println("rs -> getObject: id  = " + rs.getObject("id"));
                         
