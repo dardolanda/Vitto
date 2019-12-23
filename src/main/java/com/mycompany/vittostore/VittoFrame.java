@@ -2352,30 +2352,23 @@ public class VittoFrame extends javax.swing.JFrame {
         // tiene que cambiar la actividad = false / el estado a operating_table -> mesa pagada
         // tiene que agregar el horario de pago 
         this.productsImpl.payTable(this.selectedTable.getId(), 
-                this.cashSubTotal.getText(), discount, 
+                Double.parseDouble(this.cashSubTotal.getText()), discount, 
                 this.tableUser.getNombre() + "_" + this.tableUser.getApellido(),
                 PaymentMethods.EFECTIVO.toString());
         
         
         
-        // mensaje de Pago corr
+        // mensaje de Pago efectuado.
         JOptionPane.showMessageDialog(null, "La mesa Nº: " + this.selectedTable.getId() + " ha efectuado el pago Correctamente");
         
         
-        // cerrar popUps
+        // cerrar popUps abiertos
         this.closeGenericFrame(PayTableFrm); // Elige el método de pago
         this.closeGenericFrame(PagoEfectivoFrame); // Paga en efectivo
         this.closeGenericFrame(SelectOrder); // elige el tipo de producto
         
         // libera la mesa
-        this.setTableColour(this.selectedTable.getId(), Color.GREEN);
-        
-        
-        
-        
-        
-        
-        
+        this.setTableColour(this.selectedTable.getId(), Color.GREEN);        
         
     }//GEN-LAST:event_cashPayActionActionPerformed
 
