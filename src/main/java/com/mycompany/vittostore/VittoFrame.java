@@ -24,8 +24,9 @@ import com.mycompany.vittostore.dataStore.DataStore;
 
 import com.mycompany.vittostore.controllerImpl.ProductsImpl;
 import com.mycompany.vittostore.controllerImpl.UsersImpl;
+import com.mycompany.vittostore.dataStore.PaymentDataStore;
 import com.mycompany.vittostore.generalitems.GenericSelectedComponent;
-import com.mycompany.vittostore.generalitems.PaymentMethods;
+import com.mycompany.vittostore.generalitems.PaymentMethodsEnum;
 import java.awt.Component;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -2348,13 +2349,13 @@ public class VittoFrame extends javax.swing.JFrame {
         
         double discount = cashPayDiscountCheck.isSelected() ? Double.parseDouble(this.cashDiscountCombo.getSelectedItem().toString().split("%")[0]) : 0.00;        
         
+        PaymentDataStore paymentDataStore = new PaymentDataStore(this.selectedTable.getId(), 
+                Double.parseDouble(this.cashSubTotal.getText()), 
+                discount, 
+                this.tableUser.getNombre() + "_" + this.tableUser.getApellido(), 
+                PaymentMethodsEnum.EFECTIVO);
         
-        // tiene que cambiar la actividad = false / el estado a operating_table -> mesa pagada
-        // tiene que agregar el horario de pago 
-        this.productsImpl.payTable(this.selectedTable.getId(), 
-                Double.parseDouble(this.cashSubTotal.getText()), discount, 
-                this.tableUser.getNombre() + "_" + this.tableUser.getApellido(),
-                PaymentMethods.EFECTIVO.toString());
+        this.productsImpl.payTable(paymentDataStore);
         
         
         

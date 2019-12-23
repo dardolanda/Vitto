@@ -162,8 +162,8 @@ public class VittoStoreDDBBRepository {
 
                     productIdPrice.put("ID", doubleId);
                     productIdPrice.put("PRECIO", precio);
-                    
-                    System.out.println("(getPriceFromProducts): Product ID: " +  id   + " PRODUCT PRICE --> " + precio);
+
+                    System.out.println("(getPriceFromProducts): Product ID: " + id + " PRODUCT PRICE --> " + precio);
 
                 }
 
@@ -190,10 +190,9 @@ public class VittoStoreDDBBRepository {
 
             for (Product product : productList) {
                 System.out.println("product to insert: (BRAND) --> " + product.getBrand());
-                try(
-                    PreparedStatement preparedStatement = this.DDBBConnection.prepareStatement(insertOperatingTableQuery.toString() , Statement.RETURN_GENERATED_KEYS);    
-                ) {
-                    
+                try (
+                        PreparedStatement preparedStatement = this.DDBBConnection.prepareStatement(insertOperatingTableQuery.toString(), Statement.RETURN_GENERATED_KEYS);) {
+
                     preparedStatement.setInt(1, mesa);
                     preparedStatement.setString(2, nombreMozo);
                     preparedStatement.setInt(3, product.getId());
@@ -202,19 +201,19 @@ public class VittoStoreDDBBRepository {
                     preparedStatement.setDouble(6, product.getPrice());
                     preparedStatement.setBoolean(7, true);
                     preparedStatement.setTimestamp(8, timeStampNow);
-                    preparedStatement.setString(9,OperatingTableStateEnum.USO.toString());
+                    preparedStatement.setString(9, OperatingTableStateEnum.USO.toString());
 
                     preparedStatement.execute();
-                    
+
                     ResultSet rs = preparedStatement.getGeneratedKeys();
-                    while(rs.next()) {
-                        
+                    while (rs.next()) {
+
                         /*
                             se obtienen los id's insertados en la BBDD.
-                        */
+                         */
                         System.out.println("rs -> getInt: id     = " + rs.getInt("id"));
                         System.out.println("rs -> getObject: id  = " + rs.getObject("id"));
-                        
+
                     }
 
                 } catch (Exception e) {
@@ -365,10 +364,10 @@ public class VittoStoreDDBBRepository {
 
                 while (resultSet.next()) {
                     product = new Product();
-                    
+
                     product.setBrand(resultSet.getString("PRODUCTO_NOMBRE"));
                     product.setAmountConsumed(resultSet.getInt("PRODUCTO_CANTIDAD"));
-                    product.setPrice(resultSet.getDouble("PRODUCTO_PRECIO_UNITARIO"));                    
+                    product.setPrice(resultSet.getDouble("PRODUCTO_PRECIO_UNITARIO"));
 
                     productList.add(product);
 
@@ -379,8 +378,158 @@ public class VittoStoreDDBBRepository {
             }
 
         }
-        
+
         return productList;
+    }
+
+    public void payOperatingTable(int tableId) throws Exception {
+        if (this.DDBBConnection != null) {
+            System.out.println("(Pay Table): DDBB Updating OPERATING_TABLE");
+
+            StringBuffer udateOperatingTableQuery = new StringBuffer();
+            udateOperatingTableQuery.append(" UPDATE operating_table ");
+            udateOperatingTableQuery.append(" SET estado = ? ");
+            udateOperatingTableQuery.append(" WHERE mesa = ? AND actividad = true AND estado = ? ");
+
+            try {
+                PreparedStatement preparedStatement = this.DDBBConnection.prepareStatement(udateOperatingTableQuery.toString());
+
+                preparedStatement.setString(1, OperatingTableStateEnum.PAGADA.toString());
+                preparedStatement.setInt(2, tableId);
+                preparedStatement.setString(3, OperatingTableStateEnum.CERRADA.toString());
+
+                preparedStatement.execute();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                throw e;
+            }
+        }
+    }
+
+    public int insertPayment(int tableId, double total, double discount, String nombreMozo, String paymentMethod) throws Exception {
+        int paymentId = 0;
+
+        if (this.DDBBConnection != null) {
+            System.out.println("ddbb inserting Payments");
+            StringBuffer insertOperatingTableQuery = new StringBuffer();
+            insertOperatingTableQuery.append("INSERT INTO payments ");
+            insertOperatingTableQuery.append(" (mesa, total, descuento_aplicado, nombre_mozo, tipo_pago, horario_pago)");
+            insertOperatingTableQuery.append(" VALUES (?,?,?,?,?,?)");
+
+            Calendar cal = Calendar.getInstance();
+            Timestamp timeStampNow = new Timestamp(cal.getTimeInMillis());
+
+            try (
+                    PreparedStatement preparedStatement = this.DDBBConnection.prepareStatement(insertOperatingTableQuery.toString(), Statement.RETURN_GENERATED_KEYS);) {
+
+                preparedStatement.setInt(1, tableId);
+                preparedStatement.setDouble(2, total);
+                preparedStatement.setDouble(3, discount);
+                preparedStatement.setString(4, nombreMozo);
+                preparedStatement.setString(5, paymentMethod);
+                preparedStatement.setTimestamp(6, timeStampNow);
+
+                preparedStatement.execute();
+
+                ResultSet rs = preparedStatement.getGeneratedKeys();
+                while (rs.next()) {
+                    paymentId = rs.getInt("id");
+                    System.out.println("(Payment ID BBDD -> ) rs -> getInt: id = " + rs.getInt("id"));
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                throw e;
+            }
+        }
+
+        return paymentId;
+    }
+
+    public int insertPaymentPersonalData(int paymentId, String nombreCliente, String apellidoCliente, String DNICliente, String telefonoCliente) throws Exception {
+        int paymentPersonalDataId = 0;
+
+        if (this.DDBBConnection != null) {
+            System.out.println("ddbb inserting Payments Customer Data");
+            StringBuffer insertOperatingTableQuery = new StringBuffer();
+            insertOperatingTableQuery.append("INSERT INTO payments_customer_data ");
+            insertOperatingTableQuery.append(" (payment_id, nombre, apellido, dni, tel)");
+            insertOperatingTableQuery.append(" VALUES (?,?,?,?,?)");
+
+            try (
+                    PreparedStatement preparedStatement = this.DDBBConnection.prepareStatement(insertOperatingTableQuery.toString(), Statement.RETURN_GENERATED_KEYS);) {
+
+                preparedStatement.setInt(1, paymentId);
+                preparedStatement.setString(2, nombreCliente);
+                preparedStatement.setString(3, apellidoCliente);
+                preparedStatement.setString(4, DNICliente);
+                preparedStatement.setString(5, telefonoCliente);
+
+                preparedStatement.execute();
+
+                ResultSet rs = preparedStatement.getGeneratedKeys();
+                while (rs.next()) {
+                    paymentPersonalDataId = rs.getInt("id");
+                    System.out.println("(Payment ID BBDD -> ) rs -> getInt: id = " + rs.getInt("id"));
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                throw e;
+            }
+        }
+
+        return paymentPersonalDataId;
+    }
+
+    public void deletePaymentsRollBack(int paymentId, int paymentPersonalDataId) {        
+        if (this.DDBBConnection != null) {
+            this.deletePaymentRollBack(paymentId);
+            this.deletePaymentPersonalDataRollBack(paymentPersonalDataId);
+        }
+    }
+
+    private void deletePaymentRollBack(int paymentId) {
+        if (this.DDBBConnection != null) {
+            System.out.println("(Delete payments roll back)");
+
+            StringBuffer udateOperatingTableQuery = new StringBuffer();
+            udateOperatingTableQuery.append(" DELETE FROM payments");
+            udateOperatingTableQuery.append(" WHERE id = ? ");
+
+            try {
+                PreparedStatement preparedStatement = this.DDBBConnection.prepareStatement(udateOperatingTableQuery.toString());
+
+                preparedStatement.setInt(1, paymentId);
+
+                preparedStatement.execute();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void deletePaymentPersonalDataRollBack(int paymentPersonalDataId) {
+        if (this.DDBBConnection != null) {
+            System.out.println("(Delete payments personal data roll back)");
+
+            StringBuffer udateOperatingTableQuery = new StringBuffer();
+            udateOperatingTableQuery.append(" DELETE FROM payments_customer_data");
+            udateOperatingTableQuery.append(" WHERE id = ? ");
+
+            try {
+                PreparedStatement preparedStatement = this.DDBBConnection.prepareStatement(udateOperatingTableQuery.toString());
+
+                preparedStatement.setInt(1, paymentPersonalDataId);
+
+                preparedStatement.execute();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 }

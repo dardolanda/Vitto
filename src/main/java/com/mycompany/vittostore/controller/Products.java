@@ -6,6 +6,7 @@
 package com.mycompany.vittostore.controller;
 
 import com.mycompany.vittostore.dataStore.DataStore;
+import com.mycompany.vittostore.dataStore.PaymentDataStore;
 import com.mycompany.vittostore.generalitems.Product;
 import java.util.List;
 import java.util.Map;
@@ -24,7 +25,7 @@ public interface Products {
     
     public List<Product> findTableSelectedProducts(int tableId);
     
-    public void payTable(int tableId, double totalToPay, double discount, String nombreMozo, String payMethod);
+    public void payTable(PaymentDataStore paymentDataStore);
     
     
     

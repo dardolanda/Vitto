@@ -6037,3 +6037,30 @@ The connection was not closed by the application and is garbage collected [90018
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:617)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
 	... 15 more
+2019-12-23 10:25:54 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "ACTIVIDADA" no encontrada
+Column "ACTIVIDADA" not found; SQL statement:
+select * from operating_table
+where mesa = 1 and actividada = true [42122-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:451)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:176)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:158)
+	at org.h2.expression.condition.Comparison.optimize(Comparison.java:205)
+	at org.h2.expression.condition.ConditionAndOr.optimize(ConditionAndOr.java:134)
+	at org.h2.command.dml.Select.prepare(Select.java:1248)
+	at org.h2.command.Parser.prepareCommand(Parser.java:689)
+	at org.h2.engine.Session.prepareLocal(Session.java:627)
+	at org.h2.engine.Session.prepareCommand(Session.java:565)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1292)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:217)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:1113)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1436)
+	at org.h2.server.web.WebApp.query(WebApp.java:1111)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1073)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1060)
+	at org.h2.server.web.WebThread.process(WebThread.java:173)
+	at org.h2.server.web.WebThread.run(WebThread.java:93)
+	at java.lang.Thread.run(Thread.java:748)

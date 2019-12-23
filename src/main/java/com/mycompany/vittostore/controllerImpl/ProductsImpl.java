@@ -9,11 +9,15 @@ import com.mycompany.vittostore.controller.Products;
 
 import com.mycompany.vittostore.generalitems.Product;
 import com.mycompany.vittostore.dataStore.DataStore;
+import com.mycompany.vittostore.dataStore.PaymentDataStore;
 import com.mycompany.vittostore.generalitems.NoAlcoholDrinksEnum;
+import com.mycompany.vittostore.generalitems.OperatingTableStateEnum;
+import com.mycompany.vittostore.generalitems.PaymentMethodsEnum;
 import java.util.ArrayList;
 
 import java.util.Map;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 public class ProductsImpl extends VittoConnection implements Products {
 
@@ -99,20 +103,34 @@ public class ProductsImpl extends VittoConnection implements Products {
     }
 
     @Override
-    public void payTable(int tableId, double totalToPay, double discount, String nombreMozo, String payMethod) {
+    public void payTable(PaymentDataStore paymentDataStore) {
+        int paymentId = 0;
+        int paymentPersonalDataId = 0;
         
-        /*
-        select * from operating_table
-        where mesa = 1 and actividad = true 
-        and  estado = 'CERRADA'
-        */
-        // PAGAR mesa
-        vittoDDBBStore.payOperatingTable(tableId);
-        
-        // insertar el registro de pago: tener en cuenta el tipo de pago -> efectivo u otro 
-        // ya que otra forma de pago requiere un segundo insert con el id tomado de la talba payments.
-        
-        
+        try {
+            vittoDDBBStore.payOperatingTable(paymentDataStore.getTableId());
+            
+            paymentId = vittoDDBBStore.insertPayment(paymentDataStore.getTableId(),
+                    paymentDataStore.getTotal(), paymentDataStore.getDiscount(),
+                    paymentDataStore.getNombreMozo(), paymentDataStore.getPaymentMethod().toString());
+            
+            if (!paymentDataStore.getPaymentMethod().equals(PaymentMethodsEnum.EFECTIVO.toString())) {
+                paymentPersonalDataId = vittoDDBBStore.insertPaymentPersonalData(
+                        paymentId,
+                        paymentDataStore.getNombreCliente(),
+                        paymentDataStore.getApellidoCliente(), 
+                        paymentDataStore.getDNICliente(),
+                        paymentDataStore.getTelefonoCliente());
+            }
+        /**
+         * TODO: cambiar la Exception -> por una personal PaymentException
+         */    
+        } catch(Exception e) {
+            
+            // RollBack de la operación de pago.
+            vittoDDBBStore.deletePaymentsRollBack(paymentId, paymentPersonalDataId);
+            JOptionPane.showMessageDialog(null, "Ha Ocurrido un error en el registro de los pagos, por favor inténtelo de nuevo. pago ID : " + paymentId + " Personal información ID : " + paymentPersonalDataId);
+        }
     }
 
 }

@@ -1,6 +1,6 @@
 package com.mycompany.vittostore.generalitems;
 
-public enum PaymentMethods {
+public enum PaymentMethodsEnum {
     EFECTIVO,
     DEBITO,
     CREDITO,
