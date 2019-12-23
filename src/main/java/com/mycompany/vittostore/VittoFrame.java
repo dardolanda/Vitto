@@ -305,12 +305,12 @@ public class VittoFrame extends javax.swing.JFrame {
 
         drinkNoAlcohol.setText("Bebidas sin alcohol");
         drinkNoAlcohol.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 drinkNoAlcoholAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         drinkNoAlcohol.addActionListener(new java.awt.event.ActionListener() {
@@ -1059,6 +1059,11 @@ public class VittoFrame extends javax.swing.JFrame {
 
         otraFormaDePago.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
         otraFormaDePago.setText("Otros");
+        otraFormaDePago.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                otraFormaDePagoActionPerformed(evt);
+            }
+        });
 
         jLabel14.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel14.setText("Pago de Mesa Usada:");
@@ -2369,9 +2374,21 @@ public class VittoFrame extends javax.swing.JFrame {
         this.closeGenericFrame(SelectOrder); // elige el tipo de producto
         
         // libera la mesa
-        this.setTableColour(this.selectedTable.getId(), Color.GREEN);        
+        this.setTableColour(this.selectedTable.getId(), Color.GREEN);
+        
+        this.paymentCash.setText("");
+        this.cashTotalPay.setText("");
+        this.cashChangeBack.setText("");
         
     }//GEN-LAST:event_cashPayActionActionPerformed
+
+    private void otraFormaDePagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otraFormaDePagoActionPerformed
+        // TODO add your handling code here:
+        this.OtraFormaDePagoFrame.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
+        this.OtraFormaDePagoFrame.setSize(750, 300);
+        this.OtraFormaDePagoFrame.setVisible(true);
+        
+    }//GEN-LAST:event_otraFormaDePagoActionPerformed
 
     private void setTableColour(int tableId, Color color) {
 

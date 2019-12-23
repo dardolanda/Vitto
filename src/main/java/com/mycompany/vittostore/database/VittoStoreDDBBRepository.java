@@ -271,7 +271,8 @@ public class VittoStoreDDBBRepository {
             System.out.println("(closeTable): DDBB Updating OPERATING_TABLE");
             StringBuffer udateOperatingTableQuery = new StringBuffer();
             udateOperatingTableQuery.append(" UPDATE operating_table ");
-            udateOperatingTableQuery.append(" SET horario_cierre = ? ");
+            udateOperatingTableQuery.append(" SET horario_cierre = ? , ");
+            udateOperatingTableQuery.append(" estado = ? ");
             udateOperatingTableQuery.append(" WHERE mesa = ? AND actividad = true AND nombre_mozo = ? ");
 
             Calendar cal = Calendar.getInstance();
@@ -281,8 +282,9 @@ public class VittoStoreDDBBRepository {
                 PreparedStatement preparedStatement = this.DDBBConnection.prepareStatement(udateOperatingTableQuery.toString());
 
                 preparedStatement.setTimestamp(1, timeStampNow);
-                preparedStatement.setInt(2, tableId);
-                preparedStatement.setString(3, tableUser);
+                preparedStatement.setString(2, OperatingTableStateEnum.CERRADA.toString());
+                preparedStatement.setInt(3, tableId);
+                preparedStatement.setString(4, tableUser);
 
                 preparedStatement.execute();
 
@@ -388,15 +390,17 @@ public class VittoStoreDDBBRepository {
 
             StringBuffer udateOperatingTableQuery = new StringBuffer();
             udateOperatingTableQuery.append(" UPDATE operating_table ");
-            udateOperatingTableQuery.append(" SET estado = ? ");
+            udateOperatingTableQuery.append(" SET estado = ? ,");
+            udateOperatingTableQuery.append(" actividad  = ? ");
             udateOperatingTableQuery.append(" WHERE mesa = ? AND actividad = true AND estado = ? ");
 
             try {
                 PreparedStatement preparedStatement = this.DDBBConnection.prepareStatement(udateOperatingTableQuery.toString());
 
                 preparedStatement.setString(1, OperatingTableStateEnum.PAGADA.toString());
-                preparedStatement.setInt(2, tableId);
-                preparedStatement.setString(3, OperatingTableStateEnum.CERRADA.toString());
+                preparedStatement.setBoolean(2, false);
+                preparedStatement.setInt(3, tableId);
+                preparedStatement.setString(4, OperatingTableStateEnum.CERRADA.toString());
 
                 preparedStatement.execute();
 
