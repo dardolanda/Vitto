@@ -25,6 +25,7 @@ import com.mycompany.vittostore.dataStore.DataStore;
 import com.mycompany.vittostore.controllerImpl.ProductsImpl;
 import com.mycompany.vittostore.controllerImpl.UsersImpl;
 import com.mycompany.vittostore.generalitems.GenericSelectedComponent;
+import com.mycompany.vittostore.generalitems.PaymentMethods;
 import java.awt.Component;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -251,7 +252,7 @@ public class VittoFrame extends javax.swing.JFrame {
         cashChangeBack = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         cashPayDiscountCheck = new javax.swing.JCheckBox();
-        jButton1 = new javax.swing.JButton();
+        cashPayAction = new javax.swing.JButton();
         paymentCash = new javax.swing.JTextField();
         cashDiscountCombo = new javax.swing.JComboBox<>();
         cashCalculateTotal = new javax.swing.JButton();
@@ -1163,7 +1164,12 @@ public class VittoFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Pagar");
+        cashPayAction.setText("Pagar");
+        cashPayAction.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cashPayActionActionPerformed(evt);
+            }
+        });
 
         paymentCash.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1236,7 +1242,7 @@ public class VittoFrame extends javax.swing.JFrame {
                                 .addGap(0, 10, Short.MAX_VALUE))))
                     .addGroup(PagoEfectivoFrameLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)))
+                        .addComponent(cashPayAction)))
                 .addGap(19, 19, 19))
             .addGroup(PagoEfectivoFrameLayout.createSequentialGroup()
                 .addContainerGap()
@@ -1273,14 +1279,13 @@ public class VittoFrame extends javax.swing.JFrame {
                     .addComponent(jLabel21)
                     .addComponent(cashTotalPay, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel22))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(PagoEfectivoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PagoEfectivoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(cashChangeBack, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel24))
-                    .addComponent(jLabel23))
-                .addGap(23, 23, 23)
-                .addComponent(jButton1)
+                .addGap(17, 17, 17)
+                .addGroup(PagoEfectivoFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel24)
+                    .addComponent(jLabel23)
+                    .addComponent(cashChangeBack, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addComponent(cashPayAction)
                 .addContainerGap())
         );
 
@@ -2252,19 +2257,30 @@ public class VittoFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_paymentCashActionPerformed
 
     private void cashCalculateTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cashCalculateTotalActionPerformed
+        double cashPayment = Double.parseDouble(this.paymentCash.getText());
+        double cashSbtTotal = Double.parseDouble(this.cashSubTotal.getText());
         
         if (cashPayDiscountCheck.isSelected()) {
             // aplica descuento
-            System.out.println("combo selected item -> " +this.cashDiscountCombo.getSelectedItem().toString());
+            System.out.println("combo selected item -> " + this.cashDiscountCombo.getSelectedItem().toString());
             
+            int percentage = Integer.parseInt(this.cashDiscountCombo.getSelectedItem().toString().split("%")[0]);
             
+            double discount = (cashSbtTotal * percentage) / 100;
             
+            this.cashTotalPay.setText( Double.toString(cashSbtTotal - discount)); 
             
+            this.cashChangeBack.setText( Double.toString(cashPayment - cashSbtTotal - discount) );
+                        
         } else {
-            // no aplica descuento
+            // no aplica Descuento:
+            
+            this.cashTotalPay.setText(Double.toString(cashSbtTotal));
+            this.cashChangeBack.setText(Double.toString( cashPayment - cashSbtTotal));
+            
         }
         
-        this.cashDiscountCombo.setEnabled(false);
+        // this.cashDiscountCombo.setEnabled(false);
         
     }//GEN-LAST:event_cashCalculateTotalActionPerformed
 
@@ -2325,6 +2341,43 @@ public class VittoFrame extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_cashPaymentActionPerformed
+
+    private void cashPayActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cashPayActionActionPerformed
+        // TODO add your handling code here:
+        
+        
+        double discount = cashPayDiscountCheck.isSelected() ? Double.parseDouble(this.cashDiscountCombo.getSelectedItem().toString().split("%")[0]) : 0.00;        
+        
+        
+        // tiene que cambiar la actividad = false / el estado a operating_table -> mesa pagada
+        // tiene que agregar el horario de pago 
+        this.productsImpl.payTable(this.selectedTable.getId(), 
+                this.cashSubTotal.getText(), discount, 
+                this.tableUser.getNombre() + "_" + this.tableUser.getApellido(),
+                PaymentMethods.EFECTIVO.toString());
+        
+        
+        
+        // mensaje de Pago corr
+        JOptionPane.showMessageDialog(null, "La mesa Nº: " + this.selectedTable.getId() + " ha efectuado el pago Correctamente");
+        
+        
+        // cerrar popUps
+        this.closeGenericFrame(PayTableFrm); // Elige el método de pago
+        this.closeGenericFrame(PagoEfectivoFrame); // Paga en efectivo
+        this.closeGenericFrame(SelectOrder); // elige el tipo de producto
+        
+        // libera la mesa
+        this.setTableColour(this.selectedTable.getId(), Color.GREEN);
+        
+        
+        
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_cashPayActionActionPerformed
 
     private void setTableColour(int tableId, Color color) {
 
@@ -2412,6 +2465,7 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JLabel cashChangeBack;
     private javax.swing.JComboBox<String> cashDiscount2;
     private javax.swing.JComboBox<String> cashDiscountCombo;
+    private javax.swing.JButton cashPayAction;
     private javax.swing.JCheckBox cashPayDiscountCheck;
     private javax.swing.JButton cashPayment;
     private javax.swing.JTextField cashPaymentCelphone;
@@ -2437,7 +2491,6 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JSpinner exprimidoSpinner;
     private javax.swing.JCheckBox fantaCheck;
     private javax.swing.JSpinner fantaSpinner;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JCheckBox jCheckBox3;

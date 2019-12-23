@@ -24,6 +24,8 @@ public interface Products {
     
     public List<Product> findTableSelectedProducts(int tableId);
     
+    public void payTable(int tableId, double totalToPay, double discount, String nombreMozo, String payMethod);
+    
     
     
     

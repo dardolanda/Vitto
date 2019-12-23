@@ -98,4 +98,21 @@ public class ProductsImpl extends VittoConnection implements Products {
         return vittoDDBBStore.findtableSelectedProducts(tableId);
     }
 
+    @Override
+    public void payTable(int tableId, double totalToPay, double discount, String nombreMozo, String payMethod) {
+        
+        /*
+        select * from operating_table
+        where mesa = 1 and actividad = true 
+        and  estado = 'CERRADA'
+        */
+        // PAGAR mesa
+        vittoDDBBStore.payOperatingTable(tableId);
+        
+        // insertar el registro de pago: tener en cuenta el tipo de pago -> efectivo u otro 
+        // ya que otra forma de pago requiere un segundo insert con el id tomado de la talba payments.
+        
+        
+    }
+
 }
