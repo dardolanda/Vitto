@@ -30,15 +30,22 @@ import com.mycompany.vittostore.generalitems.PaymentMethodsEnum;
 import java.awt.Component;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.scene.control.CheckBox;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JCheckBox;
+import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.text.MaskFormatter;
 
 public class VittoFrame extends javax.swing.JFrame {
 
@@ -134,7 +141,7 @@ public class VittoFrame extends javax.swing.JFrame {
         SelectOrder.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
         SelectOrder.setSize(700, 600);
         SelectOrder.setVisible(true);
-
+        
     }
 
     /**
@@ -288,6 +295,7 @@ public class VittoFrame extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
+        CloseDayFrame = new javax.swing.JFrame();
         tableOne = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         tableTwo = new javax.swing.JButton();
@@ -296,6 +304,35 @@ public class VittoFrame extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         tableFour = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
+        jSeparator6 = new javax.swing.JSeparator();
+        jSeparator7 = new javax.swing.JSeparator();
+        jLabel28 = new javax.swing.JLabel();
+        tableFive = new javax.swing.JButton();
+        jLabel29 = new javax.swing.JLabel();
+        tableSix = new javax.swing.JButton();
+        jLabel30 = new javax.swing.JLabel();
+        tableSeven = new javax.swing.JButton();
+        jLabel31 = new javax.swing.JLabel();
+        tableEight = new javax.swing.JButton();
+        jLabel32 = new javax.swing.JLabel();
+        tableNine = new javax.swing.JButton();
+        jLabel33 = new javax.swing.JLabel();
+        tableTen = new javax.swing.JButton();
+        jLabel34 = new javax.swing.JLabel();
+        tableEleven = new javax.swing.JButton();
+        jLabel35 = new javax.swing.JLabel();
+        tableTwelve = new javax.swing.JButton();
+        jLabel51 = new javax.swing.JLabel();
+        CloseDayAction = new javax.swing.JButton();
+        jLabel52 = new javax.swing.JLabel();
+        tableFourteen = new javax.swing.JButton();
+        jLabel53 = new javax.swing.JLabel();
+        tableFifteen = new javax.swing.JButton();
+        jLabel54 = new javax.swing.JLabel();
+        tableSixTeen = new javax.swing.JButton();
+        jLabel55 = new javax.swing.JLabel();
+        tableThirteen = new javax.swing.JButton();
+        takeAway = new javax.swing.JButton();
 
         employeeNameCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -308,12 +345,12 @@ public class VittoFrame extends javax.swing.JFrame {
 
         drinkNoAlcohol.setText("Bebidas sin alcohol");
         drinkNoAlcohol.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 drinkNoAlcoholAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         drinkNoAlcohol.addActionListener(new java.awt.event.ActionListener() {
@@ -897,11 +934,11 @@ public class VittoFrame extends javax.swing.JFrame {
         SaladsProductFrame.getContentPane().setLayout(SaladsProductFrameLayout);
         SaladsProductFrameLayout.setHorizontalGroup(
             SaladsProductFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 712, Short.MAX_VALUE)
+            .addGap(0, 619, Short.MAX_VALUE)
         );
         SaladsProductFrameLayout.setVerticalGroup(
             SaladsProductFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 517, Short.MAX_VALUE)
+            .addGap(0, 344, Short.MAX_VALUE)
         );
 
         jLabel8.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -1517,6 +1554,17 @@ public class VittoFrame extends javax.swing.JFrame {
                 .addGap(16, 16, 16))
         );
 
+        javax.swing.GroupLayout CloseDayFrameLayout = new javax.swing.GroupLayout(CloseDayFrame.getContentPane());
+        CloseDayFrame.getContentPane().setLayout(CloseDayFrameLayout);
+        CloseDayFrameLayout.setHorizontalGroup(
+            CloseDayFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 712, Short.MAX_VALUE)
+        );
+        CloseDayFrameLayout.setVerticalGroup(
+            CloseDayFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 196, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         tableOne.setBackground(new java.awt.Color(51, 204, 0));
@@ -1559,66 +1607,350 @@ public class VittoFrame extends javax.swing.JFrame {
 
         jLabel5.setText("Mesa");
 
+        jSeparator6.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
+        jSeparator7.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
+        jLabel28.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel28.setText("Mesas Operativas");
+
+        tableFive.setBackground(new java.awt.Color(51, 204, 0));
+        tableFive.setText("5");
+        tableFive.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tableFiveActionPerformed(evt);
+            }
+        });
+
+        jLabel29.setText("Mesa");
+
+        tableSix.setBackground(new java.awt.Color(51, 204, 0));
+        tableSix.setText("6");
+        tableSix.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tableSixActionPerformed(evt);
+            }
+        });
+
+        jLabel30.setText("Mesa");
+
+        tableSeven.setBackground(new java.awt.Color(51, 204, 0));
+        tableSeven.setText("7");
+        tableSeven.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tableSevenActionPerformed(evt);
+            }
+        });
+
+        jLabel31.setText("Mesa");
+
+        tableEight.setBackground(new java.awt.Color(51, 204, 0));
+        tableEight.setText("8");
+        tableEight.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tableEightActionPerformed(evt);
+            }
+        });
+
+        jLabel32.setText("Mesa");
+
+        tableNine.setBackground(new java.awt.Color(51, 204, 0));
+        tableNine.setText("9");
+        tableNine.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tableNineActionPerformed(evt);
+            }
+        });
+
+        jLabel33.setText("Mesa");
+
+        tableTen.setBackground(new java.awt.Color(51, 204, 0));
+        tableTen.setText("10");
+        tableTen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tableTenActionPerformed(evt);
+            }
+        });
+
+        jLabel34.setText("Mesa");
+
+        tableEleven.setBackground(new java.awt.Color(51, 204, 0));
+        tableEleven.setText("11");
+        tableEleven.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tableElevenActionPerformed(evt);
+            }
+        });
+
+        jLabel35.setText("Mesa");
+
+        tableTwelve.setBackground(new java.awt.Color(51, 204, 0));
+        tableTwelve.setText("12");
+        tableTwelve.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tableTwelveActionPerformed(evt);
+            }
+        });
+
+        jLabel51.setText("Mesa");
+
+        CloseDayAction.setBackground(new java.awt.Color(153, 153, 255));
+        CloseDayAction.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        CloseDayAction.setText("Cierre Diario");
+        CloseDayAction.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CloseDayActionActionPerformed(evt);
+            }
+        });
+
+        jLabel52.setText("Mesa");
+
+        tableFourteen.setBackground(new java.awt.Color(51, 204, 0));
+        tableFourteen.setText("14");
+        tableFourteen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tableFourteenActionPerformed(evt);
+            }
+        });
+
+        jLabel53.setText("Mesa");
+
+        tableFifteen.setBackground(new java.awt.Color(51, 204, 0));
+        tableFifteen.setText("15");
+        tableFifteen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tableFifteenActionPerformed(evt);
+            }
+        });
+
+        jLabel54.setText("Mesa");
+
+        tableSixTeen.setBackground(new java.awt.Color(51, 204, 0));
+        tableSixTeen.setText("16");
+        tableSixTeen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tableSixTeenActionPerformed(evt);
+            }
+        });
+
+        jLabel55.setText("Mesa");
+
+        tableThirteen.setBackground(new java.awt.Color(51, 204, 0));
+        tableThirteen.setText("13");
+        tableThirteen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tableThirteenActionPerformed(evt);
+            }
+        });
+
+        takeAway.setBackground(new java.awt.Color(153, 153, 255));
+        takeAway.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        takeAway.setText("Take Away");
+        takeAway.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                takeAwayActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(410, Short.MAX_VALUE)
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(CloseDayAction, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(takeAway, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tableOne, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(jLabel1)))
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tableTwo, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(jLabel2)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(jLabel3)
-                        .addGap(51, 51, 51)
-                        .addComponent(jLabel5))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(tableThree, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(tableFour, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(78, 78, 78))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(tableFive, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(19, 19, 19)
+                                    .addComponent(jLabel29)))
+                            .addGap(28, 28, 28)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(tableSix, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(19, 19, 19)
+                                    .addComponent(jLabel30)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(47, 47, 47)
+                                    .addComponent(jLabel31)
+                                    .addGap(51, 51, 51)
+                                    .addComponent(jLabel32))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(26, 26, 26)
+                                    .addComponent(tableSeven, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(tableEight, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(tableOne, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(19, 19, 19)
+                                    .addComponent(jLabel1)))
+                            .addGap(28, 28, 28)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(tableTwo, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(19, 19, 19)
+                                    .addComponent(jLabel2)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(47, 47, 47)
+                                    .addComponent(jLabel3)
+                                    .addGap(51, 51, 51)
+                                    .addComponent(jLabel5))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(26, 26, 26)
+                                    .addComponent(tableThree, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(tableFour, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(tableNine, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(19, 19, 19)
+                                    .addComponent(jLabel33)))
+                            .addGap(28, 28, 28)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(tableTen, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(19, 19, 19)
+                                    .addComponent(jLabel34)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(47, 47, 47)
+                                    .addComponent(jLabel35)
+                                    .addGap(51, 51, 51)
+                                    .addComponent(jLabel51))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(26, 26, 26)
+                                    .addComponent(tableEleven, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(tableTwelve, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(19, 19, 19)
+                                    .addComponent(jLabel52))
+                                .addComponent(tableThirteen, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(28, 28, 28)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(tableFourteen, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(19, 19, 19)
+                                    .addComponent(jLabel53)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(47, 47, 47)
+                                    .addComponent(jLabel54)
+                                    .addGap(51, 51, 51)
+                                    .addComponent(jLabel55))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(26, 26, 26)
+                                    .addComponent(tableFifteen, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(tableSixTeen, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addComponent(jLabel28))
+                .addGap(66, 66, 66))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(67, 67, 67)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tableTwo, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tableThree, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tableOne, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(tableFour, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(703, Short.MAX_VALUE))
+                        .addGap(16, 16, 16)
+                        .addComponent(jLabel28)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(tableTwo, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tableThree, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tableOne, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tableFour, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(32, 32, 32)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(tableSix, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tableSeven, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tableFive, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tableEight, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(33, 33, 33)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel51, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(tableTen, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tableEleven, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tableNine, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tableTwelve, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(33, 33, 33)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel53, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel54, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel55, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(tableFourteen, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tableFifteen, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tableThirteen, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel52, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(65, 65, 65))
+                            .addComponent(tableSixTeen, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 38, Short.MAX_VALUE))
+                    .addComponent(jSeparator7)
+                    .addComponent(jSeparator6))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(takeAway, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(86, 86, 86)
+                .addComponent(CloseDayAction, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(163, 163, 163))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void tableOneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tableOneActionPerformed
-        // TODO recuperar todos los valores de la BBDD -> para luego inyectarlos 
-        //      en el modelo.
-
-        // System.out.println(evt);
         this.selectedTable.setState("tableOne");
         this.selectedTable.setId(1);
 
@@ -2501,6 +2833,167 @@ public class VittoFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_otherPaymentPayActionActionPerformed
 
+    private void tableFiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tableFiveActionPerformed
+        // TODO add your handling code here:
+        this.selectedTable.setState("tableFive");
+        this.selectedTable.setId(5);
+
+        String tableUser = this.productsImpl.findTableUserByTableId(this.selectedTable.getId());
+
+        this.chargeEmployee(tableUser);
+        this.selectOrderView(5);
+    }//GEN-LAST:event_tableFiveActionPerformed
+
+    private void tableSixActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tableSixActionPerformed
+        this.selectedTable.setState("tableSix");
+        this.selectedTable.setId(6);
+
+        String tableUser = this.productsImpl.findTableUserByTableId(this.selectedTable.getId());
+
+        this.chargeEmployee(tableUser);
+        this.selectOrderView(6);
+    }//GEN-LAST:event_tableSixActionPerformed
+
+    private void tableSevenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tableSevenActionPerformed
+        this.selectedTable.setState("tableSeven");
+        this.selectedTable.setId(7);
+
+        String tableUser = this.productsImpl.findTableUserByTableId(this.selectedTable.getId());
+
+        this.chargeEmployee(tableUser);
+        this.selectOrderView(7);
+    }//GEN-LAST:event_tableSevenActionPerformed
+
+    private void tableEightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tableEightActionPerformed
+        this.selectedTable.setState("tableEight");
+        this.selectedTable.setId(8);
+
+        String tableUser = this.productsImpl.findTableUserByTableId(this.selectedTable.getId());
+
+        this.chargeEmployee(tableUser);
+        this.selectOrderView(8);
+    }//GEN-LAST:event_tableEightActionPerformed
+
+    private void tableNineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tableNineActionPerformed
+        this.selectedTable.setState("tableNine");
+        this.selectedTable.setId(9);
+
+        String tableUser = this.productsImpl.findTableUserByTableId(this.selectedTable.getId());
+
+        this.chargeEmployee(tableUser);
+        this.selectOrderView(9);
+    }//GEN-LAST:event_tableNineActionPerformed
+
+    private void tableTenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tableTenActionPerformed
+        this.selectedTable.setState("tableTen");
+        this.selectedTable.setId(10);
+
+        String tableUser = this.productsImpl.findTableUserByTableId(this.selectedTable.getId());
+
+        this.chargeEmployee(tableUser);
+        this.selectOrderView(10);
+    }//GEN-LAST:event_tableTenActionPerformed
+
+    private void tableElevenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tableElevenActionPerformed
+        this.selectedTable.setState("tableEleven");
+        this.selectedTable.setId(11);
+
+        String tableUser = this.productsImpl.findTableUserByTableId(this.selectedTable.getId());
+
+        this.chargeEmployee(tableUser);
+        this.selectOrderView(11);
+    }//GEN-LAST:event_tableElevenActionPerformed
+
+    private void tableTwelveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tableTwelveActionPerformed
+        this.selectedTable.setState("tableTwelve");
+        this.selectedTable.setId(12);
+
+        String tableUser = this.productsImpl.findTableUserByTableId(this.selectedTable.getId());
+
+        this.chargeEmployee(tableUser);
+        this.selectOrderView(12);
+    }//GEN-LAST:event_tableTwelveActionPerformed
+
+    private void CloseDayActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseDayActionActionPerformed
+        // TODO add your handling code here:
+        
+        this.CloseDayFrame.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
+        this.CloseDayFrame.setSize(400, 500);
+        this.CloseDayFrame.setVisible(true);
+        
+         JFormattedTextField input;
+         MaskFormatter formatter2;
+         JPanel panel;
+        
+        MaskFormatter formatter;
+        try {
+            formatter = new MaskFormatter("###'-##'-####");
+            input = new JFormattedTextField(formatter);
+            input.setValue("123-45-6789");
+            panel = new JPanel();
+            panel.add(input);
+            
+            this.CloseDayFrame.add(panel);
+            
+            
+        } catch (ParseException ex) {
+            Logger.getLogger(VittoFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_CloseDayActionActionPerformed
+
+    private void tableFourteenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tableFourteenActionPerformed
+        this.selectedTable.setState("tablFourteen");
+        this.selectedTable.setId(14);
+
+        String tableUser = this.productsImpl.findTableUserByTableId(this.selectedTable.getId());
+
+        this.chargeEmployee(tableUser);
+        this.selectOrderView(14);
+    }//GEN-LAST:event_tableFourteenActionPerformed
+
+    private void tableFifteenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tableFifteenActionPerformed
+        this.selectedTable.setState("tableFifteen");
+        this.selectedTable.setId(15);
+
+        String tableUser = this.productsImpl.findTableUserByTableId(this.selectedTable.getId());
+
+        this.chargeEmployee(tableUser);
+        this.selectOrderView(15);
+    }//GEN-LAST:event_tableFifteenActionPerformed
+
+    private void tableSixTeenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tableSixTeenActionPerformed
+        this.selectedTable.setState("tableSixteen");
+        this.selectedTable.setId(16);
+
+        String tableUser = this.productsImpl.findTableUserByTableId(this.selectedTable.getId());
+
+        this.chargeEmployee(tableUser);
+        this.selectOrderView(16);
+    }//GEN-LAST:event_tableSixTeenActionPerformed
+
+    private void tableThirteenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tableThirteenActionPerformed
+        this.selectedTable.setState("tableThirteen");
+        this.selectedTable.setId(13);
+
+        String tableUser = this.productsImpl.findTableUserByTableId(this.selectedTable.getId());
+
+        this.chargeEmployee(tableUser);
+        this.selectOrderView(13);
+    }//GEN-LAST:event_tableThirteenActionPerformed
+
+    private void takeAwayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_takeAwayActionPerformed
+        // TODO add your handling code here:
+        this.selectedTable.setState("takeAway");
+        this.selectedTable.setId(0);
+
+        String tableUser = this.productsImpl.findTableUserByTableId(this.selectedTable.getId());
+
+        this.chargeEmployee(tableUser);
+        this.selectOrderView(0);
+        
+    }//GEN-LAST:event_takeAwayActionPerformed
+
     private void setTableColour(int tableId, Color color) {
 
         switch (tableId) {
@@ -2567,6 +3060,8 @@ public class VittoFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFrame CandyProductsFrame;
+    private javax.swing.JButton CloseDayAction;
+    private javax.swing.JFrame CloseDayFrame;
     private javax.swing.JButton CloseTableButton;
     private javax.swing.JFrame CloseTableFrame;
     private javax.swing.JFrame DrinkAlcoholFrame;
@@ -2626,7 +3121,15 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
@@ -2644,6 +3147,11 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel51;
+    private javax.swing.JLabel jLabel52;
+    private javax.swing.JLabel jLabel53;
+    private javax.swing.JLabel jLabel54;
+    private javax.swing.JLabel jLabel55;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -2654,6 +3162,8 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JCheckBox licuadoAguaCheck;
@@ -2701,11 +3211,24 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JSpinner spriteSpinner;
     private javax.swing.JCheckBox spriteZeroCheck;
     private javax.swing.JSpinner spriteZeroSpinner;
+    private javax.swing.JButton tableEight;
+    private javax.swing.JButton tableEleven;
+    private javax.swing.JButton tableFifteen;
+    private javax.swing.JButton tableFive;
     private javax.swing.JButton tableFour;
+    private javax.swing.JButton tableFourteen;
     private javax.swing.JLabel tableIdPayLabel;
+    private javax.swing.JButton tableNine;
     private javax.swing.JButton tableOne;
+    private javax.swing.JButton tableSeven;
+    private javax.swing.JButton tableSix;
+    private javax.swing.JButton tableSixTeen;
+    private javax.swing.JButton tableTen;
+    private javax.swing.JButton tableThirteen;
     private javax.swing.JButton tableThree;
+    private javax.swing.JButton tableTwelve;
     private javax.swing.JButton tableTwo;
+    private javax.swing.JButton takeAway;
     private javax.swing.JCheckBox tonicaCheck;
     private javax.swing.JSpinner torosPomeloSpinner;
     private javax.swing.JSpinner torosTonicaSpinner;
