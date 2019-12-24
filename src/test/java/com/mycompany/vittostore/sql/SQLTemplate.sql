@@ -95,29 +95,30 @@ where id between 27 and 38;
 
 
 
+select count(distinct mesa) from operating_table
+
+select distinct mesa from operating_table
 
 
+select count(*) as product_saved from operating_table
+where mesa = 12
+and tipo_prouducto = 'DULCES'
+and producto_nombre = 'ALFAJOR_ARTESANAL'
+and actividad = true
+and estado = 'USO'
 
 
+select *  from operating_table
+where mesa = 12
+and tipo_prouducto = 'DULCES'
+and producto_nombre = 'ALFAJOR_ARTESANAL'
+and actividad = true
+and estado = 'USO'
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
--- https://www.xvideos.com/video23417958/huge_black_cock_inside_hot_babe_sadie_west
+update operating_table
+set producto_cantidad = 25
+where mesa = 12
+and tipo_prouducto = 'DULCES'
+and producto_nombre = 'ALFAJOR_ARTESANAL'
+and actividad = true
+and estado = 'USO'

@@ -7204,3 +7204,348 @@ Caused by: java.lang.IllegalStateException: The file is locked: nio:/media/landa
 	at org.h2.mvstore.FileStore.open(FileStore.java:172)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:390)
 	... 37 more
+2019-12-24 17:52:22 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "TIPO_PRODUCTO" no encontrada
+Column "TIPO_PRODUCTO" not found; SQL statement:
+select * from operating_table
+where actividad = true
+and tipo_producto = 'DULCES' [42122-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:451)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:176)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:158)
+	at org.h2.expression.condition.Comparison.optimize(Comparison.java:205)
+	at org.h2.expression.condition.ConditionAndOr.optimize(ConditionAndOr.java:134)
+	at org.h2.command.dml.Select.prepare(Select.java:1248)
+	at org.h2.command.Parser.prepareCommand(Parser.java:689)
+	at org.h2.engine.Session.prepareLocal(Session.java:627)
+	at org.h2.engine.Session.prepareCommand(Session.java:565)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1292)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:217)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:1113)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1436)
+	at org.h2.server.web.WebApp.query(WebApp.java:1111)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1073)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1060)
+	at org.h2.server.web.WebThread.process(WebThread.java:173)
+	at org.h2.server.web.WebThread.run(WebThread.java:93)
+	at java.lang.Thread.run(Thread.java:748)
+2019-12-24 18:08:42 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "SELECT * AS[*] PRODUCT_SAVED FROM OPERATING_TABLE
+WHERE MESA = 12
+AND TIPO_PROUDUCTO = 'DULCES'
+AND PRODUCTO_NOMBRE = 'ALFAJOR_ARTESANAL'
+AND ACTIVIDAD = TRUE
+AND ESTADO = 'USO' "
+Syntax error in SQL statement "SELECT * AS[*] PRODUCT_SAVED FROM OPERATING_TABLE
+WHERE MESA = 12
+AND TIPO_PROUDUCTO = 'DULCES'
+AND PRODUCTO_NOMBRE = 'ALFAJOR_ARTESANAL'
+AND ACTIVIDAD = TRUE
+AND ESTADO = 'USO' "; SQL statement:
+select * as product_saved from operating_table
+where mesa = 12
+and tipo_prouducto = 'DULCES'
+and producto_nombre = 'ALFAJOR_ARTESANAL'
+and actividad = true
+and estado = 'USO' [42000-199]
+2019-12-24 18:10:06 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "SELECT COUNT(DISTINCT MESA) FROM OPERATING_TABLE
+
+SELECT[*] DISTINCT MESA FROM OPERATING_TABLE
+
+
+SELECT COUNT(*) AS PRODUCT_SAVED FROM OPERATING_TABLE
+WHERE MESA = 12
+AND TIPO_PROUDUCTO = 'DULCES'
+AND PRODUCTO_NOMBRE = 'ALFAJOR_ARTESANAL'
+AND ACTIVIDAD = TRUE
+AND ESTADO = 'USO'
+
+
+SELECT *  FROM OPERATING_TABLE
+WHERE MESA = 12
+AND TIPO_PROUDUCTO = 'DULCES'
+AND PRODUCTO_NOMBRE = 'ALFAJOR_ARTESANAL'
+AND ACTIVIDAD = TRUE
+AND ESTADO = 'USO'
+
+UPDATE OPERATING_TABLE
+SET PRODUCTO_CANTIDAD = 15
+WHERE MESA = 12
+AND TIPO_PROUDUCTO = 'DULCES'
+AND PRODUCTO_NOMBRE = 'ALFAJOR_ARTESANAL'
+AND ACTIVIDAD = TRUE
+AND ESTADO = 'USO' "
+Syntax error in SQL statement "SELECT COUNT(DISTINCT MESA) FROM OPERATING_TABLE
+
+SELECT[*] DISTINCT MESA FROM OPERATING_TABLE
+
+
+SELECT COUNT(*) AS PRODUCT_SAVED FROM OPERATING_TABLE
+WHERE MESA = 12
+AND TIPO_PROUDUCTO = 'DULCES'
+AND PRODUCTO_NOMBRE = 'ALFAJOR_ARTESANAL'
+AND ACTIVIDAD = TRUE
+AND ESTADO = 'USO'
+
+
+SELECT *  FROM OPERATING_TABLE
+WHERE MESA = 12
+AND TIPO_PROUDUCTO = 'DULCES'
+AND PRODUCTO_NOMBRE = 'ALFAJOR_ARTESANAL'
+AND ACTIVIDAD = TRUE
+AND ESTADO = 'USO'
+
+UPDATE OPERATING_TABLE
+SET PRODUCTO_CANTIDAD = 15
+WHERE MESA = 12
+AND TIPO_PROUDUCTO = 'DULCES'
+AND PRODUCTO_NOMBRE = 'ALFAJOR_ARTESANAL'
+AND ACTIVIDAD = TRUE
+AND ESTADO = 'USO' "; SQL statement:
+select count(distinct mesa) from operating_table
+
+select distinct mesa from operating_table
+
+
+select count(*) as product_saved from operating_table
+where mesa = 12
+and tipo_prouducto = 'DULCES'
+and producto_nombre = 'ALFAJOR_ARTESANAL'
+and actividad = true
+and estado = 'USO'
+
+
+select *  from operating_table
+where mesa = 12
+and tipo_prouducto = 'DULCES'
+and producto_nombre = 'ALFAJOR_ARTESANAL'
+and actividad = true
+and estado = 'USO'
+
+update operating_table
+set producto_cantidad = 15
+where mesa = 12
+and tipo_prouducto = 'DULCES'
+and producto_nombre = 'ALFAJOR_ARTESANAL'
+and actividad = true
+and estado = 'USO' [42000-199]
+2019-12-24 18:23:42 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLDataException: Parametro "#7" no está fijado
+Parameter "#7" is not set; SQL statement:
+INSERT INTO operating_table  (mesa, nombre_mozo, producto_id, producto_nombre, producto_cantidad, producto_precio_unitario, actividad, horario_apertura, estado, tipo_prouducto) VALUES (?,?,?,?,?,?,?,?,?,?) [90012-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:587)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.expression.Parameter.checkSet(Parameter.java:94)
+	at org.h2.command.Prepared.checkParameters(Prepared.java:180)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:132)
+	at org.h2.command.Command.executeUpdate(Command.java:267)
+	at org.h2.jdbc.JdbcPreparedStatement.execute(JdbcPreparedStatement.java:250)
+	at com.mycompany.vittostore.database.VittoStoreDDBBRepository.insertProduct(VittoStoreDDBBRepository.java:222)
+	at com.mycompany.vittostore.controllerImpl.ProductsImpl.insertProduct(ProductsImpl.java:32)
+	at com.mycompany.vittostore.VittoFrame.acceptNoAlcoholDrinksActionPerformed(VittoFrame.java:2901)
+	at com.mycompany.vittostore.VittoFrame.access$1100(VittoFrame.java:52)
+	at com.mycompany.vittostore.VittoFrame$12.actionPerformed(VittoFrame.java:590)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6539)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6304)
+	at java.awt.Container.processEvent(Container.java:2239)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2297)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4904)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4535)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4476)
+	at java.awt.Container.dispatchEventImpl(Container.java:2283)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:760)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:74)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:84)
+	at java.awt.EventQueue$4.run(EventQueue.java:733)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:74)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:730)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:205)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+2019-12-24 18:23:42 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLDataException: Parametro "#7" no está fijado
+Parameter "#7" is not set; SQL statement:
+INSERT INTO operating_table  (mesa, nombre_mozo, producto_id, producto_nombre, producto_cantidad, producto_precio_unitario, actividad, horario_apertura, estado, tipo_prouducto) VALUES (?,?,?,?,?,?,?,?,?,?) [90012-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:587)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.expression.Parameter.checkSet(Parameter.java:94)
+	at org.h2.command.Prepared.checkParameters(Prepared.java:180)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:132)
+	at org.h2.command.Command.executeUpdate(Command.java:267)
+	at org.h2.jdbc.JdbcPreparedStatement.execute(JdbcPreparedStatement.java:250)
+	at com.mycompany.vittostore.database.VittoStoreDDBBRepository.insertProduct(VittoStoreDDBBRepository.java:222)
+	at com.mycompany.vittostore.controllerImpl.ProductsImpl.insertProduct(ProductsImpl.java:32)
+	at com.mycompany.vittostore.VittoFrame.acceptNoAlcoholDrinksActionPerformed(VittoFrame.java:2901)
+	at com.mycompany.vittostore.VittoFrame.access$1100(VittoFrame.java:52)
+	at com.mycompany.vittostore.VittoFrame$12.actionPerformed(VittoFrame.java:590)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6539)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6304)
+	at java.awt.Container.processEvent(Container.java:2239)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2297)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4904)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4535)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4476)
+	at java.awt.Container.dispatchEventImpl(Container.java:2283)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:760)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:74)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:84)
+	at java.awt.EventQueue$4.run(EventQueue.java:733)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:74)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:730)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:205)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+2019-12-24 18:23:42 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLDataException: Parametro "#7" no está fijado
+Parameter "#7" is not set; SQL statement:
+INSERT INTO operating_table  (mesa, nombre_mozo, producto_id, producto_nombre, producto_cantidad, producto_precio_unitario, actividad, horario_apertura, estado, tipo_prouducto) VALUES (?,?,?,?,?,?,?,?,?,?) [90012-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:587)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.expression.Parameter.checkSet(Parameter.java:94)
+	at org.h2.command.Prepared.checkParameters(Prepared.java:180)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:132)
+	at org.h2.command.Command.executeUpdate(Command.java:267)
+	at org.h2.jdbc.JdbcPreparedStatement.execute(JdbcPreparedStatement.java:250)
+	at com.mycompany.vittostore.database.VittoStoreDDBBRepository.insertProduct(VittoStoreDDBBRepository.java:222)
+	at com.mycompany.vittostore.controllerImpl.ProductsImpl.insertProduct(ProductsImpl.java:32)
+	at com.mycompany.vittostore.VittoFrame.acceptNoAlcoholDrinksActionPerformed(VittoFrame.java:2901)
+	at com.mycompany.vittostore.VittoFrame.access$1100(VittoFrame.java:52)
+	at com.mycompany.vittostore.VittoFrame$12.actionPerformed(VittoFrame.java:590)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6539)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6304)
+	at java.awt.Container.processEvent(Container.java:2239)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2297)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4904)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4535)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4476)
+	at java.awt.Container.dispatchEventImpl(Container.java:2283)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:760)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:74)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:84)
+	at java.awt.EventQueue$4.run(EventQueue.java:733)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:74)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:730)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:205)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+2019-12-24 18:23:42 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLDataException: Parametro "#7" no está fijado
+Parameter "#7" is not set; SQL statement:
+INSERT INTO operating_table  (mesa, nombre_mozo, producto_id, producto_nombre, producto_cantidad, producto_precio_unitario, actividad, horario_apertura, estado, tipo_prouducto) VALUES (?,?,?,?,?,?,?,?,?,?) [90012-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:587)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.expression.Parameter.checkSet(Parameter.java:94)
+	at org.h2.command.Prepared.checkParameters(Prepared.java:180)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:132)
+	at org.h2.command.Command.executeUpdate(Command.java:267)
+	at org.h2.jdbc.JdbcPreparedStatement.execute(JdbcPreparedStatement.java:250)
+	at com.mycompany.vittostore.database.VittoStoreDDBBRepository.insertProduct(VittoStoreDDBBRepository.java:222)
+	at com.mycompany.vittostore.controllerImpl.ProductsImpl.insertProduct(ProductsImpl.java:32)
+	at com.mycompany.vittostore.VittoFrame.acceptNoAlcoholDrinksActionPerformed(VittoFrame.java:2901)
+	at com.mycompany.vittostore.VittoFrame.access$1100(VittoFrame.java:52)
+	at com.mycompany.vittostore.VittoFrame$12.actionPerformed(VittoFrame.java:590)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2348)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6539)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6304)
+	at java.awt.Container.processEvent(Container.java:2239)
+	at java.awt.Component.dispatchEventImpl(Component.java:4889)
+	at java.awt.Container.dispatchEventImpl(Container.java:2297)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4904)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4535)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4476)
+	at java.awt.Container.dispatchEventImpl(Container.java:2283)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4711)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:760)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.awt.EventQueue$3.run(EventQueue.java:703)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:74)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:84)
+	at java.awt.EventQueue$4.run(EventQueue.java:733)
+	at java.awt.EventQueue$4.run(EventQueue.java:731)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:74)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:730)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:205)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)

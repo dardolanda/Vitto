@@ -182,52 +182,124 @@ public class VittoStoreDDBBRepository {
 
         if (this.DDBBConnection != null) {
             System.out.println("ddbb inserting OPERATING_TABLE");
+            /**
+             * Insert statement
+             */
             StringBuffer insertOperatingTableQuery = new StringBuffer();
             insertOperatingTableQuery.append("INSERT INTO operating_table ");
             insertOperatingTableQuery.append(" (mesa, nombre_mozo, producto_id, producto_nombre, producto_cantidad, producto_precio_unitario, actividad, horario_apertura, estado, tipo_prouducto)");
             insertOperatingTableQuery.append(" VALUES (?,?,?,?,?,?,?,?,?,?)");
 
+            /**
+             * Update Statement
+             */
+            StringBuffer updateOperatingTableQuery = new StringBuffer();
+            updateOperatingTableQuery.append(" UPDATE operating_table ");
+            updateOperatingTableQuery.append(" SET producto_cantidad = ? ");
+            updateOperatingTableQuery.append(" where mesa = ? ");
+            updateOperatingTableQuery.append(" and tipo_prouducto = ? ");
+            updateOperatingTableQuery.append(" and producto_nombre = ? ");
+            updateOperatingTableQuery.append(" and actividad = ? ");
+            updateOperatingTableQuery.append(" and estado = ? ");
+
             Calendar cal = Calendar.getInstance();
             Timestamp timeStampNow = new Timestamp(cal.getTimeInMillis());
 
             for (Product product : productList) {
-                System.out.println("product to insert: (BRAND) --> " + product.getBrand());
-                try (
-                        PreparedStatement preparedStatement = this.DDBBConnection.prepareStatement(insertOperatingTableQuery.toString(), Statement.RETURN_GENERATED_KEYS);) {
 
-                    preparedStatement.setInt(1, mesa);
-                    preparedStatement.setString(2, nombreMozo);
-                    preparedStatement.setInt(3, product.getId());
-                    preparedStatement.setString(4, product.getBrand());
-                    preparedStatement.setInt(5, product.getAmountConsumed());
-                    preparedStatement.setDouble(6, product.getPrice());
-                    preparedStatement.setBoolean(7, true);
-                    preparedStatement.setTimestamp(8, timeStampNow);
-                    preparedStatement.setString(9, OperatingTableStateEnum.USO.toString());
-                    preparedStatement.setString(10, productType);
+                if (this.isProductSaved(mesa, productType, product.getBrand())) {
+                    // update
+                    System.out.println("product to UPDDATE : (BRAND) --> " + product.getBrand());
+                    try {
+                        PreparedStatement updatePreparedStatement = this.DDBBConnection.prepareStatement(updateOperatingTableQuery.toString());
+                        updatePreparedStatement.setInt(1, product.getAmountConsumed());
+                        updatePreparedStatement.setInt(2, mesa);
+                        updatePreparedStatement.setString(3, productType);
+                        updatePreparedStatement.setString(4, product.getBrand());
+                        updatePreparedStatement.setBoolean(5, true);
+                        updatePreparedStatement.setString(6, OperatingTableStateEnum.USO.toString());
+                        
+                        updatePreparedStatement.execute();
+                        
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    
+                    
+                } else {
+                    // insert
+                    System.out.println("product to insert: (BRAND) --> " + product.getBrand());
 
-                    preparedStatement.execute();
+                    try (
+                            PreparedStatement preparedStatement = this.DDBBConnection.prepareStatement(insertOperatingTableQuery.toString(), Statement.RETURN_GENERATED_KEYS);) {
 
-                    ResultSet rs = preparedStatement.getGeneratedKeys();
-                    while (rs.next()) {
+                        preparedStatement.setInt(1, mesa);
+                        preparedStatement.setString(2, nombreMozo);
+                        preparedStatement.setInt(3, product.getId());
+                        preparedStatement.setString(4, product.getBrand());
+                        preparedStatement.setInt(5, product.getAmountConsumed());
+                        preparedStatement.setDouble(6, product.getPrice());
+                        preparedStatement.setBoolean(7, true);
+                        preparedStatement.setTimestamp(8, timeStampNow);
+                        preparedStatement.setString(9, OperatingTableStateEnum.USO.toString());
+                        preparedStatement.setString(10, productType);
 
-                        /*
+                        preparedStatement.execute();
+
+                        ResultSet rs = preparedStatement.getGeneratedKeys();
+                        while (rs.next()) {
+
+                            /*
                             se obtienen los id's insertados en la BBDD.
-                         */
-                        System.out.println("rs -> getInt: id     = " + rs.getInt("id"));
-                        System.out.println("rs -> getObject: id  = " + rs.getObject("id"));
+                             */
+                            System.out.println("rs -> getInt: id     = " + rs.getInt("id"));
+                            System.out.println("rs -> getObject: id  = " + rs.getObject("id"));
 
+                        }
+                        
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
 
-                } catch (Exception e) {
-                    e.printStackTrace();
                 }
-
             }
         }
     }
-    
-    
+
+    private boolean isProductSaved(int mesa, String tipoProducto, String nombreProducto) {
+        boolean isProductSavedBBDD = false;
+
+        if (this.DDBBConnection != null) {
+
+            String getProductSaved = "SELECT count(*) AS product_saved FROM operating_table "
+                    + " WHERE mesa = ? "
+                    + " AND tipo_prouducto = ? "
+                    + " AND producto_nombre = ? "
+                    + " AND actividad = ? "
+                    + " AND estado = ? ";
+
+            try {
+                PreparedStatement statement = this.DDBBConnection.prepareStatement(getProductSaved);
+                statement.setInt(1, mesa);
+                statement.setString(2, tipoProducto);
+                statement.setString(3, nombreProducto);
+                statement.setBoolean(4, true);
+                statement.setString(5, OperatingTableStateEnum.USO.toString());
+                ResultSet resultSet = statement.executeQuery();
+
+                if (resultSet.next()) {
+                    isProductSavedBBDD = resultSet.getBoolean("product_saved");
+                }
+
+            } catch (SQLException ex) {
+                Logger.getLogger(VittoStoreDDBBRepository.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+
+        return isProductSavedBBDD;
+    }
+
     public void insertProductPrices(DataStore dataStore) {
         if (this.DDBBConnection != null) {
             System.out.println("ddbb inserting (Products with price) OPERATING_TABLE");
@@ -238,18 +310,18 @@ public class VittoStoreDDBBRepository {
 
             Calendar cal = Calendar.getInstance();
             Timestamp timeStampNow = new Timestamp(cal.getTimeInMillis());
-            
+
             for (Map.Entry<SweetProductsEnum, Map<Integer, Double>> entry : dataStore.getSweetProducts().entrySet()) {
-            Object tipoDeProducto = entry.getKey();
-            Map<Integer, Double> value = entry.getValue();
-                for(Map.Entry<Integer, Double> cantidadPrecio: value.entrySet()) {
+                Object tipoDeProducto = entry.getKey();
+                Map<Integer, Double> value = entry.getValue();
+                for (Map.Entry<Integer, Double> cantidadPrecio : value.entrySet()) {
                     System.out.println("KEY --> " + tipoDeProducto.toString());
                     System.out.println("Sub entry -> number: " + cantidadPrecio.getKey());
                     System.out.println("Sub entry -> double: " + cantidadPrecio.getValue());
-                    
+
                     try {
                         PreparedStatement preparedStatement = this.DDBBConnection.prepareStatement(insertOperatingTableQuery.toString());
-                        
+
                         preparedStatement.setInt(1, dataStore.getMesa());
                         preparedStatement.setString(2, dataStore.getNombreMozo());
                         preparedStatement.setString(3, tipoDeProducto.toString());
@@ -259,19 +331,18 @@ public class VittoStoreDDBBRepository {
                         preparedStatement.setTimestamp(7, timeStampNow);
                         preparedStatement.setString(8, OperatingTableStateEnum.USO.toString());
                         preparedStatement.setString(9, dataStore.getProductTypeEnum().toString());
-                        
-                        preparedStatement.execute();                        
-                        
-                    } catch(Exception e) {
+
+                        preparedStatement.execute();
+
+                    } catch (Exception e) {
                         e.printStackTrace();
-                    }   
+                    }
                 }
             }
-            
+
         }
-        
+
     }
-    
 
     /**
      * Tener en cuenta que el tableUser espera el nombre del mozo con el
@@ -408,8 +479,7 @@ public class VittoStoreDDBBRepository {
                     + " FROM operating_table "
                     + " WHERE mesa = ? "
                     + " AND actividad = true "
-                    + " AND tipo_prouducto = ? "
-                    ;
+                    + " AND tipo_prouducto = ? ";
             try {
                 PreparedStatement statement = this.DDBBConnection.prepareStatement(getConsumingProducts);
                 statement.setInt(1, tableId);
@@ -539,7 +609,7 @@ public class VittoStoreDDBBRepository {
         return paymentPersonalDataId;
     }
 
-    public void deletePaymentsRollBack(int paymentId, int paymentPersonalDataId) {        
+    public void deletePaymentsRollBack(int paymentId, int paymentPersonalDataId) {
         if (this.DDBBConnection != null) {
             this.deletePaymentRollBack(paymentId);
             this.deletePaymentPersonalDataRollBack(paymentPersonalDataId);
