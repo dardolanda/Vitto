@@ -114,7 +114,7 @@ public class ProductsImpl extends VittoConnection implements Products {
                     paymentDataStore.getTotal(), paymentDataStore.getDiscount(),
                     paymentDataStore.getNombreMozo(), paymentDataStore.getPaymentMethod().toString());
             
-            if (!paymentDataStore.getPaymentMethod().equals(PaymentMethodsEnum.EFECTIVO.toString())) {
+            if (!paymentDataStore.getPaymentMethod().toString().equals(PaymentMethodsEnum.EFECTIVO.toString())) {
                 paymentPersonalDataId = vittoDDBBStore.insertPaymentPersonalData(
                         paymentId,
                         paymentDataStore.getNombreCliente(),
