@@ -6,6 +6,8 @@
 package com.mycompany.vittostore.dataStore;
 
 import com.mycompany.vittostore.generalitems.NoAlcoholDrinksEnum;
+import com.mycompany.vittostore.generalitems.ProductTypeEnum;
+import com.mycompany.vittostore.generalitems.SweetProductsEnum;
 
 import java.util.Map;
 
@@ -13,6 +15,7 @@ public class DataStore {
     /**
      * Atributos propios de la mesa operativa.
     */
+    private ProductTypeEnum productTypeEnum;
     private int mesa;
     private String nombreMozo;
     private int productoId;
@@ -24,7 +27,17 @@ public class DataStore {
     * Atributos propios del consumo de la mesa en cuestión.
     */
     private Map<NoAlcoholDrinksEnum, Integer> noAlcoholDrinks;
+    private Map<SweetProductsEnum, Map<Integer, Double>> sweetProducts;
+    
 
+    public ProductTypeEnum getProductTypeEnum() {
+        return productTypeEnum;
+    }
+
+    public void setProductTypeEnum(ProductTypeEnum productTypeEnum) {
+        this.productTypeEnum = productTypeEnum;
+    }
+    
     public int getMesa() {
         return mesa;
     }
@@ -80,6 +93,15 @@ public class DataStore {
     public void setNoAlcoholDrinks(Map<NoAlcoholDrinksEnum, Integer> noAlcoholDrinks) {
         this.noAlcoholDrinks = noAlcoholDrinks;
     }
+
+    public Map<SweetProductsEnum, Map<Integer, Double>> getSweetProducts() {
+        return sweetProducts;
+    }
+
+    public void setSweetProducts(Map<SweetProductsEnum, Map<Integer, Double>> sweetProducts) {
+        this.sweetProducts = sweetProducts;
+    }
+    
     
     
 }

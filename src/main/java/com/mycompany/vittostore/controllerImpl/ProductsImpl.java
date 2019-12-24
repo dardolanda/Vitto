@@ -13,6 +13,7 @@ import com.mycompany.vittostore.dataStore.PaymentDataStore;
 import com.mycompany.vittostore.generalitems.NoAlcoholDrinksEnum;
 import com.mycompany.vittostore.generalitems.OperatingTableStateEnum;
 import com.mycompany.vittostore.generalitems.PaymentMethodsEnum;
+import com.mycompany.vittostore.generalitems.ProductTypeEnum;
 import java.util.ArrayList;
 
 import java.util.Map;
@@ -28,7 +29,12 @@ public class ProductsImpl extends VittoConnection implements Products {
     @Override
     public void insertProduct(DataStore dataStore) {
         List<Product> productList = this.getPricesFromDataStore(dataStore);
-        vittoDDBBStore.insertProduct(productList, dataStore.getMesa(), dataStore.getNombreMozo());
+        vittoDDBBStore.insertProduct(productList, dataStore.getMesa(), dataStore.getNombreMozo(), dataStore.getProductTypeEnum().toString());
+    }
+    
+    @Override
+    public void insertProductWithPrices(DataStore dataStore) {
+        vittoDDBBStore.insertProductPrices(dataStore);
     }
 
     private List<Product> getPricesFromDataStore(DataStore dataStore) {
@@ -98,8 +104,9 @@ public class ProductsImpl extends VittoConnection implements Products {
     }
 
     @Override
-    public List<Product> findTableSelectedProducts(int tableId) {
-        return vittoDDBBStore.findtableSelectedProducts(tableId);
+    public List<Product> findTableSelectedProducts(int tableId, ProductTypeEnum productTypeEnum) {
+        
+        return vittoDDBBStore.findtableSelectedProducts(tableId, productTypeEnum.toString());
     }
 
     @Override

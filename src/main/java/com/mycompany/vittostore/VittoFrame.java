@@ -27,6 +27,8 @@ import com.mycompany.vittostore.controllerImpl.UsersImpl;
 import com.mycompany.vittostore.dataStore.PaymentDataStore;
 import com.mycompany.vittostore.generalitems.GenericSelectedComponent;
 import com.mycompany.vittostore.generalitems.PaymentMethodsEnum;
+import com.mycompany.vittostore.generalitems.ProductTypeEnum;
+import com.mycompany.vittostore.generalitems.SweetProductsEnum;
 import java.awt.Component;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -59,6 +61,7 @@ public class VittoFrame extends javax.swing.JFrame {
 
     Map<NoAlcoholDrinksEnum, Integer> noAlcoholDrinks;
     Map<NoAlcoholDrinksEnum, Integer> AlcoholDrinks;
+    Map<SweetProductsEnum, Map<Integer, Double>> sweetProducts;
     User tableUser;
     DataStore dataStore;
     // resto de las posibilidades por mesa
@@ -94,6 +97,9 @@ public class VittoFrame extends javax.swing.JFrame {
      * esta manera podemos setearlos desde la BBDD.
      */
     private void initSelectedComponent() {
+        /**
+         * Bebidas sin alcohol
+         */
         this.selectedComponentMap.put(NoAlcoholDrinksEnum.COCA_COLA.name(), new GenericSelectedComponent(this.cocaColaCheck, this.cocaSpinner));
         this.selectedComponentMap.put(NoAlcoholDrinksEnum.COCA_LIGHT.name(), new GenericSelectedComponent(this.cocaLightCheck, this.cocaLightSpinner));
         this.selectedComponentMap.put(NoAlcoholDrinksEnum.SPRITE.name(), new GenericSelectedComponent(this.spriteCheck, this.spriteSpinner));
@@ -116,6 +122,25 @@ public class VittoFrame extends javax.swing.JFrame {
         this.selectedComponentMap.put(NoAlcoholDrinksEnum.LIMONADA.name(), new GenericSelectedComponent(this.limonadaElaboradoCheck, this.limonada_elaborada_Spinner));
         this.selectedComponentMap.put(NoAlcoholDrinksEnum.MILK_SHAKE_CHOCO.name(), new GenericSelectedComponent(this.shakeChocolateCheck, this.shakeChocolateSpinner));
         this.selectedComponentMap.put(NoAlcoholDrinksEnum.MILK_SHAKE_DULCE_LECHE.name(), new GenericSelectedComponent(this.shakeDulceLecheCheck, this.shakeDulceLecheSpinner));
+        
+        
+        /**
+         * Productos Dulces
+         */
+        this.selectedComponentMap.put(SweetProductsEnum.ALFAJOR.name(), new GenericSelectedComponent((this.alfajorCheck) , this.alfajorSpinner));
+        this.selectedComponentMap.put(SweetProductsEnum.ALFAJOR_ARTESANAL.name(), new GenericSelectedComponent((this.alfajorArtesanalCheck) , this.alfajorArtesanalSpinner));
+        this.selectedComponentMap.put(SweetProductsEnum.CUADRADO_SECO.name(), new GenericSelectedComponent((this.cuadradoSecoCheck) , this.cuadradoSecoSpinner));
+        this.selectedComponentMap.put(SweetProductsEnum.ENSALADA_FRUTAS.name(), new GenericSelectedComponent((this.ensaladaDeFrutasCheck) , this.ensaladaFrutasSpinner));
+        this.selectedComponentMap.put(SweetProductsEnum.FRA_NUI.name(), new GenericSelectedComponent((this.fraNuiCheck) , this.franuiSpinner));
+        this.selectedComponentMap.put(SweetProductsEnum.FRUTA_ELECCION.name(), new GenericSelectedComponent((this.frutaEleccionCheck) , this.frutaEleccionSpinner));
+        this.selectedComponentMap.put(SweetProductsEnum.MEDIALUNA.name(), new GenericSelectedComponent((this.medialunaCheck) , this.medialunaSpinner));
+        this.selectedComponentMap.put(SweetProductsEnum.TORTA_INDIVIDUAL.name(), new GenericSelectedComponent((this.alfajorCheck) , this.alfajorSpinner));
+        this.selectedComponentMap.put(SweetProductsEnum.TOSTADAS.name(), new GenericSelectedComponent((this.tostadasCheck) , this.tostadasSpinner));
+        
+        
+        
+        
+        
     }
 
     private void chargeEmployee(String userTable) {
@@ -222,6 +247,49 @@ public class VittoFrame extends javax.swing.JFrame {
         scheweppesTonicaSpinner = new javax.swing.JSpinner();
         DrinkAlcoholFrame = new javax.swing.JFrame();
         CandyProductsFrame = new javax.swing.JFrame();
+        jLabel56 = new javax.swing.JLabel();
+        tortaIndividualCheck = new javax.swing.JCheckBox();
+        jLabel70 = new javax.swing.JLabel();
+        tortaIndividualSpinner = new javax.swing.JSpinner();
+        tortaIndividualPrice = new javax.swing.JLabel();
+        cuadradoSecoCheck = new javax.swing.JCheckBox();
+        jLabel74 = new javax.swing.JLabel();
+        cuadradoSecoSpinner = new javax.swing.JSpinner();
+        cuadradoSecoPrice = new javax.swing.JLabel();
+        jLabel57 = new javax.swing.JLabel();
+        alfajorSpinner = new javax.swing.JSpinner();
+        alfajorPrice = new javax.swing.JLabel();
+        alfajorCheck = new javax.swing.JCheckBox();
+        tostadasCheck = new javax.swing.JCheckBox();
+        jLabel80 = new javax.swing.JLabel();
+        tostadasSpinner = new javax.swing.JSpinner();
+        tostadasPrice = new javax.swing.JLabel();
+        alfajorArtesanalCheck = new javax.swing.JCheckBox();
+        alfajorArtesanalSpinner = new javax.swing.JSpinner();
+        medialunaCheck = new javax.swing.JCheckBox();
+        medialunaSpinner = new javax.swing.JSpinner();
+        fraNuiCheck = new javax.swing.JCheckBox();
+        jLabel59 = new javax.swing.JLabel();
+        jLabel61 = new javax.swing.JLabel();
+        jLabel62 = new javax.swing.JLabel();
+        jLabel63 = new javax.swing.JLabel();
+        ensaladaDeFrutasCheck = new javax.swing.JCheckBox();
+        frutaEleccionCheck = new javax.swing.JCheckBox();
+        franuiSpinner = new javax.swing.JSpinner();
+        ensaladaFrutasSpinner = new javax.swing.JSpinner();
+        frutaEleccionSpinner = new javax.swing.JSpinner();
+        jLabel64 = new javax.swing.JLabel();
+        jLabel65 = new javax.swing.JLabel();
+        jLabel66 = new javax.swing.JLabel();
+        jLabel67 = new javax.swing.JLabel();
+        jLabel68 = new javax.swing.JLabel();
+        alfajorArtesanalPrice = new javax.swing.JLabel();
+        medialunaPrice = new javax.swing.JLabel();
+        fraNuiPrice = new javax.swing.JLabel();
+        ensaladaFrutasPrice = new javax.swing.JLabel();
+        frutaEleccionPrice = new javax.swing.JLabel();
+        GuardarProductosDulces = new javax.swing.JButton();
+        cancelCandyProducts = new javax.swing.JButton();
         SaladsProductFrame = new javax.swing.JFrame();
         CloseTableFrame = new javax.swing.JFrame();
         jLabel8 = new javax.swing.JLabel();
@@ -919,15 +987,320 @@ public class VittoFrame extends javax.swing.JFrame {
             .addGap(0, 517, Short.MAX_VALUE)
         );
 
+        jLabel56.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel56.setText("Dulces");
+
+        tortaIndividualCheck.setText("Torta Individual");
+        tortaIndividualCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tortaIndividualCheckActionPerformed(evt);
+            }
+        });
+
+        jLabel70.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jLabel70.setText("(Chocotorta, oreo, cheescake, manzana)");
+
+        tortaIndividualPrice.setText("200");
+
+        cuadradoSecoCheck.setText("Cuadrado Seco");
+        cuadradoSecoCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cuadradoSecoCheckActionPerformed(evt);
+            }
+        });
+
+        jLabel74.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jLabel74.setText("(Brownie, pastafrola batata o membrillo)");
+
+        cuadradoSecoPrice.setText("140");
+
+        jLabel57.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jLabel57.setText("(Chocolate, chocolate blanco, maicena)");
+
+        alfajorPrice.setText("60");
+
+        alfajorCheck.setText("Alfajor");
+        alfajorCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alfajorCheckActionPerformed(evt);
+            }
+        });
+
+        tostadasCheck.setText("Tostadas ");
+        tostadasCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tostadasCheckActionPerformed(evt);
+            }
+        });
+
+        jLabel80.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jLabel80.setText("(Con queso crema y dulce de leche a elección)");
+
+        tostadasPrice.setText("175");
+
+        alfajorArtesanalCheck.setText("Alfajor Artesanal");
+        alfajorArtesanalCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alfajorArtesanalCheckActionPerformed(evt);
+            }
+        });
+
+        medialunaCheck.setText("Medialuna c/u");
+        medialunaCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                medialunaCheckActionPerformed(evt);
+            }
+        });
+
+        fraNuiCheck.setText("Fra - nui");
+        fraNuiCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fraNuiCheckActionPerformed(evt);
+            }
+        });
+
+        jLabel59.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel59.setText("$");
+
+        jLabel61.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel61.setText("$");
+
+        jLabel62.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel62.setText("$");
+
+        jLabel63.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel63.setText("$");
+
+        ensaladaDeFrutasCheck.setText("Ensalada de Frutas");
+        ensaladaDeFrutasCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ensaladaDeFrutasCheckActionPerformed(evt);
+            }
+        });
+
+        frutaEleccionCheck.setText("Fruta a Elección");
+        frutaEleccionCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                frutaEleccionCheckActionPerformed(evt);
+            }
+        });
+
+        jLabel64.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel64.setText("$");
+
+        jLabel65.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel65.setText("$");
+
+        jLabel66.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel66.setText("$");
+
+        jLabel67.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel67.setText("$");
+
+        jLabel68.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel68.setText("$");
+
+        alfajorArtesanalPrice.setText("90");
+
+        medialunaPrice.setText("45");
+
+        fraNuiPrice.setText("200");
+
+        ensaladaFrutasPrice.setText("90");
+
+        frutaEleccionPrice.setText("45");
+
+        GuardarProductosDulces.setText("Guardar Orden");
+        GuardarProductosDulces.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GuardarProductosDulcesActionPerformed(evt);
+            }
+        });
+
+        cancelCandyProducts.setText("Cancelar");
+        cancelCandyProducts.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelCandyProductsActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout CandyProductsFrameLayout = new javax.swing.GroupLayout(CandyProductsFrame.getContentPane());
         CandyProductsFrame.getContentPane().setLayout(CandyProductsFrameLayout);
         CandyProductsFrameLayout.setHorizontalGroup(
             CandyProductsFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 712, Short.MAX_VALUE)
+            .addGroup(CandyProductsFrameLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(CandyProductsFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(CandyProductsFrameLayout.createSequentialGroup()
+                        .addGroup(CandyProductsFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(CandyProductsFrameLayout.createSequentialGroup()
+                                .addComponent(jLabel56)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(CandyProductsFrameLayout.createSequentialGroup()
+                                .addGroup(CandyProductsFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(CandyProductsFrameLayout.createSequentialGroup()
+                                        .addGroup(CandyProductsFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(cuadradoSecoCheck)
+                                            .addComponent(alfajorCheck))
+                                        .addGap(29, 29, 29))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CandyProductsFrameLayout.createSequentialGroup()
+                                        .addComponent(tostadasCheck)
+                                        .addGap(66, 66, 66)))
+                                .addGroup(CandyProductsFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel57)
+                                    .addComponent(jLabel74)
+                                    .addComponent(jLabel80))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(CandyProductsFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(CandyProductsFrameLayout.createSequentialGroup()
+                                        .addComponent(jLabel62)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(tostadasPrice))
+                                    .addComponent(cuadradoSecoPrice)
+                                    .addGroup(CandyProductsFrameLayout.createSequentialGroup()
+                                        .addComponent(jLabel63)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(alfajorPrice))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CandyProductsFrameLayout.createSequentialGroup()
+                                .addComponent(tortaIndividualCheck)
+                                .addGap(26, 26, 26)
+                                .addComponent(jLabel70)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                                .addGroup(CandyProductsFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(CandyProductsFrameLayout.createSequentialGroup()
+                                        .addComponent(cuadradoSecoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel61)
+                                        .addGap(30, 30, 30))
+                                    .addGroup(CandyProductsFrameLayout.createSequentialGroup()
+                                        .addComponent(tortaIndividualSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(11, 11, 11)
+                                        .addComponent(jLabel59)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(tortaIndividualPrice))
+                                    .addComponent(alfajorSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tostadasSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CandyProductsFrameLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(GuardarProductosDulces)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cancelCandyProducts)))
+                        .addGap(20, 20, 20))
+                    .addGroup(CandyProductsFrameLayout.createSequentialGroup()
+                        .addGroup(CandyProductsFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(CandyProductsFrameLayout.createSequentialGroup()
+                                .addComponent(frutaEleccionCheck)
+                                .addGap(66, 66, 66)
+                                .addComponent(frutaEleccionSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(CandyProductsFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(CandyProductsFrameLayout.createSequentialGroup()
+                                    .addComponent(ensaladaDeFrutasCheck)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(ensaladaFrutasSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, CandyProductsFrameLayout.createSequentialGroup()
+                                    .addComponent(fraNuiCheck)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(franuiSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, CandyProductsFrameLayout.createSequentialGroup()
+                                    .addGroup(CandyProductsFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(alfajorArtesanalCheck)
+                                        .addComponent(medialunaCheck))
+                                    .addGap(59, 59, 59)
+                                    .addGroup(CandyProductsFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(alfajorArtesanalSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(medialunaSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(37, 37, 37)
+                        .addGroup(CandyProductsFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(CandyProductsFrameLayout.createSequentialGroup()
+                                .addComponent(jLabel64)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(alfajorArtesanalPrice))
+                            .addGroup(CandyProductsFrameLayout.createSequentialGroup()
+                                .addComponent(jLabel65)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(medialunaPrice))
+                            .addGroup(CandyProductsFrameLayout.createSequentialGroup()
+                                .addComponent(jLabel66)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(fraNuiPrice))
+                            .addGroup(CandyProductsFrameLayout.createSequentialGroup()
+                                .addComponent(jLabel67)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ensaladaFrutasPrice))
+                            .addGroup(CandyProductsFrameLayout.createSequentialGroup()
+                                .addComponent(jLabel68)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(frutaEleccionPrice)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         CandyProductsFrameLayout.setVerticalGroup(
             CandyProductsFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 517, Short.MAX_VALUE)
+            .addGroup(CandyProductsFrameLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jLabel56)
+                .addGap(18, 18, 18)
+                .addGroup(CandyProductsFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel70)
+                    .addComponent(tortaIndividualCheck)
+                    .addComponent(tortaIndividualPrice)
+                    .addComponent(tortaIndividualSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel59))
+                .addGap(21, 21, 21)
+                .addGroup(CandyProductsFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel74)
+                    .addComponent(cuadradoSecoCheck)
+                    .addComponent(cuadradoSecoPrice)
+                    .addComponent(cuadradoSecoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel61))
+                .addGap(18, 18, 18)
+                .addGroup(CandyProductsFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(alfajorSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(alfajorPrice)
+                    .addComponent(alfajorCheck)
+                    .addComponent(jLabel57)
+                    .addComponent(jLabel63))
+                .addGap(18, 18, 18)
+                .addGroup(CandyProductsFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tostadasSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tostadasPrice)
+                    .addComponent(jLabel80)
+                    .addComponent(tostadasCheck)
+                    .addComponent(jLabel62))
+                .addGap(66, 66, 66)
+                .addGroup(CandyProductsFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(alfajorArtesanalCheck)
+                    .addComponent(alfajorArtesanalSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel64)
+                    .addComponent(alfajorArtesanalPrice))
+                .addGap(8, 8, 8)
+                .addGroup(CandyProductsFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(medialunaCheck)
+                    .addComponent(medialunaSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel65)
+                    .addComponent(medialunaPrice))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(CandyProductsFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(fraNuiCheck)
+                    .addComponent(franuiSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel66)
+                    .addComponent(fraNuiPrice))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(CandyProductsFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ensaladaDeFrutasCheck)
+                    .addComponent(ensaladaFrutasSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel67)
+                    .addComponent(ensaladaFrutasPrice))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(CandyProductsFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(frutaEleccionCheck)
+                    .addComponent(frutaEleccionSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel68)
+                    .addComponent(frutaEleccionPrice))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addGroup(CandyProductsFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(GuardarProductosDulces)
+                    .addComponent(cancelCandyProducts))
+                .addGap(21, 21, 21))
         );
 
         javax.swing.GroupLayout SaladsProductFrameLayout = new javax.swing.GroupLayout(SaladsProductFrame.getContentPane());
@@ -2007,7 +2380,10 @@ public class VittoFrame extends javax.swing.JFrame {
         System.out.println(this.selectedTable.getId());
         System.out.println("---- END: Table Selected ----");
 
-        List<Product> selectedTableProducts = this.productsImpl.findTableSelectedProducts(this.selectedTable.getId());
+        /**
+         * Aseguramos de traer solo los tipos de prouductos que especifica el actionPerformed.
+        */
+        List<Product> selectedTableProducts = this.productsImpl.findTableSelectedProducts(this.selectedTable.getId(), ProductTypeEnum.BEBIDAS_SIN_ALCOHOL);
 
         if (selectedTableProducts.size() != 0) {
             /* Se encontraron datos en la bbdd
@@ -2025,6 +2401,8 @@ public class VittoFrame extends javax.swing.JFrame {
             /**
              * Caso contrario: no hay datos de la mesa en la bbdd por lo tanto
              * hay que resetear todo, para que el formulario quede limpio.
+             * 
+             * Iteración de componentes dentro de un frame
              */
             for (Component component : DrinkNoAlcoholFrame.getContentPane().getComponents()) {
                 if (component instanceof JCheckBox) {
@@ -2056,8 +2434,62 @@ public class VittoFrame extends javax.swing.JFrame {
     private void candyProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_candyProductsActionPerformed
 
         CandyProductsFrame.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
-        CandyProductsFrame.setSize(650, 700);
+        CandyProductsFrame.setSize(650, 650);
         CandyProductsFrame.setVisible(true);
+        
+        System.out.println("PRODUCTOS DULECES:");
+        System.out.println("---- INIT: Table selected ----");
+        System.out.println(this.selectedTable.getState());
+        System.out.println(this.selectedTable.getId());
+        System.out.println("---- END: Table Selected ----");
+        
+        List<Product> selectedTableProducts = this.productsImpl.findTableSelectedProducts(this.selectedTable.getId(), ProductTypeEnum.DULCES);
+        
+        if (selectedTableProducts.size() != 0) {
+            /* Se encontraron datos en la bbdd
+             *  por lo tanto hay que cargar las cantidades que se 
+             *  hayan guardado.
+             */
+
+            for (Product product : selectedTableProducts) {
+                this.selectedComponentMap.get(product.getBrand()).getCheckBox().setSelected(true);
+                this.selectedComponentMap.get(product.getBrand()).getSpinner().setEnabled(true);
+                this.selectedComponentMap.get(product.getBrand()).getSpinner().setValue(product.getAmountConsumed());
+            }
+
+        } else {
+            /**
+             * Caso contrario: no hay datos de la mesa en la bbdd por lo tanto
+             * hay que resetear todo, para que el formulario quede limpio.
+             * 
+             * Iteración de componentes dentro de un frame
+             */
+            for (Component component : CandyProductsFrame.getContentPane().getComponents()) {
+                System.out.println("candy products frame iteration");
+                
+                if (component instanceof JCheckBox) {
+                    ((JCheckBox) component).setSelected(false);
+                }
+
+                if (component instanceof JSpinner) {
+
+                    System.out.println("candy products ");
+                    /*
+                        Tenemos dos maneras de hacer lo mismo, 
+                        esta en particular crea un JSpinner a partir del casteo del component
+                        y luego, le aplica la propiedad que se esté buscando
+                        
+                        JSpinner spinner = (JSpinner) component;
+                        spinner.setEnabled(false);
+                     */
+ /*
+                        Es igual al caso anterior, pero se hace todo en una línea.
+                     */
+                    ((JSpinner) component).setEnabled(false);
+                    ((JSpinner) component).setValue(0);
+                }
+            }
+        }
 
     }//GEN-LAST:event_candyProductsActionPerformed
 
@@ -2439,6 +2871,7 @@ public class VittoFrame extends javax.swing.JFrame {
         });
          */
         this.dataStore = new DataStore();
+        this.dataStore.setProductTypeEnum(ProductTypeEnum.BEBIDAS_SIN_ALCOHOL);
 
         System.out.println("mesa elegida state --> " + this.selectedTable.getState() + " mesa elegida ID -> " + this.selectedTable.getId());
 
@@ -2458,17 +2891,20 @@ public class VittoFrame extends javax.swing.JFrame {
 
         }
 
-        // TODO: Validación: hacerlo con todos los productos.
         if (!this.noAlcoholDrinks.isEmpty()) {
             dataStore.setNoAlcoholDrinks(noAlcoholDrinks);
         }
 
+        /**
+         * Inserta los productos -> teniendo en cuenta sus precios.
+         */
         this.productsImpl.insertProduct(dataStore);
 
         this.setTableColour(this.selectedTable.getId(), Color.YELLOW);
 
-        // Crear un metodo que vacíe todos los maps
-        this.emptyAllMenu();
+        if (!this.noAlcoholDrinks.isEmpty()) {
+            this.noAlcoholDrinks.clear();
+        }
 
         JOptionPane.showMessageDialog(null, "La mesa Nº: " + this.selectedTable.getId() + " Se ha guardado Correctamente");
 
@@ -2582,22 +3018,6 @@ public class VittoFrame extends javax.swing.JFrame {
             this.waterGasSpinner.setEnabled(false);
         }
     }//GEN-LAST:event_waterGasCheckActionPerformed
-
-    private void emptyAllMenu() {
-        if (!this.noAlcoholDrinks.isEmpty()) {
-            this.noAlcoholDrinks.clear();
-        }
-
-        /*
-        if (!this.AlcoholDrinks.isEmpty()) {
-            this.noAlcoholDrinks.clear();
-        }
-         */
-        /**
-         * Terminar de hacer lo mismo con los demas Maps que tienen toda la info
-         * del menu.
-         */
-    }
 
 
     private void CloseTableButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseTableButtonActionPerformed
@@ -2943,7 +3363,7 @@ public class VittoFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_CloseDayActionActionPerformed
 
     private void tableFourteenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tableFourteenActionPerformed
-        this.selectedTable.setState("tablFourteen");
+        this.selectedTable.setState("tableFourteen");
         this.selectedTable.setId(14);
 
         String tableUser = this.productsImpl.findTableUserByTableId(this.selectedTable.getId());
@@ -2994,6 +3414,244 @@ public class VittoFrame extends javax.swing.JFrame {
         
     }//GEN-LAST:event_takeAwayActionPerformed
 
+    private void alfajorCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alfajorCheckActionPerformed
+        if (alfajorCheck.isSelected()) {
+            SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
+            this.alfajorSpinner.setEnabled(true);
+            this.alfajorSpinner.setModel(model);
+        } else {
+            this.alfajorSpinner.setEnabled(false);
+        }
+        
+    }//GEN-LAST:event_alfajorCheckActionPerformed
+
+    private void tortaIndividualCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tortaIndividualCheckActionPerformed
+        if (tortaIndividualCheck.isSelected()) {
+            SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
+            this.tortaIndividualSpinner.setEnabled(true);
+            this.tortaIndividualSpinner.setModel(model);
+        } else {
+            this.tortaIndividualSpinner.setEnabled(false);
+        }
+    }//GEN-LAST:event_tortaIndividualCheckActionPerformed
+
+    private void cuadradoSecoCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cuadradoSecoCheckActionPerformed
+        if (cuadradoSecoCheck.isSelected()) {
+            SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
+            this.cuadradoSecoSpinner.setEnabled(true);
+            this.cuadradoSecoSpinner.setModel(model);
+        } else {
+            this.cuadradoSecoSpinner.setEnabled(false);
+        }
+    }//GEN-LAST:event_cuadradoSecoCheckActionPerformed
+
+    private void tostadasCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tostadasCheckActionPerformed
+        if (tostadasCheck.isSelected()) {
+            SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
+            this.tostadasSpinner.setEnabled(true);
+            this.tostadasSpinner.setModel(model);
+        } else {
+            this.tostadasSpinner.setEnabled(false);
+        }
+    }//GEN-LAST:event_tostadasCheckActionPerformed
+
+    private void alfajorArtesanalCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alfajorArtesanalCheckActionPerformed
+        if (alfajorArtesanalCheck.isSelected()) {
+            SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
+            this.alfajorArtesanalSpinner.setEnabled(true);
+            this.alfajorArtesanalSpinner.setModel(model);
+        } else {
+            this.alfajorArtesanalSpinner.setEnabled(false);
+        }
+    }//GEN-LAST:event_alfajorArtesanalCheckActionPerformed
+
+    private void medialunaCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_medialunaCheckActionPerformed
+        if (medialunaCheck.isSelected()) {
+            SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
+            this.medialunaSpinner.setEnabled(true);
+            this.medialunaSpinner.setModel(model);
+        } else {
+            this.medialunaSpinner.setEnabled(false);
+        }
+    }//GEN-LAST:event_medialunaCheckActionPerformed
+
+    private void fraNuiCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fraNuiCheckActionPerformed
+        if (fraNuiCheck.isSelected()) {
+            SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
+            this.franuiSpinner.setEnabled(true);
+            this.franuiSpinner.setModel(model);
+        } else {
+            this.franuiSpinner.setEnabled(false);
+        }
+    }//GEN-LAST:event_fraNuiCheckActionPerformed
+
+    private void ensaladaDeFrutasCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ensaladaDeFrutasCheckActionPerformed
+        if (ensaladaDeFrutasCheck.isSelected()) {
+            SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
+            this.ensaladaFrutasSpinner.setEnabled(true);
+            this.ensaladaFrutasSpinner.setModel(model);
+        } else {
+            this.ensaladaFrutasSpinner.setEnabled(false);
+        }
+    }//GEN-LAST:event_ensaladaDeFrutasCheckActionPerformed
+
+    private void frutaEleccionCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frutaEleccionCheckActionPerformed
+        if (frutaEleccionCheck.isSelected()) {
+            SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
+            this.frutaEleccionSpinner.setEnabled(true);
+            this.frutaEleccionSpinner.setModel(model);
+        } else {
+            this.frutaEleccionSpinner.setEnabled(false);
+        }
+    }//GEN-LAST:event_frutaEleccionCheckActionPerformed
+
+    private void cancelCandyProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelCandyProductsActionPerformed
+        // TODO add your handling code here:
+        this.closeGenericFrame(CandyProductsFrame);
+    }//GEN-LAST:event_cancelCandyProductsActionPerformed
+
+    private void GuardarProductosDulcesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarProductosDulcesActionPerformed
+        sweetProducts = new HashMap<>();
+        
+        if (tortaIndividualCheck.isSelected() && Integer.parseInt(this.tortaIndividualSpinner.getValue().toString()) > 0) {
+            Map<Integer,Double> priceQtySweetProduct = new HashMap<>();
+        
+            priceQtySweetProduct.put(
+                    Integer.parseInt(this.tortaIndividualSpinner.getValue().toString()),
+                    Double.parseDouble(this.tortaIndividualPrice.getText())
+            );
+            sweetProducts.put(SweetProductsEnum.TORTA_INDIVIDUAL, priceQtySweetProduct);
+        }
+
+        if (cuadradoSecoCheck.isSelected() && Integer.parseInt(this.cuadradoSecoSpinner.getValue().toString()) > 0) {
+            Map<Integer,Double> priceQtySweetProduct = new HashMap<>();
+        
+            priceQtySweetProduct.put(
+                    Integer.parseInt(this.cuadradoSecoSpinner.getValue().toString()),
+                    Double.parseDouble(this.cuadradoSecoPrice.getText())
+            );
+            sweetProducts.put(SweetProductsEnum.CUADRADO_SECO, priceQtySweetProduct);
+        }        
+        
+        if (alfajorCheck.isSelected() && Integer.parseInt(this.alfajorSpinner.getValue().toString()) > 0) {
+            Map<Integer,Double> priceQtySweetProduct = new HashMap<>();
+        
+            priceQtySweetProduct.put(
+                    Integer.parseInt(this.alfajorSpinner.getValue().toString()),
+                    Double.parseDouble(this.alfajorPrice.getText())
+            );
+            sweetProducts.put(SweetProductsEnum.ALFAJOR, priceQtySweetProduct);
+        }
+
+        if (tostadasCheck.isSelected() && Integer.parseInt(this.tostadasSpinner.getValue().toString()) > 0) {
+            Map<Integer,Double> priceQtySweetProduct = new HashMap<>();
+        
+            priceQtySweetProduct.put(
+                    Integer.parseInt(this.tostadasSpinner.getValue().toString()),
+                    Double.parseDouble(this.tostadasPrice.getText())
+            );
+            sweetProducts.put(SweetProductsEnum.TOSTADAS, priceQtySweetProduct);
+        }
+        
+
+        if (alfajorArtesanalCheck.isSelected() && Integer.parseInt(this.alfajorArtesanalSpinner.getValue().toString()) > 0) {
+            Map<Integer,Double> priceQtySweetProduct = new HashMap<>();
+        
+            priceQtySweetProduct.put(
+                    Integer.parseInt(this.alfajorArtesanalSpinner.getValue().toString()),
+                    Double.parseDouble(this.alfajorArtesanalPrice.getText())
+            );
+            sweetProducts.put(SweetProductsEnum.ALFAJOR_ARTESANAL, priceQtySweetProduct);
+        }
+
+
+        if (medialunaCheck.isSelected() && Integer.parseInt(this.medialunaSpinner.getValue().toString()) > 0) {
+            Map<Integer,Double> priceQtySweetProduct = new HashMap<>();
+        
+            priceQtySweetProduct.put(
+                    Integer.parseInt(this.medialunaSpinner.getValue().toString()),
+                    Double.parseDouble(this.medialunaPrice.getText())
+            );
+            sweetProducts.put(SweetProductsEnum.MEDIALUNA, priceQtySweetProduct);
+        }
+
+
+        if (fraNuiCheck.isSelected() && Integer.parseInt(this.franuiSpinner.getValue().toString()) > 0) {
+            Map<Integer,Double> priceQtySweetProduct = new HashMap<>();
+        
+            priceQtySweetProduct.put(
+                    Integer.parseInt(this.franuiSpinner.getValue().toString()),
+                    Double.parseDouble(this.fraNuiPrice.getText())
+            );
+            sweetProducts.put(SweetProductsEnum.FRA_NUI, priceQtySweetProduct);
+        }
+        
+
+        if (ensaladaDeFrutasCheck.isSelected() && Integer.parseInt(this.ensaladaFrutasSpinner.getValue().toString()) > 0) {
+            Map<Integer,Double> priceQtySweetProduct = new HashMap<>();
+        
+            priceQtySweetProduct.put(
+                    Integer.parseInt(this.ensaladaFrutasSpinner.getValue().toString()),
+                    Double.parseDouble(this.ensaladaFrutasPrice.getText())
+            );
+            sweetProducts.put(SweetProductsEnum.ENSALADA_FRUTAS, priceQtySweetProduct);
+        }
+        
+
+        if (frutaEleccionCheck.isSelected() && Integer.parseInt(this.frutaEleccionSpinner.getValue().toString()) > 0) {
+            Map<Integer,Double> priceQtySweetProduct = new HashMap<>();
+        
+            priceQtySweetProduct.put(
+                    Integer.parseInt(this.frutaEleccionSpinner.getValue().toString()),
+                    Double.parseDouble(this.frutaEleccionPrice.getText())
+            );
+            sweetProducts.put(SweetProductsEnum.FRUTA_ELECCION, priceQtySweetProduct);
+        }        
+        
+        this.dataStore = new DataStore();
+        this.dataStore.setProductTypeEnum(ProductTypeEnum.DULCES);
+
+        System.out.println("mesa elegida state --> " + this.selectedTable.getState() + " mesa elegida ID -> " + this.selectedTable.getId());
+
+        if (this.tableUser != null && this.tableUser.getNombre() != null) {
+            System.out.println("Usuario mesa: " + this.tableUser.getNombre());
+        } else {
+            this.tableUser.setNombre(this.employeeList.get(0).getNombre());
+            this.tableUser.setApellido(this.employeeList.get(0).getApellido());
+        }
+
+        this.dataStore.setMesa(this.selectedTable.getId());
+        this.dataStore.setNombreMozo(this.tableUser.getNombre() + "_" + this.tableUser.getApellido());
+
+        if (!sweetProducts.isEmpty()) {
+            dataStore.setSweetProducts(sweetProducts);
+        }
+
+        /**
+         * Inserta los productos -> teniendo en cuenta sus precios.
+         */
+        this.productsImpl.insertProductWithPrices(dataStore);
+
+        System.out.println("Selected table -> " + this.selectedTable.getId());
+        this.setTableColour(this.selectedTable.getId(), Color.YELLOW);
+
+        if(!this.sweetProducts.isEmpty()) {
+            this.sweetProducts.clear();
+        }
+
+        JOptionPane.showMessageDialog(null, "La mesa Nº: " + this.selectedTable.getId() + " Se ha guardado Correctamente");
+
+        // validar -> nullPointerException.
+        // this.AlcoholDrinks.clear();
+        // TODO: cuando termina de insetar , todos los campos tienenen que ser reseteados.
+        // Para que la próxima mesa empiece con los productos vaciós.
+        // Y si se elige la mesa en cuestión tenemos que traer todos los resultados de la BBDD,
+        // no puede quedar nada en memoria.
+        
+        this.closeGenericFrame(this.CandyProductsFrame);
+        
+    }//GEN-LAST:event_GuardarProductosDulcesActionPerformed
+
     private void setTableColour(int tableId, Color color) {
 
         switch (tableId) {
@@ -3009,6 +3667,42 @@ public class VittoFrame extends javax.swing.JFrame {
             case 4:
                 this.tableFour.setBackground(color);
                 break;
+            case 5:
+                this.tableFive.setBackground(color);
+                break;
+            case 6:
+                this.tableSix.setBackground(color);
+                break;
+            case 7:
+                this.tableSeven.setBackground(color);
+                break;
+            case 8:
+                this.tableEight.setBackground(color);
+                break;
+            case 9:
+                this.tableNine.setBackground(color);
+                break;
+            case 10:
+                this.tableTen.setBackground(color);
+                break;
+            case 11:
+                this.tableEleven.setBackground(color);
+                break;
+            case 12:
+                this.tableTwelve.setBackground(color);
+                break;                
+            case 13:
+                this.tableThirteen.setBackground(color);
+                break;
+            case 14:
+                this.tableFourteen.setBackground(color);
+                break;
+            case 15:
+                this.tableFifteen.setBackground(color);
+                break;
+            case 16:
+                this.tableSixTeen.setBackground(color);
+                break;                
             default:
                 System.out.println("Error en el cerrado de la mesa");
 
@@ -3066,6 +3760,7 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JFrame CloseTableFrame;
     private javax.swing.JFrame DrinkAlcoholFrame;
     private javax.swing.JFrame DrinkNoAlcoholFrame;
+    private javax.swing.JButton GuardarProductosDulces;
     private javax.swing.JLabel MesaLabel;
     private javax.swing.JLabel MozoLabel;
     private javax.swing.JFrame OtraFormaDePagoFrame;
@@ -3076,6 +3771,13 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JFrame SuggestPromosFrm;
     private javax.swing.JLabel TotalLabel;
     private javax.swing.JButton acceptNoAlcoholDrinks;
+    private javax.swing.JCheckBox alfajorArtesanalCheck;
+    private javax.swing.JLabel alfajorArtesanalPrice;
+    private javax.swing.JSpinner alfajorArtesanalSpinner;
+    private javax.swing.JCheckBox alfajorCheck;
+    private javax.swing.JLabel alfajorPrice;
+    private javax.swing.JSpinner alfajorSpinner;
+    private javax.swing.JButton cancelCandyProducts;
     private javax.swing.JButton cancelNoAlcoholDrinks;
     private javax.swing.JButton candyProducts;
     private javax.swing.JButton cashCalculateTotal;
@@ -3093,14 +3795,26 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JCheckBox cocaLightCheck;
     private javax.swing.JSpinner cocaLightSpinner;
     private javax.swing.JSpinner cocaSpinner;
+    private javax.swing.JCheckBox cuadradoSecoCheck;
+    private javax.swing.JLabel cuadradoSecoPrice;
+    private javax.swing.JSpinner cuadradoSecoSpinner;
     private javax.swing.JButton deleteTable;
     private javax.swing.JButton drinkAlcohol;
     private javax.swing.JButton drinkNoAlcohol;
     private javax.swing.JComboBox<String> employeeNameCombo;
+    private javax.swing.JCheckBox ensaladaDeFrutasCheck;
+    private javax.swing.JLabel ensaladaFrutasPrice;
+    private javax.swing.JSpinner ensaladaFrutasSpinner;
     private javax.swing.JCheckBox exprimidoCheck;
     private javax.swing.JSpinner exprimidoSpinner;
     private javax.swing.JCheckBox fantaCheck;
     private javax.swing.JSpinner fantaSpinner;
+    private javax.swing.JCheckBox fraNuiCheck;
+    private javax.swing.JLabel fraNuiPrice;
+    private javax.swing.JSpinner franuiSpinner;
+    private javax.swing.JCheckBox frutaEleccionCheck;
+    private javax.swing.JLabel frutaEleccionPrice;
+    private javax.swing.JSpinner frutaEleccionSpinner;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -3152,9 +3866,23 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel53;
     private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel55;
+    private javax.swing.JLabel jLabel56;
+    private javax.swing.JLabel jLabel57;
+    private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel61;
+    private javax.swing.JLabel jLabel62;
+    private javax.swing.JLabel jLabel63;
+    private javax.swing.JLabel jLabel64;
+    private javax.swing.JLabel jLabel65;
+    private javax.swing.JLabel jLabel66;
+    private javax.swing.JLabel jLabel67;
+    private javax.swing.JLabel jLabel68;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel70;
+    private javax.swing.JLabel jLabel74;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel80;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
@@ -3176,6 +3904,9 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JSpinner limonada_elaborada_Spinner;
     private javax.swing.JCheckBox manzanaCheck;
     private javax.swing.JSpinner manzanaSpinner;
+    private javax.swing.JCheckBox medialunaCheck;
+    private javax.swing.JLabel medialunaPrice;
+    private javax.swing.JSpinner medialunaSpinner;
     private javax.swing.JCheckBox naranjaCheck;
     private javax.swing.JSpinner naranjaSpinner;
     private javax.swing.JButton otherPaymentCalculate;
@@ -3232,6 +3963,12 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JCheckBox tonicaCheck;
     private javax.swing.JSpinner torosPomeloSpinner;
     private javax.swing.JSpinner torosTonicaSpinner;
+    private javax.swing.JCheckBox tortaIndividualCheck;
+    private javax.swing.JLabel tortaIndividualPrice;
+    private javax.swing.JSpinner tortaIndividualSpinner;
+    private javax.swing.JCheckBox tostadasCheck;
+    private javax.swing.JLabel tostadasPrice;
+    private javax.swing.JSpinner tostadasSpinner;
     private javax.swing.JLabel totalPayLabel;
     private javax.swing.JLabel userTableCompleteNamePay;
     private javax.swing.JCheckBox waterCheck;

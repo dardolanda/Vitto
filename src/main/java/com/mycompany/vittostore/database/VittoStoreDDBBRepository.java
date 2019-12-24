@@ -5,6 +5,7 @@
  */
 package com.mycompany.vittostore.database;
 
+import com.mycompany.vittostore.dataStore.DataStore;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -20,6 +21,7 @@ import com.mycompany.vittostore.user.User;
 import com.mycompany.vittostore.generalitems.Product;
 import com.mycompany.vittostore.dialogs.GenericDialog;
 import com.mycompany.vittostore.generalitems.OperatingTableStateEnum;
+import com.mycompany.vittostore.generalitems.SweetProductsEnum;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.sql.Statement;
@@ -176,14 +178,14 @@ public class VittoStoreDDBBRepository {
         return productIdPrice;
     }
 
-    public void insertProduct(List<Product> productList, int mesa, String nombreMozo) {
+    public void insertProduct(List<Product> productList, int mesa, String nombreMozo, String productType) {
 
         if (this.DDBBConnection != null) {
             System.out.println("ddbb inserting OPERATING_TABLE");
             StringBuffer insertOperatingTableQuery = new StringBuffer();
             insertOperatingTableQuery.append("INSERT INTO operating_table ");
-            insertOperatingTableQuery.append(" (mesa, nombre_mozo, producto_id, producto_nombre, producto_cantidad, producto_precio_unitario, actividad, horario_apertura, estado)");
-            insertOperatingTableQuery.append(" VALUES (?,?,?,?,?,?,?,?,?)");
+            insertOperatingTableQuery.append(" (mesa, nombre_mozo, producto_id, producto_nombre, producto_cantidad, producto_precio_unitario, actividad, horario_apertura, estado, tipo_prouducto)");
+            insertOperatingTableQuery.append(" VALUES (?,?,?,?,?,?,?,?,?,?)");
 
             Calendar cal = Calendar.getInstance();
             Timestamp timeStampNow = new Timestamp(cal.getTimeInMillis());
@@ -202,6 +204,7 @@ public class VittoStoreDDBBRepository {
                     preparedStatement.setBoolean(7, true);
                     preparedStatement.setTimestamp(8, timeStampNow);
                     preparedStatement.setString(9, OperatingTableStateEnum.USO.toString());
+                    preparedStatement.setString(10, productType);
 
                     preparedStatement.execute();
 
@@ -223,6 +226,52 @@ public class VittoStoreDDBBRepository {
             }
         }
     }
+    
+    
+    public void insertProductPrices(DataStore dataStore) {
+        if (this.DDBBConnection != null) {
+            System.out.println("ddbb inserting (Products with price) OPERATING_TABLE");
+            StringBuffer insertOperatingTableQuery = new StringBuffer();
+            insertOperatingTableQuery.append("INSERT INTO operating_table ");
+            insertOperatingTableQuery.append(" (mesa, nombre_mozo, producto_nombre, producto_cantidad, producto_precio_unitario, actividad, horario_apertura, estado, tipo_prouducto)");
+            insertOperatingTableQuery.append(" VALUES (?,?,?,?,?,?,?,?,?)");
+
+            Calendar cal = Calendar.getInstance();
+            Timestamp timeStampNow = new Timestamp(cal.getTimeInMillis());
+            
+            for (Map.Entry<SweetProductsEnum, Map<Integer, Double>> entry : dataStore.getSweetProducts().entrySet()) {
+            Object tipoDeProducto = entry.getKey();
+            Map<Integer, Double> value = entry.getValue();
+                for(Map.Entry<Integer, Double> cantidadPrecio: value.entrySet()) {
+                    System.out.println("KEY --> " + tipoDeProducto.toString());
+                    System.out.println("Sub entry -> number: " + cantidadPrecio.getKey());
+                    System.out.println("Sub entry -> double: " + cantidadPrecio.getValue());
+                    
+                    try {
+                        PreparedStatement preparedStatement = this.DDBBConnection.prepareStatement(insertOperatingTableQuery.toString());
+                        
+                        preparedStatement.setInt(1, dataStore.getMesa());
+                        preparedStatement.setString(2, dataStore.getNombreMozo());
+                        preparedStatement.setString(3, tipoDeProducto.toString());
+                        preparedStatement.setInt(4, cantidadPrecio.getKey());
+                        preparedStatement.setDouble(5, cantidadPrecio.getValue());
+                        preparedStatement.setBoolean(6, true);
+                        preparedStatement.setTimestamp(7, timeStampNow);
+                        preparedStatement.setString(8, OperatingTableStateEnum.USO.toString());
+                        preparedStatement.setString(9, dataStore.getProductTypeEnum().toString());
+                        
+                        preparedStatement.execute();                        
+                        
+                    } catch(Exception e) {
+                        e.printStackTrace();
+                    }   
+                }
+            }
+            
+        }
+        
+    }
+    
 
     /**
      * Tener en cuenta que el tableUser espera el nombre del mozo con el
@@ -350,7 +399,7 @@ public class VittoStoreDDBBRepository {
         return tableUser;
     }
 
-    public List<Product> findtableSelectedProducts(int tableId) {
+    public List<Product> findtableSelectedProducts(int tableId, String productType) {
         Product product;
         List<Product> productList = new ArrayList<>();
 
@@ -358,10 +407,13 @@ public class VittoStoreDDBBRepository {
             String getConsumingProducts = "SELECT producto_nombre, producto_cantidad , producto_precio_unitario "
                     + " FROM operating_table "
                     + " WHERE mesa = ? "
-                    + " AND actividad = true ";
+                    + " AND actividad = true "
+                    + " AND tipo_prouducto = ? "
+                    ;
             try {
                 PreparedStatement statement = this.DDBBConnection.prepareStatement(getConsumingProducts);
                 statement.setInt(1, tableId);
+                statement.setString(2, productType);
                 ResultSet resultSet = statement.executeQuery();
 
                 while (resultSet.next()) {

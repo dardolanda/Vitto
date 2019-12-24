@@ -802,15 +802,493 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="712" max="32767" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="jLabel56" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="cuadradoSecoCheck" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="alfajorCheck" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="tostadasCheck" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabel57" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel74" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel80" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="jLabel62" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="tostadasPrice" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="cuadradoSecoPrice" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Component id="jLabel63" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="alfajorPrice" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="tortaIndividualCheck" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                  <Component id="jLabel70" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace pref="79" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Component id="cuadradoSecoSpinner" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="jLabel61" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" attributes="0">
+                                          <Component id="tortaIndividualSpinner" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                                          <Component id="jLabel59" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="tortaIndividualPrice" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="alfajorSpinner" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="tostadasSpinner" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <Component id="GuardarProductosDulces" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="cancelCandyProducts" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="frutaEleccionCheck" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+                                  <Component id="frutaEleccionSpinner" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="ensaladaDeFrutasCheck" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="ensaladaFrutasSpinner" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="fraNuiCheck" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="franuiSpinner" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="alfajorArtesanalCheck" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="medialunaCheck" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="alfajorArtesanalSpinner" min="-2" max="-2" attributes="0"/>
+                                          <Component id="medialunaSpinner" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="jLabel64" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="alfajorArtesanalPrice" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="jLabel65" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="medialunaPrice" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="jLabel66" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="fraNuiPrice" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="jLabel67" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="ensaladaFrutasPrice" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="jLabel68" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="frutaEleccionPrice" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="517" max="32767" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                  <Component id="jLabel56" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel70" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tortaIndividualCheck" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tortaIndividualPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tortaIndividualSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel59" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel74" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cuadradoSecoCheck" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cuadradoSecoPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cuadradoSecoSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel61" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="alfajorSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="alfajorPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="alfajorCheck" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel57" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel63" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="tostadasSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tostadasPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel80" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tostadasCheck" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel62" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="alfajorArtesanalCheck" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="alfajorArtesanalSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel64" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="alfajorArtesanalPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="medialunaCheck" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="medialunaSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel65" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="medialunaPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="fraNuiCheck" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="franuiSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel66" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="fraNuiPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="ensaladaDeFrutasCheck" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ensaladaFrutasSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel67" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ensaladaFrutasPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="frutaEleccionCheck" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="frutaEleccionSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel68" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="frutaEleccionPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="29" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="GuardarProductosDulces" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cancelCandyProducts" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+              </Group>
           </Group>
         </DimensionLayout>
       </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="jLabel56">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="14" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Dulces"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="tortaIndividualCheck">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Torta Individual"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tortaIndividualCheckActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel70">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="12" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="(Chocotorta, oreo, cheescake, manzana)"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JSpinner" name="tortaIndividualSpinner">
+        </Component>
+        <Component class="javax.swing.JLabel" name="tortaIndividualPrice">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="200"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="cuadradoSecoCheck">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cuadrado Seco"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cuadradoSecoCheckActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel74">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="12" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="(Brownie, pastafrola batata o membrillo)"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JSpinner" name="cuadradoSecoSpinner">
+        </Component>
+        <Component class="javax.swing.JLabel" name="cuadradoSecoPrice">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="140"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel57">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="12" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="(Chocolate, chocolate blanco, maicena)"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JSpinner" name="alfajorSpinner">
+        </Component>
+        <Component class="javax.swing.JLabel" name="alfajorPrice">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="60"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="alfajorCheck">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Alfajor"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="alfajorCheckActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="tostadasCheck">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Tostadas "/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tostadasCheckActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel80">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="12" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="(Con queso crema y dulce de leche a elecci&#xf3;n)"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JSpinner" name="tostadasSpinner">
+        </Component>
+        <Component class="javax.swing.JLabel" name="tostadasPrice">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="175"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="alfajorArtesanalCheck">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Alfajor Artesanal"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="alfajorArtesanalCheckActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JSpinner" name="alfajorArtesanalSpinner">
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="medialunaCheck">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Medialuna c/u"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="medialunaCheckActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JSpinner" name="medialunaSpinner">
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="fraNuiCheck">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Fra - nui"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fraNuiCheckActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel59">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="$"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel61">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="$"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel62">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="$"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel63">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="$"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="ensaladaDeFrutasCheck">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Ensalada de Frutas"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ensaladaDeFrutasCheckActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="frutaEleccionCheck">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Fruta a Elecci&#xf3;n"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="frutaEleccionCheckActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JSpinner" name="franuiSpinner">
+        </Component>
+        <Component class="javax.swing.JSpinner" name="ensaladaFrutasSpinner">
+        </Component>
+        <Component class="javax.swing.JSpinner" name="frutaEleccionSpinner">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel64">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="$"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel65">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="$"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel66">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="$"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel67">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="$"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel68">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="$"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="alfajorArtesanalPrice">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="90"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="medialunaPrice">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="45"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="fraNuiPrice">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="200"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="ensaladaFrutasPrice">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="90"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="frutaEleccionPrice">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="45"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="GuardarProductosDulces">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Guardar Orden"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="GuardarProductosDulcesActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="cancelCandyProducts">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cancelar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancelCandyProductsActionPerformed"/>
+          </Events>
+        </Component>
+      </SubComponents>
     </Container>
     <Container class="javax.swing.JFrame" name="SaladsProductFrame">
 
