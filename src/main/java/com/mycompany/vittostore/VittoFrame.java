@@ -25,6 +25,7 @@ import com.mycompany.vittostore.dataStore.DataStore;
 import com.mycompany.vittostore.controllerImpl.ProductsImpl;
 import com.mycompany.vittostore.controllerImpl.UsersImpl;
 import com.mycompany.vittostore.dataStore.PaymentDataStore;
+import com.mycompany.vittostore.generalitems.AlcoholDrinksEnum;
 import com.mycompany.vittostore.generalitems.GenericSelectedComponent;
 import com.mycompany.vittostore.generalitems.PaymentMethodsEnum;
 import com.mycompany.vittostore.generalitems.ProductTypeEnum;
@@ -62,6 +63,7 @@ public class VittoFrame extends javax.swing.JFrame {
     Map<NoAlcoholDrinksEnum, Integer> noAlcoholDrinks;
     Map<NoAlcoholDrinksEnum, Integer> AlcoholDrinks;
     Map<SweetProductsEnum, Map<Integer, Double>> sweetProducts;
+    Map<AlcoholDrinksEnum, Map<Integer, Double>> alcoholProducts;
     User tableUser;
     DataStore dataStore;
     // resto de las posibilidades por mesa
@@ -76,17 +78,17 @@ public class VittoFrame extends javax.swing.JFrame {
         this.initSelectedComponent();
 
         List<Map<Integer, String>> operatingTableStateList = this.productsImpl.getOperatingTable();
-        
+
         for (Map<Integer, String> tableStateMap : operatingTableStateList) {
-            for(Map.Entry<Integer,String> entry : tableStateMap.entrySet()) {
+            for (Map.Entry<Integer, String> entry : tableStateMap.entrySet()) {
                 this.setTableColour(
-                        entry.getKey(), 
-                        entry.getValue().equals(OperatingTableStateEnum.USO.toString()) 
-                                ? Color.yellow 
-                                : Color.RED);
+                        entry.getKey(),
+                        entry.getValue().equals(OperatingTableStateEnum.USO.toString())
+                        ? Color.yellow
+                        : Color.RED);
             }
         }
-        
+
         this.employeeList = this.usersImpl.getUsers();
 
         this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
@@ -122,25 +124,25 @@ public class VittoFrame extends javax.swing.JFrame {
         this.selectedComponentMap.put(NoAlcoholDrinksEnum.LIMONADA.name(), new GenericSelectedComponent(this.limonadaElaboradoCheck, this.limonada_elaborada_Spinner));
         this.selectedComponentMap.put(NoAlcoholDrinksEnum.MILK_SHAKE_CHOCO.name(), new GenericSelectedComponent(this.shakeChocolateCheck, this.shakeChocolateSpinner));
         this.selectedComponentMap.put(NoAlcoholDrinksEnum.MILK_SHAKE_DULCE_LECHE.name(), new GenericSelectedComponent(this.shakeDulceLecheCheck, this.shakeDulceLecheSpinner));
-        
-        
+
         /**
          * Productos Dulces
          */
-        this.selectedComponentMap.put(SweetProductsEnum.ALFAJOR.name(), new GenericSelectedComponent((this.alfajorCheck) , this.alfajorSpinner));
-        this.selectedComponentMap.put(SweetProductsEnum.ALFAJOR_ARTESANAL.name(), new GenericSelectedComponent((this.alfajorArtesanalCheck) , this.alfajorArtesanalSpinner));
-        this.selectedComponentMap.put(SweetProductsEnum.CUADRADO_SECO.name(), new GenericSelectedComponent((this.cuadradoSecoCheck) , this.cuadradoSecoSpinner));
-        this.selectedComponentMap.put(SweetProductsEnum.ENSALADA_FRUTAS.name(), new GenericSelectedComponent((this.ensaladaDeFrutasCheck) , this.ensaladaFrutasSpinner));
-        this.selectedComponentMap.put(SweetProductsEnum.FRA_NUI.name(), new GenericSelectedComponent((this.fraNuiCheck) , this.franuiSpinner));
-        this.selectedComponentMap.put(SweetProductsEnum.FRUTA_ELECCION.name(), new GenericSelectedComponent((this.frutaEleccionCheck) , this.frutaEleccionSpinner));
-        this.selectedComponentMap.put(SweetProductsEnum.MEDIALUNA.name(), new GenericSelectedComponent((this.medialunaCheck) , this.medialunaSpinner));
-        this.selectedComponentMap.put(SweetProductsEnum.TORTA_INDIVIDUAL.name(), new GenericSelectedComponent((this.alfajorCheck) , this.alfajorSpinner));
-        this.selectedComponentMap.put(SweetProductsEnum.TOSTADAS.name(), new GenericSelectedComponent((this.tostadasCheck) , this.tostadasSpinner));
-        
-        
-        
-        
-        
+        this.selectedComponentMap.put(SweetProductsEnum.ALFAJOR.name(), new GenericSelectedComponent((this.alfajorCheck), this.alfajorSpinner));
+        this.selectedComponentMap.put(SweetProductsEnum.ALFAJOR_ARTESANAL.name(), new GenericSelectedComponent((this.alfajorArtesanalCheck), this.alfajorArtesanalSpinner));
+        this.selectedComponentMap.put(SweetProductsEnum.CUADRADO_SECO.name(), new GenericSelectedComponent((this.cuadradoSecoCheck), this.cuadradoSecoSpinner));
+        this.selectedComponentMap.put(SweetProductsEnum.ENSALADA_FRUTAS.name(), new GenericSelectedComponent((this.ensaladaDeFrutasCheck), this.ensaladaFrutasSpinner));
+        this.selectedComponentMap.put(SweetProductsEnum.FRA_NUI.name(), new GenericSelectedComponent((this.fraNuiCheck), this.franuiSpinner));
+        this.selectedComponentMap.put(SweetProductsEnum.FRUTA_ELECCION.name(), new GenericSelectedComponent((this.frutaEleccionCheck), this.frutaEleccionSpinner));
+        this.selectedComponentMap.put(SweetProductsEnum.MEDIALUNA.name(), new GenericSelectedComponent((this.medialunaCheck), this.medialunaSpinner));
+        this.selectedComponentMap.put(SweetProductsEnum.TORTA_INDIVIDUAL.name(), new GenericSelectedComponent((this.alfajorCheck), this.alfajorSpinner));
+        this.selectedComponentMap.put(SweetProductsEnum.TOSTADAS.name(), new GenericSelectedComponent((this.tostadasCheck), this.tostadasSpinner));
+
+        /**
+         * Bebidas alcoholicas.
+         */
+        this.selectedComponentMap.put(AlcoholDrinksEnum.CERVEZA.name(), new GenericSelectedComponent(this.cervezaCheck, this.cervezaSpinner));
+
     }
 
     private void chargeEmployee(String userTable) {
@@ -166,7 +168,7 @@ public class VittoFrame extends javax.swing.JFrame {
         SelectOrder.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
         SelectOrder.setSize(700, 600);
         SelectOrder.setVisible(true);
-        
+
     }
 
     /**
@@ -246,6 +248,13 @@ public class VittoFrame extends javax.swing.JFrame {
         scheweppesPomeloSpinner = new javax.swing.JSpinner();
         scheweppesTonicaSpinner = new javax.swing.JSpinner();
         DrinkAlcoholFrame = new javax.swing.JFrame();
+        jLabel58 = new javax.swing.JLabel();
+        cervezaCheck = new javax.swing.JCheckBox();
+        cervezaPrice = new javax.swing.JLabel();
+        jLabel69 = new javax.swing.JLabel();
+        saverAlcoholOrder = new javax.swing.JButton();
+        alcoholDrinkCancel = new javax.swing.JButton();
+        cervezaSpinner = new javax.swing.JSpinner();
         CandyProductsFrame = new javax.swing.JFrame();
         jLabel56 = new javax.swing.JLabel();
         tortaIndividualCheck = new javax.swing.JCheckBox();
@@ -413,12 +422,12 @@ public class VittoFrame extends javax.swing.JFrame {
 
         drinkNoAlcohol.setText("Bebidas sin alcohol");
         drinkNoAlcohol.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 drinkNoAlcoholAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         drinkNoAlcohol.addActionListener(new java.awt.event.ActionListener() {
@@ -976,15 +985,78 @@ public class VittoFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jLabel58.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel58.setText("Bebidas con Alcohol");
+
+        cervezaCheck.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        cervezaCheck.setText("Cerveza 500 ml");
+        cervezaCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cervezaCheckActionPerformed(evt);
+            }
+        });
+
+        cervezaPrice.setText("175");
+
+        jLabel69.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel69.setText("$");
+
+        saverAlcoholOrder.setText("Guardar Orden");
+        saverAlcoholOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saverAlcoholOrderActionPerformed(evt);
+            }
+        });
+
+        alcoholDrinkCancel.setText("Cancelar");
+        alcoholDrinkCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alcoholDrinkCancelActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout DrinkAlcoholFrameLayout = new javax.swing.GroupLayout(DrinkAlcoholFrame.getContentPane());
         DrinkAlcoholFrame.getContentPane().setLayout(DrinkAlcoholFrameLayout);
         DrinkAlcoholFrameLayout.setHorizontalGroup(
             DrinkAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 712, Short.MAX_VALUE)
+            .addGroup(DrinkAlcoholFrameLayout.createSequentialGroup()
+                .addGroup(DrinkAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DrinkAlcoholFrameLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(saverAlcoholOrder)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(alcoholDrinkCancel))
+                    .addGroup(DrinkAlcoholFrameLayout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(DrinkAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel58)
+                            .addGroup(DrinkAlcoholFrameLayout.createSequentialGroup()
+                                .addComponent(cervezaCheck)
+                                .addGap(33, 33, 33)
+                                .addComponent(cervezaSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel69)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cervezaPrice)))
+                        .addGap(0, 254, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         DrinkAlcoholFrameLayout.setVerticalGroup(
             DrinkAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 517, Short.MAX_VALUE)
+            .addGroup(DrinkAlcoholFrameLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jLabel58)
+                .addGap(36, 36, 36)
+                .addGroup(DrinkAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cervezaCheck)
+                    .addComponent(cervezaPrice)
+                    .addComponent(jLabel69)
+                    .addComponent(cervezaSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
+                .addGroup(DrinkAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(saverAlcoholOrder)
+                    .addComponent(alcoholDrinkCancel))
+                .addContainerGap())
         );
 
         jLabel56.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -2381,8 +2453,9 @@ public class VittoFrame extends javax.swing.JFrame {
         System.out.println("---- END: Table Selected ----");
 
         /**
-         * Aseguramos de traer solo los tipos de prouductos que especifica el actionPerformed.
-        */
+         * Aseguramos de traer solo los tipos de prouductos que especifica el
+         * actionPerformed.
+         */
         List<Product> selectedTableProducts = this.productsImpl.findTableSelectedProducts(this.selectedTable.getId(), ProductTypeEnum.BEBIDAS_SIN_ALCOHOL);
 
         if (selectedTableProducts.size() != 0) {
@@ -2401,7 +2474,7 @@ public class VittoFrame extends javax.swing.JFrame {
             /**
              * Caso contrario: no hay datos de la mesa en la bbdd por lo tanto
              * hay que resetear todo, para que el formulario quede limpio.
-             * 
+             *
              * Iteración de componentes dentro de un frame
              */
             for (Component component : DrinkNoAlcoholFrame.getContentPane().getComponents()) {
@@ -2436,15 +2509,15 @@ public class VittoFrame extends javax.swing.JFrame {
         CandyProductsFrame.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
         CandyProductsFrame.setSize(650, 650);
         CandyProductsFrame.setVisible(true);
-        
+
         System.out.println("PRODUCTOS DULECES:");
         System.out.println("---- INIT: Table selected ----");
         System.out.println(this.selectedTable.getState());
         System.out.println(this.selectedTable.getId());
         System.out.println("---- END: Table Selected ----");
-        
+
         List<Product> selectedTableProducts = this.productsImpl.findTableSelectedProducts(this.selectedTable.getId(), ProductTypeEnum.DULCES);
-        
+
         if (selectedTableProducts.size() != 0) {
             /* Se encontraron datos en la bbdd
              *  por lo tanto hay que cargar las cantidades que se 
@@ -2461,12 +2534,12 @@ public class VittoFrame extends javax.swing.JFrame {
             /**
              * Caso contrario: no hay datos de la mesa en la bbdd por lo tanto
              * hay que resetear todo, para que el formulario quede limpio.
-             * 
+             *
              * Iteración de componentes dentro de un frame
              */
             for (Component component : CandyProductsFrame.getContentPane().getComponents()) {
                 System.out.println("candy products frame iteration");
-                
+
                 if (component instanceof JCheckBox) {
                     ((JCheckBox) component).setSelected(false);
                 }
@@ -2511,10 +2584,67 @@ public class VittoFrame extends javax.swing.JFrame {
     private void drinkAlcoholActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drinkAlcoholActionPerformed
         // TODO add your handling code here:
         DrinkAlcoholFrame.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
-        DrinkAlcoholFrame.setSize(650, 700);
+        DrinkAlcoholFrame.setSize(450, 200);
         DrinkAlcoholFrame.setVisible(true);
 
+        this.findProductsForOperatingTable(ProductTypeEnum.BEBIDAS_ALCHOLICAS, this.selectedTable.getId(), this.DrinkAlcoholFrame);
+
+
     }//GEN-LAST:event_drinkAlcoholActionPerformed
+
+    private void findProductsForOperatingTable(ProductTypeEnum productTypeEnum, int selectedTable, JFrame jFrame) {
+        /**
+         * Aseguramos de traer solo los tipos de prouductos que especifica el
+         * actionPerformed.
+         */
+        List<Product> selectedTableProducts = this.productsImpl.findTableSelectedProducts(selectedTable, productTypeEnum);
+
+        if (selectedTableProducts.size() != 0) {
+            /* Se encontraron datos en la bbdd
+             *  por lo tanto hay que cargar las cantidades que se 
+             *  hayan guardado.
+             */
+
+            for (Product product : selectedTableProducts) {
+                this.selectedComponentMap.get(product.getBrand()).getCheckBox().setSelected(true);
+                this.selectedComponentMap.get(product.getBrand()).getSpinner().setEnabled(true);
+                this.selectedComponentMap.get(product.getBrand()).getSpinner().setValue(product.getAmountConsumed());
+            }
+
+        } else {
+            /**
+             * Caso contrario: no hay datos de la mesa en la bbdd por lo tanto
+             * hay que resetear todo, para que el formulario quede limpio.
+             *
+             * Iteración de componentes dentro de un frame
+             */
+            for (Component component : jFrame.getContentPane().getComponents()) {
+                System.out.println("testing frame component --> " + component);
+                if (component instanceof JCheckBox) {
+                    ((JCheckBox) component).setSelected(false);
+                }
+
+                if (component instanceof JSpinner) {
+
+                    /*
+                        Tenemos dos maneras de hacer lo mismo, 
+                        esta en particular crea un JSpinner a partir del casteo del component
+                        y luego, le aplica la propiedad que se esté buscando
+                        
+                        JSpinner spinner = (JSpinner) component;
+                        spinner.setEnabled(false);
+                     */
+ /*
+                        Es igual al caso anterior, pero se hace todo en una línea.
+                     */
+                    ((JSpinner) component).setEnabled(false);
+                    ((JSpinner) component).setValue(0);
+                }
+            }
+        }
+
+    }
+
 
     private void seeConsumingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seeConsumingActionPerformed
         // TODO add your handling code here:
@@ -2595,9 +2725,7 @@ public class VittoFrame extends javax.swing.JFrame {
         this.tableIdPayLabel.setText(Integer.toString(this.selectedTable.getId()));
         this.userTableCompleteNamePay.setText(this.tableUser.getNombre() + " " + this.tableUser.getApellido());
         this.totalPayLabel.setText(Double.toString(total));
-        
-        
-        
+
 
     }//GEN-LAST:event_payActionActionPerformed
 
@@ -3033,13 +3161,13 @@ public class VittoFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_CloseTableButtonActionPerformed
 
     private void cashPayDiscountCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cashPayDiscountCheckActionPerformed
-        if(this.cashPayDiscountCheck.isSelected()) {
+        if (this.cashPayDiscountCheck.isSelected()) {
             this.cashDiscountCombo.setEnabled(true);
         } else {
             this.cashDiscountCombo.setEnabled(false);
         }
-        
-        
+
+
     }//GEN-LAST:event_cashPayDiscountCheckActionPerformed
 
     private void paymentCashActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paymentCashActionPerformed
@@ -3049,29 +3177,29 @@ public class VittoFrame extends javax.swing.JFrame {
     private void cashCalculateTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cashCalculateTotalActionPerformed
         double cashPayment = Double.parseDouble(this.paymentCash.getText());
         double cashSbtTotal = Double.parseDouble(this.cashSubTotal.getText());
-        
+
         if (cashPayDiscountCheck.isSelected()) {
             // aplica descuento
             System.out.println("combo selected item -> " + this.cashDiscountCombo.getSelectedItem().toString());
-            
+
             int percentage = Integer.parseInt(this.cashDiscountCombo.getSelectedItem().toString().split("%")[0]);
-            
+
             double discount = (cashSbtTotal * percentage) / 100;
-            
-            this.cashTotalPay.setText( Double.toString(cashSbtTotal - discount)); 
-            
-            this.cashChangeBack.setText( Double.toString(cashPayment - cashSbtTotal - discount) );
-                        
+
+            this.cashTotalPay.setText(Double.toString(cashSbtTotal - discount));
+
+            this.cashChangeBack.setText(Double.toString(cashPayment - cashSbtTotal - discount));
+
         } else {
             // no aplica Descuento:
-            
+
             this.cashTotalPay.setText(Double.toString(cashSbtTotal));
-            this.cashChangeBack.setText(Double.toString( cashPayment - cashSbtTotal));
-            
+            this.cashChangeBack.setText(Double.toString(cashPayment - cashSbtTotal));
+
         }
-        
+
         // this.cashDiscountCombo.setEnabled(false);
-        
+
     }//GEN-LAST:event_cashCalculateTotalActionPerformed
 
     private void otherPaymentCalculateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherPaymentCalculateActionPerformed
@@ -3079,7 +3207,7 @@ public class VittoFrame extends javax.swing.JFrame {
         if (otherPaymentDiscountCheck.isSelected()) {
             // aplica descuento
             int percentage = Integer.parseInt(this.otherPaymentDiscountCombo.getSelectedItem().toString().split("%")[0]);
-            double discount = (otherPaymenSubTtl * percentage) / 100;   
+            double discount = (otherPaymenSubTtl * percentage) / 100;
             this.otherPaymentTotal.setText(Double.toString(otherPaymenSubTtl - discount));
         } else {
             // no aplica descuento
@@ -3146,34 +3274,31 @@ public class VittoFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_cashPaymentActionPerformed
 
     private void cashPayActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cashPayActionActionPerformed
-        double discount = cashPayDiscountCheck.isSelected() ? Double.parseDouble(this.cashDiscountCombo.getSelectedItem().toString().split("%")[0]) : 0.00;        
-        
-        PaymentDataStore paymentDataStore = new PaymentDataStore(this.selectedTable.getId(), 
-                Double.parseDouble(this.cashSubTotal.getText()), 
-                discount, 
-                this.tableUser.getNombre() + "_" + this.tableUser.getApellido(), 
+        double discount = cashPayDiscountCheck.isSelected() ? Double.parseDouble(this.cashDiscountCombo.getSelectedItem().toString().split("%")[0]) : 0.00;
+
+        PaymentDataStore paymentDataStore = new PaymentDataStore(this.selectedTable.getId(),
+                Double.parseDouble(this.cashSubTotal.getText()),
+                discount,
+                this.tableUser.getNombre() + "_" + this.tableUser.getApellido(),
                 PaymentMethodsEnum.EFECTIVO);
-        
+
         this.productsImpl.payTable(paymentDataStore);
-        
-        
-        
+
         // mensaje de Pago efectuado.
         JOptionPane.showMessageDialog(null, "La mesa Nº: " + this.selectedTable.getId() + " ha efectuado el pago Correctamente");
-        
-        
+
         // cerrar popUps abiertos
         this.closeGenericFrame(PayTableFrm); // Elige el método de pago
         this.closeGenericFrame(PagoEfectivoFrame); // Paga en efectivo
         this.closeGenericFrame(SelectOrder); // elige el tipo de producto
-        
+
         // libera la mesa
         this.setTableColour(this.selectedTable.getId(), Color.GREEN);
-        
+
         this.paymentCash.setText("");
         this.cashTotalPay.setText("");
         this.cashChangeBack.setText("");
-        
+
     }//GEN-LAST:event_cashPayActionActionPerformed
 
     private void otraFormaDePagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otraFormaDePagoActionPerformed
@@ -3181,7 +3306,7 @@ public class VittoFrame extends javax.swing.JFrame {
         this.OtraFormaDePagoFrame.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
         this.OtraFormaDePagoFrame.setSize(400, 500);
         this.OtraFormaDePagoFrame.setVisible(true);
-        
+
         Double total = 0.0;
 
         List<Product> consumingProductList = this.productsImpl.getConsumingProduct(this.selectedTable.getId(), this.tableUser.getNombre() + "_" + this.tableUser.getApellido());
@@ -3193,63 +3318,60 @@ public class VittoFrame extends javax.swing.JFrame {
         this.otherPaymentSubTotal.setText(Double.toString(total));
         this.otherPaymentDiscountCheck.setSelected(false);
         this.otherPaymentDiscountCombo.setEnabled(false);
-        
-        /** 
-        *   Tener en cuenta que no se requiere la validación de 
-        *   los caracteres que se ingresan, ya que el pago es totaly
-        */
+
+        /**
+         * Tener en cuenta que no se requiere la validación de los caracteres
+         * que se ingresan, ya que el pago es totaly
+         */
     }//GEN-LAST:event_otraFormaDePagoActionPerformed
 
     private void otherPaymentPayActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_otherPaymentPayActionActionPerformed
         double discount = otherPaymentDiscountCheck.isSelected() ? Double.parseDouble(this.otherPaymentDiscountCombo.getSelectedItem().toString().split("%")[0]) : 0.00;
-        
+
         Map<String, PaymentMethodsEnum> paymentMethodMap = new HashMap<>();
         paymentMethodMap.put("debito", PaymentMethodsEnum.DEBITO);
         paymentMethodMap.put("credito", PaymentMethodsEnum.CREDITO);
         paymentMethodMap.put("cuenta_corriente", PaymentMethodsEnum.CUENTA_CORRIENTE);
         paymentMethodMap.put("mercado_pago", PaymentMethodsEnum.MERCADO_PAGO);
-        
-        PaymentDataStore paymentDataStore = new PaymentDataStore(this.selectedTable.getId(), 
-                Double.parseDouble(this.otherPaymentSubTotal.getText()), 
-                discount, 
-                this.tableUser.getNombre() + "_" + this.tableUser.getApellido(), 
+
+        PaymentDataStore paymentDataStore = new PaymentDataStore(this.selectedTable.getId(),
+                Double.parseDouble(this.otherPaymentSubTotal.getText()),
+                discount,
+                this.tableUser.getNombre() + "_" + this.tableUser.getApellido(),
                 paymentMethodMap.get(this.otherPaymentMethodCombo.getSelectedItem().toString()),
                 this.otherPaymentName.getText(),
                 this.otherPaymentLastName.getText(),
                 this.otherPaymentDNI.getText(),
                 this.otherPaymentCelphone.getText()
         );
-        
-        
-        if (
-                (this.otherPaymentName.getText() == null      || "".equals(this.otherPaymentName.getText())) ||
-                (this.otherPaymentLastName.getText() == null  || "".equals(this.otherPaymentLastName.getText())) || 
-                (this.otherPaymentDNI.getText() == null       || "".equals(this.otherPaymentDNI.getText()) ) ) {
+
+        if ((this.otherPaymentName.getText() == null || "".equals(this.otherPaymentName.getText()))
+                || (this.otherPaymentLastName.getText() == null || "".equals(this.otherPaymentLastName.getText()))
+                || (this.otherPaymentDNI.getText() == null || "".equals(this.otherPaymentDNI.getText()))) {
             JOptionPane.showMessageDialog(null, "Los campos: Nombre , Apellido y DNI son obligatorios");
         } else {
-            
+
             this.productsImpl.payTable(paymentDataStore);
-            
-        // mensaje de Pago efectuado.
-        JOptionPane.showMessageDialog(null, "La mesa Nº: " + this.selectedTable.getId() + " ha efectuado el pago Correctamente");
-        
-        
-        // cerrar popUps abiertos
-        this.closeGenericFrame(PayTableFrm); // Elige el método de pago
-        this.closeGenericFrame(OtraFormaDePagoFrame); // Paga en efectivo
-        this.closeGenericFrame(SelectOrder); // elige el tipo de producto
-        
-        // libera la mesa
-        this.setTableColour(this.selectedTable.getId(), Color.GREEN);
-        
-        this.otherPaymentSubTotal.setText("");
-        this.otherPaymentTotal.setText("");
-        
-        this.otherPaymentDNI.setText("");
-        this.otherPaymentLastName.setText("");
-        this.otherPaymentName.setText("");
-        this.otherPaymentCelphone.setText("");
-                    
+
+            // mensaje de Pago efectuado.
+            JOptionPane.showMessageDialog(null, "La mesa Nº: " + this.selectedTable.getId() + " ha efectuado el pago Correctamente");
+
+            // cerrar popUps abiertos
+            this.closeGenericFrame(PayTableFrm); // Elige el método de pago
+            this.closeGenericFrame(OtraFormaDePagoFrame); // Paga en efectivo
+            this.closeGenericFrame(SelectOrder); // elige el tipo de producto
+
+            // libera la mesa
+            this.setTableColour(this.selectedTable.getId(), Color.GREEN);
+
+            this.otherPaymentSubTotal.setText("");
+            this.otherPaymentTotal.setText("");
+
+            this.otherPaymentDNI.setText("");
+            this.otherPaymentLastName.setText("");
+            this.otherPaymentName.setText("");
+            this.otherPaymentCelphone.setText("");
+
         }
     }//GEN-LAST:event_otherPaymentPayActionActionPerformed
 
@@ -3336,15 +3458,15 @@ public class VittoFrame extends javax.swing.JFrame {
 
     private void CloseDayActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseDayActionActionPerformed
         // TODO add your handling code here:
-        
+
         this.CloseDayFrame.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
         this.CloseDayFrame.setSize(400, 500);
         this.CloseDayFrame.setVisible(true);
-        
-         JFormattedTextField input;
-         MaskFormatter formatter2;
-         JPanel panel;
-        
+
+        JFormattedTextField input;
+        MaskFormatter formatter2;
+        JPanel panel;
+
         MaskFormatter formatter;
         try {
             formatter = new MaskFormatter("###'-##'-####");
@@ -3352,14 +3474,13 @@ public class VittoFrame extends javax.swing.JFrame {
             input.setValue("123-45-6789");
             panel = new JPanel();
             panel.add(input);
-            
+
             this.CloseDayFrame.add(panel);
-            
-            
+
         } catch (ParseException ex) {
             Logger.getLogger(VittoFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }//GEN-LAST:event_CloseDayActionActionPerformed
 
     private void tableFourteenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tableFourteenActionPerformed
@@ -3411,7 +3532,7 @@ public class VittoFrame extends javax.swing.JFrame {
 
         this.chargeEmployee(tableUser);
         this.selectOrderView(0);
-        
+
     }//GEN-LAST:event_takeAwayActionPerformed
 
     private void alfajorCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alfajorCheckActionPerformed
@@ -3422,7 +3543,7 @@ public class VittoFrame extends javax.swing.JFrame {
         } else {
             this.alfajorSpinner.setEnabled(false);
         }
-        
+
     }//GEN-LAST:event_alfajorCheckActionPerformed
 
     private void tortaIndividualCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tortaIndividualCheckActionPerformed
@@ -3512,10 +3633,10 @@ public class VittoFrame extends javax.swing.JFrame {
 
     private void GuardarProductosDulcesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarProductosDulcesActionPerformed
         sweetProducts = new HashMap<>();
-        
+
         if (tortaIndividualCheck.isSelected() && Integer.parseInt(this.tortaIndividualSpinner.getValue().toString()) > 0) {
-            Map<Integer,Double> priceQtySweetProduct = new HashMap<>();
-        
+            Map<Integer, Double> priceQtySweetProduct = new HashMap<>();
+
             priceQtySweetProduct.put(
                     Integer.parseInt(this.tortaIndividualSpinner.getValue().toString()),
                     Double.parseDouble(this.tortaIndividualPrice.getText())
@@ -3524,18 +3645,18 @@ public class VittoFrame extends javax.swing.JFrame {
         }
 
         if (cuadradoSecoCheck.isSelected() && Integer.parseInt(this.cuadradoSecoSpinner.getValue().toString()) > 0) {
-            Map<Integer,Double> priceQtySweetProduct = new HashMap<>();
-        
+            Map<Integer, Double> priceQtySweetProduct = new HashMap<>();
+
             priceQtySweetProduct.put(
                     Integer.parseInt(this.cuadradoSecoSpinner.getValue().toString()),
                     Double.parseDouble(this.cuadradoSecoPrice.getText())
             );
             sweetProducts.put(SweetProductsEnum.CUADRADO_SECO, priceQtySweetProduct);
-        }        
-        
+        }
+
         if (alfajorCheck.isSelected() && Integer.parseInt(this.alfajorSpinner.getValue().toString()) > 0) {
-            Map<Integer,Double> priceQtySweetProduct = new HashMap<>();
-        
+            Map<Integer, Double> priceQtySweetProduct = new HashMap<>();
+
             priceQtySweetProduct.put(
                     Integer.parseInt(this.alfajorSpinner.getValue().toString()),
                     Double.parseDouble(this.alfajorPrice.getText())
@@ -3544,19 +3665,18 @@ public class VittoFrame extends javax.swing.JFrame {
         }
 
         if (tostadasCheck.isSelected() && Integer.parseInt(this.tostadasSpinner.getValue().toString()) > 0) {
-            Map<Integer,Double> priceQtySweetProduct = new HashMap<>();
-        
+            Map<Integer, Double> priceQtySweetProduct = new HashMap<>();
+
             priceQtySweetProduct.put(
                     Integer.parseInt(this.tostadasSpinner.getValue().toString()),
                     Double.parseDouble(this.tostadasPrice.getText())
             );
             sweetProducts.put(SweetProductsEnum.TOSTADAS, priceQtySweetProduct);
         }
-        
 
         if (alfajorArtesanalCheck.isSelected() && Integer.parseInt(this.alfajorArtesanalSpinner.getValue().toString()) > 0) {
-            Map<Integer,Double> priceQtySweetProduct = new HashMap<>();
-        
+            Map<Integer, Double> priceQtySweetProduct = new HashMap<>();
+
             priceQtySweetProduct.put(
                     Integer.parseInt(this.alfajorArtesanalSpinner.getValue().toString()),
                     Double.parseDouble(this.alfajorArtesanalPrice.getText())
@@ -3564,10 +3684,9 @@ public class VittoFrame extends javax.swing.JFrame {
             sweetProducts.put(SweetProductsEnum.ALFAJOR_ARTESANAL, priceQtySweetProduct);
         }
 
-
         if (medialunaCheck.isSelected() && Integer.parseInt(this.medialunaSpinner.getValue().toString()) > 0) {
-            Map<Integer,Double> priceQtySweetProduct = new HashMap<>();
-        
+            Map<Integer, Double> priceQtySweetProduct = new HashMap<>();
+
             priceQtySweetProduct.put(
                     Integer.parseInt(this.medialunaSpinner.getValue().toString()),
                     Double.parseDouble(this.medialunaPrice.getText())
@@ -3575,39 +3694,36 @@ public class VittoFrame extends javax.swing.JFrame {
             sweetProducts.put(SweetProductsEnum.MEDIALUNA, priceQtySweetProduct);
         }
 
-
         if (fraNuiCheck.isSelected() && Integer.parseInt(this.franuiSpinner.getValue().toString()) > 0) {
-            Map<Integer,Double> priceQtySweetProduct = new HashMap<>();
-        
+            Map<Integer, Double> priceQtySweetProduct = new HashMap<>();
+
             priceQtySweetProduct.put(
                     Integer.parseInt(this.franuiSpinner.getValue().toString()),
                     Double.parseDouble(this.fraNuiPrice.getText())
             );
             sweetProducts.put(SweetProductsEnum.FRA_NUI, priceQtySweetProduct);
         }
-        
 
         if (ensaladaDeFrutasCheck.isSelected() && Integer.parseInt(this.ensaladaFrutasSpinner.getValue().toString()) > 0) {
-            Map<Integer,Double> priceQtySweetProduct = new HashMap<>();
-        
+            Map<Integer, Double> priceQtySweetProduct = new HashMap<>();
+
             priceQtySweetProduct.put(
                     Integer.parseInt(this.ensaladaFrutasSpinner.getValue().toString()),
                     Double.parseDouble(this.ensaladaFrutasPrice.getText())
             );
             sweetProducts.put(SweetProductsEnum.ENSALADA_FRUTAS, priceQtySweetProduct);
         }
-        
 
         if (frutaEleccionCheck.isSelected() && Integer.parseInt(this.frutaEleccionSpinner.getValue().toString()) > 0) {
-            Map<Integer,Double> priceQtySweetProduct = new HashMap<>();
-        
+            Map<Integer, Double> priceQtySweetProduct = new HashMap<>();
+
             priceQtySweetProduct.put(
                     Integer.parseInt(this.frutaEleccionSpinner.getValue().toString()),
                     Double.parseDouble(this.frutaEleccionPrice.getText())
             );
             sweetProducts.put(SweetProductsEnum.FRUTA_ELECCION, priceQtySweetProduct);
-        }        
-        
+        }
+
         this.dataStore = new DataStore();
         this.dataStore.setProductTypeEnum(ProductTypeEnum.DULCES);
 
@@ -3635,7 +3751,7 @@ public class VittoFrame extends javax.swing.JFrame {
         System.out.println("Selected table -> " + this.selectedTable.getId());
         this.setTableColour(this.selectedTable.getId(), Color.YELLOW);
 
-        if(!this.sweetProducts.isEmpty()) {
+        if (!this.sweetProducts.isEmpty()) {
             this.sweetProducts.clear();
         }
 
@@ -3647,10 +3763,81 @@ public class VittoFrame extends javax.swing.JFrame {
         // Para que la próxima mesa empiece con los productos vaciós.
         // Y si se elige la mesa en cuestión tenemos que traer todos los resultados de la BBDD,
         // no puede quedar nada en memoria.
-        
         this.closeGenericFrame(this.CandyProductsFrame);
-        
+
     }//GEN-LAST:event_GuardarProductosDulcesActionPerformed
+
+    private void alcoholDrinkCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alcoholDrinkCancelActionPerformed
+        this.closeGenericFrame(this.DrinkAlcoholFrame);
+    }//GEN-LAST:event_alcoholDrinkCancelActionPerformed
+
+    private void cervezaCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cervezaCheckActionPerformed
+        if (cervezaCheck.isSelected()) {
+            SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
+            this.cervezaSpinner.setEnabled(true);
+            this.cervezaSpinner.setModel(model);
+        } else {
+            this.cervezaSpinner.setEnabled(false);
+        }
+    }//GEN-LAST:event_cervezaCheckActionPerformed
+
+    private void saverAlcoholOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saverAlcoholOrderActionPerformed
+        alcoholProducts = new HashMap<>();
+
+        if (cervezaCheck.isSelected() && Integer.parseInt(this.cervezaSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyAlcoholProduct = new HashMap<>();
+
+            priceQtyAlcoholProduct.put(
+                    Integer.parseInt(this.cervezaSpinner.getValue().toString()),
+                    Double.parseDouble(this.cervezaPrice.getText())
+            );
+            alcoholProducts.put(AlcoholDrinksEnum.CERVEZA, priceQtyAlcoholProduct);
+        }
+        
+        this.dataStore = new DataStore();
+        this.dataStore.setProductTypeEnum(ProductTypeEnum.DULCES);
+
+        System.out.println("mesa elegida state --> " + this.selectedTable.getState() + " mesa elegida ID -> " + this.selectedTable.getId());
+
+        if (this.tableUser != null && this.tableUser.getNombre() != null) {
+            System.out.println("Usuario mesa: " + this.tableUser.getNombre());
+        } else {
+            this.tableUser.setNombre(this.employeeList.get(0).getNombre());
+            this.tableUser.setApellido(this.employeeList.get(0).getApellido());
+        }
+
+        this.dataStore.setMesa(this.selectedTable.getId());
+        this.dataStore.setNombreMozo(this.tableUser.getNombre() + "_" + this.tableUser.getApellido());
+
+        if (!alcoholProducts.isEmpty()) {
+            dataStore.setAlcoholProducts(alcoholProducts);
+        }
+
+        /**
+         * Inserta los productos -> teniendo en cuenta sus precios.
+         */
+        this.productsImpl.insertProductWithPrices(dataStore);
+
+        System.out.println("Selected table -> " + this.selectedTable.getId());
+        this.setTableColour(this.selectedTable.getId(), Color.YELLOW);
+
+        if (!this.alcoholProducts.isEmpty()) {
+            this.alcoholProducts.clear();
+        }
+
+        JOptionPane.showMessageDialog(null, "La mesa Nº: " + this.selectedTable.getId() + " Se ha guardado Correctamente");
+
+        // validar -> nullPointerException.
+        // this.AlcoholDrinks.clear();
+        // TODO: cuando termina de insetar , todos los campos tienenen que ser reseteados.
+        // Para que la próxima mesa empiece con los productos vaciós.
+        // Y si se elige la mesa en cuestión tenemos que traer todos los resultados de la BBDD,
+        // no puede quedar nada en memoria.
+        this.closeGenericFrame(this.DrinkAlcoholFrame);
+        
+
+
+    }//GEN-LAST:event_saverAlcoholOrderActionPerformed
 
     private void setTableColour(int tableId, Color color) {
 
@@ -3690,7 +3877,7 @@ public class VittoFrame extends javax.swing.JFrame {
                 break;
             case 12:
                 this.tableTwelve.setBackground(color);
-                break;                
+                break;
             case 13:
                 this.tableThirteen.setBackground(color);
                 break;
@@ -3702,7 +3889,7 @@ public class VittoFrame extends javax.swing.JFrame {
                 break;
             case 16:
                 this.tableSixTeen.setBackground(color);
-                break;                
+                break;
             default:
                 System.out.println("Error en el cerrado de la mesa");
 
@@ -3771,6 +3958,7 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JFrame SuggestPromosFrm;
     private javax.swing.JLabel TotalLabel;
     private javax.swing.JButton acceptNoAlcoholDrinks;
+    private javax.swing.JButton alcoholDrinkCancel;
     private javax.swing.JCheckBox alfajorArtesanalCheck;
     private javax.swing.JLabel alfajorArtesanalPrice;
     private javax.swing.JSpinner alfajorArtesanalSpinner;
@@ -3790,6 +3978,9 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JLabel cashTotalPay;
     private javax.swing.JCheckBox cepitaCheck;
     private javax.swing.JSpinner cepitaSpinner;
+    private javax.swing.JCheckBox cervezaCheck;
+    private javax.swing.JLabel cervezaPrice;
+    private javax.swing.JSpinner cervezaSpinner;
     private javax.swing.JButton closeTable;
     private javax.swing.JCheckBox cocaColaCheck;
     private javax.swing.JCheckBox cocaLightCheck;
@@ -3868,6 +4059,7 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel55;
     private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel57;
+    private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel61;
@@ -3878,6 +4070,7 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel67;
     private javax.swing.JLabel jLabel68;
+    private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel70;
     private javax.swing.JLabel jLabel74;
@@ -3929,6 +4122,7 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JTable productDescriptionTable;
     private javax.swing.JButton promotions;
     private javax.swing.JButton saladProducts;
+    private javax.swing.JButton saverAlcoholOrder;
     private javax.swing.JCheckBox scheweppesPomeloCheck;
     private javax.swing.JSpinner scheweppesPomeloSpinner;
     private javax.swing.JCheckBox scheweppesTonicaCheck;

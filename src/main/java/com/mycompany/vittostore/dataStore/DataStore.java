@@ -5,6 +5,7 @@
  */
 package com.mycompany.vittostore.dataStore;
 
+import com.mycompany.vittostore.generalitems.AlcoholDrinksEnum;
 import com.mycompany.vittostore.generalitems.NoAlcoholDrinksEnum;
 import com.mycompany.vittostore.generalitems.ProductTypeEnum;
 import com.mycompany.vittostore.generalitems.SweetProductsEnum;
@@ -28,6 +29,7 @@ public class DataStore {
     */
     private Map<NoAlcoholDrinksEnum, Integer> noAlcoholDrinks;
     private Map<SweetProductsEnum, Map<Integer, Double>> sweetProducts;
+    private Map<AlcoholDrinksEnum, Map<Integer, Double>> alcoholProducts;
     
 
     public ProductTypeEnum getProductTypeEnum() {
@@ -101,7 +103,13 @@ public class DataStore {
     public void setSweetProducts(Map<SweetProductsEnum, Map<Integer, Double>> sweetProducts) {
         this.sweetProducts = sweetProducts;
     }
-    
-    
+
+    public Map<AlcoholDrinksEnum, Map<Integer, Double>> getAlcoholProducts() {
+        return alcoholProducts;
+    }
+
+    public void setAlcoholProducts(Map<AlcoholDrinksEnum, Map<Integer, Double>> alcoholProducts) {
+        this.alcoholProducts = alcoholProducts;
+    }   
     
 }
