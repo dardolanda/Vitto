@@ -320,6 +320,66 @@ public class VittoStoreDDBBRepository {
 
             Calendar cal = Calendar.getInstance();
             Timestamp timeStampNow = new Timestamp(cal.getTimeInMillis());
+            
+            
+            for (Map.Entry<String, Map<Integer, Double>> entry : dataStore.getProducts().entrySet()) {
+                Object tipoDeProducto = entry.getKey();
+                Map<Integer, Double> value = entry.getValue(); // notar la diferencia que se puede hacer con el value -> entrySet
+                for (Map.Entry<Integer, Double> cantidadPrecio : entry.getValue().entrySet()) {
+                    System.out.println("KEY --> " + tipoDeProducto.toString());
+                    System.out.println("Sub entry -> number: " + cantidadPrecio.getKey());
+                    System.out.println("Sub entry -> double: " + cantidadPrecio.getValue());
+
+                    if (this.isProductSaved(dataStore.getMesa(), dataStore.getProductTypeEnum().toString(), tipoDeProducto.toString())) {
+                        /**
+                         * Actualiza el producto , ya que pertenece a la mesa operativa.
+                         */
+                        try {
+                        PreparedStatement updatePreparedStatement = this.DDBBConnection.prepareStatement(updateOperatingTableQuery.toString());
+                        updatePreparedStatement.setInt(1, cantidadPrecio.getKey());
+                        updatePreparedStatement.setInt(2, dataStore.getMesa());
+                        updatePreparedStatement.setString(3, dataStore.getProductTypeEnum().toString());
+                        updatePreparedStatement.setString(4, tipoDeProducto.toString());
+                        updatePreparedStatement.setBoolean(5, true);
+                        updatePreparedStatement.setString(6, OperatingTableStateEnum.USO.toString());
+
+                        updatePreparedStatement.execute();                            
+                            
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }                         
+
+                    } else {
+
+                        /**
+                         * Inserta en la bbdd ya que el producto no existe
+                         */
+                        try {
+                            
+                            PreparedStatement preparedStatement = this.DDBBConnection.prepareStatement(insertOperatingTableQuery.toString());
+
+                            preparedStatement.setInt(1, dataStore.getMesa());
+                            preparedStatement.setString(2, dataStore.getNombreMozo());
+                            preparedStatement.setString(3, tipoDeProducto.toString());
+                            preparedStatement.setInt(4, cantidadPrecio.getKey());
+                            preparedStatement.setDouble(5, cantidadPrecio.getValue());
+                            preparedStatement.setBoolean(6, true);
+                            preparedStatement.setTimestamp(7, timeStampNow);
+                            preparedStatement.setString(8, OperatingTableStateEnum.USO.toString());
+                            preparedStatement.setString(9, dataStore.getProductTypeEnum().toString());
+
+                            preparedStatement.execute();
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                }                
+                
+                
+            }
+            
 
             
             // todo: resolver -> getProducts -> en general ya que está tomando solo los de los dulces

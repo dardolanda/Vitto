@@ -30,6 +30,7 @@ public class DataStore {
     private Map<NoAlcoholDrinksEnum, Integer> noAlcoholDrinks;
     private Map<SweetProductsEnum, Map<Integer, Double>> sweetProducts;
     private Map<AlcoholDrinksEnum, Map<Integer, Double>> alcoholProducts;
+    private Map<String, Map<Integer, Double>> products;
     
 
     public ProductTypeEnum getProductTypeEnum() {
@@ -111,5 +112,16 @@ public class DataStore {
     public void setAlcoholProducts(Map<AlcoholDrinksEnum, Map<Integer, Double>> alcoholProducts) {
         this.alcoholProducts = alcoholProducts;
     }   
+
+    public Map<String, Map<Integer, Double>> getProducts() {
+        return products;
+    }
+
+    public void setProducts(Map<String, Map<Integer, Double>> products) {
+        this.products = products;
+    }
+
+
+    
     
 }
