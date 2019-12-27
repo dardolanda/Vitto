@@ -3633,7 +3633,6 @@ public class VittoFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelCandyProductsActionPerformed
 
     private void GuardarProductosDulcesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarProductosDulcesActionPerformed
-        sweetProducts = new HashMap<>();
         products = new HashMap<>();
 
         if (tortaIndividualCheck.isSelected() && Integer.parseInt(this.tortaIndividualSpinner.getValue().toString()) > 0) {
@@ -3643,7 +3642,6 @@ public class VittoFrame extends javax.swing.JFrame {
                     Integer.parseInt(this.tortaIndividualSpinner.getValue().toString()),
                     Double.parseDouble(this.tortaIndividualPrice.getText())
             );
-            sweetProducts.put(SweetProductsEnum.TORTA_INDIVIDUAL, priceQtySweetProduct);
             products.put(SweetProductsEnum.TORTA_INDIVIDUAL.toString(), priceQtySweetProduct);
         }
 
@@ -3654,7 +3652,6 @@ public class VittoFrame extends javax.swing.JFrame {
                     Integer.parseInt(this.cuadradoSecoSpinner.getValue().toString()),
                     Double.parseDouble(this.cuadradoSecoPrice.getText())
             );
-            sweetProducts.put(SweetProductsEnum.CUADRADO_SECO, priceQtySweetProduct);
             products.put(SweetProductsEnum.CUADRADO_SECO.toString(), priceQtySweetProduct);
         }
 
@@ -3665,7 +3662,6 @@ public class VittoFrame extends javax.swing.JFrame {
                     Integer.parseInt(this.alfajorSpinner.getValue().toString()),
                     Double.parseDouble(this.alfajorPrice.getText())
             );
-            sweetProducts.put(SweetProductsEnum.ALFAJOR, priceQtySweetProduct);
             products.put(SweetProductsEnum.ALFAJOR.toString(), priceQtySweetProduct);
         }
 
@@ -3676,7 +3672,6 @@ public class VittoFrame extends javax.swing.JFrame {
                     Integer.parseInt(this.tostadasSpinner.getValue().toString()),
                     Double.parseDouble(this.tostadasPrice.getText())
             );
-            sweetProducts.put(SweetProductsEnum.TOSTADAS, priceQtySweetProduct);
             products.put(SweetProductsEnum.TOSTADAS.toString(), priceQtySweetProduct);
         }
 
@@ -3687,7 +3682,6 @@ public class VittoFrame extends javax.swing.JFrame {
                     Integer.parseInt(this.alfajorArtesanalSpinner.getValue().toString()),
                     Double.parseDouble(this.alfajorArtesanalPrice.getText())
             );
-            sweetProducts.put(SweetProductsEnum.ALFAJOR_ARTESANAL, priceQtySweetProduct);
             products.put(SweetProductsEnum.ALFAJOR_ARTESANAL.toString(), priceQtySweetProduct);
             
         }
@@ -3699,7 +3693,6 @@ public class VittoFrame extends javax.swing.JFrame {
                     Integer.parseInt(this.medialunaSpinner.getValue().toString()),
                     Double.parseDouble(this.medialunaPrice.getText())
             );
-            sweetProducts.put(SweetProductsEnum.MEDIALUNA, priceQtySweetProduct);
             products.put(SweetProductsEnum.MEDIALUNA.toString(), priceQtySweetProduct);
         }
 
@@ -3710,7 +3703,6 @@ public class VittoFrame extends javax.swing.JFrame {
                     Integer.parseInt(this.franuiSpinner.getValue().toString()),
                     Double.parseDouble(this.fraNuiPrice.getText())
             );
-            sweetProducts.put(SweetProductsEnum.FRA_NUI, priceQtySweetProduct);
             products.put(SweetProductsEnum.FRA_NUI.toString(), priceQtySweetProduct);
         }
 
@@ -3721,7 +3713,6 @@ public class VittoFrame extends javax.swing.JFrame {
                     Integer.parseInt(this.ensaladaFrutasSpinner.getValue().toString()),
                     Double.parseDouble(this.ensaladaFrutasPrice.getText())
             );
-            sweetProducts.put(SweetProductsEnum.ENSALADA_FRUTAS, priceQtySweetProduct);
             products.put(SweetProductsEnum.ENSALADA_FRUTAS.toString(), priceQtySweetProduct);
         }
 
@@ -3732,7 +3723,6 @@ public class VittoFrame extends javax.swing.JFrame {
                     Integer.parseInt(this.frutaEleccionSpinner.getValue().toString()),
                     Double.parseDouble(this.frutaEleccionPrice.getText())
             );
-            sweetProducts.put(SweetProductsEnum.FRUTA_ELECCION, priceQtySweetProduct);
             products.put(SweetProductsEnum.FRUTA_ELECCION.toString(), priceQtySweetProduct);
         }
 
@@ -3751,8 +3741,7 @@ public class VittoFrame extends javax.swing.JFrame {
         this.dataStore.setMesa(this.selectedTable.getId());
         this.dataStore.setNombreMozo(this.tableUser.getNombre() + "_" + this.tableUser.getApellido());
 
-        if (!sweetProducts.isEmpty()) {
-            dataStore.setSweetProducts(sweetProducts);
+        if (!products.isEmpty()) {
             dataStore.setProducts(products);
         }
 
@@ -3764,8 +3753,8 @@ public class VittoFrame extends javax.swing.JFrame {
         System.out.println("Selected table -> " + this.selectedTable.getId());
         this.setTableColour(this.selectedTable.getId(), Color.YELLOW);
 
-        if (!this.sweetProducts.isEmpty()) {
-            this.sweetProducts.clear();
+        if (!this.products.isEmpty()) {
+            this.products.clear();
         }
 
         JOptionPane.showMessageDialog(null, "La mesa Nº: " + this.selectedTable.getId() + " Se ha guardado Correctamente");
@@ -3795,7 +3784,8 @@ public class VittoFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_cervezaCheckActionPerformed
 
     private void saverAlcoholOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saverAlcoholOrderActionPerformed
-        alcoholProducts = new HashMap<>();
+        products = new HashMap<>();
+        
 
         if (cervezaCheck.isSelected() && Integer.parseInt(this.cervezaSpinner.getValue().toString()) > 0) {
             Map<Integer, Double> priceQtyAlcoholProduct = new HashMap<>();
@@ -3804,11 +3794,11 @@ public class VittoFrame extends javax.swing.JFrame {
                     Integer.parseInt(this.cervezaSpinner.getValue().toString()),
                     Double.parseDouble(this.cervezaPrice.getText())
             );
-            alcoholProducts.put(AlcoholDrinksEnum.CERVEZA, priceQtyAlcoholProduct);
+            products.put(AlcoholDrinksEnum.CERVEZA.toString(), priceQtyAlcoholProduct);
         }
         
         this.dataStore = new DataStore();
-        this.dataStore.setProductTypeEnum(ProductTypeEnum.DULCES);
+        this.dataStore.setProductTypeEnum(ProductTypeEnum.BEBIDAS_ALCHOLICAS);
 
         System.out.println("mesa elegida state --> " + this.selectedTable.getState() + " mesa elegida ID -> " + this.selectedTable.getId());
 
@@ -3822,8 +3812,8 @@ public class VittoFrame extends javax.swing.JFrame {
         this.dataStore.setMesa(this.selectedTable.getId());
         this.dataStore.setNombreMozo(this.tableUser.getNombre() + "_" + this.tableUser.getApellido());
 
-        if (!alcoholProducts.isEmpty()) {
-            dataStore.setAlcoholProducts(alcoholProducts);
+        if (!products.isEmpty()) {
+            dataStore.setProducts(products);
         }
 
         /**
@@ -3834,8 +3824,8 @@ public class VittoFrame extends javax.swing.JFrame {
         System.out.println("Selected table -> " + this.selectedTable.getId());
         this.setTableColour(this.selectedTable.getId(), Color.YELLOW);
 
-        if (!this.alcoholProducts.isEmpty()) {
-            this.alcoholProducts.clear();
+        if (!this.products.isEmpty()) {
+            this.products.clear();
         }
 
         JOptionPane.showMessageDialog(null, "La mesa Nº: " + this.selectedTable.getId() + " Se ha guardado Correctamente");
