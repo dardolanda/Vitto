@@ -9,11 +9,16 @@ import com.mycompany.vittostore.controller.Products;
 
 import com.mycompany.vittostore.generalitems.Product;
 import com.mycompany.vittostore.dataStore.DataStore;
+import com.mycompany.vittostore.dataStore.PaymentDataStore;
 import com.mycompany.vittostore.generalitems.NoAlcoholDrinksEnum;
+import com.mycompany.vittostore.generalitems.OperatingTableStateEnum;
+import com.mycompany.vittostore.generalitems.PaymentMethodsEnum;
+import com.mycompany.vittostore.generalitems.ProductTypeEnum;
 import java.util.ArrayList;
 
 import java.util.Map;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 public class ProductsImpl extends VittoConnection implements Products {
 
@@ -24,7 +29,12 @@ public class ProductsImpl extends VittoConnection implements Products {
     @Override
     public void insertProduct(DataStore dataStore) {
         List<Product> productList = this.getPricesFromDataStore(dataStore);
-        vittoDDBBStore.insertProduct(productList, dataStore.getMesa(), dataStore.getNombreMozo());
+        vittoDDBBStore.insertProduct(productList, dataStore.getMesa(), dataStore.getNombreMozo(), dataStore.getProductTypeEnum().toString());
+    }
+    
+    @Override
+    public void insertProductWithPrices(DataStore dataStore) {
+        vittoDDBBStore.insertProductPrices(dataStore);
     }
 
     private List<Product> getPricesFromDataStore(DataStore dataStore) {
@@ -82,7 +92,7 @@ public class ProductsImpl extends VittoConnection implements Products {
     }
 
     @Override
-    public List<Integer> getOperatingTable() {
+    public List<Map<Integer, String>> getOperatingTable() {
         
         return vittoDDBBStore.getOperatingTable();
         
@@ -94,8 +104,40 @@ public class ProductsImpl extends VittoConnection implements Products {
     }
 
     @Override
-    public List<Product> findTableSelectedProducts(int tableId) {
-        return vittoDDBBStore.findtableSelectedProducts(tableId);
+    public List<Product> findTableSelectedProducts(int tableId, ProductTypeEnum productTypeEnum) {
+        
+        return vittoDDBBStore.findtableSelectedProducts(tableId, productTypeEnum.toString());
+    }
+
+    @Override
+    public void payTable(PaymentDataStore paymentDataStore) {
+        int paymentId = 0;
+        int paymentPersonalDataId = 0;
+        
+        try {
+            vittoDDBBStore.payOperatingTable(paymentDataStore.getTableId());
+            
+            paymentId = vittoDDBBStore.insertPayment(paymentDataStore.getTableId(),
+                    paymentDataStore.getTotal(), paymentDataStore.getDiscount(),
+                    paymentDataStore.getNombreMozo(), paymentDataStore.getPaymentMethod().toString());
+            
+            if (!paymentDataStore.getPaymentMethod().toString().equals(PaymentMethodsEnum.EFECTIVO.toString())) {
+                paymentPersonalDataId = vittoDDBBStore.insertPaymentPersonalData(
+                        paymentId,
+                        paymentDataStore.getNombreCliente(),
+                        paymentDataStore.getApellidoCliente(), 
+                        paymentDataStore.getDNICliente(),
+                        paymentDataStore.getTelefonoCliente());
+            }
+        /**
+         * TODO: cambiar la Exception -> por una personal PaymentException
+         */    
+        } catch(Exception e) {
+            
+            // RollBack de la operación de pago.
+            vittoDDBBStore.deletePaymentsRollBack(paymentId, paymentPersonalDataId);
+            JOptionPane.showMessageDialog(null, "Ha Ocurrido un error en el registro de los pagos, por favor inténtelo de nuevo. pago ID : " + paymentId + " Personal información ID : " + paymentPersonalDataId);
+        }
     }
 
 }

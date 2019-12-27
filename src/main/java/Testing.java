@@ -7,7 +7,7 @@ import java.util.Calendar;
 
 public class Testing {
     public static void main(String[] args) {
-        
+        /*
         System.out.println("------------------------- Time testing----------------------------");
         
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS"); 
@@ -30,6 +30,17 @@ public class Testing {
         String name = "Christian_Decarli";
         System.out.print(name.split("_")[0] + "    "); 
         System.out.print(name.split("_")[1]);
+        */
+        
+        String porcentage = "65%";
+        System.out.println(porcentage.split("%")[0]);
+        
+        
+        //double pago = 100.00;
+        //double porcentage = (pago * 5) / 100;
+        //System.out.println(pago - porcentage);
+        
+        
         
     }
     

@@ -6,22 +6,29 @@
 package com.mycompany.vittostore.controller;
 
 import com.mycompany.vittostore.dataStore.DataStore;
+import com.mycompany.vittostore.dataStore.PaymentDataStore;
 import com.mycompany.vittostore.generalitems.Product;
+import com.mycompany.vittostore.generalitems.ProductTypeEnum;
 import java.util.List;
+import java.util.Map;
 
 public interface Products {
     
     public void insertProduct(DataStore dataStore);
     
+    public void insertProductWithPrices(DataStore dataStore);
+    
     public List<Product> getConsumingProduct(int tableId, String tableUser);
     
     public void closeTable(int tableId, String tableUser);
     
-    public List<Integer> getOperatingTable();
+    public List<Map<Integer, String>> getOperatingTable();
     
     public String findTableUserByTableId(int tableId);
     
-    public List<Product> findTableSelectedProducts(int tableId);
+    public List<Product> findTableSelectedProducts(int tableId, ProductTypeEnum productTypeEnum);
+    
+    public void payTable(PaymentDataStore paymentDataStore);
     
     
     

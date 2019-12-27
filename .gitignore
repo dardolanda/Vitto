@@ -1,9 +1,13 @@
 # target mvn
+.*/target/*
+.*/target/**
 */target/*
 */target/**
+.target/
 target/
 *.class
 /target/**
+.target/
 .classpath
 .settings/
 .project
