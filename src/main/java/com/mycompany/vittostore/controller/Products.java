@@ -32,6 +32,8 @@ public interface Products {
     
     public void payTable(PaymentDataStore paymentDataStore);
     
+    public void deleteTable(int tableId);
+    
     
     
     

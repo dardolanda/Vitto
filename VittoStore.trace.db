@@ -8040,3 +8040,13 @@ Caused by: java.lang.IllegalStateException: The file is locked: nio:/media/landa
 	at org.h2.mvstore.FileStore.open(FileStore.java:172)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:390)
 	... 37 more
+2019-12-28 11:47:34 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "SELECT * FROM OPERATING_TABLE
+WHERE ACTIVIDAD = TRUE
+AND (ESTADO = 'USO' [*]"; se esperaba "[, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"
+Syntax error in SQL statement "SELECT * FROM OPERATING_TABLE
+WHERE ACTIVIDAD = TRUE
+AND (ESTADO = 'USO' [*]"; expected "[, ::, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+select * from operating_table
+where actividad = true
+and (estado = 'USO' [42001-199]

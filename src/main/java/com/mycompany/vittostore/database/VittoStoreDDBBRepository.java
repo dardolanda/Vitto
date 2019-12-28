@@ -320,8 +320,7 @@ public class VittoStoreDDBBRepository {
 
             Calendar cal = Calendar.getInstance();
             Timestamp timeStampNow = new Timestamp(cal.getTimeInMillis());
-            
-            
+
             for (Map.Entry<String, Map<Integer, Double>> entry : dataStore.getProducts().entrySet()) {
                 Object tipoDeProducto = entry.getKey();
                 Map<Integer, Double> value = entry.getValue(); // notar la diferencia que se puede hacer con el value -> entrySet
@@ -332,22 +331,23 @@ public class VittoStoreDDBBRepository {
 
                     if (this.isProductSaved(dataStore.getMesa(), dataStore.getProductTypeEnum().toString(), tipoDeProducto.toString())) {
                         /**
-                         * Actualiza el producto , ya que pertenece a la mesa operativa.
+                         * Actualiza el producto , ya que pertenece a la mesa
+                         * operativa.
                          */
                         try {
-                        PreparedStatement updatePreparedStatement = this.DDBBConnection.prepareStatement(updateOperatingTableQuery.toString());
-                        updatePreparedStatement.setInt(1, cantidadPrecio.getKey());
-                        updatePreparedStatement.setInt(2, dataStore.getMesa());
-                        updatePreparedStatement.setString(3, dataStore.getProductTypeEnum().toString());
-                        updatePreparedStatement.setString(4, tipoDeProducto.toString());
-                        updatePreparedStatement.setBoolean(5, true);
-                        updatePreparedStatement.setString(6, OperatingTableStateEnum.USO.toString());
+                            PreparedStatement updatePreparedStatement = this.DDBBConnection.prepareStatement(updateOperatingTableQuery.toString());
+                            updatePreparedStatement.setInt(1, cantidadPrecio.getKey());
+                            updatePreparedStatement.setInt(2, dataStore.getMesa());
+                            updatePreparedStatement.setString(3, dataStore.getProductTypeEnum().toString());
+                            updatePreparedStatement.setString(4, tipoDeProducto.toString());
+                            updatePreparedStatement.setBoolean(5, true);
+                            updatePreparedStatement.setString(6, OperatingTableStateEnum.USO.toString());
 
-                        updatePreparedStatement.execute();                            
-                            
+                            updatePreparedStatement.execute();
+
                         } catch (Exception e) {
                             e.printStackTrace();
-                        }                         
+                        }
 
                     } else {
 
@@ -355,7 +355,7 @@ public class VittoStoreDDBBRepository {
                          * Inserta en la bbdd ya que el producto no existe
                          */
                         try {
-                            
+
                             PreparedStatement preparedStatement = this.DDBBConnection.prepareStatement(insertOperatingTableQuery.toString());
 
                             preparedStatement.setInt(1, dataStore.getMesa());
@@ -375,8 +375,8 @@ public class VittoStoreDDBBRepository {
                         }
 
                     }
-                }                
-                
+                }
+
             }
 
         }
@@ -696,10 +696,10 @@ public class VittoStoreDDBBRepository {
             }
         }
     }
-    
+
     public String getTableState(int tableId) {
         String tableState = "";
-        
+
         if (this.DDBBConnection != null) {
 
             String getUser = "SELECT DISTINCT(actividad) , estado "
@@ -722,11 +722,41 @@ public class VittoStoreDDBBRepository {
             } catch (SQLException ex) {
                 Logger.getLogger(VittoStoreDDBBRepository.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }        
-        
-        
-        
+        }
+
         return tableState;
+    }
+
+    public void deleteTable(int tableId) {
+        System.out.println("(Pay Table): DDBB Updating OPERATING_TABLE");
+
+        StringBuffer udateOperatingTableQuery = new StringBuffer();
+        udateOperatingTableQuery.append(" UPDATE operating_table ");
+        udateOperatingTableQuery.append(" SET estado = ? ,");
+        udateOperatingTableQuery.append(" actividad  = ? ");
+        udateOperatingTableQuery.append(" WHERE mesa = ? AND actividad = ? ");
+        udateOperatingTableQuery.append(" AND ( estado = ?  OR estado = ? )");
+        
+
+        try {
+            PreparedStatement preparedStatement = this.DDBBConnection.prepareStatement(udateOperatingTableQuery.toString());
+
+            preparedStatement.setString(1, OperatingTableStateEnum.ELIMINADA.toString());
+            preparedStatement.setBoolean(2, false);
+            preparedStatement.setInt(3, tableId);
+            preparedStatement.setBoolean(4, true);
+            preparedStatement.setString(5, OperatingTableStateEnum.CERRADA.toString());
+            preparedStatement.setString(6, OperatingTableStateEnum.USO.toString());
+
+            preparedStatement.execute();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Se ha producido un error al eliminar la mesa Nº: " + tableId + " Reinicie el sistema.");
+        }
+
+        JOptionPane.showMessageDialog(null, "La mesa Nº: " + tableId + " Fue eliminada con éxito");
+
     }
 
 }

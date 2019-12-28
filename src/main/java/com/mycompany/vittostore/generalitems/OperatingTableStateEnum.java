@@ -10,6 +10,7 @@ public enum OperatingTableStateEnum {
     LIBRE,
     USO,
     CERRADA,
-    PAGADA
+    PAGADA,
+    ELIMINADA
     
 }

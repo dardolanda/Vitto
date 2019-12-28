@@ -412,7 +412,7 @@ public class VittoFrame extends javax.swing.JFrame {
         jLabel71 = new javax.swing.JLabel();
         AdminUserName = new javax.swing.JTextField();
         jLabel73 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        deleteTableButton = new javax.swing.JButton();
         AdminUserPassword = new javax.swing.JPasswordField();
         jLabel75 = new javax.swing.JLabel();
         tableOne = new javax.swing.JButton();
@@ -464,12 +464,12 @@ public class VittoFrame extends javax.swing.JFrame {
 
         drinkNoAlcohol.setText("Bebidas sin alcohol");
         drinkNoAlcohol.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 drinkNoAlcoholAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         drinkNoAlcohol.addActionListener(new java.awt.event.ActionListener() {
@@ -2062,10 +2062,10 @@ public class VittoFrame extends javax.swing.JFrame {
 
         jLabel73.setText("Usuario");
 
-        jButton1.setText("Eliminar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        deleteTableButton.setText("Eliminar");
+        deleteTableButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                deleteTableButtonActionPerformed(evt);
             }
         });
 
@@ -2092,7 +2092,7 @@ public class VittoFrame extends javax.swing.JFrame {
                         .addComponent(jLabel71))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DeleteTableFrmLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton1)))
+                        .addComponent(deleteTableButton)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DeleteTableFrmLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -2124,7 +2124,7 @@ public class VittoFrame extends javax.swing.JFrame {
                         .addComponent(AdminUserPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel75))
                 .addGap(26, 26, 26)
-                .addComponent(jButton1)
+                .addComponent(deleteTableButton)
                 .addContainerGap())
         );
 
@@ -3977,7 +3977,7 @@ public class VittoFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_AdminUserPasswordActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void deleteTableButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteTableButtonActionPerformed
         
         String adminUser = this.AdminUserName.getText();
         String password = this.AdminUserPassword.getText();
@@ -3987,7 +3987,10 @@ public class VittoFrame extends javax.swing.JFrame {
         String pass = "lasalle";
         
         if (adminUser.equals(user) && password.equals(pass)) {
-            JOptionPane.showMessageDialog(null, "usuario válido para eliminar la mesa");
+            System.out.println("Table to delete --> " + this.selectedTable.getId());
+            
+            this.productsImpl.deleteTable(this.selectedTable.getId());
+            
             this.AdminUserName.setText("");
             this.AdminUserPassword.setText("");  
         } else {
@@ -3996,12 +3999,23 @@ public class VittoFrame extends javax.swing.JFrame {
             this.AdminUserPassword.setText("");  
         }
         
+        
+        /**
+         * Reset de user y pass cuando cierra la ventana, para que no quede 
+         * almacenado ningún dato.
+         */
         this.DeleteTableFrm.addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent w) {
-                System.out.println("TEsting closeing ");
+                AdminUserName.setText("");
+                AdminUserPassword.setText("");  
             }
         });
-    }//GEN-LAST:event_jButton1ActionPerformed
+        
+        this.setTableColour(this.selectedTable.getId(), Color.GREEN);
+        
+        this.closeGenericFrame(this.DeleteTableFrm);
+        this.closeGenericFrame(this.SelectOrder);
+    }//GEN-LAST:event_deleteTableButtonActionPerformed
 
     private void setTableColour(int tableId, Color color) {
 
@@ -4160,6 +4174,7 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JLabel cuadradoSecoPrice;
     private javax.swing.JSpinner cuadradoSecoSpinner;
     private javax.swing.JButton deleteTable;
+    private javax.swing.JButton deleteTableButton;
     private javax.swing.JButton drinkAlcohol;
     private javax.swing.JButton drinkNoAlcohol;
     private javax.swing.JComboBox<String> employeeNameCombo;
@@ -4176,7 +4191,6 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JCheckBox frutaEleccionCheck;
     private javax.swing.JLabel frutaEleccionPrice;
     private javax.swing.JSpinner frutaEleccionSpinner;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

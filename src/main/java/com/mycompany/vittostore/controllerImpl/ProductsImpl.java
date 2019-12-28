@@ -154,4 +154,9 @@ public class ProductsImpl extends VittoConnection implements Products {
         return state;
     }
 
+    @Override
+    public void deleteTable(int tableId) {
+        this.vittoDDBBStore.deleteTable(tableId);
+    }
+
 }

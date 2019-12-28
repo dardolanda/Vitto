@@ -122,3 +122,31 @@ and tipo_prouducto = 'DULCES'
 and producto_nombre = 'ALFAJOR_ARTESANAL'
 and actividad = true
 and estado = 'USO'
+
+
+Queries del día: 28/12/19
+
+
+select distinct actividad , estado from operating_table
+where mesa = 1
+and actividad = true
+-- pagar mesa 0
+
+-- los únicos que vamos con actividad = true son: 
+-- libre, -> tiene todo deshabilitado
+-- uso,  -> amarilla => solo se puede cerrar 
+-- cerrada -> rojo => solo se puede pagar 
+
+
+-- pagada -> nunca lo vamos a ver porque la actividad es false
+select * from operating_table
+where mesa = 1 
+
+
+
+select * from operating_table
+where actividad = true
+and (estado = 'USO' or estado = 'CERRADA')
+
+-- actividad = false
+-- estado = eliminada
