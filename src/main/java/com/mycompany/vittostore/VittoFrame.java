@@ -170,7 +170,38 @@ public class VittoFrame extends javax.swing.JFrame {
         SelectOrder.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
         SelectOrder.setSize(700, 600);
         SelectOrder.setVisible(true);
+        
+        // validaciones por mesa -> id:
+        this.orderValidationActions(table);
 
+    }
+    
+    
+    private void orderValidationActions(int tableId) {
+        
+        String estado = productsImpl.getTableState(tableId);
+        
+        switch(estado) {
+            case "LIBRE":
+                this.seeConsuming.setEnabled(false);
+                this.closeTable.setEnabled(false);
+                this.payAction.setEnabled(false);
+                this.deleteTable.setEnabled(false);
+            break;
+            
+            case "USO":
+                this.seeConsuming.setEnabled(true);
+                this.closeTable.setEnabled(true);
+                this.payAction.setEnabled(false);
+                this.deleteTable.setEnabled(true);
+            break;
+            
+            case "CERRADA":
+                this.seeConsuming.setEnabled(true);
+                this.closeTable.setEnabled(false);
+                this.payAction.setEnabled(true);
+                this.deleteTable.setEnabled(true);
+        }        
     }
 
     /**
@@ -433,12 +464,12 @@ public class VittoFrame extends javax.swing.JFrame {
 
         drinkNoAlcohol.setText("Bebidas sin alcohol");
         drinkNoAlcohol.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 drinkNoAlcoholAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         drinkNoAlcohol.addActionListener(new java.awt.event.ActionListener() {
@@ -2098,6 +2129,8 @@ public class VittoFrame extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAutoRequestFocus(false);
+        setBackground(new java.awt.Color(107, 106, 104));
 
         tableOne.setBackground(new java.awt.Color(51, 204, 0));
         tableOne.setText("1");
@@ -2293,7 +2326,7 @@ public class VittoFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(CloseDayAction, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(takeAway, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3127,14 +3160,14 @@ public class VittoFrame extends javax.swing.JFrame {
             this.noAlcoholDrinks.clear();
         }
 
-        JOptionPane.showMessageDialog(null, "La mesa Nº: " + this.selectedTable.getId() + " Se ha guardado Correctamente");
+        if (this.selectedTable.getId() == 0) {
+            JOptionPane.showMessageDialog(null, "Take Away ha sido guardad correctamente");
+        } else {
+            JOptionPane.showMessageDialog(null, "La mesa Nº: " + this.selectedTable.getId() + " Se ha guardado Correctamente");
+        }
 
-        // validar -> nullPointerException.
-        // this.AlcoholDrinks.clear();
-        // TODO: cuando termina de insetar , todos los campos tienenen que ser reseteados.
-        // Para que la próxima mesa empiece con los productos vaciós.
-        // Y si se elige la mesa en cuestión tenemos que traer todos los resultados de la BBDD,
-        // no puede quedar nada en memoria.
+        this.orderValidationActions(this.selectedTable.getId());
+        
         this.closeGenericFrame(this.DrinkNoAlcoholFrame);
 
 
@@ -3379,7 +3412,12 @@ public class VittoFrame extends javax.swing.JFrame {
         this.productsImpl.payTable(paymentDataStore);
 
         // mensaje de Pago efectuado.
-        JOptionPane.showMessageDialog(null, "La mesa Nº: " + this.selectedTable.getId() + " ha efectuado el pago Correctamente");
+        if (this.selectedTable.getId() == 0) {
+            JOptionPane.showMessageDialog(null, "Take Away ha efectuado el pago Correctamente");
+        } else {
+            JOptionPane.showMessageDialog(null, "La mesa Nº: " + this.selectedTable.getId() + " ha efectuado el pago Correctamente");
+        }
+        
 
         // cerrar popUps abiertos
         this.closeGenericFrame(PayTableFrm); // Elige el método de pago
@@ -3387,7 +3425,11 @@ public class VittoFrame extends javax.swing.JFrame {
         this.closeGenericFrame(SelectOrder); // elige el tipo de producto
 
         // libera la mesa
-        this.setTableColour(this.selectedTable.getId(), Color.GREEN);
+        if (this.selectedTable.getId() == 0) { 
+            this.setTableColour(this.selectedTable.getId(), new Color(153,153, 255));
+        } else {
+            this.setTableColour(this.selectedTable.getId(), Color.GREEN);
+        }
 
         this.paymentCash.setText("");
         this.cashTotalPay.setText("");
@@ -3448,7 +3490,11 @@ public class VittoFrame extends javax.swing.JFrame {
             this.productsImpl.payTable(paymentDataStore);
 
             // mensaje de Pago efectuado.
-            JOptionPane.showMessageDialog(null, "La mesa Nº: " + this.selectedTable.getId() + " ha efectuado el pago Correctamente");
+            if(this.selectedTable.getId() == 0) {
+                JOptionPane.showMessageDialog(null, "TakeAway ha efectuado el pago Correctamente");
+            } else {
+                JOptionPane.showMessageDialog(null, "La mesa Nº: " + this.selectedTable.getId() + " ha efectuado el pago Correctamente");
+            }            
 
             // cerrar popUps abiertos
             this.closeGenericFrame(PayTableFrm); // Elige el método de pago
@@ -3852,12 +3898,8 @@ public class VittoFrame extends javax.swing.JFrame {
 
         JOptionPane.showMessageDialog(null, "La mesa Nº: " + this.selectedTable.getId() + " Se ha guardado Correctamente");
 
-        // validar -> nullPointerException.
-        // this.AlcoholDrinks.clear();
-        // TODO: cuando termina de insetar , todos los campos tienenen que ser reseteados.
-        // Para que la próxima mesa empiece con los productos vaciós.
-        // Y si se elige la mesa en cuestión tenemos que traer todos los resultados de la BBDD,
-        // no puede quedar nada en memoria.
+        this.orderValidationActions(this.selectedTable.getId());
+        
         this.closeGenericFrame(this.CandyProductsFrame);
 
     }//GEN-LAST:event_GuardarProductosDulcesActionPerformed
@@ -3923,12 +3965,8 @@ public class VittoFrame extends javax.swing.JFrame {
 
         JOptionPane.showMessageDialog(null, "La mesa Nº: " + this.selectedTable.getId() + " Se ha guardado Correctamente");
 
-        // validar -> nullPointerException.
-        // this.AlcoholDrinks.clear();
-        // TODO: cuando termina de insetar , todos los campos tienenen que ser reseteados.
-        // Para que la próxima mesa empiece con los productos vaciós.
-        // Y si se elige la mesa en cuestión tenemos que traer todos los resultados de la BBDD,
-        // no puede quedar nada en memoria.
+        this.orderValidationActions(this.selectedTable.getId());
+        
         this.closeGenericFrame(this.DrinkAlcoholFrame);
         
 
@@ -3968,6 +4006,9 @@ public class VittoFrame extends javax.swing.JFrame {
     private void setTableColour(int tableId, Color color) {
 
         switch (tableId) {
+            case 0:
+                this.takeAway.setBackground(color);
+                break;
             case 1:
                 this.tableOne.setBackground(color);
                 break;

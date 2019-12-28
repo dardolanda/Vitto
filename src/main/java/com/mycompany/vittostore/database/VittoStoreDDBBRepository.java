@@ -696,5 +696,37 @@ public class VittoStoreDDBBRepository {
             }
         }
     }
+    
+    public String getTableState(int tableId) {
+        String tableState = "";
+        
+        if (this.DDBBConnection != null) {
+
+            String getUser = "SELECT DISTINCT(actividad) , estado "
+                    + " FROM operating_table WHERE mesa = ? "
+                    + " AND actividad = true";
+
+            try {
+                PreparedStatement statement = this.DDBBConnection.prepareStatement(getUser);
+                statement.setInt(1, tableId);
+                ResultSet resultSet = statement.executeQuery();
+
+                /**
+                 * Manejamos el resultSet.next con un if, ya que solo existe una
+                 * única mesa con estado true y con el id que la identifica.
+                 */
+                if (resultSet.next()) {
+                    tableState = resultSet.getString("estado");
+                }
+
+            } catch (SQLException ex) {
+                Logger.getLogger(VittoStoreDDBBRepository.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }        
+        
+        
+        
+        return tableState;
+    }
 
 }

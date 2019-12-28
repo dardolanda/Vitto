@@ -140,4 +140,18 @@ public class ProductsImpl extends VittoConnection implements Products {
         }
     }
 
+    @Override
+    public String getTableState(int tableId) {
+        String state = "";
+        String stateBBDD = vittoDDBBStore.getTableState(tableId);
+        
+        if (stateBBDD.equals("")) {
+            state = OperatingTableStateEnum.LIBRE.toString();
+        } else {
+            state = stateBBDD;
+        }
+        
+        return state;
+    }
+
 }

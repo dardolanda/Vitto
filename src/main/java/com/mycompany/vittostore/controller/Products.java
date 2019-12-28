@@ -20,6 +20,8 @@ public interface Products {
     
     public List<Product> getConsumingProduct(int tableId, String tableUser);
     
+    public String getTableState(int tableId);
+    
     public void closeTable(int tableId, String tableUser);
     
     public List<Map<Integer, String>> getOperatingTable();
