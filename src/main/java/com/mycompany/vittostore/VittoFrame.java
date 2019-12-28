@@ -3507,7 +3507,7 @@ public class VittoFrame extends javax.swing.JFrame {
 
     private void payActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payActionActionPerformed
         PayTableFrm.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
-        PayTableFrm.setSize(500, 200);
+        PayTableFrm.setSize(600, 200);
         PayTableFrm.setVisible(true);
 
         Double total = 0.0;
