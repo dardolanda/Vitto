@@ -33,6 +33,7 @@ import com.mycompany.vittostore.generalitems.SweetProductsEnum;
 import java.awt.Component;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.WindowAdapter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.logging.Level;
@@ -374,6 +375,15 @@ public class VittoFrame extends javax.swing.JFrame {
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         CloseDayFrame = new javax.swing.JFrame();
+        DeleteTableFrm = new javax.swing.JFrame();
+        jLabel60 = new javax.swing.JLabel();
+        jLabel72 = new javax.swing.JLabel();
+        jLabel71 = new javax.swing.JLabel();
+        AdminUserName = new javax.swing.JTextField();
+        jLabel73 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        AdminUserPassword = new javax.swing.JPasswordField();
+        jLabel75 = new javax.swing.JLabel();
         tableOne = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         tableTwo = new javax.swing.JButton();
@@ -423,12 +433,12 @@ public class VittoFrame extends javax.swing.JFrame {
 
         drinkNoAlcohol.setText("Bebidas sin alcohol");
         drinkNoAlcohol.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 drinkNoAlcoholAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         drinkNoAlcohol.addActionListener(new java.awt.event.ActionListener() {
@@ -2011,6 +2021,82 @@ public class VittoFrame extends javax.swing.JFrame {
             .addGap(0, 196, Short.MAX_VALUE)
         );
 
+        jLabel60.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        jLabel60.setText("Eliminar Mesa Nº: ");
+
+        jLabel72.setText("Mesa");
+
+        jLabel71.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
+        jLabel71.setText("Requiere Permisos de administrador");
+
+        jLabel73.setText("Usuario");
+
+        jButton1.setText("Eliminar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        AdminUserPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AdminUserPasswordActionPerformed(evt);
+            }
+        });
+
+        jLabel75.setText("Contraseña");
+
+        javax.swing.GroupLayout DeleteTableFrmLayout = new javax.swing.GroupLayout(DeleteTableFrm.getContentPane());
+        DeleteTableFrm.getContentPane().setLayout(DeleteTableFrmLayout);
+        DeleteTableFrmLayout.setHorizontalGroup(
+            DeleteTableFrmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DeleteTableFrmLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(DeleteTableFrmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(DeleteTableFrmLayout.createSequentialGroup()
+                        .addComponent(jLabel60)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel72)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
+                        .addComponent(jLabel71))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DeleteTableFrmLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton1)))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DeleteTableFrmLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(DeleteTableFrmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel73)
+                    .addComponent(jLabel75))
+                .addGap(33, 33, 33)
+                .addGroup(DeleteTableFrmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(AdminUserPassword)
+                    .addComponent(AdminUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(84, 84, 84))
+        );
+        DeleteTableFrmLayout.setVerticalGroup(
+            DeleteTableFrmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DeleteTableFrmLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(DeleteTableFrmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(DeleteTableFrmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel60)
+                        .addComponent(jLabel72))
+                    .addComponent(jLabel71, javax.swing.GroupLayout.Alignment.LEADING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addGroup(DeleteTableFrmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(DeleteTableFrmLayout.createSequentialGroup()
+                        .addGroup(DeleteTableFrmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(AdminUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel73))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(AdminUserPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel75))
+                .addGap(26, 26, 26)
+                .addComponent(jButton1)
+                .addContainerGap())
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         tableOne.setBackground(new java.awt.Color(51, 204, 0));
@@ -2569,9 +2655,9 @@ public class VittoFrame extends javax.swing.JFrame {
 
     private void promotionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_promotionsActionPerformed
         // TODO add your handling code here:
-        CloseTableFrame.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
-        CloseTableFrame.setSize(650, 700);
-        CloseTableFrame.setVisible(true);
+        SuggestPromosFrm.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
+        SuggestPromosFrm.setSize(650, 700);
+        SuggestPromosFrm.setVisible(true);
 
     }//GEN-LAST:event_promotionsActionPerformed
 
@@ -2648,12 +2734,15 @@ public class VittoFrame extends javax.swing.JFrame {
 
 
     private void seeConsumingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seeConsumingActionPerformed
-        // TODO add your handling code here:
+        this.closeTableActionPerformed(evt);
+        this.CloseTableButton.setVisible(false);
+        
     }//GEN-LAST:event_seeConsumingActionPerformed
 
     private void closeTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeTableActionPerformed
         // TODO add your handling code here:
 
+        this.CloseTableButton.setVisible(true);
         System.out.println("MESA elegida --> state:  " + this.selectedTable.getState() + " ID: " + this.selectedTable.getId());
 
         if (this.tableUser != null && this.tableUser.getNombre() != null) {
@@ -2699,6 +2788,7 @@ public class VittoFrame extends javax.swing.JFrame {
 
         productDescriptionTable.setModel(model);
         this.TotalLabel.setText(Double.toString(total));
+        
 
         CloseTableFrame.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
         CloseTableFrame.setSize(650, 500);
@@ -2706,7 +2796,9 @@ public class VittoFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_closeTableActionPerformed
 
     private void deleteTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteTableActionPerformed
-        // TODO add your handling code here:
+        DeleteTableFrm.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
+        DeleteTableFrm.setSize(400, 200);
+        DeleteTableFrm.setVisible(true);        
     }//GEN-LAST:event_deleteTableActionPerformed
 
     private void payActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payActionActionPerformed
@@ -3158,6 +3250,7 @@ public class VittoFrame extends javax.swing.JFrame {
 
         // JOptionPane.showMessageDialog(null, "La mesa Nº: " + this.selectedTable.getId() + " fue Cerrada con éxito");
         this.setTableColour(this.selectedTable.getId(), Color.RED);
+        
 
     }//GEN-LAST:event_CloseTableButtonActionPerformed
 
@@ -3842,6 +3935,36 @@ public class VittoFrame extends javax.swing.JFrame {
 
     }//GEN-LAST:event_saverAlcoholOrderActionPerformed
 
+    private void AdminUserPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdminUserPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AdminUserPasswordActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        String adminUser = this.AdminUserName.getText();
+        String password = this.AdminUserPassword.getText();
+        
+        System.out.println("Password --> " + password);
+        String user = "christian";
+        String pass = "lasalle";
+        
+        if (adminUser.equals(user) && password.equals(pass)) {
+            JOptionPane.showMessageDialog(null, "usuario válido para eliminar la mesa");
+            this.AdminUserName.setText("");
+            this.AdminUserPassword.setText("");  
+        } else {
+            JOptionPane.showMessageDialog(null, "Usuario /  Pass Incorrecto");
+            this.AdminUserName.setText("");
+            this.AdminUserPassword.setText("");  
+        }
+        
+        this.DeleteTableFrm.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent w) {
+                System.out.println("TEsting closeing ");
+            }
+        });
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     private void setTableColour(int tableId, Color color) {
 
         switch (tableId) {
@@ -3943,11 +4066,14 @@ public class VittoFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField AdminUserName;
+    private javax.swing.JPasswordField AdminUserPassword;
     private javax.swing.JFrame CandyProductsFrame;
     private javax.swing.JButton CloseDayAction;
     private javax.swing.JFrame CloseDayFrame;
     private javax.swing.JButton CloseTableButton;
     private javax.swing.JFrame CloseTableFrame;
+    private javax.swing.JFrame DeleteTableFrm;
     private javax.swing.JFrame DrinkAlcoholFrame;
     private javax.swing.JFrame DrinkNoAlcoholFrame;
     private javax.swing.JButton GuardarProductosDulces;
@@ -4009,6 +4135,7 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JCheckBox frutaEleccionCheck;
     private javax.swing.JLabel frutaEleccionPrice;
     private javax.swing.JSpinner frutaEleccionSpinner;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -4065,6 +4192,7 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel63;
@@ -4076,7 +4204,11 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel70;
+    private javax.swing.JLabel jLabel71;
+    private javax.swing.JLabel jLabel72;
+    private javax.swing.JLabel jLabel73;
     private javax.swing.JLabel jLabel74;
+    private javax.swing.JLabel jLabel75;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel80;
     private javax.swing.JLabel jLabel9;
