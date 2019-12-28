@@ -552,7 +552,7 @@ public class VittoFrame extends javax.swing.JFrame {
         ensaladaTropicalCheck = new javax.swing.JCheckBox();
         ensaladaTropicalSpinner = new javax.swing.JSpinner();
         jLabel92 = new javax.swing.JLabel();
-        ensaladaTropicalLabel = new javax.swing.JLabel();
+        ensaladaTropicalPrice = new javax.swing.JLabel();
         sandwichReimsPromoCheck = new javax.swing.JCheckBox();
         sandwichReimsPromoSpinner = new javax.swing.JSpinner();
         jLabel96 = new javax.swing.JLabel();
@@ -2908,8 +2908,8 @@ public class VittoFrame extends javax.swing.JFrame {
         jLabel92.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel92.setText("$");
 
-        ensaladaTropicalLabel.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        ensaladaTropicalLabel.setText("300");
+        ensaladaTropicalPrice.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        ensaladaTropicalPrice.setText("300");
 
         sandwichReimsPromoCheck.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         sandwichReimsPromoCheck.setText("Sándwich Reims + exprimido de naranja (Vegetales asados, pollo, queso)");
@@ -3062,7 +3062,7 @@ public class VittoFrame extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jLabel92)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ensaladaTropicalLabel))
+                        .addComponent(ensaladaTropicalPrice))
                     .addGroup(PromosLunchFrmLayout.createSequentialGroup()
                         .addComponent(ensaladaPrimaveraCheck)
                         .addGap(20, 20, 20)
@@ -3159,7 +3159,7 @@ public class VittoFrame extends javax.swing.JFrame {
                     .addComponent(ensaladaTropicalCheck)
                     .addComponent(ensaladaTropicalSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel92)
-                    .addComponent(ensaladaTropicalLabel))
+                    .addComponent(ensaladaTropicalPrice))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(PromosLunchFrmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(sandwichReimsPromoCheck)
@@ -5738,7 +5738,155 @@ public class VittoFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelPromoLunchActionPerformed
 
     private void savePromoLunchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_savePromoLunchActionPerformed
-        // TODO add your handling code here:
+        products = new HashMap<>();
+
+        if (this.ensaladaCesarCheck.isSelected() && Integer.parseInt(this.ensaladaCesarSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyAlcoholProduct = new HashMap<>();
+
+            priceQtyAlcoholProduct.put(
+                    Integer.parseInt(this.ensaladaCesarSpinner.getValue().toString()),
+                    Double.parseDouble(this.ensaladaCesarPrice.getText())
+            );
+            products.put(PromotionsLunchEnum.ENSALADA_CESAR.toString(), priceQtyAlcoholProduct);
+        }
+
+        if (ensaladaIbericaCheck.isSelected() && Integer.parseInt(this.ensaladaIbericaSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyAlcoholProduct = new HashMap<>();
+
+            priceQtyAlcoholProduct.put(
+                    Integer.parseInt(this.ensaladaIbericaSpinner.getValue().toString()),
+                    Double.parseDouble(this.ensaladaIbericaPrice.getText())
+            );
+            products.put(PromotionsLunchEnum.ENSALADA_IBERICA.toString(), priceQtyAlcoholProduct);
+        }
+
+        if (ensaladaPrimaveraCheck.isSelected() && Integer.parseInt(this.ensaladaPrimaveraSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyAlcoholProduct = new HashMap<>();
+
+            priceQtyAlcoholProduct.put(
+                    Integer.parseInt(this.ensaladaPrimaveraSpinner.getValue().toString()),
+                    Double.parseDouble(this.ensaladaPrimaveraPrice.getText())
+            );
+            products.put(PromotionsLunchEnum.ENSALADA_PRIMAVERA.toString(), priceQtyAlcoholProduct);
+        }
+
+        if (ensaladaTropicalCheck.isSelected() && Integer.parseInt(this.ensaladaTropicalSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyAlcoholProduct = new HashMap<>();
+
+            priceQtyAlcoholProduct.put(
+                    Integer.parseInt(this.ensaladaTropicalSpinner.getValue().toString()),
+                    Double.parseDouble(this.ensaladaTropicalPrice.getText())
+            );
+            products.put(PromotionsLunchEnum.ENSALADA_TROPICAL.toString(), priceQtyAlcoholProduct);
+        }
+
+        if (sandwichReimsPromoCheck.isSelected() && Integer.parseInt(this.sandwichReimsPromoSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyAlcoholProduct = new HashMap<>();
+
+            priceQtyAlcoholProduct.put(
+                    Integer.parseInt(this.sandwichReimsPromoSpinner.getValue().toString()),
+                    Double.parseDouble(this.sandwichReimsPromoPrice.getText())
+            );
+            products.put(PromotionsLunchEnum.SANDWICH_REIMS_PROMO.toString(), priceQtyAlcoholProduct);
+        }
+
+        if (milanesaPromoCheck.isSelected() && Integer.parseInt(this.milanesaPromoSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyAlcoholProduct = new HashMap<>();
+
+            priceQtyAlcoholProduct.put(
+                    Integer.parseInt(this.milanesaPromoSpinner.getValue().toString()),
+                    Double.parseDouble(this.milanesaPromoPrice.getText())
+            );
+            products.put(PromotionsLunchEnum.MILANESA_PROMO.toString(), priceQtyAlcoholProduct);
+        }
+
+        if (pizzaPromoCheck.isSelected() && Integer.parseInt(this.pizzaPromoSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyAlcoholProduct = new HashMap<>();
+
+            priceQtyAlcoholProduct.put(
+                    Integer.parseInt(this.pizzaPromoSpinner.getValue().toString()),
+                    Double.parseDouble(this.pizzaPromoPrice.getText())
+            );
+            products.put(PromotionsLunchEnum.PIZZA_PROMO.toString(), priceQtyAlcoholProduct);
+        }
+
+        if (panchoPromoCheck.isSelected() && Integer.parseInt(this.panchoPromoSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyAlcoholProduct = new HashMap<>();
+
+            priceQtyAlcoholProduct.put(
+                    Integer.parseInt(this.panchoPromoSpinner.getValue().toString()),
+                    Double.parseDouble(this.panchoPromoPrice.getText())
+            );
+            products.put(PromotionsLunchEnum.PANCHO_PROMO.toString(), priceQtyAlcoholProduct);
+        }
+
+        if (empanadaPromoCheck.isSelected() && Integer.parseInt(this.empanadaPromoSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyAlcoholProduct = new HashMap<>();
+
+            priceQtyAlcoholProduct.put(
+                    Integer.parseInt(this.empanadaPromoSpinner.getValue().toString()),
+                    Double.parseDouble(this.empanadaPromoPrice.getText())
+            );
+            products.put(PromotionsLunchEnum.EMPANADA_PROMO.toString(), priceQtyAlcoholProduct);
+        }
+
+
+        if (arabePromoCheck.isSelected() && Integer.parseInt(this.arabePromoSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyAlcoholProduct = new HashMap<>();
+
+            priceQtyAlcoholProduct.put(
+                    Integer.parseInt(this.arabePromoSpinner.getValue().toString()),
+                    Double.parseDouble(this.arabePromoPrice.getText())
+            );
+            products.put(PromotionsLunchEnum.ARABE_PROMO.toString(), priceQtyAlcoholProduct);
+        }
+
+        if (sandwichPromoCheck.isSelected() && Integer.parseInt(this.sandwichPromoSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyAlcoholProduct = new HashMap<>();
+
+            priceQtyAlcoholProduct.put(
+                    Integer.parseInt(this.sandwichPromoSpinner.getValue().toString()),
+                    Double.parseDouble(this.sandwichPromoPrice.getText())
+            );
+            products.put(PromotionsLunchEnum.SANDWICH_PROMO.toString(), priceQtyAlcoholProduct);
+        }
+        
+        this.dataStore = new DataStore();
+        this.dataStore.setProductTypeEnum(ProductTypeEnum.PROMOCION_COMIDAS);
+
+        System.out.println("mesa elegida state --> " + this.selectedTable.getState() + " mesa elegida ID -> " + this.selectedTable.getId());
+
+        if (this.tableUser != null && this.tableUser.getNombre() != null) {
+            System.out.println("Usuario mesa: " + this.tableUser.getNombre());
+        } else {
+            this.tableUser.setNombre(this.employeeList.get(0).getNombre());
+            this.tableUser.setApellido(this.employeeList.get(0).getApellido());
+        }
+
+        this.dataStore.setMesa(this.selectedTable.getId());
+        this.dataStore.setNombreMozo(this.tableUser.getNombre() + "_" + this.tableUser.getApellido());
+
+        if (!products.isEmpty()) {
+            dataStore.setProducts(products);
+        }
+
+        /**
+         * Inserta los productos -> teniendo en cuenta sus precios.
+         */
+        this.productsImpl.insertProductWithPrices(dataStore);
+
+        System.out.println("Selected table -> " + this.selectedTable.getId());
+        this.setTableColour(this.selectedTable.getId(), Color.YELLOW);
+
+        if (!this.products.isEmpty()) {
+            this.products.clear();
+        }
+
+        JOptionPane.showMessageDialog(null, "La mesa Nº: " + this.selectedTable.getId() + " Se ha guardado Correctamente");
+
+        this.orderValidationActions(this.selectedTable.getId());
+        
+        this.closeGenericFrame(this.PromosLunchFrm);        
     }//GEN-LAST:event_savePromoLunchActionPerformed
 
     
@@ -5953,7 +6101,7 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JLabel ensaladaPrimaveraPrice;
     private javax.swing.JSpinner ensaladaPrimaveraSpinner;
     private javax.swing.JCheckBox ensaladaTropicalCheck;
-    private javax.swing.JLabel ensaladaTropicalLabel;
+    private javax.swing.JLabel ensaladaTropicalPrice;
     private javax.swing.JSpinner ensaladaTropicalSpinner;
     private javax.swing.JCheckBox exprimidoCheck;
     private javax.swing.JSpinner exprimidoSpinner;
