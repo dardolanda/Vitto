@@ -31,6 +31,7 @@ import com.mycompany.vittostore.generalitems.PaymentMethodsEnum;
 import com.mycompany.vittostore.generalitems.ProductTypeEnum;
 import com.mycompany.vittostore.generalitems.PromotionBreakfast;
 import com.mycompany.vittostore.generalitems.PromotionsLunchEnum;
+import com.mycompany.vittostore.generalitems.SaladsEnum;
 import com.mycompany.vittostore.generalitems.SweetProductsEnum;
 import java.awt.Component;
 import java.awt.event.KeyAdapter;
@@ -184,6 +185,20 @@ public class VittoFrame extends javax.swing.JFrame {
         this.selectedComponentMap.put(PromotionsLunchEnum.ARABE_PROMO.name(),new GenericSelectedComponent((this.arabePromoCheck), this.arabePromoSpinner));
         this.selectedComponentMap.put(PromotionsLunchEnum.SANDWICH_PROMO.name(),new GenericSelectedComponent((this.sandwichPromoCheck), this.sandwichPromoSpinner));        
         
+        /**
+         * Salados
+         */
+        this.selectedComponentMap.put(SaladsEnum.TOSTADO.name(),new GenericSelectedComponent((this.tostadoSdwCheck), this.tostadoSdwSpinner));
+        this.selectedComponentMap.put(SaladsEnum.ARABE.name(),new GenericSelectedComponent((this.arabeSdwCheck), this.arabeSdwSpinner));
+        this.selectedComponentMap.put(SaladsEnum.MEDIALUNA_RELLENA.name(),new GenericSelectedComponent((this.medialunaSdwCheck), this.medialunaSdwSpinner));
+        this.selectedComponentMap.put(SaladsEnum.CIABATTA_POLLO.name(),new GenericSelectedComponent((this.cbtPolloCheck), this.cbtPolloSpinner));
+        this.selectedComponentMap.put(SaladsEnum.CIABATTA_ATUN.name(),new GenericSelectedComponent((this.sbtAtunCheck), this.sbtAtunSpinner));
+        this.selectedComponentMap.put(SaladsEnum.CIABATTA_MILANESA.name(),new GenericSelectedComponent((this.sbtMilanesaCheck), this.sbtMilanesaSpinner));
+        this.selectedComponentMap.put(SaladsEnum.CIABATTA_VERDURAS.name(),new GenericSelectedComponent((this.sbtVerdurasCheck), this.sbtVerdurasSpinner));
+        this.selectedComponentMap.put(SaladsEnum.CIABATTA_JAMON_CRUDO.name(),new GenericSelectedComponent((this.sbtCrudoCheck), this.sbtCrudoSpinner));
+        this.selectedComponentMap.put(SaladsEnum.EMPANADAS.name(),new GenericSelectedComponent((this.sdwEmpandaCheck), this.sdwEmpandaSpinner));
+        this.selectedComponentMap.put(SaladsEnum.TARTA.name(),new GenericSelectedComponent((this.sdwTartasCheck), this.sdwTartasSpinner));
+        
 
     }
 
@@ -270,7 +285,7 @@ public class VittoFrame extends javax.swing.JFrame {
         jLabel50 = new javax.swing.JLabel();
         jLabel76 = new javax.swing.JLabel();
         DesayunoMerienda = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        empleadosPromo = new javax.swing.JButton();
         jLabel77 = new javax.swing.JLabel();
         jLabel43 = new javax.swing.JLabel();
         DrinkNoAlcoholFrame = new javax.swing.JFrame();
@@ -377,6 +392,54 @@ public class VittoFrame extends javax.swing.JFrame {
         GuardarProductosDulces = new javax.swing.JButton();
         cancelCandyProducts = new javax.swing.JButton();
         SaladsProductFrame = new javax.swing.JFrame();
+        jLabel84 = new javax.swing.JLabel();
+        tostadoSdwCheck = new javax.swing.JCheckBox();
+        tostadoSdwSpinner = new javax.swing.JSpinner();
+        jLabel87 = new javax.swing.JLabel();
+        tostadoSdwPrice = new javax.swing.JLabel();
+        arabeSdwCheck = new javax.swing.JCheckBox();
+        arabeSdwSpinner = new javax.swing.JSpinner();
+        arabeSdwPrice = new javax.swing.JLabel();
+        medialunaSdwCheck = new javax.swing.JCheckBox();
+        medialunaSdwSpinner = new javax.swing.JSpinner();
+        medialunaSdwPrice = new javax.swing.JLabel();
+        jLabel102 = new javax.swing.JLabel();
+        cbtPolloCheck = new javax.swing.JCheckBox();
+        cbtPolloSpinner = new javax.swing.JSpinner();
+        cbtPolloPrice = new javax.swing.JLabel();
+        jLabel110 = new javax.swing.JLabel();
+        jLabel115 = new javax.swing.JLabel();
+        jLabel121 = new javax.swing.JLabel();
+        sbtMilanesaCheck = new javax.swing.JCheckBox();
+        sbtMilanesaSpinner = new javax.swing.JSpinner();
+        sbtMilanesaPrice = new javax.swing.JLabel();
+        jLabel123 = new javax.swing.JLabel();
+        sbtVerdurasCheck = new javax.swing.JCheckBox();
+        sbtVerdurasSpinner = new javax.swing.JSpinner();
+        sbtVerdurasPrice = new javax.swing.JLabel();
+        jLabel125 = new javax.swing.JLabel();
+        sbtAtunCheck = new javax.swing.JCheckBox();
+        sbtAtunSpinner = new javax.swing.JSpinner();
+        sbtAtunPrice = new javax.swing.JLabel();
+        jLabel127 = new javax.swing.JLabel();
+        sbtCrudoCheck = new javax.swing.JCheckBox();
+        sbtCrudoSpinner = new javax.swing.JSpinner();
+        sbtCrudoPrice = new javax.swing.JLabel();
+        jLabel129 = new javax.swing.JLabel();
+        jLabel130 = new javax.swing.JLabel();
+        jSeparator10 = new javax.swing.JSeparator();
+        sdwEmpandaCheck = new javax.swing.JCheckBox();
+        sdwEmpandaSpinner = new javax.swing.JSpinner();
+        jLabel131 = new javax.swing.JLabel();
+        sdwEmpandaPRice = new javax.swing.JLabel();
+        sdwTartasCheck = new javax.swing.JCheckBox();
+        sdwTartasSpinner = new javax.swing.JSpinner();
+        jLabel133 = new javax.swing.JLabel();
+        sdwTartasPrice = new javax.swing.JLabel();
+        saveSandwichORder = new javax.swing.JButton();
+        closeSandwichORder = new javax.swing.JButton();
+        jLabel90 = new javax.swing.JLabel();
+        jLabel94 = new javax.swing.JLabel();
         CloseTableFrame = new javax.swing.JFrame();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -583,6 +646,7 @@ public class VittoFrame extends javax.swing.JFrame {
         sandwichPromoPrice = new javax.swing.JLabel();
         savePromoLunch = new javax.swing.JButton();
         cancelPromoLunch = new javax.swing.JButton();
+        EmpleadosFrame = new javax.swing.JFrame();
         tableOne = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         tableTwo = new javax.swing.JButton();
@@ -632,12 +696,12 @@ public class VittoFrame extends javax.swing.JFrame {
 
         drinkNoAlcohol.setText("Bebidas sin alcohol");
         drinkNoAlcohol.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 drinkNoAlcoholAncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
         drinkNoAlcohol.addActionListener(new java.awt.event.ActionListener() {
@@ -720,8 +784,13 @@ public class VittoFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        jButton2.setText("Empleados");
+        empleadosPromo.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        empleadosPromo.setText("Empleados");
+        empleadosPromo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                empleadosPromoActionPerformed(evt);
+            }
+        });
 
         jLabel77.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
         jLabel77.setText("Uso Personal");
@@ -784,7 +853,7 @@ public class VittoFrame extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                                 .addGroup(SelectOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(ComerPromos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(empleadosPromo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(DesayunoMerienda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addContainerGap(48, Short.MAX_VALUE))
                             .addGroup(SelectOrderLayout.createSequentialGroup()
@@ -825,7 +894,7 @@ public class VittoFrame extends javax.swing.JFrame {
                         .addGap(16, 16, 16)
                         .addComponent(jLabel77)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(empleadosPromo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(31, 31, 31)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1627,15 +1696,331 @@ public class VittoFrame extends javax.swing.JFrame {
                 .addGap(21, 21, 21))
         );
 
+        jLabel84.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel84.setText("Sándwich ");
+
+        tostadoSdwCheck.setText("Tostado");
+        tostadoSdwCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tostadoSdwCheckActionPerformed(evt);
+            }
+        });
+
+        jLabel87.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel87.setText("$");
+
+        tostadoSdwPrice.setText("200");
+
+        arabeSdwCheck.setText("Árabe");
+
+        arabeSdwPrice.setText("180");
+
+        medialunaSdwCheck.setText("Medialuna Rellena ");
+
+        medialunaSdwPrice.setText("70");
+
+        jLabel102.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel102.setText(" Ciabatta De: ");
+
+        cbtPolloCheck.setText("Pollo, Vegetales asados");
+        cbtPolloCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbtPolloCheckActionPerformed(evt);
+            }
+        });
+
+        cbtPolloPrice.setText("290");
+
+        jLabel110.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel110.setText("$");
+
+        jLabel115.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel115.setText("$");
+
+        jLabel121.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel121.setText("$");
+
+        sbtMilanesaCheck.setText("Milanesa Con lechuga y tomate");
+
+        sbtMilanesaPrice.setText("250");
+
+        jLabel123.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel123.setText("$");
+
+        sbtVerdurasCheck.setText("Verduras Asadas");
+        sbtVerdurasCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sbtVerdurasCheckActionPerformed(evt);
+            }
+        });
+
+        sbtVerdurasPrice.setText("250");
+
+        jLabel125.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel125.setText("$");
+
+        sbtAtunCheck.setText("Atún, huevo, olivas, mayonesa, rúcula y tomate");
+        sbtAtunCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sbtAtunCheckActionPerformed(evt);
+            }
+        });
+
+        sbtAtunPrice.setText("290");
+
+        jLabel127.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel127.setText("$");
+
+        sbtCrudoCheck.setText("Jamon crudo, queso, rucula, tomate");
+
+        sbtCrudoPrice.setText("250");
+
+        jLabel129.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel129.setText("$");
+
+        jLabel130.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel130.setText("Salados");
+
+        sdwEmpandaCheck.setText("Empanadas (carne, pollo, jamon y queso) c/u");
+
+        jLabel131.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel131.setText("$");
+
+        sdwEmpandaPRice.setText("55");
+
+        sdwTartasCheck.setText("Tartas (verduras asadas, jamon y queso)");
+
+        jLabel133.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel133.setText("$");
+
+        sdwTartasPrice.setText("220");
+
+        saveSandwichORder.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        saveSandwichORder.setText("Guardar Orden");
+        saveSandwichORder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveSandwichORderActionPerformed(evt);
+            }
+        });
+
+        closeSandwichORder.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        closeSandwichORder.setText("Cerrar");
+        closeSandwichORder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeSandwichORderActionPerformed(evt);
+            }
+        });
+
+        jLabel90.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        jLabel90.setText("cebolla, zapallito, tomate, berenjena, zanahoria, morrones, queso cremoso");
+
+        jLabel94.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        jLabel94.setText("cebolla, zapallito, tomate, berenjena, zanahoria, morrones, queso, semilla");
+
         javax.swing.GroupLayout SaladsProductFrameLayout = new javax.swing.GroupLayout(SaladsProductFrame.getContentPane());
         SaladsProductFrame.getContentPane().setLayout(SaladsProductFrameLayout);
         SaladsProductFrameLayout.setHorizontalGroup(
             SaladsProductFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 619, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SaladsProductFrameLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(saveSandwichORder)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(closeSandwichORder)
+                .addGap(16, 16, 16))
+            .addComponent(jSeparator10)
+            .addGroup(SaladsProductFrameLayout.createSequentialGroup()
+                .addGroup(SaladsProductFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(SaladsProductFrameLayout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(jLabel130))
+                    .addGroup(SaladsProductFrameLayout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addGroup(SaladsProductFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(SaladsProductFrameLayout.createSequentialGroup()
+                                .addComponent(sdwEmpandaCheck)
+                                .addGap(18, 18, 18)
+                                .addComponent(sdwEmpandaSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(34, 34, 34)
+                                .addComponent(jLabel131))
+                            .addGroup(SaladsProductFrameLayout.createSequentialGroup()
+                                .addComponent(sdwTartasCheck)
+                                .addGap(46, 46, 46)
+                                .addComponent(sdwTartasSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel133)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(SaladsProductFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(sdwTartasPrice)
+                            .addComponent(sdwEmpandaPRice)))
+                    .addGroup(SaladsProductFrameLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(SaladsProductFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(SaladsProductFrameLayout.createSequentialGroup()
+                                .addGroup(SaladsProductFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel90, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel94, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SaladsProductFrameLayout.createSequentialGroup()
+                                        .addComponent(sbtAtunSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(19, 19, 19)
+                                        .addComponent(jLabel127)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(sbtAtunPrice))
+                            .addGroup(SaladsProductFrameLayout.createSequentialGroup()
+                                .addGap(14, 14, 14)
+                                .addGroup(SaladsProductFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SaladsProductFrameLayout.createSequentialGroup()
+                                        .addComponent(sbtAtunCheck)
+                                        .addGap(30, 30, 30))
+                                    .addGroup(SaladsProductFrameLayout.createSequentialGroup()
+                                        .addGap(6, 6, 6)
+                                        .addGroup(SaladsProductFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(SaladsProductFrameLayout.createSequentialGroup()
+                                                .addComponent(sbtCrudoCheck)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addGroup(SaladsProductFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addGroup(SaladsProductFrameLayout.createSequentialGroup()
+                                                        .addComponent(sbtMilanesaSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGap(18, 18, 18)
+                                                        .addComponent(jLabel123)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addComponent(sbtMilanesaPrice))
+                                                    .addGroup(SaladsProductFrameLayout.createSequentialGroup()
+                                                        .addComponent(sbtCrudoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGap(18, 18, 18)
+                                                        .addComponent(jLabel129)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addComponent(sbtCrudoPrice))))
+                                            .addComponent(sbtMilanesaCheck)))))
+                            .addGroup(SaladsProductFrameLayout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addGroup(SaladsProductFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cbtPolloCheck)
+                                    .addComponent(sbtVerdurasCheck))
+                                .addGap(51, 51, 51)
+                                .addGroup(SaladsProductFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(SaladsProductFrameLayout.createSequentialGroup()
+                                        .addComponent(cbtPolloSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(25, 25, 25)
+                                        .addComponent(jLabel121)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(cbtPolloPrice))
+                                    .addGroup(SaladsProductFrameLayout.createSequentialGroup()
+                                        .addComponent(sbtVerdurasSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(25, 25, 25)
+                                        .addComponent(jLabel125)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(sbtVerdurasPrice))))
+                            .addComponent(jLabel102)))
+                    .addGroup(SaladsProductFrameLayout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addGroup(SaladsProductFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(SaladsProductFrameLayout.createSequentialGroup()
+                                .addComponent(arabeSdwCheck)
+                                .addGap(50, 50, 50)
+                                .addComponent(arabeSdwSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel110)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(arabeSdwPrice))
+                            .addGroup(SaladsProductFrameLayout.createSequentialGroup()
+                                .addComponent(tostadoSdwCheck)
+                                .addGap(35, 35, 35)
+                                .addComponent(tostadoSdwSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(21, 21, 21)
+                                .addComponent(jLabel87)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(tostadoSdwPrice))
+                            .addComponent(jLabel84)
+                            .addGroup(SaladsProductFrameLayout.createSequentialGroup()
+                                .addComponent(medialunaSdwCheck)
+                                .addGap(35, 35, 35)
+                                .addComponent(medialunaSdwSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel115)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(medialunaSdwPrice)))))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
         SaladsProductFrameLayout.setVerticalGroup(
             SaladsProductFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 344, Short.MAX_VALUE)
+            .addGroup(SaladsProductFrameLayout.createSequentialGroup()
+                .addGap(13, 13, 13)
+                .addComponent(jLabel84)
+                .addGap(18, 18, 18)
+                .addGroup(SaladsProductFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tostadoSdwCheck)
+                    .addComponent(tostadoSdwSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel87)
+                    .addComponent(tostadoSdwPrice))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(SaladsProductFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(arabeSdwCheck)
+                    .addComponent(arabeSdwSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(arabeSdwPrice)
+                    .addComponent(jLabel110))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(SaladsProductFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(medialunaSdwCheck)
+                    .addComponent(medialunaSdwSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(medialunaSdwPrice)
+                    .addComponent(jLabel115))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel102)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(SaladsProductFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbtPolloCheck)
+                    .addComponent(cbtPolloSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbtPolloPrice)
+                    .addComponent(jLabel121))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel90)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(SaladsProductFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(sbtVerdurasCheck)
+                    .addComponent(sbtVerdurasSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sbtVerdurasPrice)
+                    .addComponent(jLabel125))
+                .addGap(4, 4, 4)
+                .addComponent(jLabel94)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(SaladsProductFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(sbtAtunCheck)
+                    .addComponent(sbtAtunSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sbtAtunPrice)
+                    .addComponent(jLabel127))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(SaladsProductFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(sbtMilanesaCheck)
+                    .addComponent(sbtMilanesaSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sbtMilanesaPrice)
+                    .addComponent(jLabel123))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(SaladsProductFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(sbtCrudoCheck)
+                    .addComponent(sbtCrudoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sbtCrudoPrice)
+                    .addComponent(jLabel129))
+                .addGap(26, 26, 26)
+                .addComponent(jSeparator10, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel130)
+                .addGap(18, 18, 18)
+                .addGroup(SaladsProductFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(sdwEmpandaCheck)
+                    .addComponent(sdwEmpandaSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sdwEmpandaPRice)
+                    .addComponent(jLabel131))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(SaladsProductFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(sdwTartasCheck)
+                    .addComponent(sdwTartasSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sdwTartasPrice)
+                    .addComponent(jLabel133))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                .addGroup(SaladsProductFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(saveSandwichORder)
+                    .addComponent(closeSandwichORder))
+                .addGap(18, 18, 18))
         );
 
         jLabel8.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -3209,6 +3594,17 @@ public class VittoFrame extends javax.swing.JFrame {
                 .addContainerGap(28, Short.MAX_VALUE))
         );
 
+        javax.swing.GroupLayout EmpleadosFrameLayout = new javax.swing.GroupLayout(EmpleadosFrame.getContentPane());
+        EmpleadosFrame.getContentPane().setLayout(EmpleadosFrameLayout);
+        EmpleadosFrameLayout.setHorizontalGroup(
+            EmpleadosFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 619, Short.MAX_VALUE)
+        );
+        EmpleadosFrameLayout.setVerticalGroup(
+            EmpleadosFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 344, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAutoRequestFocus(false);
         setBackground(new java.awt.Color(107, 106, 104));
@@ -3835,6 +4231,8 @@ public class VittoFrame extends javax.swing.JFrame {
         SaladsProductFrame.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
         SaladsProductFrame.setSize(650, 700);
         SaladsProductFrame.setVisible(true);
+        
+        this.findProductsForOperatingTable(ProductTypeEnum.SALADOS, this.selectedTable.getId(), this.SaladsProductFrame);
     }//GEN-LAST:event_saladProductsActionPerformed
 
     private void drinkAlcoholActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drinkAlcoholActionPerformed
@@ -5889,6 +6287,172 @@ public class VittoFrame extends javax.swing.JFrame {
         this.closeGenericFrame(this.PromosLunchFrm);        
     }//GEN-LAST:event_savePromoLunchActionPerformed
 
+    private void empleadosPromoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empleadosPromoActionPerformed
+        JOptionPane.showMessageDialog(null, "Lista de precios empleados en construcción");
+    }//GEN-LAST:event_empleadosPromoActionPerformed
+
+    private void cbtPolloCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbtPolloCheckActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbtPolloCheckActionPerformed
+
+    private void closeSandwichORderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeSandwichORderActionPerformed
+        this.closeGenericFrame(SaladsProductFrame);
+    }//GEN-LAST:event_closeSandwichORderActionPerformed
+
+    private void sbtVerdurasCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sbtVerdurasCheckActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sbtVerdurasCheckActionPerformed
+
+    private void sbtAtunCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sbtAtunCheckActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sbtAtunCheckActionPerformed
+
+    private void saveSandwichORderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveSandwichORderActionPerformed
+        products = new HashMap<>();
+
+        if (this.tostadoSdwCheck.isSelected() && Integer.parseInt(this.tostadoSdwSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyAlcoholProduct = new HashMap<>();
+
+            priceQtyAlcoholProduct.put(
+                    Integer.parseInt(this.tostadoSdwSpinner.getValue().toString()),
+                    Double.parseDouble(this.tostadoSdwPrice.getText())
+            );
+            products.put(SaladsEnum.TOSTADO.toString(), priceQtyAlcoholProduct);
+        }
+
+        if (arabeSdwCheck.isSelected() && Integer.parseInt(this.arabeSdwSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyAlcoholProduct = new HashMap<>();
+
+            priceQtyAlcoholProduct.put(
+                    Integer.parseInt(this.arabeSdwSpinner.getValue().toString()),
+                    Double.parseDouble(this.arabeSdwPrice.getText())
+            );
+            products.put(SaladsEnum.ARABE.toString(), priceQtyAlcoholProduct);
+        }
+
+        if (medialunaSdwCheck.isSelected() && Integer.parseInt(this.medialunaSdwSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyAlcoholProduct = new HashMap<>();
+
+            priceQtyAlcoholProduct.put(
+                    Integer.parseInt(this.medialunaSdwSpinner.getValue().toString()),
+                    Double.parseDouble(this.medialunaSdwPrice.getText())
+            );
+            products.put(SaladsEnum.MEDIALUNA_RELLENA.toString(), priceQtyAlcoholProduct);
+        }
+
+        if (cbtPolloCheck.isSelected() && Integer.parseInt(this.cbtPolloSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyAlcoholProduct = new HashMap<>();
+
+            priceQtyAlcoholProduct.put(
+                    Integer.parseInt(this.cbtPolloSpinner.getValue().toString()),
+                    Double.parseDouble(this.cbtPolloPrice.getText())
+            );
+            products.put(SaladsEnum.CIABATTA_POLLO.toString(), priceQtyAlcoholProduct);
+        }
+
+        if (sbtMilanesaCheck.isSelected() && Integer.parseInt(this.sbtMilanesaSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyAlcoholProduct = new HashMap<>();
+
+            priceQtyAlcoholProduct.put(
+                    Integer.parseInt(this.sbtMilanesaSpinner.getValue().toString()),
+                    Double.parseDouble(this.sbtMilanesaPrice.getText())
+            );
+            products.put(SaladsEnum.CIABATTA_MILANESA.toString(), priceQtyAlcoholProduct);
+        }
+
+        if (sbtVerdurasCheck.isSelected() && Integer.parseInt(this.sbtVerdurasSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyAlcoholProduct = new HashMap<>();
+
+            priceQtyAlcoholProduct.put(
+                    Integer.parseInt(this.sbtVerdurasSpinner.getValue().toString()),
+                    Double.parseDouble(this.sbtVerdurasPrice.getText())
+            );
+            products.put(SaladsEnum.CIABATTA_VERDURAS.toString(), priceQtyAlcoholProduct);
+        }
+
+        if (sbtAtunCheck.isSelected() && Integer.parseInt(this.sbtAtunSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyAlcoholProduct = new HashMap<>();
+
+            priceQtyAlcoholProduct.put(
+                    Integer.parseInt(this.sbtAtunSpinner.getValue().toString()),
+                    Double.parseDouble(this.sbtAtunPrice.getText())
+            );
+            products.put(SaladsEnum.CIABATTA_ATUN.toString(), priceQtyAlcoholProduct);
+        }
+
+        if (sbtCrudoCheck.isSelected() && Integer.parseInt(this.sbtCrudoSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyAlcoholProduct = new HashMap<>();
+
+            priceQtyAlcoholProduct.put(
+                    Integer.parseInt(this.sbtCrudoSpinner.getValue().toString()),
+                    Double.parseDouble(this.sbtCrudoPrice.getText())
+            );
+            products.put(SaladsEnum.CIABATTA_JAMON_CRUDO.toString(), priceQtyAlcoholProduct);
+        }
+
+        if (sdwEmpandaCheck.isSelected() && Integer.parseInt(this.sdwEmpandaSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyAlcoholProduct = new HashMap<>();
+
+            priceQtyAlcoholProduct.put(
+                    Integer.parseInt(this.sdwEmpandaSpinner.getValue().toString()),
+                    Double.parseDouble(this.sdwEmpandaPRice.getText())
+            );
+            products.put(SaladsEnum.EMPANADAS.toString(), priceQtyAlcoholProduct);
+        }
+
+
+        if (sdwTartasCheck.isSelected() && Integer.parseInt(this.sdwTartasSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyAlcoholProduct = new HashMap<>();
+
+            priceQtyAlcoholProduct.put(
+                    Integer.parseInt(this.sdwTartasSpinner.getValue().toString()),
+                    Double.parseDouble(this.sdwTartasPrice.getText())
+            );
+            products.put(SaladsEnum.TARTA.toString(), priceQtyAlcoholProduct);
+        }
+        
+        this.dataStore = new DataStore();
+        this.dataStore.setProductTypeEnum(ProductTypeEnum.SALADOS);
+
+        System.out.println("mesa elegida state --> " + this.selectedTable.getState() + " mesa elegida ID -> " + this.selectedTable.getId());
+
+        if (this.tableUser != null && this.tableUser.getNombre() != null) {
+            System.out.println("Usuario mesa: " + this.tableUser.getNombre());
+        } else {
+            this.tableUser.setNombre(this.employeeList.get(0).getNombre());
+            this.tableUser.setApellido(this.employeeList.get(0).getApellido());
+        }
+
+        this.dataStore.setMesa(this.selectedTable.getId());
+        this.dataStore.setNombreMozo(this.tableUser.getNombre() + "_" + this.tableUser.getApellido());
+
+        if (!products.isEmpty()) {
+            dataStore.setProducts(products);
+        }
+
+        /**
+         * Inserta los productos -> teniendo en cuenta sus precios.
+         */
+        this.productsImpl.insertProductWithPrices(dataStore);
+
+        System.out.println("Selected table -> " + this.selectedTable.getId());
+        this.setTableColour(this.selectedTable.getId(), Color.YELLOW);
+
+        if (!this.products.isEmpty()) {
+            this.products.clear();
+        }
+
+        JOptionPane.showMessageDialog(null, "La mesa Nº: " + this.selectedTable.getId() + " Se ha guardado Correctamente");
+
+        this.orderValidationActions(this.selectedTable.getId());
+        
+        this.closeGenericFrame(this.SaladsProductFrame);
+    }//GEN-LAST:event_saveSandwichORderActionPerformed
+
+    private void tostadoSdwCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tostadoSdwCheckActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tostadoSdwCheckActionPerformed
+
     
     
     private void setTableColour(int tableId, Color color) {
@@ -6008,6 +6572,7 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JButton DesayunoMerienda;
     private javax.swing.JFrame DrinkAlcoholFrame;
     private javax.swing.JFrame DrinkNoAlcoholFrame;
+    private javax.swing.JFrame EmpleadosFrame;
     private javax.swing.JButton GuardarProductosDulces;
     private javax.swing.JLabel MesaLabel;
     private javax.swing.JLabel MozoLabel;
@@ -6033,6 +6598,9 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JCheckBox arabePromoCheck;
     private javax.swing.JLabel arabePromoPrice;
     private javax.swing.JSpinner arabePromoSpinner;
+    private javax.swing.JCheckBox arabeSdwCheck;
+    private javax.swing.JLabel arabeSdwPrice;
+    private javax.swing.JSpinner arabeSdwSpinner;
     private javax.swing.JCheckBox cafe2GallesChocoCheck;
     private javax.swing.JSpinner cafe2MedialunasSpinner;
     private javax.swing.JLabel cafe2gallesPrice;
@@ -6065,11 +6633,15 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JButton cashPayment;
     private javax.swing.JLabel cashSubTotal;
     private javax.swing.JLabel cashTotalPay;
+    private javax.swing.JCheckBox cbtPolloCheck;
+    private javax.swing.JLabel cbtPolloPrice;
+    private javax.swing.JSpinner cbtPolloSpinner;
     private javax.swing.JCheckBox cepitaCheck;
     private javax.swing.JSpinner cepitaSpinner;
     private javax.swing.JCheckBox cervezaCheck;
     private javax.swing.JLabel cervezaPrice;
     private javax.swing.JSpinner cervezaSpinner;
+    private javax.swing.JButton closeSandwichORder;
     private javax.swing.JButton closeTable;
     private javax.swing.JCheckBox cocaColaCheck;
     private javax.swing.JCheckBox cocaLightCheck;
@@ -6087,6 +6659,7 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JCheckBox empanadaPromoCheck;
     private javax.swing.JLabel empanadaPromoPrice;
     private javax.swing.JSpinner empanadaPromoSpinner;
+    private javax.swing.JButton empleadosPromo;
     private javax.swing.JComboBox<String> employeeNameCombo;
     private javax.swing.JCheckBox ensaladaCesarCheck;
     private javax.swing.JLabel ensaladaCesarPrice;
@@ -6119,11 +6692,11 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JCheckBox iceCappuccinoCheck;
     private javax.swing.JLabel iceCapuccinoPrice;
     private javax.swing.JSpinner iceCapuccinoSpinner;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel100;
     private javax.swing.JLabel jLabel101;
+    private javax.swing.JLabel jLabel102;
     private javax.swing.JLabel jLabel103;
     private javax.swing.JLabel jLabel104;
     private javax.swing.JLabel jLabel105;
@@ -6131,16 +6704,26 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel108;
     private javax.swing.JLabel jLabel109;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel110;
     private javax.swing.JLabel jLabel111;
     private javax.swing.JLabel jLabel112;
     private javax.swing.JLabel jLabel113;
     private javax.swing.JLabel jLabel114;
+    private javax.swing.JLabel jLabel115;
     private javax.swing.JLabel jLabel116;
     private javax.swing.JLabel jLabel117;
     private javax.swing.JLabel jLabel118;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel120;
+    private javax.swing.JLabel jLabel121;
+    private javax.swing.JLabel jLabel123;
+    private javax.swing.JLabel jLabel125;
+    private javax.swing.JLabel jLabel127;
+    private javax.swing.JLabel jLabel129;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel130;
+    private javax.swing.JLabel jLabel131;
+    private javax.swing.JLabel jLabel133;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -6218,20 +6801,25 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel81;
     private javax.swing.JLabel jLabel82;
     private javax.swing.JLabel jLabel83;
+    private javax.swing.JLabel jLabel84;
     private javax.swing.JLabel jLabel85;
     private javax.swing.JLabel jLabel86;
+    private javax.swing.JLabel jLabel87;
     private javax.swing.JLabel jLabel88;
     private javax.swing.JLabel jLabel89;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabel90;
     private javax.swing.JLabel jLabel91;
     private javax.swing.JLabel jLabel92;
     private javax.swing.JLabel jLabel93;
+    private javax.swing.JLabel jLabel94;
     private javax.swing.JLabel jLabel95;
     private javax.swing.JLabel jLabel96;
     private javax.swing.JLabel jLabel97;
     private javax.swing.JLabel jLabel99;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
@@ -6261,6 +6849,9 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JSpinner manzanaSpinner;
     private javax.swing.JCheckBox medialunaCheck;
     private javax.swing.JLabel medialunaPrice;
+    private javax.swing.JCheckBox medialunaSdwCheck;
+    private javax.swing.JLabel medialunaSdwPrice;
+    private javax.swing.JSpinner medialunaSdwSpinner;
     private javax.swing.JSpinner medialunaSpinner;
     private javax.swing.JCheckBox milanesaPromoCheck;
     private javax.swing.JLabel milanesaPromoPrice;
@@ -6309,11 +6900,30 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JSpinner sandwichReimsPromoSpinner;
     private javax.swing.JButton savePromoBreakfast;
     private javax.swing.JButton savePromoLunch;
+    private javax.swing.JButton saveSandwichORder;
     private javax.swing.JButton saverAlcoholOrder;
+    private javax.swing.JCheckBox sbtAtunCheck;
+    private javax.swing.JLabel sbtAtunPrice;
+    private javax.swing.JSpinner sbtAtunSpinner;
+    private javax.swing.JCheckBox sbtCrudoCheck;
+    private javax.swing.JLabel sbtCrudoPrice;
+    private javax.swing.JSpinner sbtCrudoSpinner;
+    private javax.swing.JCheckBox sbtMilanesaCheck;
+    private javax.swing.JLabel sbtMilanesaPrice;
+    private javax.swing.JSpinner sbtMilanesaSpinner;
+    private javax.swing.JCheckBox sbtVerdurasCheck;
+    private javax.swing.JLabel sbtVerdurasPrice;
+    private javax.swing.JSpinner sbtVerdurasSpinner;
     private javax.swing.JCheckBox scheweppesPomeloCheck;
     private javax.swing.JSpinner scheweppesPomeloSpinner;
     private javax.swing.JCheckBox scheweppesTonicaCheck;
     private javax.swing.JSpinner scheweppesTonicaSpinner;
+    private javax.swing.JCheckBox sdwEmpandaCheck;
+    private javax.swing.JLabel sdwEmpandaPRice;
+    private javax.swing.JSpinner sdwEmpandaSpinner;
+    private javax.swing.JCheckBox sdwTartasCheck;
+    private javax.swing.JLabel sdwTartasPrice;
+    private javax.swing.JSpinner sdwTartasSpinner;
     private javax.swing.JButton seeConsuming;
     private javax.swing.JCheckBox shakeChocolateCheck;
     private javax.swing.JSpinner shakeChocolateSpinner;
@@ -6353,6 +6963,9 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JSpinner tostadasExpEspSpinner;
     private javax.swing.JLabel tostadasPrice;
     private javax.swing.JSpinner tostadasSpinner;
+    private javax.swing.JCheckBox tostadoSdwCheck;
+    private javax.swing.JLabel tostadoSdwPrice;
+    private javax.swing.JSpinner tostadoSdwSpinner;
     private javax.swing.JLabel totalPayLabel;
     private javax.swing.JLabel userTableCompleteNamePay;
     private javax.swing.JCheckBox waterCheck;
