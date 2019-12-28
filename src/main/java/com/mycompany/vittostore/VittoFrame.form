@@ -7,10 +7,10 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  <Component id="employeeNameCombo" min="-2" pref="245" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="231" max="-2" attributes="0"/>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="-2" pref="302" max="-2" attributes="0"/>
+                  <Component id="whoAmILbl" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -18,45 +18,26 @@
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="jLabel40" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="drinkAlcohol" max="32767" attributes="0"/>
-                                      <Component id="drinkNoAlcohol" max="32767" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="candyProducts" max="32767" attributes="0"/>
-                                      <Component id="saladProducts" min="-2" pref="175" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                                  <Component id="promotions" min="-2" pref="175" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
-                                  <Component id="jLabel43" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace min="0" pref="32" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jSeparator1" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="jLabel50" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              </Group>
                               <Group type="102" attributes="0">
                                   <Component id="seeConsuming" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Component id="closeTable" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                                   <Component id="payAction" min="-2" pref="123" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                                   <Component id="deleteTable" min="-2" pref="120" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="jLabel50" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -64,14 +45,50 @@
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jSeparator1" max="32767" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="302" max="-2" attributes="0"/>
-                  <Component id="whoAmILbl" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="jLabel43" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="employeeNameCombo" min="-2" pref="245" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="231" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="drinkAlcohol" max="32767" attributes="0"/>
+                              <Component id="drinkNoAlcohol" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="candyProducts" max="32767" attributes="0"/>
+                              <Component id="saladProducts" min="-2" pref="175" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace pref="44" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="ComerPromos" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jButton2" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="DesayunoMerienda" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace pref="48" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
+                                  <Component id="jLabel76" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
+                                  <Component id="jLabel77" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                  </Group>
               </Group>
           </Group>
         </DimensionLayout>
@@ -79,21 +96,37 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-                  <Component id="whoAmILbl" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="employeeNameCombo" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                  <Component id="jLabel43" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="promotions" pref="94" max="32767" attributes="0"/>
-                      <Component id="candyProducts" max="32767" attributes="0"/>
-                      <Component id="drinkNoAlcohol" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="whoAmILbl" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="employeeNameCombo" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                          <Component id="jLabel43" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="candyProducts" pref="109" max="32767" attributes="0"/>
+                              <Component id="drinkNoAlcohol" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="jLabel76" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="DesayunoMerienda" min="-2" pref="44" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="ComerPromos" min="-2" pref="38" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="drinkAlcohol" pref="94" max="32767" attributes="0"/>
                       <Component id="saladProducts" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                          <Component id="jLabel77" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="jButton2" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                   <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
@@ -168,12 +201,15 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saladProductsActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="promotions">
+        <Component class="javax.swing.JButton" name="ComerPromos">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Promos Sugeridas"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="11" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Para Comer"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="promotionsActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ComerPromosActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JSeparator" name="jSeparator1">
@@ -218,20 +254,55 @@
             <Property name="text" type="java.lang.String" value="Requiere permisos de administrador"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel43">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Dialog" size="14" style="0"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Productos a Elegir"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JLabel" name="jLabel50">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="14" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Operaciones"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel76">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="12" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Promociones"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="DesayunoMerienda">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="11" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Desayunos Meriendas"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DesayunoMeriendaActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButton2">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="12" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Empleados"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel77">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="11" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Uso Personal"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel43">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="14" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Productos a elegir"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -1581,20 +1652,795 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JFrame" name="SuggestPromosFrm">
+    <Container class="javax.swing.JFrame" name="PromosBreakfastFrm">
 
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="712" max="32767" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="iceCappuccinoCheck" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                          <Component id="iceCapuccinoSpinner" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jLabel118" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                          <Component id="iceCapuccinoPrice" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="frutasCafeTostadoCheck" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                          <Component id="frutaCafeTostadoSpinner" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="jLabel117" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                          <Component id="frutaCafePrice" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="tostadasDobleExprEspCheck" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                          <Component id="tostadasExpEspSpinner" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                          <Component id="jLabel113" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="tostadasExpEspPrice" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="copaYogurtCheck" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                          <Component id="yogurtSpinner" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                          <Component id="jLabel111" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="yogurtPrice" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="licuado2_1_TostadoIndCheck" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
+                          <Component id="licuados_2_1_TostadoSpinner" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                          <Component id="jLabel109" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="licuados_2_1_TostadoPrice" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="milkshakesTortaCheck" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                          <Component id="milkshakesTortaIndividualSpinner" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                          <Component id="jLabel107" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="milkshakesTortaIndividualPrice" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="alfajorMaicenaChocolatadaCheck" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                          <Component id="alfajorMaicenaChocoSpinner" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                          <Component id="jLabel105" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="alfajorMaicenaChocoPrice" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="limonadaTortaIndividiualCheck" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
+                          <Component id="limonadaTortaIndividualSpinner" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                          <Component id="jLabel103" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="limonadaTortaIndPrice" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="licuadoMedioTostadoCheck" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="licuadoMedioTostadoSpinner" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                          <Component id="jLabel101" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="licuadoMedioTostadoPrice" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="naranjaTostadoCheck" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                          <Component id="naranjaTostadoSpinner" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                          <Component id="jLabel99" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="naranjaTostadoPrice" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="naranja2mediaLunasCheck" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="naranja2medialunasSpinner" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                          <Component id="jLabel97" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="naranja2medialunasPrice" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="cappucinoMedialunaCheck" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                          <Component id="cappucinnoMedialunaSpinner" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                          <Component id="jLabel95" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="cappucinoMedialunaPrice" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="cappuccinoTostadasCheck" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jLabel114" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                          <Component id="cappuccinoTostadaSppiner" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                          <Component id="jLabel93" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="cappuccinoTostadaPrice" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="cafeCuadradoDucleCheck" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="cafeCuadraroDulceSpinner" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="32767" attributes="0"/>
+                              <Component id="jLabel89" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="cafeCuadradoDulcePrice" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="cafeTostadoArabeCheck" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                                  <Component id="cafeTostadoArabeSpinner" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="jLabel85" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="cafeArabePrice" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="cafeTortaIndividualCheck" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="cafeTortaIndSpinner" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel83" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="cafeTortaIndPrice" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="cafe2medialunasCheck" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                  <Component id="cafe2MedialunasSpinner" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="jLabel81" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="cafe2medilunasPrice" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="jLabel78" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="cafe2GallesChocoCheck" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                                  <Component id="Cafe2gallesChocoSpinner" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                          <Component id="jLabel91" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="cafe2gallesPrice" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <EmptySpace pref="32" max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="savePromoBreakfast" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="cosePromoBreakfast" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+              </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="517" max="32767" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                  <Component id="jLabel78" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="cafe2medialunasCheck" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cafe2medilunasPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel81" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cafe2MedialunasSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="cafeTortaIndividualCheck" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cafeTortaIndPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel83" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cafeTortaIndSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="cafeTostadoArabeCheck" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cafeArabePrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel85" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cafeTostadoArabeSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="cafeCuadradoDucleCheck" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cafeCuadradoDulcePrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel89" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cafeCuadraroDulceSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="cafe2GallesChocoCheck" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cafe2gallesPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel91" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="Cafe2gallesChocoSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="cappuccinoTostadasCheck" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cappuccinoTostadaPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel93" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cappuccinoTostadaSppiner" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel114" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="cappucinoMedialunaCheck" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cappucinoMedialunaPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel95" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cappucinnoMedialunaSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="naranja2mediaLunasCheck" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="naranja2medialunasPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel97" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="naranja2medialunasSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="naranjaTostadoCheck" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="naranjaTostadoPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel99" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="naranjaTostadoSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="licuadoMedioTostadoCheck" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="licuadoMedioTostadoPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel101" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="licuadoMedioTostadoSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="limonadaTortaIndividiualCheck" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="limonadaTortaIndPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel103" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="limonadaTortaIndividualSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="alfajorMaicenaChocolatadaCheck" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="alfajorMaicenaChocoPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel105" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="alfajorMaicenaChocoSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="milkshakesTortaCheck" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="milkshakesTortaIndividualPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel107" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="milkshakesTortaIndividualSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="licuado2_1_TostadoIndCheck" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="licuados_2_1_TostadoPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel109" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="licuados_2_1_TostadoSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="copaYogurtCheck" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="yogurtPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel111" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="yogurtSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="tostadasDobleExprEspCheck" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tostadasExpEspPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel113" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tostadasExpEspSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="frutasCafeTostadoCheck" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="frutaCafePrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="frutaCafeTostadoSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel117" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="iceCappuccinoCheck" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="iceCapuccinoPrice" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="iceCapuccinoSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel118" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="savePromoBreakfast" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cosePromoBreakfast" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="30" max="32767" attributes="0"/>
+              </Group>
           </Group>
         </DimensionLayout>
       </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="jLabel78">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="18" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Desayunos y Meriendas"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="cafe2medialunasCheck">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Caf&#xe9; + 2 Medialunas "/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cafe2medialunasCheckActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="cafe2medilunasPrice">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="125"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel81">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="$"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JSpinner" name="cafe2MedialunasSpinner">
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="cafeTortaIndividualCheck">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Caf&#xe9; + Torta individual"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cafeTortaIndividualCheckActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="cafeTortaIndPrice">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="275"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel83">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="$"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JSpinner" name="cafeTortaIndSpinner">
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="cafeTostadoArabeCheck">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Caf&#xe9; + Tostado &#xc1;rabe"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cafeTostadoArabeCheckActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="cafeArabePrice">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="250"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel85">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="$"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JSpinner" name="cafeTostadoArabeSpinner">
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="cafeCuadradoDucleCheck">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Caf&#xe9; + Cuadrado Dulce"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cafeCuadradoDucleCheckActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="cafeCuadradoDulcePrice">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="190"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel89">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="$"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JSpinner" name="cafeCuadraroDulceSpinner">
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="cafe2GallesChocoCheck">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Caf&#xe9; + 2 Galletas de chip de chocolate artesanales"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cafe2GallesChocoCheckActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="cafe2gallesPrice">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="125"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel91">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="$"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JSpinner" name="Cafe2gallesChocoSpinner">
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="cappuccinoTostadasCheck">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cappuccino + Tostadas integrales"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cappuccinoTostadasCheckActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="cappuccinoTostadaPrice">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="250"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel93">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="$"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JSpinner" name="cappuccinoTostadaSppiner">
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="cappucinoMedialunaCheck">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Cappuccino + Medialuna Jyq"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cappucinoMedialunaCheckActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="cappucinoMedialunaPrice">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="180"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel95">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="$"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JSpinner" name="cappucinnoMedialunaSpinner">
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="naranja2mediaLunasCheck">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Exprimido de Naranja + 2 Medialunas Jyq"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="naranja2mediaLunasCheckActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JSpinner" name="naranja2medialunasSpinner">
+        </Component>
+        <Component class="javax.swing.JLabel" name="naranja2medialunasPrice">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="250"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel97">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="$"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="naranjaTostadoCheck">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Exprimido de Naranja + Tostado"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="naranjaTostadoCheckActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JSpinner" name="naranjaTostadoSpinner">
+        </Component>
+        <Component class="javax.swing.JLabel" name="naranjaTostadoPrice">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="330"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel99">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="$"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="licuadoMedioTostadoCheck">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Licuado(banana, durazno, frutilla) + &#xbd; tostado"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="licuadoMedioTostadoCheckActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JSpinner" name="licuadoMedioTostadoSpinner">
+        </Component>
+        <Component class="javax.swing.JLabel" name="licuadoMedioTostadoPrice">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="250"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel101">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="$"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="limonadaTortaIndividiualCheck">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Limonada + Torta Individual"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="limonadaTortaIndividiualCheckActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JSpinner" name="limonadaTortaIndividualSpinner">
+        </Component>
+        <Component class="javax.swing.JLabel" name="limonadaTortaIndPrice">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="300"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel103">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="$"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="alfajorMaicenaChocolatadaCheck">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Alfajor de Maicena + Chocolatada"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="alfajorMaicenaChocolatadaCheckActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JSpinner" name="alfajorMaicenaChocoSpinner">
+        </Component>
+        <Component class="javax.swing.JLabel" name="alfajorMaicenaChocoPrice">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="180"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel105">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="$"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="milkshakesTortaCheck">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="2 Milkshakes + Torta Individual"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="milkshakesTortaCheckActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JSpinner" name="milkshakesTortaIndividualSpinner">
+        </Component>
+        <Component class="javax.swing.JLabel" name="milkshakesTortaIndividualPrice">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="400"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel107">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="$"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="licuado2_1_TostadoIndCheck">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="2 Licuados + 1 Tostado"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="licuado2_1_TostadoIndCheckActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JSpinner" name="licuados_2_1_TostadoSpinner">
+        </Component>
+        <Component class="javax.swing.JLabel" name="licuados_2_1_TostadoPrice">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="380"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel109">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="$"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="copaYogurtCheck">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Copa de yogurt con granola patag&#xf3;nica y colch&#xf3;n de frutas"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="copaYogurtCheckActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JSpinner" name="yogurtSpinner">
+        </Component>
+        <Component class="javax.swing.JLabel" name="yogurtPrice">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="145"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel111">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="$"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="tostadasDobleExprEspCheck">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Tostadas (2) con queso crema, laminas de fruta y miel + exprimido +espresso"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tostadasDobleExprEspCheckActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JSpinner" name="tostadasExpEspSpinner">
+        </Component>
+        <Component class="javax.swing.JLabel" name="tostadasExpEspPrice">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="300"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel113">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="$"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel114">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="11" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="con queso crema y mermelada o dulce de leche"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="frutasCafeTostadoCheck">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Frutas de estaci&#xf3;n + caf&#xe9; + &#xbd; tostado"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="frutasCafeTostadoCheckActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JSpinner" name="frutaCafeTostadoSpinner">
+        </Component>
+        <Component class="javax.swing.JLabel" name="frutaCafePrice">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="300"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="iceCappuccinoCheck">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Ice capuccino + alfajor"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="iceCappuccinoCheckActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JSpinner" name="iceCapuccinoSpinner">
+        </Component>
+        <Component class="javax.swing.JLabel" name="iceCapuccinoPrice">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="140"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="savePromoBreakfast">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="12" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Guardar Orden"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="savePromoBreakfastActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="cosePromoBreakfast">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="12" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Cancelar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cosePromoBreakfastActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel117">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="$"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel118">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Dialog" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="$"/>
+          </Properties>
+        </Component>
+      </SubComponents>
     </Container>
     <Container class="javax.swing.JFrame" name="PayTableFrm">
 
@@ -2570,6 +3416,21 @@
           </Properties>
         </Component>
       </SubComponents>
+    </Container>
+    <Container class="javax.swing.JFrame" name="PromosLunchFrm">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="712" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <EmptySpace min="0" pref="517" max="32767" attributes="0"/>
+          </Group>
+        </DimensionLayout>
+      </Layout>
     </Container>
   </NonVisualComponents>
   <Properties>

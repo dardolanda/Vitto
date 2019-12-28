@@ -29,6 +29,7 @@ import com.mycompany.vittostore.generalitems.AlcoholDrinksEnum;
 import com.mycompany.vittostore.generalitems.GenericSelectedComponent;
 import com.mycompany.vittostore.generalitems.PaymentMethodsEnum;
 import com.mycompany.vittostore.generalitems.ProductTypeEnum;
+import com.mycompany.vittostore.generalitems.PromotionBreakfast;
 import com.mycompany.vittostore.generalitems.SweetProductsEnum;
 import java.awt.Component;
 import java.awt.event.KeyAdapter;
@@ -144,6 +145,28 @@ public class VittoFrame extends javax.swing.JFrame {
          * Bebidas alcoholicas.
          */
         this.selectedComponentMap.put(AlcoholDrinksEnum.CERVEZA.name(), new GenericSelectedComponent(this.cervezaCheck, this.cervezaSpinner));
+        
+        /**
+         * Promos Meriendas
+         */        
+        this.selectedComponentMap.put(PromotionBreakfast.CAFE_2_MEDIALUNAS.name(),new GenericSelectedComponent((this.cafe2medialunasCheck), this.cafe2MedialunasSpinner));
+        this.selectedComponentMap.put(PromotionBreakfast.CAFE_TORTA_INDIVIDUAL.name(),new GenericSelectedComponent((this.cafeTortaIndividualCheck), this.cafeTortaIndSpinner));
+        this.selectedComponentMap.put(PromotionBreakfast.CAFE_TOSTADO_ARABE.name(),new GenericSelectedComponent((this.cafeTostadoArabeCheck), this.cafeTostadoArabeSpinner));
+        this.selectedComponentMap.put(PromotionBreakfast.CAFE_CUADRADO_DULCE.name(),new GenericSelectedComponent((this.cafeCuadradoDucleCheck), this.cafeCuadraroDulceSpinner));
+        this.selectedComponentMap.put(PromotionBreakfast.CAFE_GALLETAS_CHOCO.name(),new GenericSelectedComponent((this.cafe2GallesChocoCheck), this.Cafe2gallesChocoSpinner));
+        this.selectedComponentMap.put(PromotionBreakfast.CAPPUCCINO_TOSTADAS.name(),new GenericSelectedComponent((this.cappuccinoTostadasCheck), this.cappuccinoTostadaSppiner));
+        this.selectedComponentMap.put(PromotionBreakfast.CAPPUCCINO_MEDIALUNAS.name(),new GenericSelectedComponent((this.cappucinoMedialunaCheck), this.cappucinnoMedialunaSpinner));
+        this.selectedComponentMap.put(PromotionBreakfast.NARANJA_MEDIALUNAS.name(),new GenericSelectedComponent((this.naranja2mediaLunasCheck), this.naranja2medialunasSpinner));
+        this.selectedComponentMap.put(PromotionBreakfast.NARANJA_TOSTADOS.name(),new GenericSelectedComponent((this.naranjaTostadoCheck), this.naranjaTostadoSpinner));
+        this.selectedComponentMap.put(PromotionBreakfast.LICUADO_medio_TOSTADO.name(),new GenericSelectedComponent((this.licuadoMedioTostadoCheck), this.licuadoMedioTostadoSpinner));
+        this.selectedComponentMap.put(PromotionBreakfast.LIMONADA_TORTA_IND.name(),new GenericSelectedComponent((this.limonadaTortaIndividiualCheck), this.limonadaTortaIndividualSpinner));
+        this.selectedComponentMap.put(PromotionBreakfast.ALFAJOR_MAICENA_CHOCO.name(),new GenericSelectedComponent((this.alfajorMaicenaChocolatadaCheck), this.alfajorMaicenaChocoSpinner));
+        this.selectedComponentMap.put(PromotionBreakfast.MILKSHAKES_TORTA_IND.name(),new GenericSelectedComponent((this.milkshakesTortaCheck), this.milkshakesTortaIndividualSpinner));
+        this.selectedComponentMap.put(PromotionBreakfast.LICUADOS_2_1_TOSTADO.name(),new GenericSelectedComponent((this.licuado2_1_TostadoIndCheck), this.licuados_2_1_TostadoSpinner));
+        this.selectedComponentMap.put(PromotionBreakfast.COPA_YOGURT.name(),new GenericSelectedComponent((this.copaYogurtCheck), this.yogurtSpinner));
+        this.selectedComponentMap.put(PromotionBreakfast.TOSTADAS_EXP_ESP.name(),new GenericSelectedComponent((this.tostadasDobleExprEspCheck), this.tostadasExpEspSpinner));
+        this.selectedComponentMap.put(PromotionBreakfast.FRUTA_CAFE_TOSTADO.name(),new GenericSelectedComponent((this.frutasCafeTostadoCheck), this.frutaCafeTostadoSpinner));
+        this.selectedComponentMap.put(PromotionBreakfast.ICE_CAPPUCCINO.name(),new GenericSelectedComponent((this.iceCappuccinoCheck), this.iceCapuccinoSpinner));
 
     }
 
@@ -220,15 +243,19 @@ public class VittoFrame extends javax.swing.JFrame {
         drinkAlcohol = new javax.swing.JButton();
         candyProducts = new javax.swing.JButton();
         saladProducts = new javax.swing.JButton();
-        promotions = new javax.swing.JButton();
+        ComerPromos = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         payAction = new javax.swing.JButton();
         seeConsuming = new javax.swing.JButton();
         deleteTable = new javax.swing.JButton();
         closeTable = new javax.swing.JButton();
         jLabel40 = new javax.swing.JLabel();
-        jLabel43 = new javax.swing.JLabel();
         jLabel50 = new javax.swing.JLabel();
+        jLabel76 = new javax.swing.JLabel();
+        DesayunoMerienda = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jLabel77 = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
         DrinkNoAlcoholFrame = new javax.swing.JFrame();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -343,7 +370,83 @@ public class VittoFrame extends javax.swing.JFrame {
         MesaLabel = new javax.swing.JLabel();
         TotalLabel = new javax.swing.JLabel();
         CloseTableButton = new javax.swing.JButton();
-        SuggestPromosFrm = new javax.swing.JFrame();
+        PromosBreakfastFrm = new javax.swing.JFrame();
+        jLabel78 = new javax.swing.JLabel();
+        cafe2medialunasCheck = new javax.swing.JCheckBox();
+        cafe2medilunasPrice = new javax.swing.JLabel();
+        jLabel81 = new javax.swing.JLabel();
+        cafe2MedialunasSpinner = new javax.swing.JSpinner();
+        cafeTortaIndividualCheck = new javax.swing.JCheckBox();
+        cafeTortaIndPrice = new javax.swing.JLabel();
+        jLabel83 = new javax.swing.JLabel();
+        cafeTortaIndSpinner = new javax.swing.JSpinner();
+        cafeTostadoArabeCheck = new javax.swing.JCheckBox();
+        cafeArabePrice = new javax.swing.JLabel();
+        jLabel85 = new javax.swing.JLabel();
+        cafeTostadoArabeSpinner = new javax.swing.JSpinner();
+        cafeCuadradoDucleCheck = new javax.swing.JCheckBox();
+        cafeCuadradoDulcePrice = new javax.swing.JLabel();
+        jLabel89 = new javax.swing.JLabel();
+        cafeCuadraroDulceSpinner = new javax.swing.JSpinner();
+        cafe2GallesChocoCheck = new javax.swing.JCheckBox();
+        cafe2gallesPrice = new javax.swing.JLabel();
+        jLabel91 = new javax.swing.JLabel();
+        Cafe2gallesChocoSpinner = new javax.swing.JSpinner();
+        cappuccinoTostadasCheck = new javax.swing.JCheckBox();
+        cappuccinoTostadaPrice = new javax.swing.JLabel();
+        jLabel93 = new javax.swing.JLabel();
+        cappuccinoTostadaSppiner = new javax.swing.JSpinner();
+        cappucinoMedialunaCheck = new javax.swing.JCheckBox();
+        cappucinoMedialunaPrice = new javax.swing.JLabel();
+        jLabel95 = new javax.swing.JLabel();
+        cappucinnoMedialunaSpinner = new javax.swing.JSpinner();
+        naranja2mediaLunasCheck = new javax.swing.JCheckBox();
+        naranja2medialunasSpinner = new javax.swing.JSpinner();
+        naranja2medialunasPrice = new javax.swing.JLabel();
+        jLabel97 = new javax.swing.JLabel();
+        naranjaTostadoCheck = new javax.swing.JCheckBox();
+        naranjaTostadoSpinner = new javax.swing.JSpinner();
+        naranjaTostadoPrice = new javax.swing.JLabel();
+        jLabel99 = new javax.swing.JLabel();
+        licuadoMedioTostadoCheck = new javax.swing.JCheckBox();
+        licuadoMedioTostadoSpinner = new javax.swing.JSpinner();
+        licuadoMedioTostadoPrice = new javax.swing.JLabel();
+        jLabel101 = new javax.swing.JLabel();
+        limonadaTortaIndividiualCheck = new javax.swing.JCheckBox();
+        limonadaTortaIndividualSpinner = new javax.swing.JSpinner();
+        limonadaTortaIndPrice = new javax.swing.JLabel();
+        jLabel103 = new javax.swing.JLabel();
+        alfajorMaicenaChocolatadaCheck = new javax.swing.JCheckBox();
+        alfajorMaicenaChocoSpinner = new javax.swing.JSpinner();
+        alfajorMaicenaChocoPrice = new javax.swing.JLabel();
+        jLabel105 = new javax.swing.JLabel();
+        milkshakesTortaCheck = new javax.swing.JCheckBox();
+        milkshakesTortaIndividualSpinner = new javax.swing.JSpinner();
+        milkshakesTortaIndividualPrice = new javax.swing.JLabel();
+        jLabel107 = new javax.swing.JLabel();
+        licuado2_1_TostadoIndCheck = new javax.swing.JCheckBox();
+        licuados_2_1_TostadoSpinner = new javax.swing.JSpinner();
+        licuados_2_1_TostadoPrice = new javax.swing.JLabel();
+        jLabel109 = new javax.swing.JLabel();
+        copaYogurtCheck = new javax.swing.JCheckBox();
+        yogurtSpinner = new javax.swing.JSpinner();
+        yogurtPrice = new javax.swing.JLabel();
+        jLabel111 = new javax.swing.JLabel();
+        tostadasDobleExprEspCheck = new javax.swing.JCheckBox();
+        tostadasExpEspSpinner = new javax.swing.JSpinner();
+        tostadasExpEspPrice = new javax.swing.JLabel();
+        jLabel113 = new javax.swing.JLabel();
+        jLabel114 = new javax.swing.JLabel();
+        frutasCafeTostadoCheck = new javax.swing.JCheckBox();
+        frutaCafeTostadoSpinner = new javax.swing.JSpinner();
+        frutaCafePrice = new javax.swing.JLabel();
+        iceCappuccinoCheck = new javax.swing.JCheckBox();
+        iceCapuccinoSpinner = new javax.swing.JSpinner();
+        iceCapuccinoPrice = new javax.swing.JLabel();
+        savePromoBreakfast = new javax.swing.JButton();
+        cosePromoBreakfast = new javax.swing.JButton();
+        jLabel117 = new javax.swing.JLabel();
+        jLabel118 = new javax.swing.JLabel();
         PayTableFrm = new javax.swing.JFrame();
         jLabel11 = new javax.swing.JLabel();
         totalPayLabel = new javax.swing.JLabel();
@@ -415,6 +518,7 @@ public class VittoFrame extends javax.swing.JFrame {
         deleteTableButton = new javax.swing.JButton();
         AdminUserPassword = new javax.swing.JPasswordField();
         jLabel75 = new javax.swing.JLabel();
+        PromosLunchFrm = new javax.swing.JFrame();
         tableOne = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         tableTwo = new javax.swing.JButton();
@@ -499,10 +603,11 @@ public class VittoFrame extends javax.swing.JFrame {
             }
         });
 
-        promotions.setText("Promos Sugeridas");
-        promotions.addActionListener(new java.awt.event.ActionListener() {
+        ComerPromos.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        ComerPromos.setText("Para Comer");
+        ComerPromos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                promotionsActionPerformed(evt);
+                ComerPromosActionPerformed(evt);
             }
         });
 
@@ -537,85 +642,126 @@ public class VittoFrame extends javax.swing.JFrame {
         jLabel40.setFont(new java.awt.Font("Dialog", 0, 10)); // NOI18N
         jLabel40.setText("Requiere permisos de administrador");
 
-        jLabel43.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel43.setText("Productos a Elegir");
-
         jLabel50.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel50.setText("Operaciones");
+
+        jLabel76.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jLabel76.setText("Promociones");
+
+        DesayunoMerienda.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        DesayunoMerienda.setText("Desayunos Meriendas");
+        DesayunoMerienda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DesayunoMeriendaActionPerformed(evt);
+            }
+        });
+
+        jButton2.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jButton2.setText("Empleados");
+
+        jLabel77.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        jLabel77.setText("Uso Personal");
+
+        jLabel43.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel43.setText("Productos a elegir");
 
         javax.swing.GroupLayout SelectOrderLayout = new javax.swing.GroupLayout(SelectOrder.getContentPane());
         SelectOrder.getContentPane().setLayout(SelectOrderLayout);
         SelectOrderLayout.setHorizontalGroup(
             SelectOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SelectOrderLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(employeeNameCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(231, 231, 231))
+            .addGroup(SelectOrderLayout.createSequentialGroup()
+                .addGap(302, 302, 302)
+                .addComponent(whoAmILbl)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(SelectOrderLayout.createSequentialGroup()
                 .addGroup(SelectOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SelectOrderLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel40))
                     .addGroup(SelectOrderLayout.createSequentialGroup()
-                        .addGroup(SelectOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(SelectOrderLayout.createSequentialGroup()
-                                .addGap(56, 56, 56)
-                                .addGroup(SelectOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(drinkAlcohol, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(drinkNoAlcohol, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(44, 44, 44)
-                                .addGroup(SelectOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(candyProducts, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(saladProducts, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(41, 41, 41)
-                                .addComponent(promotions, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(SelectOrderLayout.createSequentialGroup()
-                                .addGap(64, 64, 64)
-                                .addComponent(jLabel43)))
-                        .addGap(0, 32, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(jSeparator1))
                     .addGroup(SelectOrderLayout.createSequentialGroup()
-                        .addGap(34, 34, 34)
+                        .addGap(50, 50, 50)
                         .addGroup(SelectOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(SelectOrderLayout.createSequentialGroup()
-                                .addComponent(jLabel50)
-                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(SelectOrderLayout.createSequentialGroup()
                                 .addComponent(seeConsuming)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(closeTable)
-                                .addGap(50, 50, 50)
+                                .addGap(46, 46, 46)
                                 .addComponent(payAction, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(48, 48, 48)
+                                .addGap(38, 38, 38)
                                 .addComponent(deleteTable, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(35, 35, 35)))))
+                                .addGap(35, 35, 35))
+                            .addGroup(SelectOrderLayout.createSequentialGroup()
+                                .addComponent(jLabel50)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
             .addGroup(SelectOrderLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jSeparator1)
-                .addContainerGap())
-            .addGroup(SelectOrderLayout.createSequentialGroup()
-                .addGap(302, 302, 302)
-                .addComponent(whoAmILbl)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(50, 50, 50)
+                .addGroup(SelectOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(SelectOrderLayout.createSequentialGroup()
+                        .addComponent(jLabel43)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(SelectOrderLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(employeeNameCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(231, 231, 231))
+                    .addGroup(SelectOrderLayout.createSequentialGroup()
+                        .addGroup(SelectOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(drinkAlcohol, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(drinkNoAlcohol, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(44, 44, 44)
+                        .addGroup(SelectOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(candyProducts, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(saladProducts, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(SelectOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(SelectOrderLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                                .addGroup(SelectOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(ComerPromos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(DesayunoMerienda, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addContainerGap(48, Short.MAX_VALUE))
+                            .addGroup(SelectOrderLayout.createSequentialGroup()
+                                .addGap(82, 82, 82)
+                                .addComponent(jLabel76)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(SelectOrderLayout.createSequentialGroup()
+                                .addGap(81, 81, 81)
+                                .addComponent(jLabel77)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
         );
         SelectOrderLayout.setVerticalGroup(
             SelectOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SelectOrderLayout.createSequentialGroup()
                 .addGap(7, 7, 7)
-                .addComponent(whoAmILbl)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(employeeNameCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14)
-                .addComponent(jLabel43)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(SelectOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(promotions, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
-                    .addComponent(candyProducts, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(drinkNoAlcohol, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(SelectOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(SelectOrderLayout.createSequentialGroup()
+                        .addComponent(whoAmILbl)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(employeeNameCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel43)
+                        .addGap(18, 18, 18)
+                        .addGroup(SelectOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(candyProducts, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
+                            .addComponent(drinkNoAlcohol, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(SelectOrderLayout.createSequentialGroup()
+                        .addComponent(jLabel76)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(DesayunoMerienda, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ComerPromos, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(SelectOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(drinkAlcohol, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
-                    .addComponent(saladProducts, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(saladProducts, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(SelectOrderLayout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jLabel77)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(31, 31, 31)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1544,15 +1690,529 @@ public class VittoFrame extends javax.swing.JFrame {
                     .addContainerGap(337, Short.MAX_VALUE)))
         );
 
-        javax.swing.GroupLayout SuggestPromosFrmLayout = new javax.swing.GroupLayout(SuggestPromosFrm.getContentPane());
-        SuggestPromosFrm.getContentPane().setLayout(SuggestPromosFrmLayout);
-        SuggestPromosFrmLayout.setHorizontalGroup(
-            SuggestPromosFrmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 712, Short.MAX_VALUE)
+        jLabel78.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel78.setText("Desayunos y Meriendas");
+
+        cafe2medialunasCheck.setText("Café + 2 Medialunas ");
+        cafe2medialunasCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cafe2medialunasCheckActionPerformed(evt);
+            }
+        });
+
+        cafe2medilunasPrice.setText("125");
+
+        jLabel81.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel81.setText("$");
+
+        cafeTortaIndividualCheck.setText("Café + Torta individual");
+        cafeTortaIndividualCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cafeTortaIndividualCheckActionPerformed(evt);
+            }
+        });
+
+        cafeTortaIndPrice.setText("275");
+
+        jLabel83.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel83.setText("$");
+
+        cafeTostadoArabeCheck.setText("Café + Tostado Árabe");
+        cafeTostadoArabeCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cafeTostadoArabeCheckActionPerformed(evt);
+            }
+        });
+
+        cafeArabePrice.setText("250");
+
+        jLabel85.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel85.setText("$");
+
+        cafeCuadradoDucleCheck.setText("Café + Cuadrado Dulce");
+        cafeCuadradoDucleCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cafeCuadradoDucleCheckActionPerformed(evt);
+            }
+        });
+
+        cafeCuadradoDulcePrice.setText("190");
+
+        jLabel89.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel89.setText("$");
+
+        cafe2GallesChocoCheck.setText("Café + 2 Galletas de chip de chocolate artesanales");
+        cafe2GallesChocoCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cafe2GallesChocoCheckActionPerformed(evt);
+            }
+        });
+
+        cafe2gallesPrice.setText("125");
+
+        jLabel91.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel91.setText("$");
+
+        cappuccinoTostadasCheck.setText("Cappuccino + Tostadas integrales");
+        cappuccinoTostadasCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cappuccinoTostadasCheckActionPerformed(evt);
+            }
+        });
+
+        cappuccinoTostadaPrice.setText("250");
+
+        jLabel93.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel93.setText("$");
+
+        cappucinoMedialunaCheck.setText("Cappuccino + Medialuna Jyq");
+        cappucinoMedialunaCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cappucinoMedialunaCheckActionPerformed(evt);
+            }
+        });
+
+        cappucinoMedialunaPrice.setText("180");
+
+        jLabel95.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel95.setText("$");
+
+        naranja2mediaLunasCheck.setText("Exprimido de Naranja + 2 Medialunas Jyq");
+        naranja2mediaLunasCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                naranja2mediaLunasCheckActionPerformed(evt);
+            }
+        });
+
+        naranja2medialunasPrice.setText("250");
+
+        jLabel97.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel97.setText("$");
+
+        naranjaTostadoCheck.setText("Exprimido de Naranja + Tostado");
+        naranjaTostadoCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                naranjaTostadoCheckActionPerformed(evt);
+            }
+        });
+
+        naranjaTostadoPrice.setText("330");
+
+        jLabel99.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel99.setText("$");
+
+        licuadoMedioTostadoCheck.setText("Licuado(banana, durazno, frutilla) + ½ tostado");
+        licuadoMedioTostadoCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                licuadoMedioTostadoCheckActionPerformed(evt);
+            }
+        });
+
+        licuadoMedioTostadoPrice.setText("250");
+
+        jLabel101.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel101.setText("$");
+
+        limonadaTortaIndividiualCheck.setText("Limonada + Torta Individual");
+        limonadaTortaIndividiualCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                limonadaTortaIndividiualCheckActionPerformed(evt);
+            }
+        });
+
+        limonadaTortaIndPrice.setText("300");
+
+        jLabel103.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel103.setText("$");
+
+        alfajorMaicenaChocolatadaCheck.setText("Alfajor de Maicena + Chocolatada");
+        alfajorMaicenaChocolatadaCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alfajorMaicenaChocolatadaCheckActionPerformed(evt);
+            }
+        });
+
+        alfajorMaicenaChocoPrice.setText("180");
+
+        jLabel105.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel105.setText("$");
+
+        milkshakesTortaCheck.setText("2 Milkshakes + Torta Individual");
+        milkshakesTortaCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                milkshakesTortaCheckActionPerformed(evt);
+            }
+        });
+
+        milkshakesTortaIndividualPrice.setText("400");
+
+        jLabel107.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel107.setText("$");
+
+        licuado2_1_TostadoIndCheck.setText("2 Licuados + 1 Tostado");
+        licuado2_1_TostadoIndCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                licuado2_1_TostadoIndCheckActionPerformed(evt);
+            }
+        });
+
+        licuados_2_1_TostadoPrice.setText("380");
+
+        jLabel109.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel109.setText("$");
+
+        copaYogurtCheck.setText("Copa de yogurt con granola patagónica y colchón de frutas");
+        copaYogurtCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                copaYogurtCheckActionPerformed(evt);
+            }
+        });
+
+        yogurtPrice.setText("145");
+
+        jLabel111.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel111.setText("$");
+
+        tostadasDobleExprEspCheck.setText("Tostadas (2) con queso crema, laminas de fruta y miel + exprimido +espresso");
+        tostadasDobleExprEspCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tostadasDobleExprEspCheckActionPerformed(evt);
+            }
+        });
+
+        tostadasExpEspPrice.setText("300");
+
+        jLabel113.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel113.setText("$");
+
+        jLabel114.setFont(new java.awt.Font("Dialog", 0, 11)); // NOI18N
+        jLabel114.setText("con queso crema y mermelada o dulce de leche");
+
+        frutasCafeTostadoCheck.setText("Frutas de estación + café + ½ tostado");
+        frutasCafeTostadoCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                frutasCafeTostadoCheckActionPerformed(evt);
+            }
+        });
+
+        frutaCafePrice.setText("300");
+
+        iceCappuccinoCheck.setText("Ice capuccino + alfajor");
+        iceCappuccinoCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                iceCappuccinoCheckActionPerformed(evt);
+            }
+        });
+
+        iceCapuccinoPrice.setText("140");
+
+        savePromoBreakfast.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        savePromoBreakfast.setText("Guardar Orden");
+        savePromoBreakfast.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                savePromoBreakfastActionPerformed(evt);
+            }
+        });
+
+        cosePromoBreakfast.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        cosePromoBreakfast.setText("Cancelar");
+        cosePromoBreakfast.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cosePromoBreakfastActionPerformed(evt);
+            }
+        });
+
+        jLabel117.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel117.setText("$");
+
+        jLabel118.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel118.setText("$");
+
+        javax.swing.GroupLayout PromosBreakfastFrmLayout = new javax.swing.GroupLayout(PromosBreakfastFrm.getContentPane());
+        PromosBreakfastFrm.getContentPane().setLayout(PromosBreakfastFrmLayout);
+        PromosBreakfastFrmLayout.setHorizontalGroup(
+            PromosBreakfastFrmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PromosBreakfastFrmLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addGroup(PromosBreakfastFrmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PromosBreakfastFrmLayout.createSequentialGroup()
+                        .addComponent(iceCappuccinoCheck)
+                        .addGap(33, 33, 33)
+                        .addComponent(iceCapuccinoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel118)
+                        .addGap(1, 1, 1)
+                        .addComponent(iceCapuccinoPrice))
+                    .addGroup(PromosBreakfastFrmLayout.createSequentialGroup()
+                        .addComponent(frutasCafeTostadoCheck)
+                        .addGap(18, 18, 18)
+                        .addComponent(frutaCafeTostadoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel117)
+                        .addGap(7, 7, 7)
+                        .addComponent(frutaCafePrice))
+                    .addGroup(PromosBreakfastFrmLayout.createSequentialGroup()
+                        .addComponent(tostadasDobleExprEspCheck)
+                        .addGap(18, 18, 18)
+                        .addComponent(tostadasExpEspSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(13, 13, 13)
+                        .addComponent(jLabel113)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tostadasExpEspPrice))
+                    .addGroup(PromosBreakfastFrmLayout.createSequentialGroup()
+                        .addComponent(copaYogurtCheck)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(yogurtSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(13, 13, 13)
+                        .addComponent(jLabel111)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(yogurtPrice))
+                    .addGroup(PromosBreakfastFrmLayout.createSequentialGroup()
+                        .addComponent(licuado2_1_TostadoIndCheck)
+                        .addGap(99, 99, 99)
+                        .addComponent(licuados_2_1_TostadoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(13, 13, 13)
+                        .addComponent(jLabel109)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(licuados_2_1_TostadoPrice))
+                    .addGroup(PromosBreakfastFrmLayout.createSequentialGroup()
+                        .addComponent(milkshakesTortaCheck)
+                        .addGap(42, 42, 42)
+                        .addComponent(milkshakesTortaIndividualSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(13, 13, 13)
+                        .addComponent(jLabel107)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(milkshakesTortaIndividualPrice))
+                    .addGroup(PromosBreakfastFrmLayout.createSequentialGroup()
+                        .addComponent(alfajorMaicenaChocolatadaCheck)
+                        .addGap(23, 23, 23)
+                        .addComponent(alfajorMaicenaChocoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(13, 13, 13)
+                        .addComponent(jLabel105)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(alfajorMaicenaChocoPrice))
+                    .addGroup(PromosBreakfastFrmLayout.createSequentialGroup()
+                        .addComponent(limonadaTortaIndividiualCheck)
+                        .addGap(66, 66, 66)
+                        .addComponent(limonadaTortaIndividualSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(13, 13, 13)
+                        .addComponent(jLabel103)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(limonadaTortaIndPrice))
+                    .addGroup(PromosBreakfastFrmLayout.createSequentialGroup()
+                        .addComponent(licuadoMedioTostadoCheck)
+                        .addGap(32, 32, 32)
+                        .addComponent(licuadoMedioTostadoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(13, 13, 13)
+                        .addComponent(jLabel101)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(licuadoMedioTostadoPrice))
+                    .addGroup(PromosBreakfastFrmLayout.createSequentialGroup()
+                        .addComponent(naranjaTostadoCheck)
+                        .addGap(42, 42, 42)
+                        .addComponent(naranjaTostadoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(13, 13, 13)
+                        .addComponent(jLabel99)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(naranjaTostadoPrice))
+                    .addGroup(PromosBreakfastFrmLayout.createSequentialGroup()
+                        .addComponent(naranja2mediaLunasCheck)
+                        .addGap(30, 30, 30)
+                        .addComponent(naranja2medialunasSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(13, 13, 13)
+                        .addComponent(jLabel97)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(naranja2medialunasPrice))
+                    .addGroup(PromosBreakfastFrmLayout.createSequentialGroup()
+                        .addComponent(cappucinoMedialunaCheck)
+                        .addGap(23, 23, 23)
+                        .addComponent(cappucinnoMedialunaSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(13, 13, 13)
+                        .addComponent(jLabel95)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cappucinoMedialunaPrice))
+                    .addGroup(PromosBreakfastFrmLayout.createSequentialGroup()
+                        .addComponent(cappuccinoTostadasCheck)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel114)
+                        .addGap(26, 26, 26)
+                        .addComponent(cappuccinoTostadaSppiner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(13, 13, 13)
+                        .addComponent(jLabel93)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cappuccinoTostadaPrice))
+                    .addGroup(PromosBreakfastFrmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(PromosBreakfastFrmLayout.createSequentialGroup()
+                            .addComponent(cafeCuadradoDucleCheck)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(cafeCuadraroDulceSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel89)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(cafeCuadradoDulcePrice))
+                        .addGroup(PromosBreakfastFrmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PromosBreakfastFrmLayout.createSequentialGroup()
+                                .addComponent(cafeTostadoArabeCheck)
+                                .addGap(13, 13, 13)
+                                .addComponent(cafeTostadoArabeSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel85)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cafeArabePrice))
+                            .addGroup(PromosBreakfastFrmLayout.createSequentialGroup()
+                                .addComponent(cafeTortaIndividualCheck)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cafeTortaIndSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel83)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cafeTortaIndPrice))
+                            .addGroup(PromosBreakfastFrmLayout.createSequentialGroup()
+                                .addComponent(cafe2medialunasCheck)
+                                .addGap(18, 18, 18)
+                                .addComponent(cafe2MedialunasSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel81)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cafe2medilunasPrice))))
+                    .addGroup(PromosBreakfastFrmLayout.createSequentialGroup()
+                        .addGroup(PromosBreakfastFrmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel78)
+                            .addGroup(PromosBreakfastFrmLayout.createSequentialGroup()
+                                .addComponent(cafe2GallesChocoCheck)
+                                .addGap(21, 21, 21)
+                                .addComponent(Cafe2gallesChocoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(13, 13, 13)
+                        .addComponent(jLabel91)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cafe2gallesPrice)))
+                .addContainerGap(32, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PromosBreakfastFrmLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(savePromoBreakfast)
+                .addGap(18, 18, 18)
+                .addComponent(cosePromoBreakfast)
+                .addGap(48, 48, 48))
         );
-        SuggestPromosFrmLayout.setVerticalGroup(
-            SuggestPromosFrmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 517, Short.MAX_VALUE)
+        PromosBreakfastFrmLayout.setVerticalGroup(
+            PromosBreakfastFrmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PromosBreakfastFrmLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jLabel78)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(PromosBreakfastFrmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cafe2medialunasCheck)
+                    .addComponent(cafe2medilunasPrice)
+                    .addComponent(jLabel81)
+                    .addComponent(cafe2MedialunasSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PromosBreakfastFrmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cafeTortaIndividualCheck)
+                    .addComponent(cafeTortaIndPrice)
+                    .addComponent(jLabel83)
+                    .addComponent(cafeTortaIndSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PromosBreakfastFrmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cafeTostadoArabeCheck)
+                    .addComponent(cafeArabePrice)
+                    .addComponent(jLabel85)
+                    .addComponent(cafeTostadoArabeSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PromosBreakfastFrmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cafeCuadradoDucleCheck)
+                    .addComponent(cafeCuadradoDulcePrice)
+                    .addComponent(jLabel89)
+                    .addComponent(cafeCuadraroDulceSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PromosBreakfastFrmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cafe2GallesChocoCheck)
+                    .addComponent(cafe2gallesPrice)
+                    .addComponent(jLabel91)
+                    .addComponent(Cafe2gallesChocoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PromosBreakfastFrmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cappuccinoTostadasCheck)
+                    .addComponent(cappuccinoTostadaPrice)
+                    .addComponent(jLabel93)
+                    .addComponent(cappuccinoTostadaSppiner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel114))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PromosBreakfastFrmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cappucinoMedialunaCheck)
+                    .addComponent(cappucinoMedialunaPrice)
+                    .addComponent(jLabel95)
+                    .addComponent(cappucinnoMedialunaSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PromosBreakfastFrmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(naranja2mediaLunasCheck)
+                    .addComponent(naranja2medialunasPrice)
+                    .addComponent(jLabel97)
+                    .addComponent(naranja2medialunasSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PromosBreakfastFrmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(naranjaTostadoCheck)
+                    .addComponent(naranjaTostadoPrice)
+                    .addComponent(jLabel99)
+                    .addComponent(naranjaTostadoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PromosBreakfastFrmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(licuadoMedioTostadoCheck)
+                    .addComponent(licuadoMedioTostadoPrice)
+                    .addComponent(jLabel101)
+                    .addComponent(licuadoMedioTostadoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PromosBreakfastFrmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(limonadaTortaIndividiualCheck)
+                    .addComponent(limonadaTortaIndPrice)
+                    .addComponent(jLabel103)
+                    .addComponent(limonadaTortaIndividualSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PromosBreakfastFrmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(alfajorMaicenaChocolatadaCheck)
+                    .addComponent(alfajorMaicenaChocoPrice)
+                    .addComponent(jLabel105)
+                    .addComponent(alfajorMaicenaChocoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PromosBreakfastFrmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(milkshakesTortaCheck)
+                    .addComponent(milkshakesTortaIndividualPrice)
+                    .addComponent(jLabel107)
+                    .addComponent(milkshakesTortaIndividualSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PromosBreakfastFrmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(licuado2_1_TostadoIndCheck)
+                    .addComponent(licuados_2_1_TostadoPrice)
+                    .addComponent(jLabel109)
+                    .addComponent(licuados_2_1_TostadoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PromosBreakfastFrmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(copaYogurtCheck)
+                    .addComponent(yogurtPrice)
+                    .addComponent(jLabel111)
+                    .addComponent(yogurtSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PromosBreakfastFrmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tostadasDobleExprEspCheck)
+                    .addComponent(tostadasExpEspPrice)
+                    .addComponent(jLabel113)
+                    .addComponent(tostadasExpEspSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PromosBreakfastFrmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(frutasCafeTostadoCheck)
+                    .addComponent(frutaCafePrice)
+                    .addComponent(frutaCafeTostadoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel117))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PromosBreakfastFrmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(iceCappuccinoCheck)
+                    .addComponent(iceCapuccinoPrice)
+                    .addComponent(iceCapuccinoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel118))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(PromosBreakfastFrmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(savePromoBreakfast)
+                    .addComponent(cosePromoBreakfast))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         jLabel11.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
@@ -2128,6 +2788,17 @@ public class VittoFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        javax.swing.GroupLayout PromosLunchFrmLayout = new javax.swing.GroupLayout(PromosLunchFrm.getContentPane());
+        PromosLunchFrm.getContentPane().setLayout(PromosLunchFrmLayout);
+        PromosLunchFrmLayout.setHorizontalGroup(
+            PromosLunchFrmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 712, Short.MAX_VALUE)
+        );
+        PromosLunchFrmLayout.setVerticalGroup(
+            PromosLunchFrmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 517, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAutoRequestFocus(false);
         setBackground(new java.awt.Color(107, 106, 104));
@@ -2686,13 +3357,13 @@ public class VittoFrame extends javax.swing.JFrame {
 
     }//GEN-LAST:event_candyProductsActionPerformed
 
-    private void promotionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_promotionsActionPerformed
+    private void ComerPromosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComerPromosActionPerformed
         // TODO add your handling code here:
-        SuggestPromosFrm.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
-        SuggestPromosFrm.setSize(650, 700);
-        SuggestPromosFrm.setVisible(true);
+        PromosBreakfastFrm.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
+        PromosBreakfastFrm.setSize(650, 700);
+        PromosBreakfastFrm.setVisible(true);
 
-    }//GEN-LAST:event_promotionsActionPerformed
+    }//GEN-LAST:event_ComerPromosActionPerformed
 
     private void saladProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saladProductsActionPerformed
         // TODO add your handling code here:
@@ -2862,7 +3533,6 @@ public class VittoFrame extends javax.swing.JFrame {
 
         String tableUser = this.productsImpl.findTableUserByTableId(this.selectedTable.getId());
 
-        this.tableFour.setBackground(Color.YELLOW);
         this.chargeEmployee(tableUser);
         this.selectOrderView(4);
 
@@ -4017,6 +4687,479 @@ public class VittoFrame extends javax.swing.JFrame {
         this.closeGenericFrame(this.SelectOrder);
     }//GEN-LAST:event_deleteTableButtonActionPerformed
 
+    private void DesayunoMeriendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DesayunoMeriendaActionPerformed
+        PromosBreakfastFrm.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
+        PromosBreakfastFrm.setSize(750, 750);
+        PromosBreakfastFrm.setVisible(true);
+
+        System.out.println("PROMO MERIENDAS:");
+        System.out.println("---- INIT: Table selected ----");
+        System.out.println(this.selectedTable.getState());
+        System.out.println(this.selectedTable.getId());
+        System.out.println("---- END: Table Selected ----");
+
+        List<Product> selectedTableProducts = this.productsImpl.findTableSelectedProducts(this.selectedTable.getId(), ProductTypeEnum.PROMOCION_MERIENDAS);
+
+        if (selectedTableProducts.size() != 0) {
+            /* Se encontraron datos en la bbdd
+             *  por lo tanto hay que cargar las cantidades que se 
+             *  hayan guardado.
+             */
+
+            for (Product product : selectedTableProducts) {
+                this.selectedComponentMap.get(product.getBrand()).getCheckBox().setSelected(true);
+                this.selectedComponentMap.get(product.getBrand()).getSpinner().setEnabled(true);
+                this.selectedComponentMap.get(product.getBrand()).getSpinner().setValue(product.getAmountConsumed());
+            }
+
+        } else {
+            /**
+             * Caso contrario: no hay datos de la mesa en la bbdd por lo tanto
+             * hay que resetear todo, para que el formulario quede limpio.
+             *
+             * Iteración de componentes dentro de un frame
+             */
+            for (Component component : PromosBreakfastFrm.getContentPane().getComponents()) {
+                System.out.println("candy products frame iteration");
+
+                if (component instanceof JCheckBox) {
+                    System.out.println("component check --> " + ((JCheckBox) component).getText());
+                    ((JCheckBox) component).setSelected(false);
+                }
+
+                if (component instanceof JSpinner) {
+
+                    System.out.println("candy products ");
+                    /*
+                        Tenemos dos maneras de hacer lo mismo, 
+                        esta en particular crea un JSpinner a partir del casteo del component
+                        y luego, le aplica la propiedad que se esté buscando
+                        
+                        JSpinner spinner = (JSpinner) component;
+                        spinner.setEnabled(false);
+                     */
+ /*
+                        Es igual al caso anterior, pero se hace todo en una línea.
+                     */
+                    ((JSpinner) component).setEnabled(false);
+                    ((JSpinner) component).setValue(0);
+                }
+            }
+        }
+
+    }//GEN-LAST:event_DesayunoMeriendaActionPerformed
+
+    private void cafeCuadradoDucleCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cafeCuadradoDucleCheckActionPerformed
+        if (cafeCuadradoDucleCheck.isSelected()) {
+            SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
+            this.cafeCuadraroDulceSpinner.setEnabled(true);
+            this.cafeCuadraroDulceSpinner.setModel(model);
+        } else {
+            this.cafeCuadraroDulceSpinner.setEnabled(false);
+        }
+    }//GEN-LAST:event_cafeCuadradoDucleCheckActionPerformed
+
+    private void cafe2GallesChocoCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cafe2GallesChocoCheckActionPerformed
+        if (cafe2GallesChocoCheck.isSelected()) {
+            SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
+            this.Cafe2gallesChocoSpinner.setEnabled(true);
+            this.Cafe2gallesChocoSpinner.setModel(model);
+        } else {
+            this.Cafe2gallesChocoSpinner.setEnabled(false);
+        }
+    }//GEN-LAST:event_cafe2GallesChocoCheckActionPerformed
+
+    private void cafe2medialunasCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cafe2medialunasCheckActionPerformed
+        if (cafe2medialunasCheck.isSelected()) {
+            SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
+            this.cafe2MedialunasSpinner.setEnabled(true);
+            this.cafe2MedialunasSpinner.setModel(model);
+        } else {
+            this.cafe2MedialunasSpinner.setEnabled(false);
+        }
+    }//GEN-LAST:event_cafe2medialunasCheckActionPerformed
+
+    private void cafeTortaIndividualCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cafeTortaIndividualCheckActionPerformed
+        if (cafeTortaIndividualCheck.isSelected()) {
+            SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
+            this.cafeTortaIndSpinner.setEnabled(true);
+            this.cafeTortaIndSpinner.setModel(model);
+        } else {
+            this.cafeTortaIndSpinner.setEnabled(false);
+        }
+    }//GEN-LAST:event_cafeTortaIndividualCheckActionPerformed
+
+    private void cafeTostadoArabeCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cafeTostadoArabeCheckActionPerformed
+        if (cafeTostadoArabeCheck.isSelected()) {
+            SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
+            this.cafeTostadoArabeSpinner.setEnabled(true);
+            this.cafeTostadoArabeSpinner.setModel(model);
+        } else {
+            this.cafeTostadoArabeSpinner.setEnabled(false);
+        }
+    }//GEN-LAST:event_cafeTostadoArabeCheckActionPerformed
+
+    private void cappuccinoTostadasCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cappuccinoTostadasCheckActionPerformed
+        if (cappuccinoTostadasCheck.isSelected()) {
+            SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
+            this.cappuccinoTostadaSppiner.setEnabled(true);
+            this.cappuccinoTostadaSppiner.setModel(model);
+        } else {
+            this.cappuccinoTostadaSppiner.setEnabled(false);
+        }
+    }//GEN-LAST:event_cappuccinoTostadasCheckActionPerformed
+
+    private void cappucinoMedialunaCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cappucinoMedialunaCheckActionPerformed
+        if (cappucinoMedialunaCheck.isSelected()) {
+            SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
+            this.cappucinnoMedialunaSpinner.setEnabled(true);
+            this.cappucinnoMedialunaSpinner.setModel(model);
+        } else {
+            this.cappucinnoMedialunaSpinner.setEnabled(false);
+        }
+    }//GEN-LAST:event_cappucinoMedialunaCheckActionPerformed
+
+    private void naranja2mediaLunasCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_naranja2mediaLunasCheckActionPerformed
+        if (naranja2mediaLunasCheck.isSelected()) {
+            SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
+            this.naranja2medialunasSpinner.setEnabled(true);
+            this.naranja2medialunasSpinner.setModel(model);
+        } else {
+            this.naranja2medialunasSpinner.setEnabled(false);
+        }
+    }//GEN-LAST:event_naranja2mediaLunasCheckActionPerformed
+
+    private void naranjaTostadoCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_naranjaTostadoCheckActionPerformed
+        if (naranjaTostadoCheck.isSelected()) {
+            SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
+            this.naranjaTostadoSpinner.setEnabled(true);
+            this.naranjaTostadoSpinner.setModel(model);
+        } else {
+            this.naranjaTostadoSpinner.setEnabled(false);
+        }
+    }//GEN-LAST:event_naranjaTostadoCheckActionPerformed
+
+    private void licuadoMedioTostadoCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_licuadoMedioTostadoCheckActionPerformed
+        if (licuadoMedioTostadoCheck.isSelected()) {
+            SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
+            this.licuadoMedioTostadoSpinner.setEnabled(true);
+            this.licuadoMedioTostadoSpinner.setModel(model);
+        } else {
+            this.licuadoMedioTostadoSpinner.setEnabled(false);
+        }
+    }//GEN-LAST:event_licuadoMedioTostadoCheckActionPerformed
+
+    private void limonadaTortaIndividiualCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limonadaTortaIndividiualCheckActionPerformed
+        if (limonadaTortaIndividiualCheck.isSelected()) {
+            SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
+            this.limonadaTortaIndividualSpinner.setEnabled(true);
+            this.limonadaTortaIndividualSpinner.setModel(model);
+        } else {
+            this.limonadaTortaIndividualSpinner.setEnabled(false);
+        }
+    }//GEN-LAST:event_limonadaTortaIndividiualCheckActionPerformed
+
+    private void alfajorMaicenaChocolatadaCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alfajorMaicenaChocolatadaCheckActionPerformed
+        if (alfajorMaicenaChocolatadaCheck.isSelected()) {
+            SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
+            this.alfajorMaicenaChocoSpinner.setEnabled(true);
+            this.alfajorMaicenaChocoSpinner.setModel(model);
+        } else {
+            this.alfajorMaicenaChocoSpinner.setEnabled(false);
+        }
+    }//GEN-LAST:event_alfajorMaicenaChocolatadaCheckActionPerformed
+
+    private void milkshakesTortaCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_milkshakesTortaCheckActionPerformed
+        if (milkshakesTortaCheck.isSelected()) {
+            SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
+            this.milkshakesTortaIndividualSpinner.setEnabled(true);
+            this.milkshakesTortaIndividualSpinner.setModel(model);
+        } else {
+            this.milkshakesTortaIndividualSpinner.setEnabled(false);
+        }
+    }//GEN-LAST:event_milkshakesTortaCheckActionPerformed
+
+    private void licuado2_1_TostadoIndCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_licuado2_1_TostadoIndCheckActionPerformed
+        if (licuado2_1_TostadoIndCheck.isSelected()) {
+            SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
+            this.licuados_2_1_TostadoSpinner.setEnabled(true);
+            this.licuados_2_1_TostadoSpinner.setModel(model);
+        } else {
+            this.licuados_2_1_TostadoSpinner.setEnabled(false);
+        }        
+    }//GEN-LAST:event_licuado2_1_TostadoIndCheckActionPerformed
+
+    private void copaYogurtCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_copaYogurtCheckActionPerformed
+        if (copaYogurtCheck.isSelected()) {
+            SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
+            this.yogurtSpinner.setEnabled(true);
+            this.yogurtSpinner.setModel(model);
+        } else {
+            this.yogurtSpinner.setEnabled(false);
+        }
+    }//GEN-LAST:event_copaYogurtCheckActionPerformed
+
+    private void tostadasDobleExprEspCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tostadasDobleExprEspCheckActionPerformed
+        if (tostadasDobleExprEspCheck.isSelected()) {
+            SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
+            this.tostadasExpEspSpinner.setEnabled(true);
+            this.tostadasExpEspSpinner.setModel(model);
+        } else {
+            this.tostadasExpEspSpinner.setEnabled(false);
+        }
+    }//GEN-LAST:event_tostadasDobleExprEspCheckActionPerformed
+
+    private void frutasCafeTostadoCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frutasCafeTostadoCheckActionPerformed
+        if (frutasCafeTostadoCheck.isSelected()) {
+            SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
+            this.frutaCafeTostadoSpinner.setEnabled(true);
+            this.frutaCafeTostadoSpinner.setModel(model);
+        } else {
+            this.frutaCafeTostadoSpinner.setEnabled(false);
+        }
+    }//GEN-LAST:event_frutasCafeTostadoCheckActionPerformed
+
+    private void iceCappuccinoCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iceCappuccinoCheckActionPerformed
+        if (iceCappuccinoCheck.isSelected()) {
+            SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
+            this.iceCapuccinoSpinner.setEnabled(true);
+            this.iceCapuccinoSpinner.setModel(model);
+        } else {
+            this.iceCapuccinoSpinner.setEnabled(false);
+        }
+    }//GEN-LAST:event_iceCappuccinoCheckActionPerformed
+
+    private void cosePromoBreakfastActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cosePromoBreakfastActionPerformed
+        this.closeGenericFrame(this.PromosBreakfastFrm);
+    }//GEN-LAST:event_cosePromoBreakfastActionPerformed
+
+    private void savePromoBreakfastActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_savePromoBreakfastActionPerformed
+        products = new HashMap<>();
+        
+
+        if (cafe2medialunasCheck.isSelected() && Integer.parseInt(this.cafe2MedialunasSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyAlcoholProduct = new HashMap<>();
+
+            priceQtyAlcoholProduct.put(
+                    Integer.parseInt(this.cafe2MedialunasSpinner.getValue().toString()),
+                    Double.parseDouble(this.cafe2medilunasPrice.getText())
+            );
+            products.put(PromotionBreakfast.CAFE_2_MEDIALUNAS.toString(), priceQtyAlcoholProduct);
+        }
+
+        if (cafeTortaIndividualCheck.isSelected() && Integer.parseInt(this.cafeTortaIndSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyAlcoholProduct = new HashMap<>();
+
+            priceQtyAlcoholProduct.put(
+                    Integer.parseInt(this.cafeTortaIndSpinner.getValue().toString()),
+                    Double.parseDouble(this.cafeTortaIndPrice.getText())
+            );
+            products.put(PromotionBreakfast.CAFE_TORTA_INDIVIDUAL.toString(), priceQtyAlcoholProduct);
+        }
+
+        if (cafeTostadoArabeCheck.isSelected() && Integer.parseInt(this.cafeTostadoArabeSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyAlcoholProduct = new HashMap<>();
+
+            priceQtyAlcoholProduct.put(
+                    Integer.parseInt(this.cafeTostadoArabeSpinner.getValue().toString()),
+                    Double.parseDouble(this.cafeArabePrice.getText())
+            );
+            products.put(PromotionBreakfast.CAFE_TOSTADO_ARABE.toString(), priceQtyAlcoholProduct);
+        }
+
+        if (cafeCuadradoDucleCheck.isSelected() && Integer.parseInt(this.cafeCuadraroDulceSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyAlcoholProduct = new HashMap<>();
+
+            priceQtyAlcoholProduct.put(
+                    Integer.parseInt(this.cafeCuadraroDulceSpinner.getValue().toString()),
+                    Double.parseDouble(this.cafeCuadradoDulcePrice.getText())
+            );
+            products.put(PromotionBreakfast.CAFE_CUADRADO_DULCE.toString(), priceQtyAlcoholProduct);
+        }
+
+        if (cafe2GallesChocoCheck.isSelected() && Integer.parseInt(this.Cafe2gallesChocoSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyAlcoholProduct = new HashMap<>();
+
+            priceQtyAlcoholProduct.put(
+                    Integer.parseInt(this.Cafe2gallesChocoSpinner.getValue().toString()),
+                    Double.parseDouble(this.cafe2gallesPrice.getText())
+            );
+            products.put(PromotionBreakfast.CAFE_GALLETAS_CHOCO.toString(), priceQtyAlcoholProduct);
+        }
+
+        if (cappuccinoTostadasCheck.isSelected() && Integer.parseInt(this.cappuccinoTostadaSppiner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyAlcoholProduct = new HashMap<>();
+
+            priceQtyAlcoholProduct.put(
+                    Integer.parseInt(this.cappuccinoTostadaSppiner.getValue().toString()),
+                    Double.parseDouble(this.cappuccinoTostadaPrice.getText())
+            );
+            products.put(PromotionBreakfast.CAPPUCCINO_TOSTADAS.toString(), priceQtyAlcoholProduct);
+        }
+
+        if (cappucinoMedialunaCheck.isSelected() && Integer.parseInt(this.cappucinnoMedialunaSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyAlcoholProduct = new HashMap<>();
+
+            priceQtyAlcoholProduct.put(
+                    Integer.parseInt(this.cappucinnoMedialunaSpinner.getValue().toString()),
+                    Double.parseDouble(this.cappucinoMedialunaPrice.getText())
+            );
+            products.put(PromotionBreakfast.CAPPUCCINO_MEDIALUNAS.toString(), priceQtyAlcoholProduct);
+        }
+
+        if (naranja2mediaLunasCheck.isSelected() && Integer.parseInt(this.naranja2medialunasSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyAlcoholProduct = new HashMap<>();
+
+            priceQtyAlcoholProduct.put(
+                    Integer.parseInt(this.naranja2medialunasSpinner.getValue().toString()),
+                    Double.parseDouble(this.naranja2medialunasPrice.getText())
+            );
+            products.put(PromotionBreakfast.NARANJA_MEDIALUNAS.toString(), priceQtyAlcoholProduct);
+        }
+
+        if (naranjaTostadoCheck.isSelected() && Integer.parseInt(this.naranjaTostadoSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyAlcoholProduct = new HashMap<>();
+
+            priceQtyAlcoholProduct.put(
+                    Integer.parseInt(this.naranjaTostadoSpinner.getValue().toString()),
+                    Double.parseDouble(this.naranjaTostadoPrice.getText())
+            );
+            products.put(PromotionBreakfast.NARANJA_TOSTADOS.toString(), priceQtyAlcoholProduct);
+        }
+
+
+        if (licuadoMedioTostadoCheck.isSelected() && Integer.parseInt(this.licuadoMedioTostadoSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyAlcoholProduct = new HashMap<>();
+
+            priceQtyAlcoholProduct.put(
+                    Integer.parseInt(this.licuadoMedioTostadoSpinner.getValue().toString()),
+                    Double.parseDouble(this.licuadoMedioTostadoPrice.getText())
+            );
+            products.put(PromotionBreakfast.LICUADO_medio_TOSTADO.toString(), priceQtyAlcoholProduct);
+        }
+
+        if (limonadaTortaIndividiualCheck.isSelected() && Integer.parseInt(this.limonadaTortaIndividualSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyAlcoholProduct = new HashMap<>();
+
+            priceQtyAlcoholProduct.put(
+                    Integer.parseInt(this.limonadaTortaIndividualSpinner.getValue().toString()),
+                    Double.parseDouble(this.limonadaTortaIndPrice.getText())
+            );
+            products.put(PromotionBreakfast.LIMONADA_TORTA_IND.toString(), priceQtyAlcoholProduct);
+        }
+
+        if (alfajorMaicenaChocolatadaCheck.isSelected() && Integer.parseInt(this.alfajorMaicenaChocoSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyAlcoholProduct = new HashMap<>();
+
+            priceQtyAlcoholProduct.put(
+                    Integer.parseInt(this.alfajorMaicenaChocoSpinner.getValue().toString()),
+                    Double.parseDouble(this.alfajorMaicenaChocoPrice.getText())
+            );
+            products.put(PromotionBreakfast.ALFAJOR_MAICENA_CHOCO.toString(), priceQtyAlcoholProduct);
+        }
+
+        if (milkshakesTortaCheck.isSelected() && Integer.parseInt(this.milkshakesTortaIndividualSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyAlcoholProduct = new HashMap<>();
+
+            priceQtyAlcoholProduct.put(
+                    Integer.parseInt(this.milkshakesTortaIndividualSpinner.getValue().toString()),
+                    Double.parseDouble(this.milkshakesTortaIndividualPrice.getText())
+            );
+            products.put(PromotionBreakfast.MILKSHAKES_TORTA_IND.toString(), priceQtyAlcoholProduct);
+        }
+
+        if (licuado2_1_TostadoIndCheck.isSelected() && Integer.parseInt(this.licuados_2_1_TostadoSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyAlcoholProduct = new HashMap<>();
+
+            priceQtyAlcoholProduct.put(
+                    Integer.parseInt(this.licuados_2_1_TostadoSpinner.getValue().toString()),
+                    Double.parseDouble(this.licuados_2_1_TostadoPrice.getText())
+            );
+            products.put(PromotionBreakfast.LICUADOS_2_1_TOSTADO.toString(), priceQtyAlcoholProduct);
+        }
+
+        if (copaYogurtCheck.isSelected() && Integer.parseInt(this.yogurtSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyAlcoholProduct = new HashMap<>();
+
+            priceQtyAlcoholProduct.put(
+                    Integer.parseInt(this.yogurtSpinner.getValue().toString()),
+                    Double.parseDouble(this.yogurtPrice.getText())
+            );
+            products.put(PromotionBreakfast.COPA_YOGURT.toString(), priceQtyAlcoholProduct);
+        }
+
+        if (tostadasDobleExprEspCheck.isSelected() && Integer.parseInt(this.tostadasExpEspSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyAlcoholProduct = new HashMap<>();
+
+            priceQtyAlcoholProduct.put(
+                    Integer.parseInt(this.tostadasExpEspSpinner.getValue().toString()),
+                    Double.parseDouble(this.tostadasExpEspPrice.getText())
+            );
+            products.put(PromotionBreakfast.TOSTADAS_EXP_ESP.toString(), priceQtyAlcoholProduct);
+        }
+
+        if (frutasCafeTostadoCheck.isSelected() && Integer.parseInt(this.frutaCafeTostadoSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyAlcoholProduct = new HashMap<>();
+
+            priceQtyAlcoholProduct.put(
+                    Integer.parseInt(this.frutaCafeTostadoSpinner.getValue().toString()),
+                    Double.parseDouble(this.frutaCafePrice.getText())
+            );
+            products.put(PromotionBreakfast.FRUTA_CAFE_TOSTADO.toString(), priceQtyAlcoholProduct);
+        }
+
+        if (iceCappuccinoCheck.isSelected() && Integer.parseInt(this.iceCapuccinoSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyAlcoholProduct = new HashMap<>();
+
+            priceQtyAlcoholProduct.put(
+                    Integer.parseInt(this.iceCapuccinoSpinner.getValue().toString()),
+                    Double.parseDouble(this.iceCapuccinoPrice.getText())
+            );
+            products.put(PromotionBreakfast.ICE_CAPPUCCINO.toString(), priceQtyAlcoholProduct);
+        }
+
+        
+        this.dataStore = new DataStore();
+        this.dataStore.setProductTypeEnum(ProductTypeEnum.PROMOCION_MERIENDAS);
+
+        System.out.println("mesa elegida state --> " + this.selectedTable.getState() + " mesa elegida ID -> " + this.selectedTable.getId());
+
+        if (this.tableUser != null && this.tableUser.getNombre() != null) {
+            System.out.println("Usuario mesa: " + this.tableUser.getNombre());
+        } else {
+            this.tableUser.setNombre(this.employeeList.get(0).getNombre());
+            this.tableUser.setApellido(this.employeeList.get(0).getApellido());
+        }
+
+        this.dataStore.setMesa(this.selectedTable.getId());
+        this.dataStore.setNombreMozo(this.tableUser.getNombre() + "_" + this.tableUser.getApellido());
+
+        if (!products.isEmpty()) {
+            dataStore.setProducts(products);
+        }
+
+        /**
+         * Inserta los productos -> teniendo en cuenta sus precios.
+         */
+        this.productsImpl.insertProductWithPrices(dataStore);
+
+        System.out.println("Selected table -> " + this.selectedTable.getId());
+        this.setTableColour(this.selectedTable.getId(), Color.YELLOW);
+
+        if (!this.products.isEmpty()) {
+            this.products.clear();
+        }
+
+        JOptionPane.showMessageDialog(null, "La mesa Nº: " + this.selectedTable.getId() + " Se ha guardado Correctamente");
+
+        this.orderValidationActions(this.selectedTable.getId());
+        
+        this.closeGenericFrame(this.PromosBreakfastFrm);
+
+    }//GEN-LAST:event_savePromoBreakfastActionPerformed
+
+    
+    
     private void setTableColour(int tableId, Color color) {
 
         switch (tableId) {
@@ -4123,12 +5266,15 @@ public class VittoFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField AdminUserName;
     private javax.swing.JPasswordField AdminUserPassword;
+    private javax.swing.JSpinner Cafe2gallesChocoSpinner;
     private javax.swing.JFrame CandyProductsFrame;
     private javax.swing.JButton CloseDayAction;
     private javax.swing.JFrame CloseDayFrame;
     private javax.swing.JButton CloseTableButton;
     private javax.swing.JFrame CloseTableFrame;
+    private javax.swing.JButton ComerPromos;
     private javax.swing.JFrame DeleteTableFrm;
+    private javax.swing.JButton DesayunoMerienda;
     private javax.swing.JFrame DrinkAlcoholFrame;
     private javax.swing.JFrame DrinkNoAlcoholFrame;
     private javax.swing.JButton GuardarProductosDulces;
@@ -4137,9 +5283,10 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JFrame OtraFormaDePagoFrame;
     private javax.swing.JFrame PagoEfectivoFrame;
     private javax.swing.JFrame PayTableFrm;
+    private javax.swing.JFrame PromosBreakfastFrm;
+    private javax.swing.JFrame PromosLunchFrm;
     private javax.swing.JFrame SaladsProductFrame;
     private javax.swing.JFrame SelectOrder;
-    private javax.swing.JFrame SuggestPromosFrm;
     private javax.swing.JLabel TotalLabel;
     private javax.swing.JButton acceptNoAlcoholDrinks;
     private javax.swing.JButton alcoholDrinkCancel;
@@ -4147,11 +5294,34 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JLabel alfajorArtesanalPrice;
     private javax.swing.JSpinner alfajorArtesanalSpinner;
     private javax.swing.JCheckBox alfajorCheck;
+    private javax.swing.JLabel alfajorMaicenaChocoPrice;
+    private javax.swing.JSpinner alfajorMaicenaChocoSpinner;
+    private javax.swing.JCheckBox alfajorMaicenaChocolatadaCheck;
     private javax.swing.JLabel alfajorPrice;
     private javax.swing.JSpinner alfajorSpinner;
+    private javax.swing.JCheckBox cafe2GallesChocoCheck;
+    private javax.swing.JSpinner cafe2MedialunasSpinner;
+    private javax.swing.JLabel cafe2gallesPrice;
+    private javax.swing.JCheckBox cafe2medialunasCheck;
+    private javax.swing.JLabel cafe2medilunasPrice;
+    private javax.swing.JLabel cafeArabePrice;
+    private javax.swing.JCheckBox cafeCuadradoDucleCheck;
+    private javax.swing.JLabel cafeCuadradoDulcePrice;
+    private javax.swing.JSpinner cafeCuadraroDulceSpinner;
+    private javax.swing.JLabel cafeTortaIndPrice;
+    private javax.swing.JSpinner cafeTortaIndSpinner;
+    private javax.swing.JCheckBox cafeTortaIndividualCheck;
+    private javax.swing.JCheckBox cafeTostadoArabeCheck;
+    private javax.swing.JSpinner cafeTostadoArabeSpinner;
     private javax.swing.JButton cancelCandyProducts;
     private javax.swing.JButton cancelNoAlcoholDrinks;
     private javax.swing.JButton candyProducts;
+    private javax.swing.JLabel cappuccinoTostadaPrice;
+    private javax.swing.JSpinner cappuccinoTostadaSppiner;
+    private javax.swing.JCheckBox cappuccinoTostadasCheck;
+    private javax.swing.JSpinner cappucinnoMedialunaSpinner;
+    private javax.swing.JCheckBox cappucinoMedialunaCheck;
+    private javax.swing.JLabel cappucinoMedialunaPrice;
     private javax.swing.JButton cashCalculateTotal;
     private javax.swing.JLabel cashChangeBack;
     private javax.swing.JComboBox<String> cashDiscountCombo;
@@ -4170,6 +5340,8 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JCheckBox cocaLightCheck;
     private javax.swing.JSpinner cocaLightSpinner;
     private javax.swing.JSpinner cocaSpinner;
+    private javax.swing.JCheckBox copaYogurtCheck;
+    private javax.swing.JButton cosePromoBreakfast;
     private javax.swing.JCheckBox cuadradoSecoCheck;
     private javax.swing.JLabel cuadradoSecoPrice;
     private javax.swing.JSpinner cuadradoSecoSpinner;
@@ -4188,12 +5360,29 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JCheckBox fraNuiCheck;
     private javax.swing.JLabel fraNuiPrice;
     private javax.swing.JSpinner franuiSpinner;
+    private javax.swing.JLabel frutaCafePrice;
+    private javax.swing.JSpinner frutaCafeTostadoSpinner;
     private javax.swing.JCheckBox frutaEleccionCheck;
     private javax.swing.JLabel frutaEleccionPrice;
     private javax.swing.JSpinner frutaEleccionSpinner;
+    private javax.swing.JCheckBox frutasCafeTostadoCheck;
+    private javax.swing.JCheckBox iceCappuccinoCheck;
+    private javax.swing.JLabel iceCapuccinoPrice;
+    private javax.swing.JSpinner iceCapuccinoSpinner;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel101;
+    private javax.swing.JLabel jLabel103;
+    private javax.swing.JLabel jLabel105;
+    private javax.swing.JLabel jLabel107;
+    private javax.swing.JLabel jLabel109;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel111;
+    private javax.swing.JLabel jLabel113;
+    private javax.swing.JLabel jLabel114;
+    private javax.swing.JLabel jLabel117;
+    private javax.swing.JLabel jLabel118;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -4264,9 +5453,21 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel73;
     private javax.swing.JLabel jLabel74;
     private javax.swing.JLabel jLabel75;
+    private javax.swing.JLabel jLabel76;
+    private javax.swing.JLabel jLabel77;
+    private javax.swing.JLabel jLabel78;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel80;
+    private javax.swing.JLabel jLabel81;
+    private javax.swing.JLabel jLabel83;
+    private javax.swing.JLabel jLabel85;
+    private javax.swing.JLabel jLabel89;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabel91;
+    private javax.swing.JLabel jLabel93;
+    private javax.swing.JLabel jLabel95;
+    private javax.swing.JLabel jLabel97;
+    private javax.swing.JLabel jLabel99;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
@@ -4277,21 +5478,39 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
+    private javax.swing.JCheckBox licuado2_1_TostadoIndCheck;
     private javax.swing.JCheckBox licuadoAguaCheck;
     private javax.swing.JSpinner licuadoAguaSpinner;
     private javax.swing.JCheckBox licuadoLecheCheck;
     private javax.swing.JSpinner licuadoLecheSpinner;
+    private javax.swing.JCheckBox licuadoMedioTostadoCheck;
+    private javax.swing.JLabel licuadoMedioTostadoPrice;
+    private javax.swing.JSpinner licuadoMedioTostadoSpinner;
+    private javax.swing.JLabel licuados_2_1_TostadoPrice;
+    private javax.swing.JSpinner licuados_2_1_TostadoSpinner;
     private javax.swing.JCheckBox limonadaCheck;
     private javax.swing.JCheckBox limonadaElaboradoCheck;
     private javax.swing.JSpinner limonadaSpinner;
+    private javax.swing.JLabel limonadaTortaIndPrice;
+    private javax.swing.JCheckBox limonadaTortaIndividiualCheck;
+    private javax.swing.JSpinner limonadaTortaIndividualSpinner;
     private javax.swing.JSpinner limonada_elaborada_Spinner;
     private javax.swing.JCheckBox manzanaCheck;
     private javax.swing.JSpinner manzanaSpinner;
     private javax.swing.JCheckBox medialunaCheck;
     private javax.swing.JLabel medialunaPrice;
     private javax.swing.JSpinner medialunaSpinner;
+    private javax.swing.JCheckBox milkshakesTortaCheck;
+    private javax.swing.JLabel milkshakesTortaIndividualPrice;
+    private javax.swing.JSpinner milkshakesTortaIndividualSpinner;
+    private javax.swing.JCheckBox naranja2mediaLunasCheck;
+    private javax.swing.JLabel naranja2medialunasPrice;
+    private javax.swing.JSpinner naranja2medialunasSpinner;
     private javax.swing.JCheckBox naranjaCheck;
     private javax.swing.JSpinner naranjaSpinner;
+    private javax.swing.JCheckBox naranjaTostadoCheck;
+    private javax.swing.JLabel naranjaTostadoPrice;
+    private javax.swing.JSpinner naranjaTostadoSpinner;
     private javax.swing.JButton otherPaymentCalculate;
     private javax.swing.JTextField otherPaymentCelphone;
     private javax.swing.JTextField otherPaymentDNI;
@@ -4310,8 +5529,8 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JSpinner pomeloSpinner;
     private javax.swing.JCheckBox pomeloTorosCheck;
     private javax.swing.JTable productDescriptionTable;
-    private javax.swing.JButton promotions;
     private javax.swing.JButton saladProducts;
+    private javax.swing.JButton savePromoBreakfast;
     private javax.swing.JButton saverAlcoholOrder;
     private javax.swing.JCheckBox scheweppesPomeloCheck;
     private javax.swing.JSpinner scheweppesPomeloSpinner;
@@ -4351,6 +5570,9 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JLabel tortaIndividualPrice;
     private javax.swing.JSpinner tortaIndividualSpinner;
     private javax.swing.JCheckBox tostadasCheck;
+    private javax.swing.JCheckBox tostadasDobleExprEspCheck;
+    private javax.swing.JLabel tostadasExpEspPrice;
+    private javax.swing.JSpinner tostadasExpEspSpinner;
     private javax.swing.JLabel tostadasPrice;
     private javax.swing.JSpinner tostadasSpinner;
     private javax.swing.JLabel totalPayLabel;
@@ -4360,5 +5582,7 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JSpinner waterGasSpinner;
     private javax.swing.JSpinner waterSpinner;
     private javax.swing.JLabel whoAmILbl;
+    private javax.swing.JLabel yogurtPrice;
+    private javax.swing.JSpinner yogurtSpinner;
     // End of variables declaration//GEN-END:variables
 }

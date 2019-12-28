@@ -5,5 +5,6 @@ public enum ProductTypeEnum {
     BEBIDAS_ALCHOLICAS,
     DULCES,
     SALADOS,
-    PROMOCION
+    PROMOCION_MERIENDAS,
+    PROMOCION_COMIDAS
 }
