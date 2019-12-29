@@ -6498,6 +6498,10 @@ public class VittoFrame extends javax.swing.JFrame {
 
             this.AdminUserName.setText("");
             this.AdminUserPassword.setText("");
+            this.setTableColour(this.selectedTable.getId(), Color.GREEN);
+
+            this.closeGenericFrame(this.DeleteTableFrm);
+            this.closeGenericFrame(this.SelectOrder);            
         } else {
             JOptionPane.showMessageDialog(null, "Usuario /  Pass Incorrecto");
             this.AdminUserName.setText("");
@@ -6514,11 +6518,6 @@ public class VittoFrame extends javax.swing.JFrame {
                 AdminUserPassword.setText("");
             }
         });
-
-        this.setTableColour(this.selectedTable.getId(), Color.GREEN);
-
-        this.closeGenericFrame(this.DeleteTableFrm);
-        this.closeGenericFrame(this.SelectOrder);
     }//GEN-LAST:event_deleteTableButtonActionPerformed
 
     private void DesayunoMeriendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DesayunoMeriendaActionPerformed
