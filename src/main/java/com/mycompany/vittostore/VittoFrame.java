@@ -5042,14 +5042,19 @@ public class VittoFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelNoAlcoholDrinksActionPerformed
 
     private void acceptNoAlcoholDrinksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptNoAlcoholDrinksActionPerformed
-        // TODO add your handling code here:
 
-        /*
-        Contabilizar todos los productos que se cargan
-        Cambiar el estado de la mesa
-        Guardarlos en la bbdd
-         */
-        this.noAlcoholDrinks = new HashMap();
+        products = new HashMap<>();        
+
+        if (cervezaCheck.isSelected() && Integer.parseInt(this.cervezaSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyAlcoholProduct = new HashMap<>();
+
+            priceQtyAlcoholProduct.put(
+                    Integer.parseInt(this.cervezaSpinner.getValue().toString()),
+                    Double.parseDouble(this.cervezaPrice.getText())
+            );
+            products.put(AlcoholDrinksEnum.CERVEZA.toString(), priceQtyAlcoholProduct);
+        }
+
 
         if (pocilloCheck.isSelected() && Integer.parseInt(this.pocilloSpinner.getValue().toString()) > 0) {
             noAlcoholDrinks.put((NoAlcoholDrinksEnum.COCA_COLA), Integer.parseInt(this.pocilloSpinner.getValue().toString()));

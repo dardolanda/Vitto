@@ -9,7 +9,6 @@ public enum NoAlcoholDrinksEnum {
     
     POCILLO, 
     JARRITO,
-    DOBLE,
     CAFE_CON_LECHE,
     CAFE_DOBLE,
     CAPPUCCINO,
