@@ -122,13 +122,12 @@ public class VittoFrame extends javax.swing.JFrame {
         this.selectedComponentMap.put(NoAlcoholDrinksEnum.SCHEWEPPES_POMELO.name(), new GenericSelectedComponent(this.submarinoCheck, this.submarinoSpinner));
         this.selectedComponentMap.put(NoAlcoholDrinksEnum.SCHEWEPPES_TONICA.name(), new GenericSelectedComponent(this.chocolatadaCheck, this.chocolatadaSpinner));
         this.selectedComponentMap.put(NoAlcoholDrinksEnum.AGUA.name(), new GenericSelectedComponent(this.iceTeaCheck, this.iceTeaSpinner));
-        this.selectedComponentMap.put(NoAlcoholDrinksEnum.AGUA_GAS.name(), new GenericSelectedComponent(this.waterGasCheck, this.waterGasSpinner));
+
         this.selectedComponentMap.put(NoAlcoholDrinksEnum.EXPRIMIDO.name(), new GenericSelectedComponent(this.GaseosaLineaCocacheck, this.GaseosaLineaCocaSpinner));
         this.selectedComponentMap.put(NoAlcoholDrinksEnum.LICUADO_LECHE.name(), new GenericSelectedComponent(this.aguaSaborizadaCheck, this.aguaSaborizadaSpinner));
         this.selectedComponentMap.put(NoAlcoholDrinksEnum.LICUADO_AGUA.name(), new GenericSelectedComponent(this.cepitaCheck, this.cepitaSpinner));
         this.selectedComponentMap.put(NoAlcoholDrinksEnum.LIMONADA.name(), new GenericSelectedComponent(this.AguaC_S_GasCheck, this.AguaC_S_GasSpinner));
-        this.selectedComponentMap.put(NoAlcoholDrinksEnum.MILK_SHAKE_CHOCO.name(), new GenericSelectedComponent(this.shakeChocolateCheck, this.shakeChocolateSpinner));
-        this.selectedComponentMap.put(NoAlcoholDrinksEnum.MILK_SHAKE_DULCE_LECHE.name(), new GenericSelectedComponent(this.shakeDulceLecheCheck, this.shakeDulceLecheSpinner));
+
 
         /**
          * Productos Dulces
@@ -4547,7 +4546,7 @@ public class VittoFrame extends javax.swing.JFrame {
     private void drinkNoAlcoholActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drinkNoAlcoholActionPerformed
 
         DrinkNoAlcoholFrame.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
-        DrinkNoAlcoholFrame.setSize(550, 700);
+        DrinkNoAlcoholFrame.setSize(610, 700);
         DrinkNoAlcoholFrame.setVisible(true);
 
         System.out.println("---- INIT: Table selected ----");
@@ -4955,10 +4954,10 @@ public class VittoFrame extends javax.swing.JFrame {
     private void delTiempoCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delTiempoCheckActionPerformed
         if (delTiempoCheck.isSelected()) {
             SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
-            this.tonicCoffeeSpinner.setEnabled(true);
-            this.tonicCoffeeSpinner.setModel(model);
+            this.cafeDelTiempoSpinner.setEnabled(true);
+            this.cafeDelTiempoSpinner.setModel(model);
         } else {
-            this.tonicCoffeeSpinner.setEnabled(false);
+            this.cafeDelTiempoSpinner.setEnabled(false);
         }
     }//GEN-LAST:event_delTiempoCheckActionPerformed
 
@@ -5106,10 +5105,6 @@ public class VittoFrame extends javax.swing.JFrame {
             noAlcoholDrinks.put((NoAlcoholDrinksEnum.AGUA), Integer.parseInt(this.iceTeaSpinner.getValue().toString()));
         }
 
-        if (waterGasCheck.isSelected() && Integer.parseInt(this.waterGasSpinner.getValue().toString()) > 0) {
-            noAlcoholDrinks.put((NoAlcoholDrinksEnum.AGUA_GAS), Integer.parseInt(this.waterGasSpinner.getValue().toString()));
-        }
-
         if (GaseosaLineaCocacheck.isSelected() && Integer.parseInt(this.GaseosaLineaCocaSpinner.getValue().toString()) > 0) {
             noAlcoholDrinks.put((NoAlcoholDrinksEnum.EXPRIMIDO), Integer.parseInt(this.GaseosaLineaCocaSpinner.getValue().toString()));
         }
@@ -5126,13 +5121,6 @@ public class VittoFrame extends javax.swing.JFrame {
             noAlcoholDrinks.put((NoAlcoholDrinksEnum.LIMONADA), Integer.parseInt(this.cafeIceMassimoSpinner.getValue().toString()));
         }
 
-        if (shakeChocolateCheck.isSelected() && Integer.parseInt(this.shakeChocolateSpinner.getValue().toString()) > 0) {
-            noAlcoholDrinks.put((NoAlcoholDrinksEnum.MILK_SHAKE_CHOCO), Integer.parseInt(this.shakeChocolateSpinner.getValue().toString()));
-        }
-
-        if (shakeDulceLecheCheck.isSelected() && Integer.parseInt(this.shakeDulceLecheSpinner.getValue().toString()) > 0) {
-            noAlcoholDrinks.put((NoAlcoholDrinksEnum.MILK_SHAKE_DULCE_LECHE), Integer.parseInt(this.shakeDulceLecheSpinner.getValue().toString()));
-        }
 
         // nombra la mesa elegida
         this.selectedTable.getState();
@@ -5265,10 +5253,10 @@ public class VittoFrame extends javax.swing.JFrame {
     private void tonicCoffeeCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tonicCoffeeCheckActionPerformed
         if (tonicCoffeeCheck.isSelected()) {
             SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
-            this.cafeDelTiempoSpinner.setEnabled(true);
-            this.cafeDelTiempoSpinner.setModel(model);
+            this.tonicCoffeeSpinner.setEnabled(true);
+            this.tonicCoffeeSpinner.setModel(model);
         } else {
-            this.cafeDelTiempoSpinner.setEnabled(false);
+            this.tonicCoffeeSpinner.setEnabled(false);
         }
     }//GEN-LAST:event_tonicCoffeeCheckActionPerformed
 
