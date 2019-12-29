@@ -1712,10 +1712,20 @@ public class VittoFrame extends javax.swing.JFrame {
         tostadoSdwPrice.setText("200");
 
         arabeSdwCheck.setText("Árabe");
+        arabeSdwCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                arabeSdwCheckActionPerformed(evt);
+            }
+        });
 
         arabeSdwPrice.setText("180");
 
         medialunaSdwCheck.setText("Medialuna Rellena ");
+        medialunaSdwCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                medialunaSdwCheckActionPerformed(evt);
+            }
+        });
 
         medialunaSdwPrice.setText("70");
 
@@ -1741,6 +1751,11 @@ public class VittoFrame extends javax.swing.JFrame {
         jLabel121.setText("$");
 
         sbtMilanesaCheck.setText("Milanesa Con lechuga y tomate");
+        sbtMilanesaCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sbtMilanesaCheckActionPerformed(evt);
+            }
+        });
 
         sbtMilanesaPrice.setText("250");
 
@@ -1772,6 +1787,11 @@ public class VittoFrame extends javax.swing.JFrame {
         jLabel127.setText("$");
 
         sbtCrudoCheck.setText("Jamon crudo, queso, rucula, tomate");
+        sbtCrudoCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sbtCrudoCheckActionPerformed(evt);
+            }
+        });
 
         sbtCrudoPrice.setText("250");
 
@@ -1782,6 +1802,11 @@ public class VittoFrame extends javax.swing.JFrame {
         jLabel130.setText("Salados");
 
         sdwEmpandaCheck.setText("Empanadas (carne, pollo, jamon y queso) c/u");
+        sdwEmpandaCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sdwEmpandaCheckActionPerformed(evt);
+            }
+        });
 
         jLabel131.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel131.setText("$");
@@ -1789,6 +1814,11 @@ public class VittoFrame extends javax.swing.JFrame {
         sdwEmpandaPRice.setText("55");
 
         sdwTartasCheck.setText("Tartas (verduras asadas, jamon y queso)");
+        sdwTartasCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sdwTartasCheckActionPerformed(evt);
+            }
+        });
 
         jLabel133.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel133.setText("$");
@@ -6292,7 +6322,13 @@ public class VittoFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_empleadosPromoActionPerformed
 
     private void cbtPolloCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbtPolloCheckActionPerformed
-        // TODO add your handling code here:
+        if (cbtPolloCheck.isSelected()) {
+            SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
+            this.cbtPolloSpinner.setEnabled(true);
+            this.cbtPolloSpinner.setModel(model);
+        } else {
+            this.cbtPolloSpinner.setEnabled(false);
+        }
     }//GEN-LAST:event_cbtPolloCheckActionPerformed
 
     private void closeSandwichORderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeSandwichORderActionPerformed
@@ -6300,11 +6336,23 @@ public class VittoFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_closeSandwichORderActionPerformed
 
     private void sbtVerdurasCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sbtVerdurasCheckActionPerformed
-        // TODO add your handling code here:
+        if (sbtVerdurasCheck.isSelected()) {
+            SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
+            this.sbtVerdurasSpinner.setEnabled(true);
+            this.sbtVerdurasSpinner.setModel(model);
+        } else {
+            this.sbtVerdurasSpinner.setEnabled(false);
+        }
     }//GEN-LAST:event_sbtVerdurasCheckActionPerformed
 
     private void sbtAtunCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sbtAtunCheckActionPerformed
-        // TODO add your handling code here:
+        if (sbtAtunCheck.isSelected()) {
+            SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
+            this.sbtAtunSpinner.setEnabled(true);
+            this.sbtAtunSpinner.setModel(model);
+        } else {
+            this.sbtAtunSpinner.setEnabled(false);
+        }
     }//GEN-LAST:event_sbtAtunCheckActionPerformed
 
     private void saveSandwichORderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveSandwichORderActionPerformed
@@ -6450,11 +6498,76 @@ public class VittoFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_saveSandwichORderActionPerformed
 
     private void tostadoSdwCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tostadoSdwCheckActionPerformed
-        // TODO add your handling code here:
+        if (tostadoSdwCheck.isSelected()) {
+            SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
+            this.tostadoSdwSpinner.setEnabled(true);
+            this.tostadoSdwSpinner.setModel(model);
+        } else {
+            this.tostadoSdwSpinner.setEnabled(false);
+        }
     }//GEN-LAST:event_tostadoSdwCheckActionPerformed
 
+    private void arabeSdwCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_arabeSdwCheckActionPerformed
+        if (tostadoSdwCheck.isSelected()) {
+            SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
+            this.tostadoSdwSpinner.setEnabled(true);
+            this.tostadoSdwSpinner.setModel(model);
+        } else {
+            this.tostadoSdwSpinner.setEnabled(false);
+        }
+    }//GEN-LAST:event_arabeSdwCheckActionPerformed
+
+    private void medialunaSdwCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_medialunaSdwCheckActionPerformed
+        if (medialunaSdwCheck.isSelected()) {
+            SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
+            this.medialunaSdwSpinner.setEnabled(true);
+            this.medialunaSdwSpinner.setModel(model);
+        } else {
+            this.medialunaSdwSpinner.setEnabled(false);
+        }
+    }//GEN-LAST:event_medialunaSdwCheckActionPerformed
+
+    private void sbtMilanesaCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sbtMilanesaCheckActionPerformed
+       if (sbtMilanesaCheck.isSelected()) {
+            SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
+            this.sbtMilanesaSpinner.setEnabled(true);
+            this.sbtMilanesaSpinner.setModel(model);
+        } else {
+            this.sbtMilanesaSpinner.setEnabled(false);
+        }
+    }//GEN-LAST:event_sbtMilanesaCheckActionPerformed
+
+    private void sbtCrudoCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sbtCrudoCheckActionPerformed
+       if (sbtCrudoCheck.isSelected()) {
+            SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
+            this.sbtCrudoSpinner.setEnabled(true);
+            this.sbtCrudoSpinner.setModel(model);
+        } else {
+            this.sbtCrudoSpinner.setEnabled(false);
+        }
+    }//GEN-LAST:event_sbtCrudoCheckActionPerformed
+
+    private void sdwEmpandaCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sdwEmpandaCheckActionPerformed
+       if (sdwEmpandaCheck.isSelected()) {
+            SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
+            this.sdwEmpandaSpinner.setEnabled(true);
+            this.sdwEmpandaSpinner.setModel(model);
+        } else {
+            this.sdwEmpandaSpinner.setEnabled(false);
+        }
+    }//GEN-LAST:event_sdwEmpandaCheckActionPerformed
+
+    private void sdwTartasCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sdwTartasCheckActionPerformed
+       if (sdwTartasCheck.isSelected()) {
+            SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
+            this.sdwTartasSpinner.setEnabled(true);
+            this.sdwTartasSpinner.setModel(model);
+        } else {
+            this.sdwTartasSpinner.setEnabled(false);
+        }
+    }//GEN-LAST:event_sdwTartasCheckActionPerformed
     
-    
+
     private void setTableColour(int tableId, Color color) {
 
         switch (tableId) {
