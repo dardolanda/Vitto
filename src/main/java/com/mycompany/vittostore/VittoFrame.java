@@ -370,7 +370,7 @@ public class VittoFrame extends javax.swing.JFrame {
         jLabel138 = new javax.swing.JLabel();
         cafeIceCappuPrice = new javax.swing.JLabel();
         jLabel146 = new javax.swing.JLabel();
-        jLabel147 = new javax.swing.JLabel();
+        iceMassimoPrice = new javax.swing.JLabel();
         jLabel148 = new javax.swing.JLabel();
         tonicCoffeePrice = new javax.swing.JLabel();
         jLabel150 = new javax.swing.JLabel();
@@ -1241,7 +1241,7 @@ public class VittoFrame extends javax.swing.JFrame {
         jLabel146.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel146.setText("$");
 
-        jLabel147.setText("150");
+        iceMassimoPrice.setText("150");
 
         jLabel148.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel148.setText("$");
@@ -1482,7 +1482,7 @@ public class VittoFrame extends javax.swing.JFrame {
                                                     .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
                                                         .addComponent(jLabel146)
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(jLabel147))
+                                                        .addComponent(iceMassimoPrice))
                                                     .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
                                                         .addComponent(jLabel148)
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1653,7 +1653,7 @@ public class VittoFrame extends javax.swing.JFrame {
                         .addComponent(cafeIceMassimoCheck)
                         .addComponent(cafeIceMassimoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel146)
-                        .addComponent(jLabel147)))
+                        .addComponent(iceMassimoPrice)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -3550,7 +3550,7 @@ public class VittoFrame extends javax.swing.JFrame {
                             .addGroup(OtraFormaDePagoFrameLayout.createSequentialGroup()
                                 .addComponent(jLabel44)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(otherPaymentSubTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(otherPaymentSubTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(otherPaymentMethodCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(otherPaymentCalculate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(OtraFormaDePagoFrameLayout.createSequentialGroup()
@@ -5042,116 +5042,291 @@ public class VittoFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelNoAlcoholDrinksActionPerformed
 
     private void acceptNoAlcoholDrinksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptNoAlcoholDrinksActionPerformed
-
         products = new HashMap<>();        
 
-        if (cervezaCheck.isSelected() && Integer.parseInt(this.cervezaSpinner.getValue().toString()) > 0) {
-            Map<Integer, Double> priceQtyAlcoholProduct = new HashMap<>();
-
-            priceQtyAlcoholProduct.put(
-                    Integer.parseInt(this.cervezaSpinner.getValue().toString()),
-                    Double.parseDouble(this.cervezaPrice.getText())
-            );
-            products.put(AlcoholDrinksEnum.CERVEZA.toString(), priceQtyAlcoholProduct);
-        }
-
-
         if (pocilloCheck.isSelected() && Integer.parseInt(this.pocilloSpinner.getValue().toString()) > 0) {
-            noAlcoholDrinks.put((NoAlcoholDrinksEnum.COCA_COLA), Integer.parseInt(this.pocilloSpinner.getValue().toString()));
+            Map<Integer, Double> priceQtyNoAlcoholProduct = new HashMap<>();
+
+            priceQtyNoAlcoholProduct.put(
+                    Integer.parseInt(this.pocilloSpinner.getValue().toString()),
+                    Double.parseDouble(this.pocilloPrice.getText())
+            );
+            products.put(NoAlcoholDrinksEnum.POCILLO.toString(), priceQtyNoAlcoholProduct);
         }
+
 
         if (jarritoCheck.isSelected() && Integer.parseInt(this.jarritoSpinner.getValue().toString()) > 0) {
-            noAlcoholDrinks.put((NoAlcoholDrinksEnum.COCA_LIGHT), Integer.parseInt(this.jarritoSpinner.getValue().toString()));
+            Map<Integer, Double> priceQtyNoAlcoholProduct = new HashMap<>();
+
+            priceQtyNoAlcoholProduct.put(
+                    Integer.parseInt(this.jarritoSpinner.getValue().toString()),
+                    Double.parseDouble(this.jarritoPrice.getText())
+            );
+            products.put(NoAlcoholDrinksEnum.JARRITO.toString(), priceQtyNoAlcoholProduct);
         }
+        
 
         if (cafeConLecheCheck.isSelected() && Integer.parseInt(this.cafeConLecheSpinner.getValue().toString()) > 0) {
-            noAlcoholDrinks.put((NoAlcoholDrinksEnum.SPRITE), Integer.parseInt(this.cafeConLecheSpinner.getValue().toString()));
+            Map<Integer, Double> priceQtyNoAlcoholProduct = new HashMap<>();
+
+            priceQtyNoAlcoholProduct.put(
+                    Integer.parseInt(this.cafeConLecheSpinner.getValue().toString()),
+                    Double.parseDouble(this.cafeConLechePrice.getText())
+            );
+            products.put(NoAlcoholDrinksEnum.CAFE_CON_LECHE.toString(), priceQtyNoAlcoholProduct);
         }
 
+
         if (cafeDobleCheck.isSelected() && Integer.parseInt(this.cafeDobleSpinner.getValue().toString()) > 0) {
-            noAlcoholDrinks.put((NoAlcoholDrinksEnum.SPRITE_ZERO), Integer.parseInt(this.cafeDobleSpinner.getValue().toString()));
+            Map<Integer, Double> priceQtyNoAlcoholProduct = new HashMap<>();
+
+            priceQtyNoAlcoholProduct.put(
+                    Integer.parseInt(this.cafeDobleSpinner.getValue().toString()),
+                    Double.parseDouble(this.cafeDoblePrice.getText())
+            );
+            products.put(NoAlcoholDrinksEnum.CAFE_DOBLE.toString(), priceQtyNoAlcoholProduct);
         }
 
         if (CapuccinoCheck.isSelected() && Integer.parseInt(this.CapuccinoSpinner.getValue().toString()) > 0) {
-            noAlcoholDrinks.put((NoAlcoholDrinksEnum.PASO_TOROS_TONICA), Integer.parseInt(this.CapuccinoSpinner.getValue().toString()));
+            Map<Integer, Double> priceQtyNoAlcoholProduct = new HashMap<>();
+
+            priceQtyNoAlcoholProduct.put(
+                    Integer.parseInt(this.CapuccinoSpinner.getValue().toString()),
+                    Double.parseDouble(this.CapuccinoPrice.getText())
+            );
+            products.put(NoAlcoholDrinksEnum.CAPPUCCINO.toString(), priceQtyNoAlcoholProduct);
         }
 
         if (CapuccinoItalianoCheck.isSelected() && Integer.parseInt(this.CapuccinoItalianoSpinner.getValue().toString()) > 0) {
-            noAlcoholDrinks.put((NoAlcoholDrinksEnum.PASO_TOROS_POMELO), Integer.parseInt(this.CapuccinoItalianoSpinner.getValue().toString()));
+            Map<Integer, Double> priceQtyNoAlcoholProduct = new HashMap<>();
+
+            priceQtyNoAlcoholProduct.put(
+                    Integer.parseInt(this.CapuccinoItalianoSpinner.getValue().toString()),
+                    Double.parseDouble(this.CapuccinoItalianoPrice.getText())
+            );
+            products.put(NoAlcoholDrinksEnum.CAPPUCCINO_ITALIANO.toString(), priceQtyNoAlcoholProduct);
         }
 
         if (LatteSaborizadosCheck.isSelected() && Integer.parseInt(this.LattesaborizadosSpinner.getValue().toString()) > 0) {
-            noAlcoholDrinks.put((NoAlcoholDrinksEnum.FANTA), Integer.parseInt(this.LattesaborizadosSpinner.getValue().toString()));
-        }
+            Map<Integer, Double> priceQtyNoAlcoholProduct = new HashMap<>();
 
-        if (delTiempoCheck.isSelected() && Integer.parseInt(this.tonicCoffeeSpinner.getValue().toString()) > 0) {
-            noAlcoholDrinks.put((NoAlcoholDrinksEnum.LEVITE_NARANJA), Integer.parseInt(this.tonicCoffeeSpinner.getValue().toString()));
+            priceQtyNoAlcoholProduct.put(
+                    Integer.parseInt(this.LattesaborizadosSpinner.getValue().toString()),
+                    Double.parseDouble(this.LattesaborizadosPrice.getText())
+            );
+            products.put(NoAlcoholDrinksEnum.LATTE_SABORIZADO.toString(), priceQtyNoAlcoholProduct);
         }
-
-        if (bombonCheck.isSelected() && Integer.parseInt(this.tonicCoffeeSpinner.getValue().toString()) > 0) {
-            noAlcoholDrinks.put((NoAlcoholDrinksEnum.LEVITE_POMELO), Integer.parseInt(this.tonicCoffeeSpinner.getValue().toString()));
-        }
-
-        if (cafeIceCappuCheck.isSelected() && Integer.parseInt(this.cafeIceCappuSpinner.getValue().toString()) > 0) {
-            noAlcoholDrinks.put((NoAlcoholDrinksEnum.LEVITE_MANZANA), Integer.parseInt(this.cafeIceCappuSpinner.getValue().toString()));
-        }
-
-        if (cafeIceMassimoCheck.isSelected() && Integer.parseInt(this.cafeIceMassimoSpinner.getValue().toString()) > 0) {
-            noAlcoholDrinks.put((NoAlcoholDrinksEnum.LEVITE_LIMONADA), Integer.parseInt(this.cafeIceMassimoSpinner.getValue().toString()));
-        }
-
-        if (tonicCoffeeCheck.isSelected() && Integer.parseInt(this.cafeDelTiempoSpinner.getValue().toString()) > 0) {
-            noAlcoholDrinks.put((NoAlcoholDrinksEnum.CEPITA), Integer.parseInt(this.cafeDelTiempoSpinner.getValue().toString()));
-        }
-
+        
         if (submarinoCheck.isSelected() && Integer.parseInt(this.submarinoSpinner.getValue().toString()) > 0) {
-            noAlcoholDrinks.put((NoAlcoholDrinksEnum.SCHEWEPPES_POMELO), Integer.parseInt(this.submarinoSpinner.getValue().toString()));
+            Map<Integer, Double> priceQtyNoAlcoholProduct = new HashMap<>();
+
+            priceQtyNoAlcoholProduct.put(
+                    Integer.parseInt(this.submarinoSpinner.getValue().toString()),
+                    Double.parseDouble(this.submarinoPrice.getText())
+            );
+            products.put(NoAlcoholDrinksEnum.SUBMARINO.toString(), priceQtyNoAlcoholProduct);
         }
 
         if (chocolatadaCheck.isSelected() && Integer.parseInt(this.chocolatadaSpinner.getValue().toString()) > 0) {
-            noAlcoholDrinks.put((NoAlcoholDrinksEnum.SCHEWEPPES_TONICA), Integer.parseInt(this.chocolatadaSpinner.getValue().toString()));
+            Map<Integer, Double> priceQtyNoAlcoholProduct = new HashMap<>();
+
+            priceQtyNoAlcoholProduct.put(
+                    Integer.parseInt(this.chocolatadaSpinner.getValue().toString()),
+                    Double.parseDouble(this.chocolatadaPrice.getText())
+            );
+            products.put(NoAlcoholDrinksEnum.CHOCOLATADA.toString(), priceQtyNoAlcoholProduct);
+        }        
+                
+        if (hotCiokCheck.isSelected() && Integer.parseInt(this.hotCiokSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyNoAlcoholProduct = new HashMap<>();
+
+            priceQtyNoAlcoholProduct.put(
+                    Integer.parseInt(this.hotCiokSpinner.getValue().toString()),
+                    Double.parseDouble(this.hotCiokPrice.getText())
+            );
+            products.put(NoAlcoholDrinksEnum.HOTCIOK.toString(), priceQtyNoAlcoholProduct);
+        }                
+        
+        if (teCheck.isSelected() && Integer.parseInt(this.teSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyNoAlcoholProduct = new HashMap<>();
+
+            priceQtyNoAlcoholProduct.put(
+                    Integer.parseInt(this.teSpinner.getValue().toString()),
+                    Double.parseDouble(this.tePrice.getText())
+            );
+            products.put(NoAlcoholDrinksEnum.TE.toString(), priceQtyNoAlcoholProduct);
+        }                        
+        
+        if (delTiempoCheck.isSelected() && Integer.parseInt(this.cafeDelTiempoSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyNoAlcoholProduct = new HashMap<>();
+
+            priceQtyNoAlcoholProduct.put(
+                    Integer.parseInt(this.cafeDelTiempoSpinner.getValue().toString()),
+                    Double.parseDouble(this.cafeDelTiempoPrice.getText())
+            );
+            products.put(NoAlcoholDrinksEnum.DEL_TIEMPO.toString(), priceQtyNoAlcoholProduct);
         }
 
-        if (iceTeaCheck.isSelected() && Integer.parseInt(this.iceTeaSpinner.getValue().toString()) > 0) {
-            noAlcoholDrinks.put((NoAlcoholDrinksEnum.AGUA), Integer.parseInt(this.iceTeaSpinner.getValue().toString()));
+        if (bombonCheck.isSelected() && Integer.parseInt(this.bombonSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyNoAlcoholProduct = new HashMap<>();
+
+            priceQtyNoAlcoholProduct.put(
+                    Integer.parseInt(this.bombonSpinner.getValue().toString()),
+                    Double.parseDouble(this.bombonPrice.getText())
+            );
+            products.put(NoAlcoholDrinksEnum.BOMBON.toString(), priceQtyNoAlcoholProduct);
         }
 
-        if (GaseosaLineaCocacheck.isSelected() && Integer.parseInt(this.GaseosaLineaCocaSpinner.getValue().toString()) > 0) {
-            noAlcoholDrinks.put((NoAlcoholDrinksEnum.EXPRIMIDO), Integer.parseInt(this.GaseosaLineaCocaSpinner.getValue().toString()));
-        }
+        if (cafeIceCappuCheck.isSelected() && Integer.parseInt(this.cafeIceCappuSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyNoAlcoholProduct = new HashMap<>();
 
-        if (aguaSaborizadaCheck.isSelected() && Integer.parseInt(this.aguaSaborizadaSpinner.getValue().toString()) > 0) {
-            noAlcoholDrinks.put((NoAlcoholDrinksEnum.LICUADO_LECHE), Integer.parseInt(this.aguaSaborizadaSpinner.getValue().toString()));
-        }
-
-        if (cepitaCheck.isSelected() && Integer.parseInt(this.cepitaSpinner.getValue().toString()) > 0) {
-            noAlcoholDrinks.put((NoAlcoholDrinksEnum.LICUADO_AGUA), Integer.parseInt(this.cepitaSpinner.getValue().toString()));
+            priceQtyNoAlcoholProduct.put(
+                    Integer.parseInt(this.cafeIceCappuSpinner.getValue().toString()),
+                    Double.parseDouble(this.cafeIceCappuPrice.getText())
+            );
+            products.put(NoAlcoholDrinksEnum.CAFE_ICE_CAPPUCCINO.toString(), priceQtyNoAlcoholProduct);
         }
 
         if (cafeIceMassimoCheck.isSelected() && Integer.parseInt(this.cafeIceMassimoSpinner.getValue().toString()) > 0) {
-            noAlcoholDrinks.put((NoAlcoholDrinksEnum.LIMONADA), Integer.parseInt(this.cafeIceMassimoSpinner.getValue().toString()));
+            Map<Integer, Double> priceQtyNoAlcoholProduct = new HashMap<>();
+
+            priceQtyNoAlcoholProduct.put(
+                    Integer.parseInt(this.cafeIceMassimoSpinner.getValue().toString()),
+                    Double.parseDouble(this.iceMassimoPrice.getText())
+            );
+            products.put(NoAlcoholDrinksEnum.CAFE_ICE_MASSIMO.toString(), priceQtyNoAlcoholProduct);
         }
 
+        if (tonicCoffeeCheck.isSelected() && Integer.parseInt(this.tonicCoffeeSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyNoAlcoholProduct = new HashMap<>();
 
-        // nombra la mesa elegida
-        this.selectedTable.getState();
-        //this.tableOne.setBackground(Color.red);
-
-        for (Map.Entry<NoAlcoholDrinksEnum, Integer> entry : noAlcoholDrinks.entrySet()) {
-            //System.out.println("key --> " + entry.getKey());
-            //System.out.println("value --> " + entry.getValue());
-
+            priceQtyNoAlcoholProduct.put(
+                    Integer.parseInt(this.tonicCoffeeSpinner.getValue().toString()),
+                    Double.parseDouble(this.tonicCoffeePrice.getText())
+            );
+            products.put(NoAlcoholDrinksEnum.TONIC_COFFEE.toString(), priceQtyNoAlcoholProduct);            
         }
 
-        /*
-        Otra forma de iterar el map
-        noAlcoholDrinks.entrySet().stream().map((entry) -> {
-            Object key = entry.getKey();
-            return entry;
-        }).forEachOrdered((entry) -> {
-            Object value = entry.getValue();
-        });
-         */
+        if (iceTeaCheck.isSelected() && Integer.parseInt(this.iceTeaSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyNoAlcoholProduct = new HashMap<>();
+
+            priceQtyNoAlcoholProduct.put(
+                    Integer.parseInt(this.iceTeaSpinner.getValue().toString()),
+                    Double.parseDouble(this.iceTeaPrice.getText())
+            );
+            products.put(NoAlcoholDrinksEnum.ICE_TEA_SABORIZADO.toString(), priceQtyNoAlcoholProduct);            
+        }
+
+        if (iceTeaCheck.isSelected() && Integer.parseInt(this.iceTeaSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyNoAlcoholProduct = new HashMap<>();
+
+            priceQtyNoAlcoholProduct.put(
+                    Integer.parseInt(this.iceTeaSpinner.getValue().toString()),
+                    Double.parseDouble(this.iceTeaPrice.getText())
+            );
+            products.put(NoAlcoholDrinksEnum.ICE_TEA_SABORIZADO.toString(), priceQtyNoAlcoholProduct);            
+        }
+
+        if (iceTeaCheck.isSelected() && Integer.parseInt(this.iceTeaSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyNoAlcoholProduct = new HashMap<>();
+
+            priceQtyNoAlcoholProduct.put(
+                    Integer.parseInt(this.iceTeaSpinner.getValue().toString()),
+                    Double.parseDouble(this.iceTeaPrice.getText())
+            );
+            products.put(NoAlcoholDrinksEnum.ICE_TEA_SABORIZADO.toString(), priceQtyNoAlcoholProduct);            
+        }
+
+        if (FrapuccinoCheck.isSelected() && Integer.parseInt(this.FrapuccinoSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyNoAlcoholProduct = new HashMap<>();
+
+            priceQtyNoAlcoholProduct.put(
+                    Integer.parseInt(this.FrapuccinoSpinner.getValue().toString()),
+                    Double.parseDouble(this.FrapuccinoPrice.getText())
+            );
+            products.put(NoAlcoholDrinksEnum.FRAPPUCCINO.toString(), priceQtyNoAlcoholProduct);            
+        }
+        
+        if (milkShakeCheck.isSelected() && Integer.parseInt(this.MilkshakeSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyNoAlcoholProduct = new HashMap<>();
+
+            priceQtyNoAlcoholProduct.put(
+                    Integer.parseInt(this.MilkshakeSpinner.getValue().toString()),
+                    Double.parseDouble(this.MilkshakePrice.getText())
+            );
+            products.put(NoAlcoholDrinksEnum.MILKSHAKE.toString(), priceQtyNoAlcoholProduct);            
+        }        
+        
+        if (LicuadoCheck.isSelected() && Integer.parseInt(this.licuadosSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyNoAlcoholProduct = new HashMap<>();
+
+            priceQtyNoAlcoholProduct.put(
+                    Integer.parseInt(this.licuadosSpinner.getValue().toString()),
+                    Double.parseDouble(this.licuadosPrice.getText())
+            );
+            products.put(NoAlcoholDrinksEnum.LICUADO.toString(), priceQtyNoAlcoholProduct);            
+        }        
+
+        if (limonadaCheck.isSelected() && Integer.parseInt(this.limonadaSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyNoAlcoholProduct = new HashMap<>();
+
+            priceQtyNoAlcoholProduct.put(
+                    Integer.parseInt(this.limonadaSpinner.getValue().toString()),
+                    Double.parseDouble(this.limonadaPrice.getText())
+            );
+            products.put(NoAlcoholDrinksEnum.LIMONADA.toString(), priceQtyNoAlcoholProduct);            
+        }                
+        
+        if (batidoExprimidoCheck.isSelected() && Integer.parseInt(this.batidoExprimidoSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyNoAlcoholProduct = new HashMap<>();
+
+            priceQtyNoAlcoholProduct.put(
+                    Integer.parseInt(this.batidoExprimidoSpinner.getValue().toString()),
+                    Double.parseDouble(this.batidoExprimidoPrice.getText())
+            );
+            products.put(NoAlcoholDrinksEnum.EXPRIMIDO_NARANJA.toString(), priceQtyNoAlcoholProduct);            
+        }                        
+        
+        if (GaseosaLineaCocacheck.isSelected() && Integer.parseInt(this.GaseosaLineaCocaSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyNoAlcoholProduct = new HashMap<>();
+
+            priceQtyNoAlcoholProduct.put(
+                    Integer.parseInt(this.GaseosaLineaCocaSpinner.getValue().toString()),
+                    Double.parseDouble(this.GaseosaLineaCocaPrice.getText())
+            );
+            products.put(NoAlcoholDrinksEnum.GASEOSA_LINEA_COCA.toString(), priceQtyNoAlcoholProduct);         
+        }
+
+        if (aguaSaborizadaCheck.isSelected() && Integer.parseInt(this.aguaSaborizadaSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyNoAlcoholProduct = new HashMap<>();
+
+            priceQtyNoAlcoholProduct.put(
+                    Integer.parseInt(this.aguaSaborizadaSpinner.getValue().toString()),
+                    Double.parseDouble(this.aguaSaborizadaPrice.getText())
+            );
+            products.put(NoAlcoholDrinksEnum.SABORIZADA.toString(), priceQtyNoAlcoholProduct);         
+        }
+
+        if (cepitaCheck.isSelected() && Integer.parseInt(this.cepitaSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyNoAlcoholProduct = new HashMap<>();
+
+            priceQtyNoAlcoholProduct.put(
+                    Integer.parseInt(this.cepitaSpinner.getValue().toString()),
+                    Double.parseDouble(this.cepitaPrice.getText())
+            );
+            products.put(NoAlcoholDrinksEnum.CEPITA.toString(), priceQtyNoAlcoholProduct);         
+        }
+
+        if (AguaC_S_GasCheck.isSelected() && Integer.parseInt(this.AguaC_S_GasSpinner.getValue().toString()) > 0) {
+            Map<Integer, Double> priceQtyNoAlcoholProduct = new HashMap<>();
+
+            priceQtyNoAlcoholProduct.put(
+                    Integer.parseInt(this.AguaC_S_GasSpinner.getValue().toString()),
+                    Double.parseDouble(this.AguaC_S_GasPrice.getText())
+            );
+            products.put(NoAlcoholDrinksEnum.AGUA_con_sin_gas.toString(), priceQtyNoAlcoholProduct);         
+        }
+        
         this.dataStore = new DataStore();
         this.dataStore.setProductTypeEnum(ProductTypeEnum.BEBIDAS_SIN_ALCOHOL);
 
@@ -5167,40 +5342,47 @@ public class VittoFrame extends javax.swing.JFrame {
         this.dataStore.setMesa(this.selectedTable.getId());
         this.dataStore.setNombreMozo(this.tableUser.getNombre() + "_" + this.tableUser.getApellido());
 
-        for (Map.Entry<NoAlcoholDrinksEnum, Integer> entry : this.noAlcoholDrinks.entrySet()) {
-            System.out.println("key --> " + entry.getKey());
-            System.out.println("value --> " + entry.getValue());
-
-        }
-
-        if (!this.noAlcoholDrinks.isEmpty()) {
-            dataStore.setNoAlcoholDrinks(noAlcoholDrinks);
+        if (!products.isEmpty()) {
+            dataStore.setProducts(products);
         }
 
         /**
          * Inserta los productos -> teniendo en cuenta sus precios.
          */
-        this.productsImpl.insertProduct(dataStore);
+        this.productsImpl.insertProductWithPrices(dataStore);
 
+        System.out.println("Selected table -> " + this.selectedTable.getId());
         this.setTableColour(this.selectedTable.getId(), Color.YELLOW);
 
-        if (!this.noAlcoholDrinks.isEmpty()) {
-            this.noAlcoholDrinks.clear();
+        if (!this.products.isEmpty()) {
+            this.products.clear();
         }
 
-        if (this.selectedTable.getId() == 0) {
-            JOptionPane.showMessageDialog(null, "Take Away ha sido guardad correctamente");
-        } else {
-            JOptionPane.showMessageDialog(null, "La mesa Nº: " + this.selectedTable.getId() + " Se ha guardado Correctamente");
-        }
+        this.showMessageDialog(this.selectedTable.getId());
 
         this.orderValidationActions(this.selectedTable.getId());
         
         this.closeGenericFrame(this.DrinkNoAlcoholFrame);
-
-
+        
+        /*
+        Otra forma de iterar el map
+        noAlcoholDrinks.entrySet().stream().map((entry) -> {
+            Object key = entry.getKey();
+            return entry;
+        }).forEachOrdered((entry) -> {
+            Object value = entry.getValue();
+        });
+         */
     }//GEN-LAST:event_acceptNoAlcoholDrinksActionPerformed
 
+    private void showMessageDialog(int tableId) {
+        if (this.selectedTable.getId() == 0) {
+            JOptionPane.showMessageDialog(null, "Take Away ha sido guardad correctamente");
+        } else {
+            JOptionPane.showMessageDialog(null, "La mesa Nº: " + tableId + " Se ha guardado Correctamente");
+        }        
+    }
+    
     private void CapuccinoItalianoCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CapuccinoItalianoCheckActionPerformed
         if (CapuccinoItalianoCheck.isSelected()) {
             SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
@@ -5904,7 +6086,7 @@ public class VittoFrame extends javax.swing.JFrame {
             this.products.clear();
         }
 
-        JOptionPane.showMessageDialog(null, "La mesa Nº: " + this.selectedTable.getId() + " Se ha guardado Correctamente");
+        this.showMessageDialog(this.selectedTable.getId());
 
         this.orderValidationActions(this.selectedTable.getId());
         
@@ -5971,13 +6153,12 @@ public class VittoFrame extends javax.swing.JFrame {
             this.products.clear();
         }
 
-        JOptionPane.showMessageDialog(null, "La mesa Nº: " + this.selectedTable.getId() + " Se ha guardado Correctamente");
+        this.showMessageDialog(this.selectedTable.getId());
 
         this.orderValidationActions(this.selectedTable.getId());
         
         this.closeGenericFrame(this.DrinkAlcoholFrame);
         
-
 
     }//GEN-LAST:event_saverAlcoholOrderActionPerformed
 
@@ -6488,7 +6669,7 @@ public class VittoFrame extends javax.swing.JFrame {
             this.products.clear();
         }
 
-        JOptionPane.showMessageDialog(null, "La mesa Nº: " + this.selectedTable.getId() + " Se ha guardado Correctamente");
+        this.showMessageDialog(this.selectedTable.getId());
 
         this.orderValidationActions(this.selectedTable.getId());
         
@@ -6755,7 +6936,7 @@ public class VittoFrame extends javax.swing.JFrame {
             this.products.clear();
         }
 
-        JOptionPane.showMessageDialog(null, "La mesa Nº: " + this.selectedTable.getId() + " Se ha guardado Correctamente");
+        this.showMessageDialog(this.selectedTable.getId());
 
         this.orderValidationActions(this.selectedTable.getId());
         
@@ -6935,7 +7116,7 @@ public class VittoFrame extends javax.swing.JFrame {
             this.products.clear();
         }
 
-        JOptionPane.showMessageDialog(null, "La mesa Nº: " + this.selectedTable.getId() + " Se ha guardado Correctamente");
+        this.showMessageDialog(this.selectedTable.getId());
 
         this.orderValidationActions(this.selectedTable.getId());
         
@@ -7363,6 +7544,7 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JCheckBox iceCappuccinoCheck;
     private javax.swing.JLabel iceCapuccinoPrice;
     private javax.swing.JSpinner iceCapuccinoSpinner;
+    private javax.swing.JLabel iceMassimoPrice;
     private javax.swing.JCheckBox iceTeaCheck;
     private javax.swing.JLabel iceTeaPrice;
     private javax.swing.JSpinner iceTeaSpinner;
@@ -7419,7 +7601,6 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel144;
     private javax.swing.JLabel jLabel145;
     private javax.swing.JLabel jLabel146;
-    private javax.swing.JLabel jLabel147;
     private javax.swing.JLabel jLabel148;
     private javax.swing.JLabel jLabel149;
     private javax.swing.JLabel jLabel15;

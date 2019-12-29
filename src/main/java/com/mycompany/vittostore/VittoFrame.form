@@ -495,7 +495,7 @@
                                                       <Group type="102" attributes="0">
                                                           <Component id="jLabel146" min="-2" max="-2" attributes="0"/>
                                                           <EmptySpace max="-2" attributes="0"/>
-                                                          <Component id="jLabel147" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="iceMassimoPrice" min="-2" max="-2" attributes="0"/>
                                                       </Group>
                                                       <Group type="102" attributes="0">
                                                           <Component id="jLabel148" min="-2" max="-2" attributes="0"/>
@@ -722,7 +722,7 @@
                           <Component id="cafeIceMassimoCheck" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="cafeIceMassimoSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel146" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel147" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="iceMassimoPrice" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -1391,7 +1391,7 @@
             <Property name="text" type="java.lang.String" value="$"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel147">
+        <Component class="javax.swing.JLabel" name="iceMassimoPrice">
           <Properties>
             <Property name="text" type="java.lang.String" value="150"/>
           </Properties>
@@ -4186,7 +4186,7 @@
                               <Group type="102" attributes="0">
                                   <Component id="jLabel44" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="otherPaymentSubTotal" min="-2" pref="42" max="-2" attributes="0"/>
+                                  <Component id="otherPaymentSubTotal" max="32767" attributes="0"/>
                               </Group>
                               <Component id="otherPaymentMethodCombo" alignment="0" max="32767" attributes="0"/>
                               <Component id="otherPaymentCalculate" max="32767" attributes="0"/>
