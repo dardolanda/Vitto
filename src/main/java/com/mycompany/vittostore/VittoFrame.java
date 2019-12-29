@@ -375,11 +375,11 @@ public class VittoFrame extends javax.swing.JFrame {
         FrapuccinoSpinner = new javax.swing.JSpinner();
         jLabel136 = new javax.swing.JLabel();
         FrapuccinoPrice = new javax.swing.JLabel();
-        jCheckBox2 = new javax.swing.JCheckBox();
+        milkShakeCheck = new javax.swing.JCheckBox();
         MilkshakeSpinner = new javax.swing.JSpinner();
         jLabel140 = new javax.swing.JLabel();
         MilkshakePrice = new javax.swing.JLabel();
-        jCheckBox3 = new javax.swing.JCheckBox();
+        LicuadoCheck = new javax.swing.JCheckBox();
         licuadosSpinner = new javax.swing.JSpinner();
         jLabel149 = new javax.swing.JLabel();
         licuadosPrice = new javax.swing.JLabel();
@@ -1263,11 +1263,11 @@ public class VittoFrame extends javax.swing.JFrame {
 
         FrapuccinoPrice.setText("190");
 
-        jCheckBox2.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        jCheckBox2.setText("Milkshake");
-        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+        milkShakeCheck.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        milkShakeCheck.setText("Milkshake");
+        milkShakeCheck.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox2ActionPerformed(evt);
+                milkShakeCheckActionPerformed(evt);
             }
         });
 
@@ -1275,11 +1275,11 @@ public class VittoFrame extends javax.swing.JFrame {
 
         MilkshakePrice.setText("190");
 
-        jCheckBox3.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        jCheckBox3.setText("LIcuados");
-        jCheckBox3.addActionListener(new java.awt.event.ActionListener() {
+        LicuadoCheck.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        LicuadoCheck.setText("LIcuados");
+        LicuadoCheck.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox3ActionPerformed(evt);
+                LicuadoCheckActionPerformed(evt);
             }
         });
 
@@ -1523,7 +1523,7 @@ public class VittoFrame extends javax.swing.JFrame {
                                                 .addGap(64, 64, 64)
                                                 .addComponent(jLabel98))
                                             .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
-                                                .addComponent(jCheckBox3)
+                                                .addComponent(LicuadoCheck)
                                                 .addGap(24, 24, 24)
                                                 .addComponent(licuadosSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1531,7 +1531,7 @@ public class VittoFrame extends javax.swing.JFrame {
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(licuadosPrice))
                                             .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
-                                                .addComponent(jCheckBox2)
+                                                .addComponent(milkShakeCheck)
                                                 .addGap(21, 21, 21)
                                                 .addComponent(MilkshakeSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1700,7 +1700,7 @@ public class VittoFrame extends javax.swing.JFrame {
                         .addComponent(chocolatadaSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(chocolatadaPrice)
                         .addComponent(jLabel143)
-                        .addComponent(jCheckBox2)
+                        .addComponent(milkShakeCheck)
                         .addComponent(MilkshakeSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel140)
                         .addComponent(MilkshakePrice)))
@@ -1712,7 +1712,7 @@ public class VittoFrame extends javax.swing.JFrame {
                         .addComponent(teCheck))
                     .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
                         .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jCheckBox3)
+                            .addComponent(LicuadoCheck)
                             .addComponent(licuadosSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel149)
                             .addComponent(licuadosPrice))
@@ -7014,31 +7014,73 @@ public class VittoFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_sdwTartasCheckActionPerformed
 
     private void hotCiokCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hotCiokCheckActionPerformed
-        // TODO add your handling code here:
+       if (hotCiokCheck.isSelected()) {
+            SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
+            this.hotCiokSpinner.setEnabled(true);
+            this.hotCiokSpinner.setModel(model);
+        } else {
+            this.hotCiokSpinner.setEnabled(false);
+        }
     }//GEN-LAST:event_hotCiokCheckActionPerformed
 
     private void teCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teCheckActionPerformed
-        // TODO add your handling code here:
+       if (teCheck.isSelected()) {
+            SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
+            this.teSpinner.setEnabled(true);
+            this.teSpinner.setModel(model);
+        } else {
+            this.teSpinner.setEnabled(false);
+        }
     }//GEN-LAST:event_teCheckActionPerformed
 
     private void FrapuccinoCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FrapuccinoCheckActionPerformed
-        // TODO add your handling code here:
+       if (FrapuccinoCheck.isSelected()) {
+            SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
+            this.FrapuccinoSpinner.setEnabled(true);
+            this.FrapuccinoSpinner.setModel(model);
+        } else {
+            this.FrapuccinoSpinner.setEnabled(false);
+        }
     }//GEN-LAST:event_FrapuccinoCheckActionPerformed
 
-    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox2ActionPerformed
+    private void milkShakeCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_milkShakeCheckActionPerformed
+       if (milkShakeCheck.isSelected()) {
+            SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
+            this.MilkshakeSpinner.setEnabled(true);
+            this.MilkshakeSpinner.setModel(model);
+        } else {
+            this.MilkshakeSpinner.setEnabled(false);
+        }
+    }//GEN-LAST:event_milkShakeCheckActionPerformed
 
-    private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox3ActionPerformed
+    private void LicuadoCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LicuadoCheckActionPerformed
+       if (LicuadoCheck.isSelected()) {
+            SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
+            this.licuadosSpinner.setEnabled(true);
+            this.licuadosSpinner.setModel(model);
+        } else {
+            this.licuadosSpinner.setEnabled(false);
+        }
+    }//GEN-LAST:event_LicuadoCheckActionPerformed
 
     private void limonadaCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limonadaCheckActionPerformed
-        // TODO add your handling code here:
+       if (limonadaCheck.isSelected()) {
+            SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
+            this.limonadaSpinner.setEnabled(true);
+            this.limonadaSpinner.setModel(model);
+        } else {
+            this.limonadaSpinner.setEnabled(false);
+        }
     }//GEN-LAST:event_limonadaCheckActionPerformed
 
     private void batidoExprimidoCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_batidoExprimidoCheckActionPerformed
-        // TODO add your handling code here:
+       if (batidoExprimidoCheck.isSelected()) {
+            SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
+            this.batidoExprimidoSpinner.setEnabled(true);
+            this.batidoExprimidoSpinner.setModel(model);
+        } else {
+            this.batidoExprimidoSpinner.setEnabled(false);
+        }
     }//GEN-LAST:event_batidoExprimidoCheckActionPerformed
     
 
@@ -7179,6 +7221,7 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JCheckBox LatteSaborizadosCheck;
     private javax.swing.JLabel LattesaborizadosPrice;
     private javax.swing.JSpinner LattesaborizadosSpinner;
+    private javax.swing.JCheckBox LicuadoCheck;
     private javax.swing.JLabel MesaLabel;
     private javax.swing.JLabel MilkshakePrice;
     private javax.swing.JSpinner MilkshakeSpinner;
@@ -7324,8 +7367,6 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JCheckBox iceTeaCheck;
     private javax.swing.JLabel iceTeaPrice;
     private javax.swing.JSpinner iceTeaSpinner;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel100;
@@ -7517,6 +7558,7 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JCheckBox milanesaPromoCheck;
     private javax.swing.JLabel milanesaPromoPrice;
     private javax.swing.JSpinner milanesaPromoSpinner;
+    private javax.swing.JCheckBox milkShakeCheck;
     private javax.swing.JCheckBox milkshakesTortaCheck;
     private javax.swing.JLabel milkshakesTortaIndividualPrice;
     private javax.swing.JSpinner milkshakesTortaIndividualSpinner;

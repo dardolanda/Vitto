@@ -556,7 +556,7 @@
                                                   <Component id="jLabel98" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                               <Group type="102" attributes="0">
-                                                  <Component id="jCheckBox3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="LicuadoCheck" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                                                   <Component id="licuadosSpinner" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
@@ -565,7 +565,7 @@
                                                   <Component id="licuadosPrice" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                               <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="jCheckBox2" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="milkShakeCheck" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                                                   <Component id="MilkshakeSpinner" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace max="-2" attributes="0"/>
@@ -786,7 +786,7 @@
                           <Component id="chocolatadaSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="chocolatadaPrice" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel143" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCheckBox2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="milkShakeCheck" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="MilkshakeSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel140" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="MilkshakePrice" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -801,7 +801,7 @@
                       </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jCheckBox3" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="LicuadoCheck" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="licuadosSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel149" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="licuadosPrice" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -1453,7 +1453,7 @@
             <Property name="text" type="java.lang.String" value="190"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBox2">
+        <Component class="javax.swing.JCheckBox" name="milkShakeCheck">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="12" style="0"/>
@@ -1461,7 +1461,7 @@
             <Property name="text" type="java.lang.String" value="Milkshake"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="milkShakeCheckActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JSpinner" name="MilkshakeSpinner">
@@ -1476,7 +1476,7 @@
             <Property name="text" type="java.lang.String" value="190"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="jCheckBox3">
+        <Component class="javax.swing.JCheckBox" name="LicuadoCheck">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Dialog" size="12" style="0"/>
@@ -1484,7 +1484,7 @@
             <Property name="text" type="java.lang.String" value="LIcuados"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox3ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LicuadoCheckActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JSpinner" name="licuadosSpinner">
