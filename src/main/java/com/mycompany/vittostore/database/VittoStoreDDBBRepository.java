@@ -5,6 +5,8 @@
  */
 package com.mycompany.vittostore.database;
 
+import com.mycompany.vittostore.dataStore.CloseDateDataStore;
+import com.mycompany.vittostore.dataStore.ClosePaymentDataStore;
 import com.mycompany.vittostore.dataStore.DataStore;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -757,6 +759,65 @@ public class VittoStoreDDBBRepository {
 
         JOptionPane.showMessageDialog(null, "La mesa Nº: " + tableId + " Fue eliminada con éxito");
 
+    }
+    
+    
+    public ClosePaymentDataStore getClosingData(CloseDateDataStore closeDateDataStore) {
+        
+        ClosePaymentDataStore closePaymentDataStore = new ClosePaymentDataStore();
+        
+        if (this.DDBBConnection != null) {
+            
+            String getPaymentData = " SELECT (tipo_pago), SUM(total) AS total, SUM(descuento_aplicado) AS descuento "
+                    + " FROM payments "
+                    + " WHERE horario_pago BETWEEN ? AND ? "
+                    + " GROUP BY tipo_pago";
+
+            try {
+                PreparedStatement statement = this.DDBBConnection.prepareStatement(getPaymentData);
+                statement.setString(1, closeDateDataStore.getFechaDesde());
+                statement.setString(2, closeDateDataStore.getFechaHasta());
+                
+                ResultSet resultSet = statement.executeQuery();
+
+
+                while (resultSet.next()) {
+                    
+                    if (resultSet.getString("tipo_pago").equals("CREDITO")) {
+                        Double total = resultSet.getDouble("total") - (resultSet.getDouble("descuento") * resultSet.getDouble("total") / 100);
+                        closePaymentDataStore.setCredito(total);
+                    }
+                    
+                    if (resultSet.getString("tipo_pago").equals("DEBITO")) {
+                        
+                        Double total = resultSet.getDouble("total") - (resultSet.getDouble("descuento") * resultSet.getDouble("total") / 100);
+                        closePaymentDataStore.setDebito(total);                    
+                    }                    
+
+                    if (resultSet.getString("tipo_pago").equals("CUENTA_CORRIENTE")) {
+                        Double total = resultSet.getDouble("total") - (resultSet.getDouble("descuento") * resultSet.getDouble("total") / 100);
+                        closePaymentDataStore.setCuentaCorriente(total );                    
+                    }       
+                    
+                    if (resultSet.getString("tipo_pago").equals("EFECTIVO")) {
+                        Double total = resultSet.getDouble("total") - (resultSet.getDouble("descuento") * resultSet.getDouble("total") / 100);
+                        closePaymentDataStore.setEfectivo(total);                    
+                    }
+                    
+                    if (resultSet.getString("tipo_pago").equals("MERCADO_PAGO")) {
+                        Double total = resultSet.getDouble("total") - (resultSet.getDouble("descuento") * resultSet.getDouble("total") / 100);
+                        closePaymentDataStore.setMercadoPago(total);                    
+                    }                    
+                    
+                }
+                
+
+            } catch (SQLException ex) {
+                System.out.println("BBDD - Calculo Cierre");
+            }
+        }
+
+        return closePaymentDataStore;
     }
 
 }

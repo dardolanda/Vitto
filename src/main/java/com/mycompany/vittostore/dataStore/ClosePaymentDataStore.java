@@ -1,8 +1,8 @@
 package com.mycompany.vittostore.dataStore;
 
 public class ClosePaymentDataStore {
-    private double efectivo, cuentaCorriente, debito, credito , mercadoPago, total;
-
+    private double efectivo, cuentaCorriente, debito, credito , mercadoPago , total;
+    
     public double getEfectivo() {
         return efectivo;
     }
@@ -51,7 +51,5 @@ public class ClosePaymentDataStore {
         this.total = total;
     }
     
-           
-            
     
 }

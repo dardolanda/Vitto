@@ -6,6 +6,8 @@
 package com.mycompany.vittostore.controllerImpl;
 
 import com.mycompany.vittostore.controller.Products;
+import com.mycompany.vittostore.dataStore.CloseDateDataStore;
+import com.mycompany.vittostore.dataStore.ClosePaymentDataStore;
 
 import com.mycompany.vittostore.generalitems.Product;
 import com.mycompany.vittostore.dataStore.DataStore;
@@ -157,6 +159,23 @@ public class ProductsImpl extends VittoConnection implements Products {
     @Override
     public void deleteTable(int tableId) {
         this.vittoDDBBStore.deleteTable(tableId);
+    }
+
+    @Override
+    public ClosePaymentDataStore getClosingData(CloseDateDataStore closeDateDataStore) {
+        ClosePaymentDataStore closePaymentDataStore = this.vittoDDBBStore.getClosingData(closeDateDataStore);
+        
+        closePaymentDataStore.setTotal(
+                closePaymentDataStore.getCredito() +
+                closePaymentDataStore.getDebito() +
+                closePaymentDataStore.getCuentaCorriente() + 
+                closePaymentDataStore.getMercadoPago() + 
+                closePaymentDataStore.getEfectivo()
+        );
+        
+        
+        return closePaymentDataStore;
+                
     }
 
 }

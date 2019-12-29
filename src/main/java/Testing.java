@@ -40,6 +40,13 @@ public class Testing {
         //double porcentage = (pago * 5) / 100;
         //System.out.println(pago - porcentage);
         
+        int a  = 2;
+        String b = "hola " + a;
+        
+        
+        
+        System.out.println(b);
+        
         
         
     }

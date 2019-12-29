@@ -3,17 +3,9 @@ package com.mycompany.vittostore.dataStore;
 public class CloseDateDataStore {
     
     private String tipo;
-    private String fecha;
     private String fechaDesde;
     private String fechaHasta;
 
-    public String getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
-    }
 
     public String getFechaDesde() {
         return fechaDesde;

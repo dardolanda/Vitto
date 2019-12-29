@@ -3914,10 +3914,10 @@ public class VittoFrame extends javax.swing.JFrame {
                     .addGroup(CloseDayFrameLayout.createSequentialGroup()
                         .addGroup(CloseDayFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(CloseDayFrameLayout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addGroup(CloseDayFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(seleccionLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel173))
+                                .addGap(20, 20, 20)
+                                .addGroup(CloseDayFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel173, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(seleccionLbl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(32, 32, 32)
                                 .addGroup(CloseDayFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel175)
@@ -7578,9 +7578,16 @@ public class VittoFrame extends javax.swing.JFrame {
         CloseDateDataStore closeDateDataStore = new CloseDateDataStore();
         closeDateDataStore.setTipo("fecha");
         
+        this.seleccionLbl.setText("Por Fecha");
+        
         // formato -> 2019-12-23
-        String fecha = this.anioSpinner.getValue().toString() + "-" + this.mesSpinner.getValue().toString() + "-" + this.diaSpinner.getValue().toString();
-        closeDateDataStore.setFecha(fecha);
+        String fechaDesde = this.anioSpinner.getValue().toString() + "-" + this.mesSpinner.getValue().toString() + "-" + this.diaSpinner.getValue().toString();
+        
+        int diaSiguiente = (int) this.diaSpinner.getValue() + 1;
+        String fechaHasta = this.anioSpinner.getValue().toString() + "-" + this.mesSpinner.getValue().toString() + "-" + (diaSiguiente);
+        
+        closeDateDataStore.setFechaDesde(fechaDesde);
+        closeDateDataStore.setFechaHasta(fechaHasta);
 
         ClosePaymentDataStore closePaymentDataStore = this.productsImpl.getClosingData(closeDateDataStore);
         
@@ -7589,6 +7596,7 @@ public class VittoFrame extends javax.swing.JFrame {
         this.debitoLbl.setText(Double.toString(closePaymentDataStore.getDebito()));
         this.mercadoPagoLbl.setText(Double.toString(closePaymentDataStore.getMercadoPago()));
         this.cuentaCorrienteLbl.setText(Double.toString(closePaymentDataStore.getCuentaCorriente()));
+        
         this.totalLbl.setText(Double.toString(closePaymentDataStore.getTotal()));
         
         
@@ -7598,6 +7606,8 @@ public class VittoFrame extends javax.swing.JFrame {
         // sabemos que calcula el rango de una fecha -> desde hasta
         CloseDateDataStore closeDateDataStore = new CloseDateDataStore();
         closeDateDataStore.setTipo("rango");
+        
+        this.seleccionLbl.setText("Por Rango");
         // formato -> 2019-12-23
         String fechaDesde = this.rangoAnioSpinner.getValue().toString() + "-" + this.rangoMesSpinner.getValue().toString() + "-" + this.rangoDiaSpinner.getValue().toString();
         String fechaHasta = this.rangoAnio2Spinner.getValue().toString() + "-" + this.rangoMes2Spinner.getValue().toString() + "-" + this.rangoDia2Spinner.getValue().toString();

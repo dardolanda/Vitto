@@ -5,6 +5,8 @@
  */
 package com.mycompany.vittostore.controller;
 
+import com.mycompany.vittostore.dataStore.CloseDateDataStore;
+import com.mycompany.vittostore.dataStore.ClosePaymentDataStore;
 import com.mycompany.vittostore.dataStore.DataStore;
 import com.mycompany.vittostore.dataStore.PaymentDataStore;
 import com.mycompany.vittostore.generalitems.Product;
@@ -34,7 +36,6 @@ public interface Products {
     
     public void deleteTable(int tableId);
     
-    
-    
+    public ClosePaymentDataStore getClosingData(CloseDateDataStore closeDateDataStore);
     
 }
