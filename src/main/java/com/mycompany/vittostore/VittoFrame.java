@@ -107,26 +107,32 @@ public class VittoFrame extends javax.swing.JFrame {
         /**
          * Bebidas sin alcohol
          */
-        this.selectedComponentMap.put(NoAlcoholDrinksEnum.COCA_COLA.name(), new GenericSelectedComponent(this.pocilloCheck, this.pocilloSpinner));
-        this.selectedComponentMap.put(NoAlcoholDrinksEnum.COCA_LIGHT.name(), new GenericSelectedComponent(this.jarritoCheck, this.jarritoSpinner));
-        this.selectedComponentMap.put(NoAlcoholDrinksEnum.SPRITE.name(), new GenericSelectedComponent(this.cafeConLecheCheck, this.cafeConLecheSpinner));
-        this.selectedComponentMap.put(NoAlcoholDrinksEnum.SPRITE_ZERO.name(), new GenericSelectedComponent(this.cafeDobleCheck, this.cafeDobleSpinner));
-        this.selectedComponentMap.put(NoAlcoholDrinksEnum.PASO_TOROS_POMELO.name(), new GenericSelectedComponent(this.CapuccinoItalianoCheck, this.CapuccinoItalianoSpinner));
-        this.selectedComponentMap.put(NoAlcoholDrinksEnum.PASO_TOROS_TONICA.name(), new GenericSelectedComponent(this.CapuccinoCheck, this.CapuccinoSpinner));
-        this.selectedComponentMap.put(NoAlcoholDrinksEnum.FANTA.name(), new GenericSelectedComponent(this.LatteSaborizadosCheck, this.LattesaborizadosSpinner));
-        this.selectedComponentMap.put(NoAlcoholDrinksEnum.LEVITE_LIMONADA.name(), new GenericSelectedComponent(this.cafeIceMassimoCheck, this.cafeIceMassimoSpinner));
-        this.selectedComponentMap.put(NoAlcoholDrinksEnum.LEVITE_MANZANA.name(), new GenericSelectedComponent(this.cafeIceCappuCheck, this.cafeIceCappuSpinner));
-        this.selectedComponentMap.put(NoAlcoholDrinksEnum.LEVITE_NARANJA.name(), new GenericSelectedComponent(this.delTiempoCheck, this.tonicCoffeeSpinner));
-        this.selectedComponentMap.put(NoAlcoholDrinksEnum.LEVITE_POMELO.name(), new GenericSelectedComponent(this.bombonCheck, this.bombonSpinner));
-        this.selectedComponentMap.put(NoAlcoholDrinksEnum.CEPITA.name(), new GenericSelectedComponent(this.tonicCoffeeCheck, this.cafeDelTiempoSpinner));
-        this.selectedComponentMap.put(NoAlcoholDrinksEnum.SCHEWEPPES_POMELO.name(), new GenericSelectedComponent(this.submarinoCheck, this.submarinoSpinner));
-        this.selectedComponentMap.put(NoAlcoholDrinksEnum.SCHEWEPPES_TONICA.name(), new GenericSelectedComponent(this.chocolatadaCheck, this.chocolatadaSpinner));
-        this.selectedComponentMap.put(NoAlcoholDrinksEnum.AGUA.name(), new GenericSelectedComponent(this.iceTeaCheck, this.iceTeaSpinner));
-
-        this.selectedComponentMap.put(NoAlcoholDrinksEnum.EXPRIMIDO.name(), new GenericSelectedComponent(this.GaseosaLineaCocacheck, this.GaseosaLineaCocaSpinner));
-        this.selectedComponentMap.put(NoAlcoholDrinksEnum.LICUADO_LECHE.name(), new GenericSelectedComponent(this.aguaSaborizadaCheck, this.aguaSaborizadaSpinner));
-        this.selectedComponentMap.put(NoAlcoholDrinksEnum.LICUADO_AGUA.name(), new GenericSelectedComponent(this.cepitaCheck, this.cepitaSpinner));
-        this.selectedComponentMap.put(NoAlcoholDrinksEnum.LIMONADA.name(), new GenericSelectedComponent(this.AguaC_S_GasCheck, this.AguaC_S_GasSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.POCILLO.name(), new GenericSelectedComponent(this.pocilloCheck, this.pocilloSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.JARRITO.name(), new GenericSelectedComponent(this.jarritoCheck, this.jarritoSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.CAFE_CON_LECHE.name(), new GenericSelectedComponent(this.cafeConLecheCheck, this.cafeConLecheSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.CAFE_DOBLE.name(), new GenericSelectedComponent(this.cafeDobleCheck, this.cafeDobleSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.CAPPUCCINO_ITALIANO.name(), new GenericSelectedComponent(this.CapuccinoItalianoCheck, this.CapuccinoItalianoSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.CAPPUCCINO.name(), new GenericSelectedComponent(this.CapuccinoCheck, this.CapuccinoSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.LATTE_SABORIZADO.name(), new GenericSelectedComponent(this.LatteSaborizadosCheck, this.LattesaborizadosSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.CAFE_ICE_MASSIMO.name(), new GenericSelectedComponent(this.cafeIceMassimoCheck, this.cafeIceMassimoSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.CAFE_ICE_CAPPUCCINO.name(), new GenericSelectedComponent(this.cafeIceCappuCheck, this.cafeIceCappuSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.DEL_TIEMPO.name(), new GenericSelectedComponent(this.delTiempoCheck, this.tonicCoffeeSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.BOMBON.name(), new GenericSelectedComponent(this.bombonCheck, this.bombonSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.TONIC_COFFEE.name(), new GenericSelectedComponent(this.tonicCoffeeCheck, this.cafeDelTiempoSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.SUBMARINO.name(), new GenericSelectedComponent(this.submarinoCheck, this.submarinoSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.CHOCOLATADA.name(), new GenericSelectedComponent(this.chocolatadaCheck, this.chocolatadaSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.ICE_TEA_SABORIZADO.name(), new GenericSelectedComponent(this.iceTeaCheck, this.iceTeaSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.HOTCIOK.name(), new GenericSelectedComponent(this.hotCiokCheck, this.hotCiokSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.TE.name(), new GenericSelectedComponent(this.teCheck, this.teSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.FRAPPUCCINO.name(), new GenericSelectedComponent(this.FrapuccinoCheck, this.FrapuccinoSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.MILKSHAKE.name(), new GenericSelectedComponent(this.milkShakeCheck, this.MilkshakeSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.LICUADO.name(), new GenericSelectedComponent(this.LicuadoCheck, this.licuadosSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.LIMONADA.name(), new GenericSelectedComponent(this.limonadaCheck, this.limonadaSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.EXPRIMIDO_NARANJA.name(), new GenericSelectedComponent(this.batidoExprimidoCheck, this.batidoExprimidoSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.GASEOSA_LINEA_COCA.name(), new GenericSelectedComponent(this.GaseosaLineaCocacheck, this.GaseosaLineaCocaSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.SABORIZADA.name(), new GenericSelectedComponent(this.aguaSaborizadaCheck, this.aguaSaborizadaSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.CEPITA.name(), new GenericSelectedComponent(this.cepitaCheck, this.cepitaSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.AGUA_con_sin_gas.name(), new GenericSelectedComponent(this.AguaC_S_GasCheck, this.AguaC_S_GasSpinner));
 
 
         /**
