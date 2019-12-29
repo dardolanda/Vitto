@@ -654,6 +654,55 @@ public class VittoFrame extends javax.swing.JFrame {
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         CloseDayFrame = new javax.swing.JFrame();
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabel147 = new javax.swing.JLabel();
+        jLabel126 = new javax.swing.JLabel();
+        diaSpinner = new javax.swing.JSpinner();
+        mesSpinner = new javax.swing.JSpinner();
+        anioSpinner = new javax.swing.JSpinner();
+        jLabel128 = new javax.swing.JLabel();
+        jLabel154 = new javax.swing.JLabel();
+        jLabel156 = new javax.swing.JLabel();
+        fechaCalcularButton = new javax.swing.JButton();
+        jSeparator3 = new javax.swing.JSeparator();
+        jLabel158 = new javax.swing.JLabel();
+        jLabel160 = new javax.swing.JLabel();
+        jLabel161 = new javax.swing.JLabel();
+        jLabel162 = new javax.swing.JLabel();
+        rangoDiaSpinner = new javax.swing.JSpinner();
+        rangoMesSpinner = new javax.swing.JSpinner();
+        rangoAnioSpinner = new javax.swing.JSpinner();
+        rangoCalcularButton = new javax.swing.JButton();
+        jLabel163 = new javax.swing.JLabel();
+        rangoDia2Spinner = new javax.swing.JSpinner();
+        jLabel164 = new javax.swing.JLabel();
+        rangoMes2Spinner = new javax.swing.JSpinner();
+        jLabel165 = new javax.swing.JLabel();
+        rangoAnio2Spinner = new javax.swing.JSpinner();
+        jLabel166 = new javax.swing.JLabel();
+        jLabel167 = new javax.swing.JLabel();
+        jLabel168 = new javax.swing.JLabel();
+        jLabel169 = new javax.swing.JLabel();
+        jLabel170 = new javax.swing.JLabel();
+        jLabel171 = new javax.swing.JLabel();
+        jLabel172 = new javax.swing.JLabel();
+        jLabel173 = new javax.swing.JLabel();
+        seleccionLbl = new javax.swing.JLabel();
+        jLabel175 = new javax.swing.JLabel();
+        jLabel176 = new javax.swing.JLabel();
+        jLabel177 = new javax.swing.JLabel();
+        jLabel178 = new javax.swing.JLabel();
+        jLabel179 = new javax.swing.JLabel();
+        efectivoLbl = new javax.swing.JLabel();
+        debitoLbl = new javax.swing.JLabel();
+        creditoLabel = new javax.swing.JLabel();
+        cuentaCorrienteLbl = new javax.swing.JLabel();
+        mercadoPagoLbl = new javax.swing.JLabel();
+        jLabel185 = new javax.swing.JLabel();
+        jLabel186 = new javax.swing.JLabel();
+        totalLbl = new javax.swing.JLabel();
+        jSeparator11 = new javax.swing.JSeparator();
+        closeCierreButton = new javax.swing.JButton();
         DeleteTableFrm = new javax.swing.JFrame();
         jLabel60 = new javax.swing.JLabel();
         jLabel72 = new javax.swing.JLabel();
@@ -712,8 +761,6 @@ public class VittoFrame extends javax.swing.JFrame {
         savePromoLunch = new javax.swing.JButton();
         cancelPromoLunch = new javax.swing.JButton();
         EmpleadosFrame = new javax.swing.JFrame();
-        jLabel126 = new javax.swing.JLabel();
-        jLabel128 = new javax.swing.JLabel();
         tableOne = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         tableTwo = new javax.swing.JButton();
@@ -741,7 +788,7 @@ public class VittoFrame extends javax.swing.JFrame {
         jLabel35 = new javax.swing.JLabel();
         tableTwelve = new javax.swing.JButton();
         jLabel51 = new javax.swing.JLabel();
-        CloseDayAction = new javax.swing.JButton();
+        CloseAction = new javax.swing.JButton();
         jLabel52 = new javax.swing.JLabel();
         tableFourteen = new javax.swing.JButton();
         jLabel53 = new javax.swing.JLabel();
@@ -3656,15 +3703,287 @@ public class VittoFrame extends javax.swing.JFrame {
                 .addGap(16, 16, 16))
         );
 
+        jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
+        jLabel147.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel147.setText("Cierre Total");
+
+        jLabel126.setText("Elegir Fecha");
+
+        jLabel128.setText("Día");
+
+        jLabel154.setText("Mes");
+
+        jLabel156.setText("Año");
+
+        fechaCalcularButton.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        fechaCalcularButton.setText("Calcular");
+
+        jLabel158.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jLabel158.setText("Elegir Rango");
+
+        jLabel160.setText("Día");
+
+        jLabel161.setText("Mes");
+
+        jLabel162.setText("Año");
+
+        rangoCalcularButton.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        rangoCalcularButton.setText("Calcular");
+
+        jLabel163.setText("Día");
+
+        jLabel164.setText("Mes");
+
+        jLabel165.setText("Año");
+
+        jLabel166.setText("Desde");
+
+        jLabel167.setText("Hasta");
+
+        jLabel168.setText("Débito");
+
+        jLabel169.setText("Efectivo");
+
+        jLabel170.setText("Cuenta Corriente");
+
+        jLabel171.setText("Mercado Pago");
+
+        jLabel172.setText("Crédito");
+
+        jLabel173.setText("Selección:");
+
+        jLabel175.setText("$");
+
+        jLabel176.setText("$");
+
+        jLabel177.setText("$");
+
+        jLabel178.setText("$");
+
+        jLabel179.setText("$");
+
+        efectivoLbl.setText("Efectivo");
+
+        debitoLbl.setText("Débito");
+
+        creditoLabel.setText("Crédito");
+
+        cuentaCorrienteLbl.setText("Cta - Cte ");
+
+        mercadoPagoLbl.setText("Mercado pago");
+
+        jLabel185.setText("Total");
+
+        jLabel186.setText("$");
+
+        totalLbl.setText("total");
+
+        closeCierreButton.setText("Cerrar");
+
         javax.swing.GroupLayout CloseDayFrameLayout = new javax.swing.GroupLayout(CloseDayFrame.getContentPane());
         CloseDayFrame.getContentPane().setLayout(CloseDayFrameLayout);
         CloseDayFrameLayout.setHorizontalGroup(
             CloseDayFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 712, Short.MAX_VALUE)
+            .addGroup(CloseDayFrameLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(CloseDayFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(closeCierreButton)
+                    .addGroup(CloseDayFrameLayout.createSequentialGroup()
+                        .addGroup(CloseDayFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(CloseDayFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel147)
+                                .addGroup(CloseDayFrameLayout.createSequentialGroup()
+                                    .addGap(13, 13, 13)
+                                    .addGroup(CloseDayFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(CloseDayFrameLayout.createSequentialGroup()
+                                            .addGroup(CloseDayFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(diaSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jLabel128))
+                                            .addGap(18, 18, 18)
+                                            .addGroup(CloseDayFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(mesSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jLabel154))
+                                            .addGap(18, 18, 18)
+                                            .addGroup(CloseDayFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel156)
+                                                .addComponent(anioSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(jLabel126)))
+                                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(fechaCalcularButton, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addGroup(CloseDayFrameLayout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addGroup(CloseDayFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(CloseDayFrameLayout.createSequentialGroup()
+                                        .addGroup(CloseDayFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(rangoDia2Spinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel163))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(CloseDayFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(rangoMes2Spinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel164))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(CloseDayFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel165)
+                                            .addComponent(rangoAnio2Spinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(CloseDayFrameLayout.createSequentialGroup()
+                                        .addGroup(CloseDayFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(rangoDiaSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel160))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(CloseDayFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(rangoMesSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jLabel161))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(CloseDayFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel162)
+                                            .addComponent(rangoAnioSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jLabel158)
+                                    .addComponent(jLabel166)
+                                    .addComponent(jLabel167)))
+                            .addComponent(rangoCalcularButton, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)
+                        .addGroup(CloseDayFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(CloseDayFrameLayout.createSequentialGroup()
+                                .addComponent(jLabel173)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(seleccionLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(CloseDayFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, CloseDayFrameLayout.createSequentialGroup()
+                                    .addGap(14, 14, 14)
+                                    .addGroup(CloseDayFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel168)
+                                        .addComponent(jLabel172)
+                                        .addComponent(jLabel170)
+                                        .addComponent(jLabel171)
+                                        .addComponent(jLabel185)
+                                        .addComponent(jLabel169))
+                                    .addGap(37, 37, 37)
+                                    .addGroup(CloseDayFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(CloseDayFrameLayout.createSequentialGroup()
+                                            .addComponent(jLabel186)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(totalLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(CloseDayFrameLayout.createSequentialGroup()
+                                            .addComponent(jLabel179)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(mercadoPagoLbl))
+                                        .addGroup(CloseDayFrameLayout.createSequentialGroup()
+                                            .addComponent(jLabel178)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(cuentaCorrienteLbl))
+                                        .addGroup(CloseDayFrameLayout.createSequentialGroup()
+                                            .addComponent(jLabel177)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(creditoLabel))
+                                        .addGroup(CloseDayFrameLayout.createSequentialGroup()
+                                            .addComponent(jLabel176)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(debitoLbl))
+                                        .addGroup(CloseDayFrameLayout.createSequentialGroup()
+                                            .addComponent(jLabel175)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(efectivoLbl))))))))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         CloseDayFrameLayout.setVerticalGroup(
             CloseDayFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 196, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CloseDayFrameLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(CloseDayFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(CloseDayFrameLayout.createSequentialGroup()
+                        .addGroup(CloseDayFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(CloseDayFrameLayout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addGroup(CloseDayFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(seleccionLbl, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel173))
+                                .addGap(32, 32, 32)
+                                .addGroup(CloseDayFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel175)
+                                    .addComponent(efectivoLbl)
+                                    .addComponent(jLabel169))
+                                .addGap(28, 28, 28)
+                                .addGroup(CloseDayFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel168)
+                                    .addComponent(jLabel176)
+                                    .addComponent(debitoLbl))
+                                .addGap(27, 27, 27)
+                                .addGroup(CloseDayFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel172)
+                                    .addComponent(jLabel177)
+                                    .addComponent(creditoLabel))
+                                .addGap(29, 29, 29)
+                                .addGroup(CloseDayFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel170)
+                                    .addComponent(jLabel178)
+                                    .addComponent(cuentaCorrienteLbl))
+                                .addGap(32, 32, 32)
+                                .addGroup(CloseDayFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel171)
+                                    .addComponent(jLabel179)
+                                    .addComponent(mercadoPagoLbl))
+                                .addGap(41, 41, 41)
+                                .addComponent(jSeparator11, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(63, 63, 63)
+                                .addGroup(CloseDayFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel185)
+                                    .addComponent(jLabel186)
+                                    .addComponent(totalLbl)))
+                            .addGroup(CloseDayFrameLayout.createSequentialGroup()
+                                .addComponent(jLabel147)
+                                .addGap(30, 30, 30)
+                                .addComponent(jLabel126)
+                                .addGap(18, 18, 18)
+                                .addGroup(CloseDayFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel128)
+                                    .addComponent(jLabel154)
+                                    .addComponent(jLabel156))
+                                .addGap(1, 1, 1)
+                                .addGroup(CloseDayFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(diaSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(mesSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(anioSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addComponent(fechaCalcularButton)
+                                .addGap(28, 28, 28)
+                                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel158)
+                                .addGap(21, 21, 21)
+                                .addComponent(jLabel166)
+                                .addGap(9, 9, 9)
+                                .addGroup(CloseDayFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel160)
+                                    .addComponent(jLabel161)
+                                    .addComponent(jLabel162))
+                                .addGap(1, 1, 1)
+                                .addGroup(CloseDayFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(rangoDiaSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(rangoMesSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(rangoAnioSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(30, 30, 30)
+                                .addComponent(jLabel167)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(CloseDayFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel163)
+                                    .addComponent(jLabel164)
+                                    .addComponent(jLabel165))
+                                .addGap(1, 1, 1)
+                                .addGroup(CloseDayFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(rangoDia2Spinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(rangoMes2Spinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(rangoAnio2Spinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                        .addComponent(closeCierreButton))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CloseDayFrameLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(rangoCalcularButton))
+                    .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
         );
 
         jLabel60.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
@@ -4111,11 +4430,6 @@ public class VittoFrame extends javax.swing.JFrame {
             .addGap(0, 344, Short.MAX_VALUE)
         );
 
-        jLabel126.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel126.setText("$");
-
-        jLabel128.setText("75");
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAutoRequestFocus(false);
         setBackground(new java.awt.Color(107, 106, 104));
@@ -4247,12 +4561,12 @@ public class VittoFrame extends javax.swing.JFrame {
 
         jLabel51.setText("Mesa");
 
-        CloseDayAction.setBackground(new java.awt.Color(153, 153, 255));
-        CloseDayAction.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        CloseDayAction.setText("Cierre Diario");
-        CloseDayAction.addActionListener(new java.awt.event.ActionListener() {
+        CloseAction.setBackground(new java.awt.Color(153, 153, 255));
+        CloseAction.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        CloseAction.setText("Cierre");
+        CloseAction.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CloseDayActionActionPerformed(evt);
+                CloseActionActionPerformed(evt);
             }
         });
 
@@ -4312,7 +4626,7 @@ public class VittoFrame extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(CloseDayAction, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CloseAction, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(takeAway, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -4496,7 +4810,7 @@ public class VittoFrame extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(takeAway, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(86, 86, 86)
-                .addComponent(CloseDayAction, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(CloseAction, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(163, 163, 163))
         );
 
@@ -5786,32 +6100,16 @@ public class VittoFrame extends javax.swing.JFrame {
         this.selectOrderView(12);
     }//GEN-LAST:event_tableTwelveActionPerformed
 
-    private void CloseDayActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseDayActionActionPerformed
+    private void CloseActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CloseActionActionPerformed
         // TODO add your handling code here:
 
         this.CloseDayFrame.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
-        this.CloseDayFrame.setSize(400, 500);
+        this.CloseDayFrame.setSize(700, 500);
         this.CloseDayFrame.setVisible(true);
+        
+        
 
-        JFormattedTextField input;
-        MaskFormatter formatter2;
-        JPanel panel;
-
-        MaskFormatter formatter;
-        try {
-            formatter = new MaskFormatter("###'-##'-####");
-            input = new JFormattedTextField(formatter);
-            input.setValue("123-45-6789");
-            panel = new JPanel();
-            panel.add(input);
-
-            this.CloseDayFrame.add(panel);
-
-        } catch (ParseException ex) {
-            Logger.getLogger(VittoFrame.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }//GEN-LAST:event_CloseDayActionActionPerformed
+    }//GEN-LAST:event_CloseActionActionPerformed
 
     private void tableFourteenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tableFourteenActionPerformed
         this.selectedTable.setState("tableFourteen");
@@ -7381,7 +7679,7 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JSpinner CapuccinoItalianoSpinner;
     private javax.swing.JLabel CapuccinoPrice;
     private javax.swing.JSpinner CapuccinoSpinner;
-    private javax.swing.JButton CloseDayAction;
+    private javax.swing.JButton CloseAction;
     private javax.swing.JFrame CloseDayFrame;
     private javax.swing.JButton CloseTableButton;
     private javax.swing.JFrame CloseTableFrame;
@@ -7428,6 +7726,7 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JCheckBox alfajorMaicenaChocolatadaCheck;
     private javax.swing.JLabel alfajorPrice;
     private javax.swing.JSpinner alfajorSpinner;
+    private javax.swing.JSpinner anioSpinner;
     private javax.swing.JCheckBox arabePromoCheck;
     private javax.swing.JLabel arabePromoPrice;
     private javax.swing.JSpinner arabePromoSpinner;
@@ -7497,18 +7796,24 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JCheckBox chocolatadaCheck;
     private javax.swing.JLabel chocolatadaPrice;
     private javax.swing.JSpinner chocolatadaSpinner;
+    private javax.swing.JButton closeCierreButton;
     private javax.swing.JButton closeSandwichORder;
     private javax.swing.JButton closeTable;
     private javax.swing.JCheckBox copaYogurtCheck;
     private javax.swing.JButton cosePromoBreakfast;
+    private javax.swing.JLabel creditoLabel;
     private javax.swing.JCheckBox cuadradoSecoCheck;
     private javax.swing.JLabel cuadradoSecoPrice;
     private javax.swing.JSpinner cuadradoSecoSpinner;
+    private javax.swing.JLabel cuentaCorrienteLbl;
+    private javax.swing.JLabel debitoLbl;
     private javax.swing.JCheckBox delTiempoCheck;
     private javax.swing.JButton deleteTable;
     private javax.swing.JButton deleteTableButton;
+    private javax.swing.JSpinner diaSpinner;
     private javax.swing.JButton drinkAlcohol;
     private javax.swing.JButton drinkNoAlcohol;
+    private javax.swing.JLabel efectivoLbl;
     private javax.swing.JCheckBox empanadaPromoCheck;
     private javax.swing.JLabel empanadaPromoPrice;
     private javax.swing.JSpinner empanadaPromoSpinner;
@@ -7529,6 +7834,7 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JCheckBox ensaladaTropicalCheck;
     private javax.swing.JLabel ensaladaTropicalPrice;
     private javax.swing.JSpinner ensaladaTropicalSpinner;
+    private javax.swing.JButton fechaCalcularButton;
     private javax.swing.JCheckBox fraNuiCheck;
     private javax.swing.JLabel fraNuiPrice;
     private javax.swing.JSpinner franuiSpinner;
@@ -7601,6 +7907,7 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel144;
     private javax.swing.JLabel jLabel145;
     private javax.swing.JLabel jLabel146;
+    private javax.swing.JLabel jLabel147;
     private javax.swing.JLabel jLabel148;
     private javax.swing.JLabel jLabel149;
     private javax.swing.JLabel jLabel15;
@@ -7608,12 +7915,36 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel151;
     private javax.swing.JLabel jLabel152;
     private javax.swing.JLabel jLabel153;
+    private javax.swing.JLabel jLabel154;
     private javax.swing.JLabel jLabel155;
+    private javax.swing.JLabel jLabel156;
     private javax.swing.JLabel jLabel157;
+    private javax.swing.JLabel jLabel158;
     private javax.swing.JLabel jLabel159;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel160;
+    private javax.swing.JLabel jLabel161;
+    private javax.swing.JLabel jLabel162;
+    private javax.swing.JLabel jLabel163;
+    private javax.swing.JLabel jLabel164;
+    private javax.swing.JLabel jLabel165;
+    private javax.swing.JLabel jLabel166;
+    private javax.swing.JLabel jLabel167;
+    private javax.swing.JLabel jLabel168;
+    private javax.swing.JLabel jLabel169;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel170;
+    private javax.swing.JLabel jLabel171;
+    private javax.swing.JLabel jLabel172;
+    private javax.swing.JLabel jLabel173;
+    private javax.swing.JLabel jLabel175;
+    private javax.swing.JLabel jLabel176;
+    private javax.swing.JLabel jLabel177;
+    private javax.swing.JLabel jLabel178;
+    private javax.swing.JLabel jLabel179;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel185;
+    private javax.swing.JLabel jLabel186;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
@@ -7706,6 +8037,9 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
+    private javax.swing.JSeparator jSeparator11;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
@@ -7735,6 +8069,8 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JLabel medialunaSdwPrice;
     private javax.swing.JSpinner medialunaSdwSpinner;
     private javax.swing.JSpinner medialunaSpinner;
+    private javax.swing.JLabel mercadoPagoLbl;
+    private javax.swing.JSpinner mesSpinner;
     private javax.swing.JCheckBox milanesaPromoCheck;
     private javax.swing.JLabel milanesaPromoPrice;
     private javax.swing.JSpinner milanesaPromoSpinner;
@@ -7772,6 +8108,13 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JLabel pocilloPrice;
     private javax.swing.JSpinner pocilloSpinner;
     private javax.swing.JTable productDescriptionTable;
+    private javax.swing.JSpinner rangoAnio2Spinner;
+    private javax.swing.JSpinner rangoAnioSpinner;
+    private javax.swing.JButton rangoCalcularButton;
+    private javax.swing.JSpinner rangoDia2Spinner;
+    private javax.swing.JSpinner rangoDiaSpinner;
+    private javax.swing.JSpinner rangoMes2Spinner;
+    private javax.swing.JSpinner rangoMesSpinner;
     private javax.swing.JButton saladProducts;
     private javax.swing.JCheckBox sandwichPromoCheck;
     private javax.swing.JLabel sandwichPromoPrice;
@@ -7802,6 +8145,7 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JLabel sdwTartasPrice;
     private javax.swing.JSpinner sdwTartasSpinner;
     private javax.swing.JButton seeConsuming;
+    private javax.swing.JLabel seleccionLbl;
     private javax.swing.JCheckBox submarinoCheck;
     private javax.swing.JLabel submarinoPrice;
     private javax.swing.JSpinner submarinoSpinner;
@@ -7841,6 +8185,7 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JCheckBox tostadoSdwCheck;
     private javax.swing.JLabel tostadoSdwPrice;
     private javax.swing.JSpinner tostadoSdwSpinner;
+    private javax.swing.JLabel totalLbl;
     private javax.swing.JLabel totalPayLabel;
     private javax.swing.JLabel userTableCompleteNamePay;
     private javax.swing.JLabel whoAmILbl;

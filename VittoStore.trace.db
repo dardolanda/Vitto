@@ -8274,3 +8274,337 @@ Caused by: java.lang.IllegalStateException: The file is locked: nio:/media/landa
 	at org.h2.mvstore.FileStore.open(FileStore.java:172)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:390)
 	... 37 more
+2019-12-29 13:26:05 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabla "OPERATING" no encontrada
+Table "OPERATING" not found; SQL statement:
+select * from operating table [42102-199]
+2019-12-29 13:27:33 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Imposible interpretar la constante "TIMESTAMP" "1984"
+Cannot parse "TIMESTAMP" constant "1984"; SQL statement:
+select * from payments
+where horario_pago = 2019-12-23 [22007-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:455)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	at org.h2.message.DbException.get(DbException.java:194)
+	at org.h2.value.ValueTimestamp.parse(ValueTimestamp.java:140)
+	at org.h2.value.Value.convertToTimestamp(Value.java:1099)
+	at org.h2.value.Value.convertTo(Value.java:778)
+	at org.h2.value.Value.convertTo(Value.java:735)
+	at org.h2.expression.condition.Comparison.optimize(Comparison.java:237)
+	at org.h2.command.dml.Select.prepare(Select.java:1248)
+	at org.h2.command.Parser.prepareCommand(Parser.java:689)
+	at org.h2.engine.Session.prepareLocal(Session.java:627)
+	at org.h2.engine.Session.prepareCommand(Session.java:565)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1292)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:217)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:1113)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1436)
+	at org.h2.server.web.WebApp.query(WebApp.java:1111)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1073)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1060)
+	at org.h2.server.web.WebThread.process(WebThread.java:173)
+	at org.h2.server.web.WebThread.run(WebThread.java:93)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.IllegalArgumentException: 1984
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:366)
+	at org.h2.util.DateTimeUtils.parseTimestamp(DateTimeUtils.java:528)
+	at org.h2.value.ValueTimestamp.parse(ValueTimestamp.java:138)
+	... 18 more
+2019-12-29 13:28:12 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "select * from payments
+where horario_pago = 2019-12-23 18:50:36.771[*]'"
+Syntax error in SQL statement "select * from payments
+where horario_pago = 2019-12-23 18:50:36.771[*]'"; SQL statement:
+select * from payments
+where horario_pago = 2019-12-23 18:50:36.771' [42000-199]
+2019-12-29 13:29:35 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: La columna "PAYMENTS.ID" debe estar incluida en la lista de GROUP BY
+Column "PAYMENTS.ID" must be in the GROUP BY list; SQL statement:
+select * from payments
+where horario_pago between '2019-12-23' and '2019-12-24'
+group by tipo_pago [90016-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:573)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.expression.ExpressionColumn.updateAggregate(ExpressionColumn.java:195)
+	at org.h2.command.dml.Select.updateAgg(Select.java:553)
+	at org.h2.command.dml.Select.gatherGroup(Select.java:533)
+	at org.h2.command.dml.Select.queryGroup(Select.java:495)
+	at org.h2.command.dml.Select.queryWithoutCache(Select.java:879)
+	at org.h2.command.dml.Query.queryWithoutCacheLazyCheck(Query.java:151)
+	at org.h2.command.dml.Query.query(Query.java:435)
+	at org.h2.command.dml.Query.query(Query.java:397)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:145)
+	at org.h2.command.Command.executeQuery(Command.java:202)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:227)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:1113)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1436)
+	at org.h2.server.web.WebApp.query(WebApp.java:1111)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1073)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1060)
+	at org.h2.server.web.WebThread.process(WebThread.java:173)
+	at org.h2.server.web.WebThread.run(WebThread.java:93)
+	at java.lang.Thread.run(Thread.java:748)
+2019-12-29 13:30:01 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "SELECT * FROM PAYMENTS
+GROUP_BY TIPO_PAGO[*]
+WHERE HORARIO_PAGO BETWEEN '2019-12-23' AND '2019-12-24' "
+Syntax error in SQL statement "SELECT * FROM PAYMENTS
+GROUP_BY TIPO_PAGO[*]
+WHERE HORARIO_PAGO BETWEEN '2019-12-23' AND '2019-12-24' "; SQL statement:
+select * from payments
+group_by tipo_pago
+where horario_pago between '2019-12-23' and '2019-12-24' [42000-199]
+2019-12-29 13:30:11 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "WHERE[*] HORARIO_PAGO BETWEEN '2019-12-23' AND '2019-12-24'
+GROUP_BY TIPO_PAGO "
+Syntax error in SQL statement "WHERE[*] HORARIO_PAGO BETWEEN '2019-12-23' AND '2019-12-24'
+GROUP_BY TIPO_PAGO "; SQL statement:
+where horario_pago between '2019-12-23' and '2019-12-24'
+group_by tipo_pago [42000-199]
+2019-12-29 13:30:13 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "SELECT * FROM PAYMENTS
+WHERE HORARIO_PAGO BETWEEN '2019-12-23' AND '2019-12-24'
+GROUP_BY[*] TIPO_PAGO "
+Syntax error in SQL statement "SELECT * FROM PAYMENTS
+WHERE HORARIO_PAGO BETWEEN '2019-12-23' AND '2019-12-24'
+GROUP_BY[*] TIPO_PAGO "; SQL statement:
+select * from payments
+where horario_pago between '2019-12-23' and '2019-12-24'
+group_by tipo_pago [42000-199]
+2019-12-29 13:30:44 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "SELECT TIPO_PAGO FROM PAYMENTS
+WHERE HORARIO_PAGO BETWEEN '2019-12-23' AND '2019-12-24'
+GROUP_BY[*] TIPO_PAGO "
+Syntax error in SQL statement "SELECT TIPO_PAGO FROM PAYMENTS
+WHERE HORARIO_PAGO BETWEEN '2019-12-23' AND '2019-12-24'
+GROUP_BY[*] TIPO_PAGO "; SQL statement:
+select tipo_pago from payments
+where horario_pago between '2019-12-23' and '2019-12-24'
+group_by tipo_pago [42000-199]
+2019-12-29 13:33:37 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: La columna "TIPO_PAGO" debe estar incluida en la lista de GROUP BY
+Column "TIPO_PAGO" must be in the GROUP BY list; SQL statement:
+select count(tipo_pago), tipo_pago from payments
+where horario_pago between '2019-12-23' and '2019-12-24' [90016-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:573)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.expression.ExpressionColumn.updateAggregate(ExpressionColumn.java:195)
+	at org.h2.command.dml.Select.updateAgg(Select.java:553)
+	at org.h2.command.dml.Select.gatherGroup(Select.java:533)
+	at org.h2.command.dml.Select.queryGroup(Select.java:495)
+	at org.h2.command.dml.Select.queryWithoutCache(Select.java:879)
+	at org.h2.command.dml.Query.queryWithoutCacheLazyCheck(Query.java:151)
+	at org.h2.command.dml.Query.query(Query.java:435)
+	at org.h2.command.dml.Query.query(Query.java:397)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:145)
+	at org.h2.command.Command.executeQuery(Command.java:202)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:227)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:1113)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1436)
+	at org.h2.server.web.WebApp.query(WebApp.java:1111)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1073)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1060)
+	at org.h2.server.web.WebThread.process(WebThread.java:173)
+	at org.h2.server.web.WebThread.run(WebThread.java:93)
+	at java.lang.Thread.run(Thread.java:748)
+2019-12-29 13:33:54 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "SELECT COUNT(TIPO_PAGO), TIPO_PAGO FROM PAYMENTS
+WHERE HORARIO_PAGO BETWEEN '2019-12-23' AND '2019-12-24'
+GROPU[*] BY TIPO_PAGO "
+Syntax error in SQL statement "SELECT COUNT(TIPO_PAGO), TIPO_PAGO FROM PAYMENTS
+WHERE HORARIO_PAGO BETWEEN '2019-12-23' AND '2019-12-24'
+GROPU[*] BY TIPO_PAGO "; SQL statement:
+select count(tipo_pago), tipo_pago from payments
+where horario_pago between '2019-12-23' and '2019-12-24'
+gropu by tipo_pago [42000-199]
+2019-12-29 13:34:04 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "SELECT COUNT(TIPO_PAGO) FROM PAYMENTS
+WHERE HORARIO_PAGO BETWEEN '2019-12-23' AND '2019-12-24'
+GROPU[*] BY TIPO_PAGO "
+Syntax error in SQL statement "SELECT COUNT(TIPO_PAGO) FROM PAYMENTS
+WHERE HORARIO_PAGO BETWEEN '2019-12-23' AND '2019-12-24'
+GROPU[*] BY TIPO_PAGO "; SQL statement:
+select count(tipo_pago) from payments
+where horario_pago between '2019-12-23' and '2019-12-24'
+gropu by tipo_pago [42000-199]
+2019-12-29 13:35:13 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "SELECT COUNT(TIPO_PAGO) FROM PAYMENTS
+WHERE HORARIO_PAGO BETWEEN '2019-12-23' AND '2019-12-29'
+GROPU[*] BY TIPO_PAGO "
+Syntax error in SQL statement "SELECT COUNT(TIPO_PAGO) FROM PAYMENTS
+WHERE HORARIO_PAGO BETWEEN '2019-12-23' AND '2019-12-29'
+GROPU[*] BY TIPO_PAGO "; SQL statement:
+select count(tipo_pago) from payments
+where horario_pago between '2019-12-23' and '2019-12-29'
+gropu by tipo_pago [42000-199]
+2019-12-29 13:36:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "SELECT * FROM OPERATING_TABLE
+
+
+SELECT[*] * FROM PAYMENTS
+
+
+SELECT * FROM PAYMENTS
+WHERE HORARIO_PAGO BETWEEN '2019-12-23' AND '2019-12-30' "
+Syntax error in SQL statement "SELECT * FROM OPERATING_TABLE
+
+
+SELECT[*] * FROM PAYMENTS
+
+
+SELECT * FROM PAYMENTS
+WHERE HORARIO_PAGO BETWEEN '2019-12-23' AND '2019-12-30' "; SQL statement:
+select * from operating_table
+
+
+select * from payments
+
+
+select * from payments
+where horario_pago between '2019-12-23' and '2019-12-30' [42000-199]
+2019-12-29 13:37:29 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: La columna "TOTAL" debe estar incluida en la lista de GROUP BY
+Column "TOTAL" must be in the GROUP BY list; SQL statement:
+SELECT COUNT(tipo_pago), total
+FROM payments
+GROUP BY tipo_pago [90016-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:573)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.expression.ExpressionColumn.updateAggregate(ExpressionColumn.java:195)
+	at org.h2.command.dml.Select.updateAgg(Select.java:553)
+	at org.h2.command.dml.Select.gatherGroup(Select.java:533)
+	at org.h2.command.dml.Select.queryGroup(Select.java:495)
+	at org.h2.command.dml.Select.queryWithoutCache(Select.java:879)
+	at org.h2.command.dml.Query.queryWithoutCacheLazyCheck(Query.java:151)
+	at org.h2.command.dml.Query.query(Query.java:435)
+	at org.h2.command.dml.Query.query(Query.java:397)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:145)
+	at org.h2.command.Command.executeQuery(Command.java:202)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:227)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:1113)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1436)
+	at org.h2.server.web.WebApp.query(WebApp.java:1111)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1073)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1060)
+	at org.h2.server.web.WebThread.process(WebThread.java:173)
+	at org.h2.server.web.WebThread.run(WebThread.java:93)
+	at java.lang.Thread.run(Thread.java:748)
+2019-12-29 13:38:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "SELECT * FROM OPERATING_TABLE
+
+
+SELECT[*] * FROM PAYMENTS
+
+SELECT (TIPO_PAGO)
+FROM PAYMENTS
+GROUP BY TIPO_PAGO "
+Syntax error in SQL statement "SELECT * FROM OPERATING_TABLE
+
+
+SELECT[*] * FROM PAYMENTS
+
+SELECT (TIPO_PAGO)
+FROM PAYMENTS
+GROUP BY TIPO_PAGO "; SQL statement:
+select * from operating_table
+
+
+select * from payments
+
+SELECT (tipo_pago)
+FROM payments
+GROUP BY tipo_pago [42000-199]
+2019-12-29 13:38:39 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: La columna "HORARIO_PAGO" debe estar incluida en la lista de GROUP BY
+Column "HORARIO_PAGO" must be in the GROUP BY list; SQL statement:
+SELECT tipo_pago, horario_pago
+FROM payments
+GROUP BY tipo_pago [90016-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:573)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.expression.ExpressionColumn.updateAggregate(ExpressionColumn.java:195)
+	at org.h2.command.dml.Select.updateAgg(Select.java:553)
+	at org.h2.command.dml.Select.gatherGroup(Select.java:533)
+	at org.h2.command.dml.Select.queryGroup(Select.java:495)
+	at org.h2.command.dml.Select.queryWithoutCache(Select.java:879)
+	at org.h2.command.dml.Query.queryWithoutCacheLazyCheck(Query.java:151)
+	at org.h2.command.dml.Query.query(Query.java:435)
+	at org.h2.command.dml.Query.query(Query.java:397)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:145)
+	at org.h2.command.Command.executeQuery(Command.java:202)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:227)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:1113)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1436)
+	at org.h2.server.web.WebApp.query(WebApp.java:1111)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1073)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1060)
+	at org.h2.server.web.WebThread.process(WebThread.java:173)
+	at org.h2.server.web.WebThread.run(WebThread.java:93)
+	at java.lang.Thread.run(Thread.java:748)
+2019-12-29 13:38:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: La columna "HORARIO_PAGO" debe estar incluida en la lista de GROUP BY
+Column "HORARIO_PAGO" must be in the GROUP BY list; SQL statement:
+SELECT (tipo_pago), horario_pago
+FROM payments
+GROUP BY tipo_pago [90016-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:573)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.expression.ExpressionColumn.updateAggregate(ExpressionColumn.java:195)
+	at org.h2.command.dml.Select.updateAgg(Select.java:553)
+	at org.h2.command.dml.Select.gatherGroup(Select.java:533)
+	at org.h2.command.dml.Select.queryGroup(Select.java:495)
+	at org.h2.command.dml.Select.queryWithoutCache(Select.java:879)
+	at org.h2.command.dml.Query.queryWithoutCacheLazyCheck(Query.java:151)
+	at org.h2.command.dml.Query.query(Query.java:435)
+	at org.h2.command.dml.Query.query(Query.java:397)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:145)
+	at org.h2.command.Command.executeQuery(Command.java:202)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:227)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:1113)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1436)
+	at org.h2.server.web.WebApp.query(WebApp.java:1111)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1073)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1060)
+	at org.h2.server.web.WebThread.process(WebThread.java:173)
+	at org.h2.server.web.WebThread.run(WebThread.java:93)
+	at java.lang.Thread.run(Thread.java:748)
+2019-12-29 13:49:24 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: La columna "DESCUENTO_APLICADO" debe estar incluida en la lista de GROUP BY
+Column "DESCUENTO_APLICADO" must be in the GROUP BY list; SQL statement:
+SELECT (tipo_pago), sum(total) as total, descuento_aplicado
+FROM payments
+where horario_pago between '2019-12-23' and '2019-12-24'
+GROUP BY tipo_pago [90016-199]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:573)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:427)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.expression.ExpressionColumn.updateAggregate(ExpressionColumn.java:195)
+	at org.h2.command.dml.Select.updateAgg(Select.java:553)
+	at org.h2.command.dml.Select.gatherGroup(Select.java:533)
+	at org.h2.command.dml.Select.queryGroup(Select.java:495)
+	at org.h2.command.dml.Select.queryWithoutCache(Select.java:879)
+	at org.h2.command.dml.Query.queryWithoutCacheLazyCheck(Query.java:151)
+	at org.h2.command.dml.Query.query(Query.java:435)
+	at org.h2.command.dml.Query.query(Query.java:397)
+	at org.h2.command.CommandContainer.query(CommandContainer.java:145)
+	at org.h2.command.Command.executeQuery(Command.java:202)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:227)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:1113)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1436)
+	at org.h2.server.web.WebApp.query(WebApp.java:1111)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1073)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1060)
+	at org.h2.server.web.WebThread.process(WebThread.java:173)
+	at org.h2.server.web.WebThread.run(WebThread.java:93)
+	at java.lang.Thread.run(Thread.java:748)

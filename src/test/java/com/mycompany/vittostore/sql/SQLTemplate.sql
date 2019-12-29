@@ -150,3 +150,25 @@ and (estado = 'USO' or estado = 'CERRADA')
 
 -- actividad = false
 -- estado = eliminada
+
+
+
+select * from operating_table
+
+
+select * from payments
+
+SELECT (tipo_pago), sum(total) as total, sum(descuento_aplicado) as descuento
+FROM payments
+where horario_pago between '2019-12-23' and '2019-12-24'
+GROUP BY tipo_pago ;
+
+select * from payments
+where horario_pago between '2019-12-23' and '2019-12-24'
+and tipo_pago = 'EFECTIVO'
+
+;
+
+select * from payments
+where horario_pago between '2019-12-23' and '2019-12-30'
+
