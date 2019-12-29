@@ -120,13 +120,13 @@ public class VittoFrame extends javax.swing.JFrame {
         this.selectedComponentMap.put(NoAlcoholDrinksEnum.LEVITE_POMELO.name(), new GenericSelectedComponent(this.bombonCheck, this.bombonSpinner));
         this.selectedComponentMap.put(NoAlcoholDrinksEnum.CEPITA.name(), new GenericSelectedComponent(this.tonicCoffeeCheck, this.cafeDelTiempoSpinner));
         this.selectedComponentMap.put(NoAlcoholDrinksEnum.SCHEWEPPES_POMELO.name(), new GenericSelectedComponent(this.submarinoCheck, this.submarinoSpinner));
-        this.selectedComponentMap.put(NoAlcoholDrinksEnum.SCHEWEPPES_TONICA.name(), new GenericSelectedComponent(this.scheweppesTonicaCheck, this.chocolatadaSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.SCHEWEPPES_TONICA.name(), new GenericSelectedComponent(this.chocolatadaCheck, this.chocolatadaSpinner));
         this.selectedComponentMap.put(NoAlcoholDrinksEnum.AGUA.name(), new GenericSelectedComponent(this.iceTeaCheck, this.iceTeaSpinner));
         this.selectedComponentMap.put(NoAlcoholDrinksEnum.AGUA_GAS.name(), new GenericSelectedComponent(this.waterGasCheck, this.waterGasSpinner));
-        this.selectedComponentMap.put(NoAlcoholDrinksEnum.EXPRIMIDO.name(), new GenericSelectedComponent(this.exprimidoCheck, this.exprimidoSpinner));
-        this.selectedComponentMap.put(NoAlcoholDrinksEnum.LICUADO_LECHE.name(), new GenericSelectedComponent(this.licuadoLecheCheck, this.licuadoLecheSpinner));
-        this.selectedComponentMap.put(NoAlcoholDrinksEnum.LICUADO_AGUA.name(), new GenericSelectedComponent(this.licuadoAguaCheck, this.licuadoAguaSpinner));
-        this.selectedComponentMap.put(NoAlcoholDrinksEnum.LIMONADA.name(), new GenericSelectedComponent(this.limonadaElaboradoCheck, this.limonada_elaborada_Spinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.EXPRIMIDO.name(), new GenericSelectedComponent(this.GaseosaLineaCocacheck, this.GaseosaLineaCocaSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.LICUADO_LECHE.name(), new GenericSelectedComponent(this.aguaSaborizadaCheck, this.aguaSaborizadaSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.LICUADO_AGUA.name(), new GenericSelectedComponent(this.cepitaCheck, this.cepitaSpinner));
+        this.selectedComponentMap.put(NoAlcoholDrinksEnum.LIMONADA.name(), new GenericSelectedComponent(this.AguaC_S_GasCheck, this.AguaC_S_GasSpinner));
         this.selectedComponentMap.put(NoAlcoholDrinksEnum.MILK_SHAKE_CHOCO.name(), new GenericSelectedComponent(this.shakeChocolateCheck, this.shakeChocolateSpinner));
         this.selectedComponentMap.put(NoAlcoholDrinksEnum.MILK_SHAKE_DULCE_LECHE.name(), new GenericSelectedComponent(this.shakeDulceLecheCheck, this.shakeDulceLecheSpinner));
 
@@ -291,7 +291,6 @@ public class VittoFrame extends javax.swing.JFrame {
         DrinkNoAlcoholFrame = new javax.swing.JFrame();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jSeparator2 = new javax.swing.JSeparator();
         acceptNoAlcoholDrinks = new javax.swing.JButton();
         cancelNoAlcoholDrinks = new javax.swing.JButton();
         pocilloCheck = new javax.swing.JCheckBox();
@@ -318,22 +317,18 @@ public class VittoFrame extends javax.swing.JFrame {
         CapuccinoItalianoSpinner = new javax.swing.JSpinner();
         iceTeaCheck = new javax.swing.JCheckBox();
         iceTeaSpinner = new javax.swing.JSpinner();
-        exprimidoCheck = new javax.swing.JCheckBox();
-        exprimidoSpinner = new javax.swing.JSpinner();
-        limonadaElaboradoCheck = new javax.swing.JCheckBox();
-        limonada_elaborada_Spinner = new javax.swing.JSpinner();
-        licuadoLecheCheck = new javax.swing.JCheckBox();
-        licuadoAguaCheck = new javax.swing.JCheckBox();
-        licuadoLecheSpinner = new javax.swing.JSpinner();
-        licuadoAguaSpinner = new javax.swing.JSpinner();
-        shakeDulceLecheCheck = new javax.swing.JCheckBox();
-        shakeDulceLecheSpinner = new javax.swing.JSpinner();
-        shakeChocolateCheck = new javax.swing.JCheckBox();
-        shakeChocolateSpinner = new javax.swing.JSpinner();
+        GaseosaLineaCocacheck = new javax.swing.JCheckBox();
+        GaseosaLineaCocaSpinner = new javax.swing.JSpinner();
+        AguaC_S_GasCheck = new javax.swing.JCheckBox();
+        AguaC_S_GasSpinner = new javax.swing.JSpinner();
+        aguaSaborizadaCheck = new javax.swing.JCheckBox();
+        cepitaCheck = new javax.swing.JCheckBox();
+        aguaSaborizadaSpinner = new javax.swing.JSpinner();
+        cepitaSpinner = new javax.swing.JSpinner();
         tonicCoffeeCheck = new javax.swing.JCheckBox();
         cafeDelTiempoSpinner = new javax.swing.JSpinner();
         submarinoCheck = new javax.swing.JCheckBox();
-        scheweppesTonicaCheck = new javax.swing.JCheckBox();
+        chocolatadaCheck = new javax.swing.JCheckBox();
         submarinoSpinner = new javax.swing.JSpinner();
         chocolatadaSpinner = new javax.swing.JSpinner();
         jLabel98 = new javax.swing.JLabel();
@@ -376,6 +371,34 @@ public class VittoFrame extends javax.swing.JFrame {
         jLabel150 = new javax.swing.JLabel();
         iceTeaPrice = new javax.swing.JLabel();
         jLabel124 = new javax.swing.JLabel();
+        FrapuccinoCheck = new javax.swing.JCheckBox();
+        FrapuccinoSpinner = new javax.swing.JSpinner();
+        jLabel136 = new javax.swing.JLabel();
+        FrapuccinoPrice = new javax.swing.JLabel();
+        jCheckBox2 = new javax.swing.JCheckBox();
+        MilkshakeSpinner = new javax.swing.JSpinner();
+        jLabel140 = new javax.swing.JLabel();
+        MilkshakePrice = new javax.swing.JLabel();
+        jCheckBox3 = new javax.swing.JCheckBox();
+        licuadosSpinner = new javax.swing.JSpinner();
+        jLabel149 = new javax.swing.JLabel();
+        licuadosPrice = new javax.swing.JLabel();
+        limonadaCheck = new javax.swing.JCheckBox();
+        limonadaSpinner = new javax.swing.JSpinner();
+        jLabel151 = new javax.swing.JLabel();
+        limonadaPrice = new javax.swing.JLabel();
+        batidoExprimidoCheck = new javax.swing.JCheckBox();
+        batidoExprimidoSpinner = new javax.swing.JSpinner();
+        jLabel152 = new javax.swing.JLabel();
+        batidoExprimidoPrice = new javax.swing.JLabel();
+        jLabel153 = new javax.swing.JLabel();
+        GaseosaLineaCocaPrice = new javax.swing.JLabel();
+        jLabel155 = new javax.swing.JLabel();
+        AguaC_S_GasPrice = new javax.swing.JLabel();
+        jLabel157 = new javax.swing.JLabel();
+        aguaSaborizadaPrice = new javax.swing.JLabel();
+        jLabel159 = new javax.swing.JLabel();
+        cepitaPrice = new javax.swing.JLabel();
         DrinkAlcoholFrame = new javax.swing.JFrame();
         jLabel58 = new javax.swing.JLabel();
         cervezaCheck = new javax.swing.JCheckBox();
@@ -952,7 +975,8 @@ public class VittoFrame extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Dialog", 0, 17)); // NOI18N
         jLabel6.setText("Cafe");
 
-        jLabel7.setText("Línea Elaborados");
+        jLabel7.setFont(new java.awt.Font("Dialog", 0, 17)); // NOI18N
+        jLabel7.setText("Bebidas");
 
         acceptNoAlcoholDrinks.setText("Guardar Pedido");
         acceptNoAlcoholDrinks.addActionListener(new java.awt.event.ActionListener() {
@@ -1064,51 +1088,35 @@ public class VittoFrame extends javax.swing.JFrame {
             }
         });
 
-        exprimidoCheck.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        exprimidoCheck.setText("exprimido");
-        exprimidoCheck.addActionListener(new java.awt.event.ActionListener() {
+        GaseosaLineaCocacheck.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        GaseosaLineaCocacheck.setText("Gaseosas línea Coca 354ml");
+        GaseosaLineaCocacheck.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exprimidoCheckActionPerformed(evt);
+                GaseosaLineaCocacheckActionPerformed(evt);
             }
         });
 
-        limonadaElaboradoCheck.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        limonadaElaboradoCheck.setText("limonada");
-        limonadaElaboradoCheck.addActionListener(new java.awt.event.ActionListener() {
+        AguaC_S_GasCheck.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        AguaC_S_GasCheck.setText("Agua, Agua con gas");
+        AguaC_S_GasCheck.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                limonadaElaboradoCheckActionPerformed(evt);
+                AguaC_S_GasCheckActionPerformed(evt);
             }
         });
 
-        licuadoLecheCheck.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        licuadoLecheCheck.setText("licuado c/ leche");
-        licuadoLecheCheck.addActionListener(new java.awt.event.ActionListener() {
+        aguaSaborizadaCheck.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        aguaSaborizadaCheck.setText("Saborizada (pomelo, manzana, Naranja)");
+        aguaSaborizadaCheck.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                licuadoLecheCheckActionPerformed(evt);
+                aguaSaborizadaCheckActionPerformed(evt);
             }
         });
 
-        licuadoAguaCheck.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        licuadoAguaCheck.setText("licuado c/ agua");
-        licuadoAguaCheck.addActionListener(new java.awt.event.ActionListener() {
+        cepitaCheck.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        cepitaCheck.setText("Cepita (naranja, manzana)");
+        cepitaCheck.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                licuadoAguaCheckActionPerformed(evt);
-            }
-        });
-
-        shakeDulceLecheCheck.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        shakeDulceLecheCheck.setText("Milk Shake (dulce de leche)");
-        shakeDulceLecheCheck.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                shakeDulceLecheCheckActionPerformed(evt);
-            }
-        });
-
-        shakeChocolateCheck.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        shakeChocolateCheck.setText("Milk Shake (chocolate)");
-        shakeChocolateCheck.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                shakeChocolateCheckActionPerformed(evt);
+                cepitaCheckActionPerformed(evt);
             }
         });
 
@@ -1128,11 +1136,11 @@ public class VittoFrame extends javax.swing.JFrame {
             }
         });
 
-        scheweppesTonicaCheck.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        scheweppesTonicaCheck.setText("Chocolatada");
-        scheweppesTonicaCheck.addActionListener(new java.awt.event.ActionListener() {
+        chocolatadaCheck.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        chocolatadaCheck.setText("Chocolatada");
+        chocolatadaCheck.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                scheweppesTonicaCheckActionPerformed(evt);
+                chocolatadaCheckActionPerformed(evt);
             }
         });
 
@@ -1240,121 +1248,181 @@ public class VittoFrame extends javax.swing.JFrame {
 
         iceTeaPrice.setText("100");
 
+        jLabel124.setFont(new java.awt.Font("Dialog", 0, 17)); // NOI18N
         jLabel124.setText("Batidos");
+
+        FrapuccinoCheck.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        FrapuccinoCheck.setText("Frapuccino");
+        FrapuccinoCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FrapuccinoCheckActionPerformed(evt);
+            }
+        });
+
+        jLabel136.setText("$");
+
+        FrapuccinoPrice.setText("190");
+
+        jCheckBox2.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jCheckBox2.setText("Milkshake");
+        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox2ActionPerformed(evt);
+            }
+        });
+
+        jLabel140.setText("$");
+
+        MilkshakePrice.setText("190");
+
+        jCheckBox3.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jCheckBox3.setText("LIcuados");
+        jCheckBox3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox3ActionPerformed(evt);
+            }
+        });
+
+        jLabel149.setText("$");
+
+        licuadosPrice.setText("175");
+
+        limonadaCheck.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        limonadaCheck.setText("Limonada");
+        limonadaCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                limonadaCheckActionPerformed(evt);
+            }
+        });
+
+        jLabel151.setText("$");
+
+        limonadaPrice.setText("150");
+
+        batidoExprimidoCheck.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        batidoExprimidoCheck.setText("exprimido");
+        batidoExprimidoCheck.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                batidoExprimidoCheckActionPerformed(evt);
+            }
+        });
+
+        jLabel152.setText("$");
+
+        batidoExprimidoPrice.setText("15");
+
+        jLabel153.setText("$");
+
+        GaseosaLineaCocaPrice.setText("90");
+
+        jLabel155.setText("$");
+
+        AguaC_S_GasPrice.setText("90");
+
+        jLabel157.setText("$");
+
+        aguaSaborizadaPrice.setText("90");
+
+        jLabel159.setText("$");
+
+        cepitaPrice.setText("60");
 
         javax.swing.GroupLayout DrinkNoAlcoholFrameLayout = new javax.swing.GroupLayout(DrinkNoAlcoholFrame.getContentPane());
         DrinkNoAlcoholFrame.getContentPane().setLayout(DrinkNoAlcoholFrameLayout);
         DrinkNoAlcoholFrameLayout.setHorizontalGroup(
             DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
-                .addGap(42, 42, 42)
+                .addGap(21, 21, 21)
                 .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
                         .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSeparator2))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
                         .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(exprimidoCheck)
-                            .addComponent(limonadaElaboradoCheck))
-                        .addGap(18, 18, 18)
-                        .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(limonada_elaborada_Spinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(exprimidoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(68, 68, 68)
-                        .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
-                                .addComponent(licuadoAguaCheck)
-                                .addGap(18, 18, 18)
-                                .addComponent(licuadoAguaSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
-                                .addComponent(licuadoLecheCheck)
-                                .addGap(18, 18, 18)
-                                .addComponent(licuadoLecheSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(89, Short.MAX_VALUE))
-                    .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
-                        .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
-                                .addComponent(shakeChocolateCheck)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(shakeChocolateSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
-                                .addComponent(shakeDulceLecheCheck)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(shakeDulceLecheSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))))
-            .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
-                .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(acceptNoAlcoholDrinks, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cancelNoAlcoholDrinks))
-                    .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
-                                .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(submarinoCheck)
-                                    .addComponent(scheweppesTonicaCheck))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 381, Short.MAX_VALUE))
-                            .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
-                                .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(teCheck)
-                                    .addComponent(hotCiokCheck))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
+                                .addGap(21, 21, 21)
                                 .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
                                         .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(cafeConLecheCheck)
-                                            .addComponent(jarritoCheck)
-                                            .addComponent(pocilloCheck)
-                                            .addComponent(cafeDobleCheck)
-                                            .addComponent(LatteSaborizadosCheck)
-                                            .addComponent(CapuccinoItalianoCheck)
-                                            .addComponent(jLabel6))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
-                                                .addComponent(cafeConLecheSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jLabel132)
-                                                .addGap(2, 2, 2)
-                                                .addComponent(cafeConLechePrice))
-                                            .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
-                                                .addGap(2, 2, 2)
+                                                .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(cafeConLecheCheck)
+                                                    .addComponent(jarritoCheck)
+                                                    .addComponent(pocilloCheck)
+                                                    .addComponent(cafeDobleCheck)
+                                                    .addComponent(LatteSaborizadosCheck)
+                                                    .addComponent(CapuccinoItalianoCheck)
+                                                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                 .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
-                                                        .addComponent(CapuccinoItalianoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(cafeConLecheSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(jLabel139)
+                                                        .addComponent(jLabel132)
                                                         .addGap(2, 2, 2)
-                                                        .addComponent(CapuccinoItalianoPrice))
+                                                        .addComponent(cafeConLechePrice))
                                                     .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
-                                                        .addComponent(cafeDobleSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(jLabel135)
                                                         .addGap(2, 2, 2)
-                                                        .addComponent(cafeDoblePrice))
+                                                        .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
+                                                                .addComponent(CapuccinoItalianoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addComponent(jLabel139)
+                                                                .addGap(2, 2, 2)
+                                                                .addComponent(CapuccinoItalianoPrice))
+                                                            .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
+                                                                .addComponent(cafeDobleSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addComponent(jLabel135)
+                                                                .addGap(2, 2, 2)
+                                                                .addComponent(cafeDoblePrice))
+                                                            .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
+                                                                .addComponent(LattesaborizadosSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addComponent(jLabel141)
+                                                                .addGap(2, 2, 2)
+                                                                .addComponent(LattesaborizadosPrice))
+                                                            .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
+                                                                .addComponent(submarinoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addComponent(jLabel142)
+                                                                .addGap(2, 2, 2)
+                                                                .addComponent(submarinoPrice))
+                                                            .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
+                                                                .addComponent(chocolatadaSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addComponent(jLabel143)
+                                                                .addGap(2, 2, 2)
+                                                                .addComponent(chocolatadaPrice))))
                                                     .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
-                                                        .addComponent(LattesaborizadosSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(pocilloSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(jLabel141)
+                                                        .addComponent(jLabel119)
                                                         .addGap(2, 2, 2)
-                                                        .addComponent(LattesaborizadosPrice))
+                                                        .addComponent(pocilloPrice))
                                                     .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
-                                                        .addComponent(submarinoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(jarritoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(jLabel142)
+                                                        .addComponent(jLabel122)
                                                         .addGap(2, 2, 2)
-                                                        .addComponent(submarinoPrice))
-                                                    .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
-                                                        .addComponent(chocolatadaSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(jLabel143)
-                                                        .addGap(2, 2, 2)
-                                                        .addComponent(chocolatadaPrice))
+                                                        .addComponent(jarritoPrice))))
+                                            .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
+                                                .addComponent(CapuccinoCheck)
+                                                .addGap(18, 18, Short.MAX_VALUE)
+                                                .addComponent(CapuccinoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jLabel137)
+                                                .addGap(2, 2, 2)
+                                                .addComponent(CapuccinoPrice))
+                                            .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
+                                                .addComponent(chocolatadaCheck)
+                                                .addGap(0, 0, Short.MAX_VALUE))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DrinkNoAlcoholFrameLayout.createSequentialGroup()
+                                                .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(hotCiokCheck)
+                                                    .addComponent(teCheck))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
                                                         .addComponent(hotCiokSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1366,35 +1434,14 @@ public class VittoFrame extends javax.swing.JFrame {
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                         .addComponent(jLabel145)
                                                         .addGap(2, 2, 2)
-                                                        .addComponent(tePrice))))
-                                            .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
-                                                .addComponent(pocilloSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jLabel119)
-                                                .addGap(2, 2, 2)
-                                                .addComponent(pocilloPrice))
-                                            .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
-                                                .addComponent(jarritoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jLabel122)
-                                                .addGap(2, 2, 2)
-                                                .addComponent(jarritoPrice))))
+                                                        .addComponent(tePrice)))))
+                                        .addGap(63, 63, 63))
                                     .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
-                                        .addComponent(CapuccinoCheck)
-                                        .addGap(18, 18, Short.MAX_VALUE)
-                                        .addComponent(CapuccinoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel137)
-                                        .addGap(2, 2, 2)
-                                        .addComponent(CapuccinoPrice)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(submarinoCheck)
+                                        .addGap(181, 181, 181)))
                                 .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
                                         .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
-                                                .addComponent(cafeIceCappuCheck)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(cafeIceCappuSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
                                                 .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addComponent(cafeIceMassimoCheck)
@@ -1404,7 +1451,16 @@ public class VittoFrame extends javax.swing.JFrame {
                                                 .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addComponent(tonicCoffeeSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addComponent(iceTeaSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(cafeIceMassimoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                    .addComponent(cafeIceMassimoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(cafeDelTiempoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
+                                                    .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addComponent(jLabel124)
+                                                        .addComponent(cafeIceCappuCheck))
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(cafeIceCappuSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(bombonSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
@@ -1427,18 +1483,33 @@ public class VittoFrame extends javax.swing.JFrame {
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                         .addComponent(tonicCoffeePrice)))
                                                 .addGap(0, 0, Short.MAX_VALUE))))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DrinkNoAlcoholFrameLayout.createSequentialGroup()
+                                        .addComponent(acceptNoAlcoholDrinks, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(cancelNoAlcoholDrinks))
                                     .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
                                         .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
-                                                .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
-                                                        .addComponent(delTiempoCheck)
-                                                        .addGap(18, 18, 18)
-                                                        .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                            .addComponent(cafeDelTiempoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                            .addComponent(bombonSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                    .addComponent(bombonCheck))
+                                                .addComponent(batidoExprimidoCheck)
                                                 .addGap(18, 18, 18)
+                                                .addComponent(batidoExprimidoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jLabel152)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(batidoExprimidoPrice))
+                                            .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
+                                                .addComponent(FrapuccinoCheck)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(FrapuccinoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jLabel136)
+                                                .addGap(1, 1, 1)
+                                                .addComponent(FrapuccinoPrice))
+                                            .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
+                                                .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(delTiempoCheck)
+                                                    .addComponent(bombonCheck))
+                                                .addGap(74, 74, 74)
                                                 .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
                                                         .addComponent(jLabel106)
@@ -1448,18 +1519,82 @@ public class VittoFrame extends javax.swing.JFrame {
                                                         .addComponent(jLabel134)
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                         .addComponent(bombonPrice))))
-                                            .addComponent(jLabel98)
-                                            .addComponent(jLabel124))
-                                        .addGap(0, 0, Short.MAX_VALUE)))))))
-                .addContainerGap())
+                                            .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
+                                                .addGap(64, 64, 64)
+                                                .addComponent(jLabel98))
+                                            .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
+                                                .addComponent(jCheckBox3)
+                                                .addGap(24, 24, 24)
+                                                .addComponent(licuadosSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jLabel149)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(licuadosPrice))
+                                            .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
+                                                .addComponent(jCheckBox2)
+                                                .addGap(21, 21, 21)
+                                                .addComponent(MilkshakeSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jLabel140)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(MilkshakePrice))
+                                            .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
+                                                .addComponent(limonadaCheck)
+                                                .addGap(21, 21, 21)
+                                                .addComponent(limonadaSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jLabel151)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(limonadaPrice)))
+                                        .addGap(0, 0, Short.MAX_VALUE))))
+                            .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
+                                .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
+                                        .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(aguaSaborizadaCheck)
+                                            .addComponent(cepitaCheck))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
+                                                .addComponent(cepitaSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jLabel159)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(cepitaPrice))
+                                            .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
+                                                .addComponent(aguaSaborizadaSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jLabel157)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(aguaSaborizadaPrice))))
+                                    .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
+                                        .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(GaseosaLineaCocacheck)
+                                            .addComponent(AguaC_S_GasCheck))
+                                        .addGap(95, 95, 95)
+                                        .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(GaseosaLineaCocaSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(AguaC_S_GasSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
+                                                .addComponent(jLabel153)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(GaseosaLineaCocaPrice))
+                                            .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
+                                                .addComponent(jLabel155)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(AguaC_S_GasPrice)))))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())))
         );
         DrinkNoAlcoholFrameLayout.setVerticalGroup(
             DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel98))
+                    .addComponent(jLabel98)
+                    .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
@@ -1530,7 +1665,9 @@ public class VittoFrame extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DrinkNoAlcoholFrameLayout.createSequentialGroup()
                         .addComponent(iceTeaCheck)
                         .addGap(18, 18, 18)
-                        .addComponent(LatteSaborizadosCheck))
+                        .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(LatteSaborizadosCheck)
+                            .addComponent(jLabel124)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DrinkNoAlcoholFrameLayout.createSequentialGroup()
                         .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(CapuccinoItalianoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1541,8 +1678,7 @@ public class VittoFrame extends javax.swing.JFrame {
                         .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(LattesaborizadosSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(LattesaborizadosPrice)
-                            .addComponent(jLabel141)
-                            .addComponent(jLabel124)))
+                            .addComponent(jLabel141)))
                     .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel150)
                         .addComponent(iceTeaPrice)
@@ -1552,21 +1688,49 @@ public class VittoFrame extends javax.swing.JFrame {
                     .addComponent(submarinoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(submarinoCheck)
                     .addComponent(submarinoPrice)
-                    .addComponent(jLabel142))
+                    .addComponent(jLabel142)
+                    .addComponent(FrapuccinoCheck)
+                    .addComponent(FrapuccinoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel136)
+                    .addComponent(FrapuccinoPrice))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(scheweppesTonicaCheck)
+                    .addComponent(chocolatadaCheck)
                     .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(chocolatadaSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(chocolatadaPrice)
-                        .addComponent(jLabel143)))
-                .addGap(14, 14, 14)
+                        .addComponent(jLabel143)
+                        .addComponent(jCheckBox2)
+                        .addComponent(MilkshakeSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel140)
+                        .addComponent(MilkshakePrice)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
                         .addComponent(hotCiokCheck)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
-                        .addComponent(teCheck)
-                        .addGap(2, 2, 2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(teCheck))
+                    .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
+                        .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jCheckBox3)
+                            .addComponent(licuadosSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel149)
+                            .addComponent(licuadosPrice))
+                        .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
+                                .addGap(30, 30, 30)
+                                .addComponent(batidoExprimidoCheck))
+                            .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
+                                .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(limonadaCheck)
+                                    .addComponent(limonadaSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel151)
+                                    .addComponent(limonadaPrice))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(batidoExprimidoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel152)
+                                    .addComponent(batidoExprimidoPrice)))))
                     .addGroup(DrinkNoAlcoholFrameLayout.createSequentialGroup()
                         .addGap(30, 30, 30)
                         .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1577,37 +1741,36 @@ public class VittoFrame extends javax.swing.JFrame {
                         .addComponent(hotCiokSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(hotCiokPrice)
                         .addComponent(jLabel144)))
-                .addGap(12, 12, 12)
-                .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel7)
                 .addGap(18, 18, 18)
-                .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DrinkNoAlcoholFrameLayout.createSequentialGroup()
-                        .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(exprimidoCheck)
-                            .addComponent(exprimidoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(limonadaElaboradoCheck)
-                            .addComponent(limonada_elaborada_Spinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, DrinkNoAlcoholFrameLayout.createSequentialGroup()
-                        .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(licuadoLecheCheck)
-                            .addComponent(licuadoLecheSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(licuadoAguaCheck)
-                            .addComponent(licuadoAguaSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(35, 35, 35)
                 .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(shakeDulceLecheSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(shakeDulceLecheCheck))
+                    .addComponent(GaseosaLineaCocacheck)
+                    .addComponent(GaseosaLineaCocaSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel153)
+                    .addComponent(GaseosaLineaCocaPrice))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(shakeChocolateCheck)
-                    .addComponent(shakeChocolateSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46)
+                    .addComponent(AguaC_S_GasCheck)
+                    .addComponent(AguaC_S_GasSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel155)
+                        .addComponent(AguaC_S_GasPrice)))
+                .addGap(6, 6, 6)
+                .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(aguaSaborizadaCheck)
+                    .addComponent(aguaSaborizadaSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel157)
+                        .addComponent(aguaSaborizadaPrice)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cepitaCheck)
+                    .addComponent(cepitaSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel159)
+                        .addComponent(cepitaPrice)))
+                .addGap(39, 39, 39)
                 .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cancelNoAlcoholDrinks)
                     .addComponent(acceptNoAlcoholDrinks))
@@ -4749,35 +4912,25 @@ public class VittoFrame extends javax.swing.JFrame {
 
     }//GEN-LAST:event_drinkNoAlcoholAncestorAdded
 
-    private void scheweppesTonicaCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scheweppesTonicaCheckActionPerformed
-        if (scheweppesTonicaCheck.isSelected()) {
+    private void chocolatadaCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chocolatadaCheckActionPerformed
+        if (chocolatadaCheck.isSelected()) {
             SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
             this.chocolatadaSpinner.setEnabled(true);
             this.chocolatadaSpinner.setModel(model);
         } else {
             this.chocolatadaSpinner.setEnabled(false);
         }
-    }//GEN-LAST:event_scheweppesTonicaCheckActionPerformed
+    }//GEN-LAST:event_chocolatadaCheckActionPerformed
 
-    private void shakeDulceLecheCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shakeDulceLecheCheckActionPerformed
-        if (shakeDulceLecheCheck.isSelected()) {
+    private void GaseosaLineaCocacheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GaseosaLineaCocacheckActionPerformed
+        if (GaseosaLineaCocacheck.isSelected()) {
             SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
-            this.shakeDulceLecheSpinner.setEnabled(true);
-            this.shakeDulceLecheSpinner.setModel(model);
+            this.GaseosaLineaCocaSpinner.setEnabled(true);
+            this.GaseosaLineaCocaSpinner.setModel(model);
         } else {
-            this.shakeDulceLecheSpinner.setEnabled(false);
+            this.GaseosaLineaCocaSpinner.setEnabled(false);
         }
-    }//GEN-LAST:event_shakeDulceLecheCheckActionPerformed
-
-    private void exprimidoCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exprimidoCheckActionPerformed
-        if (exprimidoCheck.isSelected()) {
-            SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
-            this.exprimidoSpinner.setEnabled(true);
-            this.exprimidoSpinner.setModel(model);
-        } else {
-            this.exprimidoSpinner.setEnabled(false);
-        }
-    }//GEN-LAST:event_exprimidoCheckActionPerformed
+    }//GEN-LAST:event_GaseosaLineaCocacheckActionPerformed
 
     private void cafeIceCappuCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cafeIceCappuCheckActionPerformed
         if (cafeIceCappuCheck.isSelected()) {
@@ -4945,7 +5098,7 @@ public class VittoFrame extends javax.swing.JFrame {
             noAlcoholDrinks.put((NoAlcoholDrinksEnum.SCHEWEPPES_POMELO), Integer.parseInt(this.submarinoSpinner.getValue().toString()));
         }
 
-        if (scheweppesTonicaCheck.isSelected() && Integer.parseInt(this.chocolatadaSpinner.getValue().toString()) > 0) {
+        if (chocolatadaCheck.isSelected() && Integer.parseInt(this.chocolatadaSpinner.getValue().toString()) > 0) {
             noAlcoholDrinks.put((NoAlcoholDrinksEnum.SCHEWEPPES_TONICA), Integer.parseInt(this.chocolatadaSpinner.getValue().toString()));
         }
 
@@ -4957,16 +5110,16 @@ public class VittoFrame extends javax.swing.JFrame {
             noAlcoholDrinks.put((NoAlcoholDrinksEnum.AGUA_GAS), Integer.parseInt(this.waterGasSpinner.getValue().toString()));
         }
 
-        if (exprimidoCheck.isSelected() && Integer.parseInt(this.exprimidoSpinner.getValue().toString()) > 0) {
-            noAlcoholDrinks.put((NoAlcoholDrinksEnum.EXPRIMIDO), Integer.parseInt(this.exprimidoSpinner.getValue().toString()));
+        if (GaseosaLineaCocacheck.isSelected() && Integer.parseInt(this.GaseosaLineaCocaSpinner.getValue().toString()) > 0) {
+            noAlcoholDrinks.put((NoAlcoholDrinksEnum.EXPRIMIDO), Integer.parseInt(this.GaseosaLineaCocaSpinner.getValue().toString()));
         }
 
-        if (licuadoLecheCheck.isSelected() && Integer.parseInt(this.licuadoLecheSpinner.getValue().toString()) > 0) {
-            noAlcoholDrinks.put((NoAlcoholDrinksEnum.LICUADO_LECHE), Integer.parseInt(this.licuadoLecheSpinner.getValue().toString()));
+        if (aguaSaborizadaCheck.isSelected() && Integer.parseInt(this.aguaSaborizadaSpinner.getValue().toString()) > 0) {
+            noAlcoholDrinks.put((NoAlcoholDrinksEnum.LICUADO_LECHE), Integer.parseInt(this.aguaSaborizadaSpinner.getValue().toString()));
         }
 
-        if (licuadoAguaCheck.isSelected() && Integer.parseInt(this.licuadoAguaSpinner.getValue().toString()) > 0) {
-            noAlcoholDrinks.put((NoAlcoholDrinksEnum.LICUADO_AGUA), Integer.parseInt(this.licuadoAguaSpinner.getValue().toString()));
+        if (cepitaCheck.isSelected() && Integer.parseInt(this.cepitaSpinner.getValue().toString()) > 0) {
+            noAlcoholDrinks.put((NoAlcoholDrinksEnum.LICUADO_AGUA), Integer.parseInt(this.cepitaSpinner.getValue().toString()));
         }
 
         if (cafeIceMassimoCheck.isSelected() && Integer.parseInt(this.cafeIceMassimoSpinner.getValue().toString()) > 0) {
@@ -5069,45 +5222,35 @@ public class VittoFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_submarinoCheckActionPerformed
 
-    private void limonadaElaboradoCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limonadaElaboradoCheckActionPerformed
-        if (limonadaElaboradoCheck.isSelected()) {
+    private void AguaC_S_GasCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AguaC_S_GasCheckActionPerformed
+        if (AguaC_S_GasCheck.isSelected()) {
             SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
-            this.limonada_elaborada_Spinner.setEnabled(true);
-            this.limonada_elaborada_Spinner.setModel(model);
+            this.AguaC_S_GasSpinner.setEnabled(true);
+            this.AguaC_S_GasSpinner.setModel(model);
         } else {
-            this.limonada_elaborada_Spinner.setEnabled(false);
+            this.AguaC_S_GasSpinner.setEnabled(false);
         }
-    }//GEN-LAST:event_limonadaElaboradoCheckActionPerformed
+    }//GEN-LAST:event_AguaC_S_GasCheckActionPerformed
 
-    private void licuadoLecheCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_licuadoLecheCheckActionPerformed
-        if (licuadoLecheCheck.isSelected()) {
+    private void aguaSaborizadaCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aguaSaborizadaCheckActionPerformed
+        if (aguaSaborizadaCheck.isSelected()) {
             SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
-            this.licuadoLecheSpinner.setEnabled(true);
-            this.licuadoLecheSpinner.setModel(model);
+            this.aguaSaborizadaSpinner.setEnabled(true);
+            this.aguaSaborizadaSpinner.setModel(model);
         } else {
-            this.licuadoLecheSpinner.setEnabled(false);
+            this.aguaSaborizadaSpinner.setEnabled(false);
         }
-    }//GEN-LAST:event_licuadoLecheCheckActionPerformed
+    }//GEN-LAST:event_aguaSaborizadaCheckActionPerformed
 
-    private void licuadoAguaCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_licuadoAguaCheckActionPerformed
-        if (licuadoAguaCheck.isSelected()) {
+    private void cepitaCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cepitaCheckActionPerformed
+        if (cepitaCheck.isSelected()) {
             SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
-            this.licuadoAguaSpinner.setEnabled(true);
-            this.licuadoAguaSpinner.setModel(model);
+            this.cepitaSpinner.setEnabled(true);
+            this.cepitaSpinner.setModel(model);
         } else {
-            this.licuadoAguaSpinner.setEnabled(false);
+            this.cepitaSpinner.setEnabled(false);
         }
-    }//GEN-LAST:event_licuadoAguaCheckActionPerformed
-
-    private void shakeChocolateCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shakeChocolateCheckActionPerformed
-        if (shakeChocolateCheck.isSelected()) {
-            SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
-            this.shakeChocolateSpinner.setEnabled(true);
-            this.shakeChocolateSpinner.setModel(model);
-        } else {
-            this.shakeChocolateSpinner.setEnabled(false);
-        }
-    }//GEN-LAST:event_shakeChocolateCheckActionPerformed
+    }//GEN-LAST:event_cepitaCheckActionPerformed
 
     private void cafeIceMassimoCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cafeIceMassimoCheckActionPerformed
         if (cafeIceMassimoCheck.isSelected()) {
@@ -6877,6 +7020,26 @@ public class VittoFrame extends javax.swing.JFrame {
     private void teCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teCheckActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_teCheckActionPerformed
+
+    private void FrapuccinoCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FrapuccinoCheckActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FrapuccinoCheckActionPerformed
+
+    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox2ActionPerformed
+
+    private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox3ActionPerformed
+
+    private void limonadaCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limonadaCheckActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_limonadaCheckActionPerformed
+
+    private void batidoExprimidoCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_batidoExprimidoCheckActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_batidoExprimidoCheckActionPerformed
     
 
     private void setTableColour(int tableId, Color color) {
@@ -6985,6 +7148,9 @@ public class VittoFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField AdminUserName;
     private javax.swing.JPasswordField AdminUserPassword;
+    private javax.swing.JCheckBox AguaC_S_GasCheck;
+    private javax.swing.JLabel AguaC_S_GasPrice;
+    private javax.swing.JSpinner AguaC_S_GasSpinner;
     private javax.swing.JSpinner Cafe2gallesChocoSpinner;
     private javax.swing.JFrame CandyProductsFrame;
     private javax.swing.JCheckBox CapuccinoCheck;
@@ -7003,11 +7169,19 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JFrame DrinkAlcoholFrame;
     private javax.swing.JFrame DrinkNoAlcoholFrame;
     private javax.swing.JFrame EmpleadosFrame;
+    private javax.swing.JCheckBox FrapuccinoCheck;
+    private javax.swing.JLabel FrapuccinoPrice;
+    private javax.swing.JSpinner FrapuccinoSpinner;
+    private javax.swing.JLabel GaseosaLineaCocaPrice;
+    private javax.swing.JSpinner GaseosaLineaCocaSpinner;
+    private javax.swing.JCheckBox GaseosaLineaCocacheck;
     private javax.swing.JButton GuardarProductosDulces;
     private javax.swing.JCheckBox LatteSaborizadosCheck;
     private javax.swing.JLabel LattesaborizadosPrice;
     private javax.swing.JSpinner LattesaborizadosSpinner;
     private javax.swing.JLabel MesaLabel;
+    private javax.swing.JLabel MilkshakePrice;
+    private javax.swing.JSpinner MilkshakeSpinner;
     private javax.swing.JLabel MozoLabel;
     private javax.swing.JFrame OtraFormaDePagoFrame;
     private javax.swing.JFrame PagoEfectivoFrame;
@@ -7018,6 +7192,9 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JFrame SelectOrder;
     private javax.swing.JLabel TotalLabel;
     private javax.swing.JButton acceptNoAlcoholDrinks;
+    private javax.swing.JCheckBox aguaSaborizadaCheck;
+    private javax.swing.JLabel aguaSaborizadaPrice;
+    private javax.swing.JSpinner aguaSaborizadaSpinner;
     private javax.swing.JButton alcoholDrinkCancel;
     private javax.swing.JCheckBox alfajorArtesanalCheck;
     private javax.swing.JLabel alfajorArtesanalPrice;
@@ -7034,6 +7211,9 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JCheckBox arabeSdwCheck;
     private javax.swing.JLabel arabeSdwPrice;
     private javax.swing.JSpinner arabeSdwSpinner;
+    private javax.swing.JCheckBox batidoExprimidoCheck;
+    private javax.swing.JLabel batidoExprimidoPrice;
+    private javax.swing.JSpinner batidoExprimidoSpinner;
     private javax.swing.JCheckBox bombonCheck;
     private javax.swing.JLabel bombonPrice;
     private javax.swing.JSpinner bombonSpinner;
@@ -7085,9 +7265,13 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JCheckBox cbtPolloCheck;
     private javax.swing.JLabel cbtPolloPrice;
     private javax.swing.JSpinner cbtPolloSpinner;
+    private javax.swing.JCheckBox cepitaCheck;
+    private javax.swing.JLabel cepitaPrice;
+    private javax.swing.JSpinner cepitaSpinner;
     private javax.swing.JCheckBox cervezaCheck;
     private javax.swing.JLabel cervezaPrice;
     private javax.swing.JSpinner cervezaSpinner;
+    private javax.swing.JCheckBox chocolatadaCheck;
     private javax.swing.JLabel chocolatadaPrice;
     private javax.swing.JSpinner chocolatadaSpinner;
     private javax.swing.JButton closeSandwichORder;
@@ -7122,8 +7306,6 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JCheckBox ensaladaTropicalCheck;
     private javax.swing.JLabel ensaladaTropicalPrice;
     private javax.swing.JSpinner ensaladaTropicalSpinner;
-    private javax.swing.JCheckBox exprimidoCheck;
-    private javax.swing.JSpinner exprimidoSpinner;
     private javax.swing.JCheckBox fraNuiCheck;
     private javax.swing.JLabel fraNuiPrice;
     private javax.swing.JSpinner franuiSpinner;
@@ -7142,6 +7324,8 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JCheckBox iceTeaCheck;
     private javax.swing.JLabel iceTeaPrice;
     private javax.swing.JSpinner iceTeaSpinner;
+    private javax.swing.JCheckBox jCheckBox2;
+    private javax.swing.JCheckBox jCheckBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel100;
@@ -7183,10 +7367,12 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel133;
     private javax.swing.JLabel jLabel134;
     private javax.swing.JLabel jLabel135;
+    private javax.swing.JLabel jLabel136;
     private javax.swing.JLabel jLabel137;
     private javax.swing.JLabel jLabel138;
     private javax.swing.JLabel jLabel139;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel140;
     private javax.swing.JLabel jLabel141;
     private javax.swing.JLabel jLabel142;
     private javax.swing.JLabel jLabel143;
@@ -7195,8 +7381,15 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel146;
     private javax.swing.JLabel jLabel147;
     private javax.swing.JLabel jLabel148;
+    private javax.swing.JLabel jLabel149;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel150;
+    private javax.swing.JLabel jLabel151;
+    private javax.swing.JLabel jLabel152;
+    private javax.swing.JLabel jLabel153;
+    private javax.swing.JLabel jLabel155;
+    private javax.swing.JLabel jLabel157;
+    private javax.swing.JLabel jLabel159;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
@@ -7292,7 +7485,6 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
-    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
@@ -7303,20 +7495,19 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jarritoPrice;
     private javax.swing.JSpinner jarritoSpinner;
     private javax.swing.JCheckBox licuado2_1_TostadoIndCheck;
-    private javax.swing.JCheckBox licuadoAguaCheck;
-    private javax.swing.JSpinner licuadoAguaSpinner;
-    private javax.swing.JCheckBox licuadoLecheCheck;
-    private javax.swing.JSpinner licuadoLecheSpinner;
     private javax.swing.JCheckBox licuadoMedioTostadoCheck;
     private javax.swing.JLabel licuadoMedioTostadoPrice;
     private javax.swing.JSpinner licuadoMedioTostadoSpinner;
+    private javax.swing.JLabel licuadosPrice;
+    private javax.swing.JSpinner licuadosSpinner;
     private javax.swing.JLabel licuados_2_1_TostadoPrice;
     private javax.swing.JSpinner licuados_2_1_TostadoSpinner;
-    private javax.swing.JCheckBox limonadaElaboradoCheck;
+    private javax.swing.JCheckBox limonadaCheck;
+    private javax.swing.JLabel limonadaPrice;
+    private javax.swing.JSpinner limonadaSpinner;
     private javax.swing.JLabel limonadaTortaIndPrice;
     private javax.swing.JCheckBox limonadaTortaIndividiualCheck;
     private javax.swing.JSpinner limonadaTortaIndividualSpinner;
-    private javax.swing.JSpinner limonada_elaborada_Spinner;
     private javax.swing.JCheckBox medialunaCheck;
     private javax.swing.JLabel medialunaPrice;
     private javax.swing.JCheckBox medialunaSdwCheck;
@@ -7382,7 +7573,6 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JCheckBox sbtVerdurasCheck;
     private javax.swing.JLabel sbtVerdurasPrice;
     private javax.swing.JSpinner sbtVerdurasSpinner;
-    private javax.swing.JCheckBox scheweppesTonicaCheck;
     private javax.swing.JCheckBox sdwEmpandaCheck;
     private javax.swing.JLabel sdwEmpandaPRice;
     private javax.swing.JSpinner sdwEmpandaSpinner;
@@ -7390,10 +7580,6 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JLabel sdwTartasPrice;
     private javax.swing.JSpinner sdwTartasSpinner;
     private javax.swing.JButton seeConsuming;
-    private javax.swing.JCheckBox shakeChocolateCheck;
-    private javax.swing.JSpinner shakeChocolateSpinner;
-    private javax.swing.JCheckBox shakeDulceLecheCheck;
-    private javax.swing.JSpinner shakeDulceLecheSpinner;
     private javax.swing.JCheckBox submarinoCheck;
     private javax.swing.JLabel submarinoPrice;
     private javax.swing.JSpinner submarinoSpinner;
