@@ -24,6 +24,8 @@ import com.mycompany.vittostore.dataStore.DataStore;
 
 import com.mycompany.vittostore.controllerImpl.ProductsImpl;
 import com.mycompany.vittostore.controllerImpl.UsersImpl;
+import com.mycompany.vittostore.dataStore.CloseDateDataStore;
+import com.mycompany.vittostore.dataStore.ClosePaymentDataStore;
 import com.mycompany.vittostore.dataStore.PaymentDataStore;
 import com.mycompany.vittostore.generalitems.AlcoholDrinksEnum;
 import com.mycompany.vittostore.generalitems.GenericSelectedComponent;
@@ -134,7 +136,6 @@ public class VittoFrame extends javax.swing.JFrame {
         this.selectedComponentMap.put(NoAlcoholDrinksEnum.CEPITA.name(), new GenericSelectedComponent(this.cepitaCheck, this.cepitaSpinner));
         this.selectedComponentMap.put(NoAlcoholDrinksEnum.AGUA_con_sin_gas.name(), new GenericSelectedComponent(this.AguaC_S_GasCheck, this.AguaC_S_GasSpinner));
 
-
         /**
          * Productos Dulces
          */
@@ -152,58 +153,57 @@ public class VittoFrame extends javax.swing.JFrame {
          * Bebidas alcoholicas.
          */
         this.selectedComponentMap.put(AlcoholDrinksEnum.CERVEZA.name(), new GenericSelectedComponent(this.cervezaCheck, this.cervezaSpinner));
-        
+
         /**
          * Promos Meriendas
-         */        
-        this.selectedComponentMap.put(PromotionBreakfast.CAFE_2_MEDIALUNAS.name(),new GenericSelectedComponent((this.cafe2medialunasCheck), this.cafe2MedialunasSpinner));
-        this.selectedComponentMap.put(PromotionBreakfast.CAFE_TORTA_INDIVIDUAL.name(),new GenericSelectedComponent((this.cafeTortaIndividualCheck), this.cafeTortaIndSpinner));
-        this.selectedComponentMap.put(PromotionBreakfast.CAFE_TOSTADO_ARABE.name(),new GenericSelectedComponent((this.cafeTostadoArabeCheck), this.cafeTostadoArabeSpinner));
-        this.selectedComponentMap.put(PromotionBreakfast.CAFE_CUADRADO_DULCE.name(),new GenericSelectedComponent((this.cafeCuadradoDucleCheck), this.cafeCuadraroDulceSpinner));
-        this.selectedComponentMap.put(PromotionBreakfast.CAFE_GALLETAS_CHOCO.name(),new GenericSelectedComponent((this.cafe2GallesChocoCheck), this.Cafe2gallesChocoSpinner));
-        this.selectedComponentMap.put(PromotionBreakfast.CAPPUCCINO_TOSTADAS.name(),new GenericSelectedComponent((this.cappuccinoTostadasCheck), this.cappuccinoTostadaSppiner));
-        this.selectedComponentMap.put(PromotionBreakfast.CAPPUCCINO_MEDIALUNAS.name(),new GenericSelectedComponent((this.cappucinoMedialunaCheck), this.cappucinnoMedialunaSpinner));
-        this.selectedComponentMap.put(PromotionBreakfast.NARANJA_MEDIALUNAS.name(),new GenericSelectedComponent((this.naranja2mediaLunasCheck), this.naranja2medialunasSpinner));
-        this.selectedComponentMap.put(PromotionBreakfast.NARANJA_TOSTADOS.name(),new GenericSelectedComponent((this.naranjaTostadoCheck), this.naranjaTostadoSpinner));
-        this.selectedComponentMap.put(PromotionBreakfast.LICUADO_medio_TOSTADO.name(),new GenericSelectedComponent((this.licuadoMedioTostadoCheck), this.licuadoMedioTostadoSpinner));
-        this.selectedComponentMap.put(PromotionBreakfast.LIMONADA_TORTA_IND.name(),new GenericSelectedComponent((this.limonadaTortaIndividiualCheck), this.limonadaTortaIndividualSpinner));
-        this.selectedComponentMap.put(PromotionBreakfast.ALFAJOR_MAICENA_CHOCO.name(),new GenericSelectedComponent((this.alfajorMaicenaChocolatadaCheck), this.alfajorMaicenaChocoSpinner));
-        this.selectedComponentMap.put(PromotionBreakfast.MILKSHAKES_TORTA_IND.name(),new GenericSelectedComponent((this.milkshakesTortaCheck), this.milkshakesTortaIndividualSpinner));
-        this.selectedComponentMap.put(PromotionBreakfast.LICUADOS_2_1_TOSTADO.name(),new GenericSelectedComponent((this.licuado2_1_TostadoIndCheck), this.licuados_2_1_TostadoSpinner));
-        this.selectedComponentMap.put(PromotionBreakfast.COPA_YOGURT.name(),new GenericSelectedComponent((this.copaYogurtCheck), this.yogurtSpinner));
-        this.selectedComponentMap.put(PromotionBreakfast.TOSTADAS_EXP_ESP.name(),new GenericSelectedComponent((this.tostadasDobleExprEspCheck), this.tostadasExpEspSpinner));
-        this.selectedComponentMap.put(PromotionBreakfast.FRUTA_CAFE_TOSTADO.name(),new GenericSelectedComponent((this.frutasCafeTostadoCheck), this.frutaCafeTostadoSpinner));
-        this.selectedComponentMap.put(PromotionBreakfast.ICE_CAPPUCCINO.name(),new GenericSelectedComponent((this.iceCappuccinoCheck), this.iceCapuccinoSpinner));
-        
+         */
+        this.selectedComponentMap.put(PromotionBreakfast.CAFE_2_MEDIALUNAS.name(), new GenericSelectedComponent((this.cafe2medialunasCheck), this.cafe2MedialunasSpinner));
+        this.selectedComponentMap.put(PromotionBreakfast.CAFE_TORTA_INDIVIDUAL.name(), new GenericSelectedComponent((this.cafeTortaIndividualCheck), this.cafeTortaIndSpinner));
+        this.selectedComponentMap.put(PromotionBreakfast.CAFE_TOSTADO_ARABE.name(), new GenericSelectedComponent((this.cafeTostadoArabeCheck), this.cafeTostadoArabeSpinner));
+        this.selectedComponentMap.put(PromotionBreakfast.CAFE_CUADRADO_DULCE.name(), new GenericSelectedComponent((this.cafeCuadradoDucleCheck), this.cafeCuadraroDulceSpinner));
+        this.selectedComponentMap.put(PromotionBreakfast.CAFE_GALLETAS_CHOCO.name(), new GenericSelectedComponent((this.cafe2GallesChocoCheck), this.Cafe2gallesChocoSpinner));
+        this.selectedComponentMap.put(PromotionBreakfast.CAPPUCCINO_TOSTADAS.name(), new GenericSelectedComponent((this.cappuccinoTostadasCheck), this.cappuccinoTostadaSppiner));
+        this.selectedComponentMap.put(PromotionBreakfast.CAPPUCCINO_MEDIALUNAS.name(), new GenericSelectedComponent((this.cappucinoMedialunaCheck), this.cappucinnoMedialunaSpinner));
+        this.selectedComponentMap.put(PromotionBreakfast.NARANJA_MEDIALUNAS.name(), new GenericSelectedComponent((this.naranja2mediaLunasCheck), this.naranja2medialunasSpinner));
+        this.selectedComponentMap.put(PromotionBreakfast.NARANJA_TOSTADOS.name(), new GenericSelectedComponent((this.naranjaTostadoCheck), this.naranjaTostadoSpinner));
+        this.selectedComponentMap.put(PromotionBreakfast.LICUADO_medio_TOSTADO.name(), new GenericSelectedComponent((this.licuadoMedioTostadoCheck), this.licuadoMedioTostadoSpinner));
+        this.selectedComponentMap.put(PromotionBreakfast.LIMONADA_TORTA_IND.name(), new GenericSelectedComponent((this.limonadaTortaIndividiualCheck), this.limonadaTortaIndividualSpinner));
+        this.selectedComponentMap.put(PromotionBreakfast.ALFAJOR_MAICENA_CHOCO.name(), new GenericSelectedComponent((this.alfajorMaicenaChocolatadaCheck), this.alfajorMaicenaChocoSpinner));
+        this.selectedComponentMap.put(PromotionBreakfast.MILKSHAKES_TORTA_IND.name(), new GenericSelectedComponent((this.milkshakesTortaCheck), this.milkshakesTortaIndividualSpinner));
+        this.selectedComponentMap.put(PromotionBreakfast.LICUADOS_2_1_TOSTADO.name(), new GenericSelectedComponent((this.licuado2_1_TostadoIndCheck), this.licuados_2_1_TostadoSpinner));
+        this.selectedComponentMap.put(PromotionBreakfast.COPA_YOGURT.name(), new GenericSelectedComponent((this.copaYogurtCheck), this.yogurtSpinner));
+        this.selectedComponentMap.put(PromotionBreakfast.TOSTADAS_EXP_ESP.name(), new GenericSelectedComponent((this.tostadasDobleExprEspCheck), this.tostadasExpEspSpinner));
+        this.selectedComponentMap.put(PromotionBreakfast.FRUTA_CAFE_TOSTADO.name(), new GenericSelectedComponent((this.frutasCafeTostadoCheck), this.frutaCafeTostadoSpinner));
+        this.selectedComponentMap.put(PromotionBreakfast.ICE_CAPPUCCINO.name(), new GenericSelectedComponent((this.iceCappuccinoCheck), this.iceCapuccinoSpinner));
+
         /**
          * Promos Para comer
          */
-        this.selectedComponentMap.put(PromotionsLunchEnum.ENSALADA_CESAR.name(),new GenericSelectedComponent((this.ensaladaCesarCheck), this.ensaladaCesarSpinner));
-        this.selectedComponentMap.put(PromotionsLunchEnum.ENSALADA_IBERICA.name(),new GenericSelectedComponent((this.ensaladaIbericaCheck), this.ensaladaIbericaSpinner));
-        this.selectedComponentMap.put(PromotionsLunchEnum.ENSALADA_PRIMAVERA.name(),new GenericSelectedComponent((this.ensaladaPrimaveraCheck), this.ensaladaPrimaveraSpinner));
-        this.selectedComponentMap.put(PromotionsLunchEnum.ENSALADA_TROPICAL.name(),new GenericSelectedComponent((this.ensaladaTropicalCheck), this.ensaladaTropicalSpinner));
-        this.selectedComponentMap.put(PromotionsLunchEnum.SANDWICH_REIMS_PROMO.name(),new GenericSelectedComponent((this.sandwichReimsPromoCheck), this.sandwichReimsPromoSpinner));
-        this.selectedComponentMap.put(PromotionsLunchEnum.MILANESA_PROMO.name(),new GenericSelectedComponent((this.milanesaPromoCheck), this.milanesaPromoSpinner));
-        this.selectedComponentMap.put(PromotionsLunchEnum.PIZZA_PROMO.name(),new GenericSelectedComponent((this.pizzaPromoCheck), this.pizzaPromoSpinner));
-        this.selectedComponentMap.put(PromotionsLunchEnum.EMPANADA_PROMO.name(),new GenericSelectedComponent((this.empanadaPromoCheck), this.empanadaPromoSpinner));
-        this.selectedComponentMap.put(PromotionsLunchEnum.PANCHO_PROMO.name(),new GenericSelectedComponent((this.panchoPromoCheck), this.panchoPromoSpinner));
-        this.selectedComponentMap.put(PromotionsLunchEnum.ARABE_PROMO.name(),new GenericSelectedComponent((this.arabePromoCheck), this.arabePromoSpinner));
-        this.selectedComponentMap.put(PromotionsLunchEnum.SANDWICH_PROMO.name(),new GenericSelectedComponent((this.sandwichPromoCheck), this.sandwichPromoSpinner));        
-        
+        this.selectedComponentMap.put(PromotionsLunchEnum.ENSALADA_CESAR.name(), new GenericSelectedComponent((this.ensaladaCesarCheck), this.ensaladaCesarSpinner));
+        this.selectedComponentMap.put(PromotionsLunchEnum.ENSALADA_IBERICA.name(), new GenericSelectedComponent((this.ensaladaIbericaCheck), this.ensaladaIbericaSpinner));
+        this.selectedComponentMap.put(PromotionsLunchEnum.ENSALADA_PRIMAVERA.name(), new GenericSelectedComponent((this.ensaladaPrimaveraCheck), this.ensaladaPrimaveraSpinner));
+        this.selectedComponentMap.put(PromotionsLunchEnum.ENSALADA_TROPICAL.name(), new GenericSelectedComponent((this.ensaladaTropicalCheck), this.ensaladaTropicalSpinner));
+        this.selectedComponentMap.put(PromotionsLunchEnum.SANDWICH_REIMS_PROMO.name(), new GenericSelectedComponent((this.sandwichReimsPromoCheck), this.sandwichReimsPromoSpinner));
+        this.selectedComponentMap.put(PromotionsLunchEnum.MILANESA_PROMO.name(), new GenericSelectedComponent((this.milanesaPromoCheck), this.milanesaPromoSpinner));
+        this.selectedComponentMap.put(PromotionsLunchEnum.PIZZA_PROMO.name(), new GenericSelectedComponent((this.pizzaPromoCheck), this.pizzaPromoSpinner));
+        this.selectedComponentMap.put(PromotionsLunchEnum.EMPANADA_PROMO.name(), new GenericSelectedComponent((this.empanadaPromoCheck), this.empanadaPromoSpinner));
+        this.selectedComponentMap.put(PromotionsLunchEnum.PANCHO_PROMO.name(), new GenericSelectedComponent((this.panchoPromoCheck), this.panchoPromoSpinner));
+        this.selectedComponentMap.put(PromotionsLunchEnum.ARABE_PROMO.name(), new GenericSelectedComponent((this.arabePromoCheck), this.arabePromoSpinner));
+        this.selectedComponentMap.put(PromotionsLunchEnum.SANDWICH_PROMO.name(), new GenericSelectedComponent((this.sandwichPromoCheck), this.sandwichPromoSpinner));
+
         /**
          * Salados
          */
-        this.selectedComponentMap.put(SaladsEnum.TOSTADO.name(),new GenericSelectedComponent((this.tostadoSdwCheck), this.tostadoSdwSpinner));
-        this.selectedComponentMap.put(SaladsEnum.ARABE.name(),new GenericSelectedComponent((this.arabeSdwCheck), this.arabeSdwSpinner));
-        this.selectedComponentMap.put(SaladsEnum.MEDIALUNA_RELLENA.name(),new GenericSelectedComponent((this.medialunaSdwCheck), this.medialunaSdwSpinner));
-        this.selectedComponentMap.put(SaladsEnum.CIABATTA_POLLO.name(),new GenericSelectedComponent((this.cbtPolloCheck), this.cbtPolloSpinner));
-        this.selectedComponentMap.put(SaladsEnum.CIABATTA_ATUN.name(),new GenericSelectedComponent((this.sbtAtunCheck), this.sbtAtunSpinner));
-        this.selectedComponentMap.put(SaladsEnum.CIABATTA_MILANESA.name(),new GenericSelectedComponent((this.sbtMilanesaCheck), this.sbtMilanesaSpinner));
-        this.selectedComponentMap.put(SaladsEnum.CIABATTA_VERDURAS.name(),new GenericSelectedComponent((this.sbtVerdurasCheck), this.sbtVerdurasSpinner));
-        this.selectedComponentMap.put(SaladsEnum.CIABATTA_JAMON_CRUDO.name(),new GenericSelectedComponent((this.sbtCrudoCheck), this.sbtCrudoSpinner));
-        this.selectedComponentMap.put(SaladsEnum.EMPANADAS.name(),new GenericSelectedComponent((this.sdwEmpandaCheck), this.sdwEmpandaSpinner));
-        this.selectedComponentMap.put(SaladsEnum.TARTA.name(),new GenericSelectedComponent((this.sdwTartasCheck), this.sdwTartasSpinner));
-        
+        this.selectedComponentMap.put(SaladsEnum.TOSTADO.name(), new GenericSelectedComponent((this.tostadoSdwCheck), this.tostadoSdwSpinner));
+        this.selectedComponentMap.put(SaladsEnum.ARABE.name(), new GenericSelectedComponent((this.arabeSdwCheck), this.arabeSdwSpinner));
+        this.selectedComponentMap.put(SaladsEnum.MEDIALUNA_RELLENA.name(), new GenericSelectedComponent((this.medialunaSdwCheck), this.medialunaSdwSpinner));
+        this.selectedComponentMap.put(SaladsEnum.CIABATTA_POLLO.name(), new GenericSelectedComponent((this.cbtPolloCheck), this.cbtPolloSpinner));
+        this.selectedComponentMap.put(SaladsEnum.CIABATTA_ATUN.name(), new GenericSelectedComponent((this.sbtAtunCheck), this.sbtAtunSpinner));
+        this.selectedComponentMap.put(SaladsEnum.CIABATTA_MILANESA.name(), new GenericSelectedComponent((this.sbtMilanesaCheck), this.sbtMilanesaSpinner));
+        this.selectedComponentMap.put(SaladsEnum.CIABATTA_VERDURAS.name(), new GenericSelectedComponent((this.sbtVerdurasCheck), this.sbtVerdurasSpinner));
+        this.selectedComponentMap.put(SaladsEnum.CIABATTA_JAMON_CRUDO.name(), new GenericSelectedComponent((this.sbtCrudoCheck), this.sbtCrudoSpinner));
+        this.selectedComponentMap.put(SaladsEnum.EMPANADAS.name(), new GenericSelectedComponent((this.sdwEmpandaCheck), this.sdwEmpandaSpinner));
+        this.selectedComponentMap.put(SaladsEnum.TARTA.name(), new GenericSelectedComponent((this.sdwTartasCheck), this.sdwTartasSpinner));
 
     }
 
@@ -230,38 +230,37 @@ public class VittoFrame extends javax.swing.JFrame {
         SelectOrder.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
         SelectOrder.setSize(700, 600);
         SelectOrder.setVisible(true);
-        
+
         // validaciones por mesa -> id:
         this.orderValidationActions(table);
 
     }
-    
-    
+
     private void orderValidationActions(int tableId) {
-        
+
         String estado = productsImpl.getTableState(tableId);
-        
-        switch(estado) {
+
+        switch (estado) {
             case "LIBRE":
                 this.seeConsuming.setEnabled(false);
                 this.closeTable.setEnabled(false);
                 this.payAction.setEnabled(false);
                 this.deleteTable.setEnabled(false);
-            break;
-            
+                break;
+
             case "USO":
                 this.seeConsuming.setEnabled(true);
                 this.closeTable.setEnabled(true);
                 this.payAction.setEnabled(false);
                 this.deleteTable.setEnabled(true);
-            break;
-            
+                break;
+
             case "CERRADA":
                 this.seeConsuming.setEnabled(true);
                 this.closeTable.setEnabled(false);
                 this.payAction.setEnabled(true);
                 this.deleteTable.setEnabled(true);
-        }        
+        }
     }
 
     /**
@@ -695,7 +694,7 @@ public class VittoFrame extends javax.swing.JFrame {
         jLabel179 = new javax.swing.JLabel();
         efectivoLbl = new javax.swing.JLabel();
         debitoLbl = new javax.swing.JLabel();
-        creditoLabel = new javax.swing.JLabel();
+        creditoLbl = new javax.swing.JLabel();
         cuentaCorrienteLbl = new javax.swing.JLabel();
         mercadoPagoLbl = new javax.swing.JLabel();
         jLabel185 = new javax.swing.JLabel();
@@ -1802,26 +1801,29 @@ public class VittoFrame extends javax.swing.JFrame {
                     .addComponent(jLabel153)
                     .addComponent(GaseosaLineaCocaPrice))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(AguaC_S_GasCheck)
-                    .addComponent(AguaC_S_GasSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel155)
-                        .addComponent(AguaC_S_GasPrice)))
+                        .addComponent(AguaC_S_GasPrice))
+                    .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(AguaC_S_GasCheck)
+                        .addComponent(AguaC_S_GasSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(6, 6, 6)
-                .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(aguaSaborizadaCheck)
-                    .addComponent(aguaSaborizadaSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel157)
-                        .addComponent(aguaSaborizadaPrice)))
+                        .addComponent(aguaSaborizadaPrice))
+                    .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(aguaSaborizadaCheck)
+                        .addComponent(aguaSaborizadaSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cepitaCheck)
-                    .addComponent(cepitaSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel159)
-                        .addComponent(cepitaPrice)))
+                        .addComponent(cepitaPrice))
+                    .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(cepitaCheck)
+                        .addComponent(cepitaSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(39, 39, 39)
                 .addGroup(DrinkNoAlcoholFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cancelNoAlcoholDrinks)
@@ -3718,6 +3720,11 @@ public class VittoFrame extends javax.swing.JFrame {
 
         fechaCalcularButton.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         fechaCalcularButton.setText("Calcular");
+        fechaCalcularButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fechaCalcularButtonActionPerformed(evt);
+            }
+        });
 
         jLabel158.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         jLabel158.setText("Elegir Rango");
@@ -3730,6 +3737,11 @@ public class VittoFrame extends javax.swing.JFrame {
 
         rangoCalcularButton.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         rangoCalcularButton.setText("Calcular");
+        rangoCalcularButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rangoCalcularButtonActionPerformed(evt);
+            }
+        });
 
         jLabel163.setText("Día");
 
@@ -3767,7 +3779,7 @@ public class VittoFrame extends javax.swing.JFrame {
 
         debitoLbl.setText("Débito");
 
-        creditoLabel.setText("Crédito");
+        creditoLbl.setText("Crédito");
 
         cuentaCorrienteLbl.setText("Cta - Cte ");
 
@@ -3780,6 +3792,11 @@ public class VittoFrame extends javax.swing.JFrame {
         totalLbl.setText("total");
 
         closeCierreButton.setText("Cerrar");
+        closeCierreButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeCierreButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout CloseDayFrameLayout = new javax.swing.GroupLayout(CloseDayFrame.getContentPane());
         CloseDayFrame.getContentPane().setLayout(CloseDayFrameLayout);
@@ -3878,7 +3895,7 @@ public class VittoFrame extends javax.swing.JFrame {
                                         .addGroup(CloseDayFrameLayout.createSequentialGroup()
                                             .addComponent(jLabel177)
                                             .addGap(18, 18, 18)
-                                            .addComponent(creditoLabel))
+                                            .addComponent(creditoLbl))
                                         .addGroup(CloseDayFrameLayout.createSequentialGroup()
                                             .addComponent(jLabel176)
                                             .addGap(18, 18, 18)
@@ -3915,7 +3932,7 @@ public class VittoFrame extends javax.swing.JFrame {
                                 .addGroup(CloseDayFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel172)
                                     .addComponent(jLabel177)
-                                    .addComponent(creditoLabel))
+                                    .addComponent(creditoLbl))
                                 .addGap(29, 29, 29)
                                 .addGroup(CloseDayFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel170)
@@ -4993,7 +5010,7 @@ public class VittoFrame extends javax.swing.JFrame {
         PromosLunchFrm.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
         PromosLunchFrm.setSize(820, 580);
         PromosLunchFrm.setVisible(true);
-        
+
         System.out.println("PROMO MERIENDAS:");
         System.out.println("---- INIT: Table selected ----");
         System.out.println(this.selectedTable.getState());
@@ -5047,7 +5064,7 @@ public class VittoFrame extends javax.swing.JFrame {
                     ((JSpinner) component).setValue(0);
                 }
             }
-        }        
+        }
 
     }//GEN-LAST:event_ComerPromosActionPerformed
 
@@ -5056,7 +5073,7 @@ public class VittoFrame extends javax.swing.JFrame {
         SaladsProductFrame.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
         SaladsProductFrame.setSize(650, 700);
         SaladsProductFrame.setVisible(true);
-        
+
         this.findProductsForOperatingTable(ProductTypeEnum.SALADOS, this.selectedTable.getId(), this.SaladsProductFrame);
     }//GEN-LAST:event_saladProductsActionPerformed
 
@@ -5098,7 +5115,6 @@ public class VittoFrame extends javax.swing.JFrame {
              * Iteración de componentes dentro de un frame
              */
             for (Component component : jFrame.getContentPane().getComponents()) {
-                System.out.println("testing frame component --> " + component);
                 if (component instanceof JCheckBox) {
                     ((JCheckBox) component).setSelected(false);
                 }
@@ -5128,7 +5144,7 @@ public class VittoFrame extends javax.swing.JFrame {
     private void seeConsumingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seeConsumingActionPerformed
         this.closeTableActionPerformed(evt);
         this.CloseTableButton.setVisible(false);
-        
+
     }//GEN-LAST:event_seeConsumingActionPerformed
 
     private void closeTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeTableActionPerformed
@@ -5180,7 +5196,6 @@ public class VittoFrame extends javax.swing.JFrame {
 
         productDescriptionTable.setModel(model);
         this.TotalLabel.setText(Double.toString(total));
-        
 
         CloseTableFrame.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
         CloseTableFrame.setSize(650, 500);
@@ -5190,7 +5205,7 @@ public class VittoFrame extends javax.swing.JFrame {
     private void deleteTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteTableActionPerformed
         DeleteTableFrm.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
         DeleteTableFrm.setSize(400, 200);
-        DeleteTableFrm.setVisible(true);        
+        DeleteTableFrm.setVisible(true);
     }//GEN-LAST:event_deleteTableActionPerformed
 
     private void payActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_payActionActionPerformed
@@ -5356,7 +5371,7 @@ public class VittoFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelNoAlcoholDrinksActionPerformed
 
     private void acceptNoAlcoholDrinksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_acceptNoAlcoholDrinksActionPerformed
-        products = new HashMap<>();        
+        products = new HashMap<>();
 
         if (pocilloCheck.isSelected() && Integer.parseInt(this.pocilloSpinner.getValue().toString()) > 0) {
             Map<Integer, Double> priceQtyNoAlcoholProduct = new HashMap<>();
@@ -5368,7 +5383,6 @@ public class VittoFrame extends javax.swing.JFrame {
             products.put(NoAlcoholDrinksEnum.POCILLO.toString(), priceQtyNoAlcoholProduct);
         }
 
-
         if (jarritoCheck.isSelected() && Integer.parseInt(this.jarritoSpinner.getValue().toString()) > 0) {
             Map<Integer, Double> priceQtyNoAlcoholProduct = new HashMap<>();
 
@@ -5378,7 +5392,6 @@ public class VittoFrame extends javax.swing.JFrame {
             );
             products.put(NoAlcoholDrinksEnum.JARRITO.toString(), priceQtyNoAlcoholProduct);
         }
-        
 
         if (cafeConLecheCheck.isSelected() && Integer.parseInt(this.cafeConLecheSpinner.getValue().toString()) > 0) {
             Map<Integer, Double> priceQtyNoAlcoholProduct = new HashMap<>();
@@ -5389,7 +5402,6 @@ public class VittoFrame extends javax.swing.JFrame {
             );
             products.put(NoAlcoholDrinksEnum.CAFE_CON_LECHE.toString(), priceQtyNoAlcoholProduct);
         }
-
 
         if (cafeDobleCheck.isSelected() && Integer.parseInt(this.cafeDobleSpinner.getValue().toString()) > 0) {
             Map<Integer, Double> priceQtyNoAlcoholProduct = new HashMap<>();
@@ -5430,7 +5442,7 @@ public class VittoFrame extends javax.swing.JFrame {
             );
             products.put(NoAlcoholDrinksEnum.LATTE_SABORIZADO.toString(), priceQtyNoAlcoholProduct);
         }
-        
+
         if (submarinoCheck.isSelected() && Integer.parseInt(this.submarinoSpinner.getValue().toString()) > 0) {
             Map<Integer, Double> priceQtyNoAlcoholProduct = new HashMap<>();
 
@@ -5449,8 +5461,8 @@ public class VittoFrame extends javax.swing.JFrame {
                     Double.parseDouble(this.chocolatadaPrice.getText())
             );
             products.put(NoAlcoholDrinksEnum.CHOCOLATADA.toString(), priceQtyNoAlcoholProduct);
-        }        
-                
+        }
+
         if (hotCiokCheck.isSelected() && Integer.parseInt(this.hotCiokSpinner.getValue().toString()) > 0) {
             Map<Integer, Double> priceQtyNoAlcoholProduct = new HashMap<>();
 
@@ -5459,8 +5471,8 @@ public class VittoFrame extends javax.swing.JFrame {
                     Double.parseDouble(this.hotCiokPrice.getText())
             );
             products.put(NoAlcoholDrinksEnum.HOTCIOK.toString(), priceQtyNoAlcoholProduct);
-        }                
-        
+        }
+
         if (teCheck.isSelected() && Integer.parseInt(this.teSpinner.getValue().toString()) > 0) {
             Map<Integer, Double> priceQtyNoAlcoholProduct = new HashMap<>();
 
@@ -5469,8 +5481,8 @@ public class VittoFrame extends javax.swing.JFrame {
                     Double.parseDouble(this.tePrice.getText())
             );
             products.put(NoAlcoholDrinksEnum.TE.toString(), priceQtyNoAlcoholProduct);
-        }                        
-        
+        }
+
         if (delTiempoCheck.isSelected() && Integer.parseInt(this.cafeDelTiempoSpinner.getValue().toString()) > 0) {
             Map<Integer, Double> priceQtyNoAlcoholProduct = new HashMap<>();
 
@@ -5518,7 +5530,7 @@ public class VittoFrame extends javax.swing.JFrame {
                     Integer.parseInt(this.tonicCoffeeSpinner.getValue().toString()),
                     Double.parseDouble(this.tonicCoffeePrice.getText())
             );
-            products.put(NoAlcoholDrinksEnum.TONIC_COFFEE.toString(), priceQtyNoAlcoholProduct);            
+            products.put(NoAlcoholDrinksEnum.TONIC_COFFEE.toString(), priceQtyNoAlcoholProduct);
         }
 
         if (iceTeaCheck.isSelected() && Integer.parseInt(this.iceTeaSpinner.getValue().toString()) > 0) {
@@ -5528,7 +5540,7 @@ public class VittoFrame extends javax.swing.JFrame {
                     Integer.parseInt(this.iceTeaSpinner.getValue().toString()),
                     Double.parseDouble(this.iceTeaPrice.getText())
             );
-            products.put(NoAlcoholDrinksEnum.ICE_TEA_SABORIZADO.toString(), priceQtyNoAlcoholProduct);            
+            products.put(NoAlcoholDrinksEnum.ICE_TEA_SABORIZADO.toString(), priceQtyNoAlcoholProduct);
         }
 
         if (iceTeaCheck.isSelected() && Integer.parseInt(this.iceTeaSpinner.getValue().toString()) > 0) {
@@ -5538,7 +5550,7 @@ public class VittoFrame extends javax.swing.JFrame {
                     Integer.parseInt(this.iceTeaSpinner.getValue().toString()),
                     Double.parseDouble(this.iceTeaPrice.getText())
             );
-            products.put(NoAlcoholDrinksEnum.ICE_TEA_SABORIZADO.toString(), priceQtyNoAlcoholProduct);            
+            products.put(NoAlcoholDrinksEnum.ICE_TEA_SABORIZADO.toString(), priceQtyNoAlcoholProduct);
         }
 
         if (iceTeaCheck.isSelected() && Integer.parseInt(this.iceTeaSpinner.getValue().toString()) > 0) {
@@ -5548,7 +5560,7 @@ public class VittoFrame extends javax.swing.JFrame {
                     Integer.parseInt(this.iceTeaSpinner.getValue().toString()),
                     Double.parseDouble(this.iceTeaPrice.getText())
             );
-            products.put(NoAlcoholDrinksEnum.ICE_TEA_SABORIZADO.toString(), priceQtyNoAlcoholProduct);            
+            products.put(NoAlcoholDrinksEnum.ICE_TEA_SABORIZADO.toString(), priceQtyNoAlcoholProduct);
         }
 
         if (FrapuccinoCheck.isSelected() && Integer.parseInt(this.FrapuccinoSpinner.getValue().toString()) > 0) {
@@ -5558,9 +5570,9 @@ public class VittoFrame extends javax.swing.JFrame {
                     Integer.parseInt(this.FrapuccinoSpinner.getValue().toString()),
                     Double.parseDouble(this.FrapuccinoPrice.getText())
             );
-            products.put(NoAlcoholDrinksEnum.FRAPPUCCINO.toString(), priceQtyNoAlcoholProduct);            
+            products.put(NoAlcoholDrinksEnum.FRAPPUCCINO.toString(), priceQtyNoAlcoholProduct);
         }
-        
+
         if (milkShakeCheck.isSelected() && Integer.parseInt(this.MilkshakeSpinner.getValue().toString()) > 0) {
             Map<Integer, Double> priceQtyNoAlcoholProduct = new HashMap<>();
 
@@ -5568,9 +5580,9 @@ public class VittoFrame extends javax.swing.JFrame {
                     Integer.parseInt(this.MilkshakeSpinner.getValue().toString()),
                     Double.parseDouble(this.MilkshakePrice.getText())
             );
-            products.put(NoAlcoholDrinksEnum.MILKSHAKE.toString(), priceQtyNoAlcoholProduct);            
-        }        
-        
+            products.put(NoAlcoholDrinksEnum.MILKSHAKE.toString(), priceQtyNoAlcoholProduct);
+        }
+
         if (LicuadoCheck.isSelected() && Integer.parseInt(this.licuadosSpinner.getValue().toString()) > 0) {
             Map<Integer, Double> priceQtyNoAlcoholProduct = new HashMap<>();
 
@@ -5578,8 +5590,8 @@ public class VittoFrame extends javax.swing.JFrame {
                     Integer.parseInt(this.licuadosSpinner.getValue().toString()),
                     Double.parseDouble(this.licuadosPrice.getText())
             );
-            products.put(NoAlcoholDrinksEnum.LICUADO.toString(), priceQtyNoAlcoholProduct);            
-        }        
+            products.put(NoAlcoholDrinksEnum.LICUADO.toString(), priceQtyNoAlcoholProduct);
+        }
 
         if (limonadaCheck.isSelected() && Integer.parseInt(this.limonadaSpinner.getValue().toString()) > 0) {
             Map<Integer, Double> priceQtyNoAlcoholProduct = new HashMap<>();
@@ -5588,9 +5600,9 @@ public class VittoFrame extends javax.swing.JFrame {
                     Integer.parseInt(this.limonadaSpinner.getValue().toString()),
                     Double.parseDouble(this.limonadaPrice.getText())
             );
-            products.put(NoAlcoholDrinksEnum.LIMONADA.toString(), priceQtyNoAlcoholProduct);            
-        }                
-        
+            products.put(NoAlcoholDrinksEnum.LIMONADA.toString(), priceQtyNoAlcoholProduct);
+        }
+
         if (batidoExprimidoCheck.isSelected() && Integer.parseInt(this.batidoExprimidoSpinner.getValue().toString()) > 0) {
             Map<Integer, Double> priceQtyNoAlcoholProduct = new HashMap<>();
 
@@ -5598,9 +5610,9 @@ public class VittoFrame extends javax.swing.JFrame {
                     Integer.parseInt(this.batidoExprimidoSpinner.getValue().toString()),
                     Double.parseDouble(this.batidoExprimidoPrice.getText())
             );
-            products.put(NoAlcoholDrinksEnum.EXPRIMIDO_NARANJA.toString(), priceQtyNoAlcoholProduct);            
-        }                        
-        
+            products.put(NoAlcoholDrinksEnum.EXPRIMIDO_NARANJA.toString(), priceQtyNoAlcoholProduct);
+        }
+
         if (GaseosaLineaCocacheck.isSelected() && Integer.parseInt(this.GaseosaLineaCocaSpinner.getValue().toString()) > 0) {
             Map<Integer, Double> priceQtyNoAlcoholProduct = new HashMap<>();
 
@@ -5608,7 +5620,7 @@ public class VittoFrame extends javax.swing.JFrame {
                     Integer.parseInt(this.GaseosaLineaCocaSpinner.getValue().toString()),
                     Double.parseDouble(this.GaseosaLineaCocaPrice.getText())
             );
-            products.put(NoAlcoholDrinksEnum.GASEOSA_LINEA_COCA.toString(), priceQtyNoAlcoholProduct);         
+            products.put(NoAlcoholDrinksEnum.GASEOSA_LINEA_COCA.toString(), priceQtyNoAlcoholProduct);
         }
 
         if (aguaSaborizadaCheck.isSelected() && Integer.parseInt(this.aguaSaborizadaSpinner.getValue().toString()) > 0) {
@@ -5618,7 +5630,7 @@ public class VittoFrame extends javax.swing.JFrame {
                     Integer.parseInt(this.aguaSaborizadaSpinner.getValue().toString()),
                     Double.parseDouble(this.aguaSaborizadaPrice.getText())
             );
-            products.put(NoAlcoholDrinksEnum.SABORIZADA.toString(), priceQtyNoAlcoholProduct);         
+            products.put(NoAlcoholDrinksEnum.SABORIZADA.toString(), priceQtyNoAlcoholProduct);
         }
 
         if (cepitaCheck.isSelected() && Integer.parseInt(this.cepitaSpinner.getValue().toString()) > 0) {
@@ -5628,7 +5640,7 @@ public class VittoFrame extends javax.swing.JFrame {
                     Integer.parseInt(this.cepitaSpinner.getValue().toString()),
                     Double.parseDouble(this.cepitaPrice.getText())
             );
-            products.put(NoAlcoholDrinksEnum.CEPITA.toString(), priceQtyNoAlcoholProduct);         
+            products.put(NoAlcoholDrinksEnum.CEPITA.toString(), priceQtyNoAlcoholProduct);
         }
 
         if (AguaC_S_GasCheck.isSelected() && Integer.parseInt(this.AguaC_S_GasSpinner.getValue().toString()) > 0) {
@@ -5638,9 +5650,9 @@ public class VittoFrame extends javax.swing.JFrame {
                     Integer.parseInt(this.AguaC_S_GasSpinner.getValue().toString()),
                     Double.parseDouble(this.AguaC_S_GasPrice.getText())
             );
-            products.put(NoAlcoholDrinksEnum.AGUA_con_sin_gas.toString(), priceQtyNoAlcoholProduct);         
+            products.put(NoAlcoholDrinksEnum.AGUA_con_sin_gas.toString(), priceQtyNoAlcoholProduct);
         }
-        
+
         this.dataStore = new DataStore();
         this.dataStore.setProductTypeEnum(ProductTypeEnum.BEBIDAS_SIN_ALCOHOL);
 
@@ -5675,9 +5687,9 @@ public class VittoFrame extends javax.swing.JFrame {
         this.showMessageDialog(this.selectedTable.getId());
 
         this.orderValidationActions(this.selectedTable.getId());
-        
+
         this.closeGenericFrame(this.DrinkNoAlcoholFrame);
-        
+
         /*
         Otra forma de iterar el map
         noAlcoholDrinks.entrySet().stream().map((entry) -> {
@@ -5694,9 +5706,9 @@ public class VittoFrame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Take Away ha sido guardad correctamente");
         } else {
             JOptionPane.showMessageDialog(null, "La mesa Nº: " + tableId + " Se ha guardado Correctamente");
-        }        
+        }
     }
-    
+
     private void CapuccinoItalianoCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CapuccinoItalianoCheckActionPerformed
         if (CapuccinoItalianoCheck.isSelected()) {
             SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
@@ -5787,7 +5799,7 @@ public class VittoFrame extends javax.swing.JFrame {
 
         // JOptionPane.showMessageDialog(null, "La mesa Nº: " + this.selectedTable.getId() + " fue Cerrada con éxito");
         this.setTableColour(this.selectedTable.getId(), Color.RED);
-        
+
 
     }//GEN-LAST:event_CloseTableButtonActionPerformed
 
@@ -5921,7 +5933,6 @@ public class VittoFrame extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "La mesa Nº: " + this.selectedTable.getId() + " ha efectuado el pago Correctamente");
         }
-        
 
         // cerrar popUps abiertos
         this.closeGenericFrame(PayTableFrm); // Elige el método de pago
@@ -5929,8 +5940,8 @@ public class VittoFrame extends javax.swing.JFrame {
         this.closeGenericFrame(SelectOrder); // elige el tipo de producto
 
         // libera la mesa
-        if (this.selectedTable.getId() == 0) { 
-            this.setTableColour(this.selectedTable.getId(), new Color(153,153, 255));
+        if (this.selectedTable.getId() == 0) {
+            this.setTableColour(this.selectedTable.getId(), new Color(153, 153, 255));
         } else {
             this.setTableColour(this.selectedTable.getId(), Color.GREEN);
         }
@@ -5994,11 +6005,11 @@ public class VittoFrame extends javax.swing.JFrame {
             this.productsImpl.payTable(paymentDataStore);
 
             // mensaje de Pago efectuado.
-            if(this.selectedTable.getId() == 0) {
+            if (this.selectedTable.getId() == 0) {
                 JOptionPane.showMessageDialog(null, "TakeAway ha efectuado el pago Correctamente");
             } else {
                 JOptionPane.showMessageDialog(null, "La mesa Nº: " + this.selectedTable.getId() + " ha efectuado el pago Correctamente");
-            }            
+            }
 
             // cerrar popUps abiertos
             this.closeGenericFrame(PayTableFrm); // Elige el método de pago
@@ -6106,8 +6117,16 @@ public class VittoFrame extends javax.swing.JFrame {
         this.CloseDayFrame.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
         this.CloseDayFrame.setSize(700, 500);
         this.CloseDayFrame.setVisible(true);
-        
-        
+
+        for (Component component : CloseDayFrame.getContentPane().getComponents()) {
+            if (component instanceof JSpinner) {
+                
+                SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 3000, 1);
+                ((JSpinner) component).setEnabled(true);
+                ((JSpinner) component).setModel(model);
+            }
+        }
+
 
     }//GEN-LAST:event_CloseActionActionPerformed
 
@@ -6310,7 +6329,7 @@ public class VittoFrame extends javax.swing.JFrame {
                     Double.parseDouble(this.alfajorArtesanalPrice.getText())
             );
             products.put(SweetProductsEnum.ALFAJOR_ARTESANAL.toString(), priceQtySweetProduct);
-            
+
         }
 
         if (medialunaCheck.isSelected() && Integer.parseInt(this.medialunaSpinner.getValue().toString()) > 0) {
@@ -6387,7 +6406,7 @@ public class VittoFrame extends javax.swing.JFrame {
         this.showMessageDialog(this.selectedTable.getId());
 
         this.orderValidationActions(this.selectedTable.getId());
-        
+
         this.closeGenericFrame(this.CandyProductsFrame);
 
     }//GEN-LAST:event_GuardarProductosDulcesActionPerformed
@@ -6408,7 +6427,6 @@ public class VittoFrame extends javax.swing.JFrame {
 
     private void saverAlcoholOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saverAlcoholOrderActionPerformed
         products = new HashMap<>();
-        
 
         if (cervezaCheck.isSelected() && Integer.parseInt(this.cervezaSpinner.getValue().toString()) > 0) {
             Map<Integer, Double> priceQtyAlcoholProduct = new HashMap<>();
@@ -6419,7 +6437,7 @@ public class VittoFrame extends javax.swing.JFrame {
             );
             products.put(AlcoholDrinksEnum.CERVEZA.toString(), priceQtyAlcoholProduct);
         }
-        
+
         this.dataStore = new DataStore();
         this.dataStore.setProductTypeEnum(ProductTypeEnum.BEBIDAS_ALCHOLICAS);
 
@@ -6454,9 +6472,9 @@ public class VittoFrame extends javax.swing.JFrame {
         this.showMessageDialog(this.selectedTable.getId());
 
         this.orderValidationActions(this.selectedTable.getId());
-        
+
         this.closeGenericFrame(this.DrinkAlcoholFrame);
-        
+
 
     }//GEN-LAST:event_saverAlcoholOrderActionPerformed
 
@@ -6465,41 +6483,40 @@ public class VittoFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_AdminUserPasswordActionPerformed
 
     private void deleteTableButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteTableButtonActionPerformed
-        
+
         String adminUser = this.AdminUserName.getText();
         String password = this.AdminUserPassword.getText();
-        
+
         System.out.println("Password --> " + password);
         String user = "christian";
         String pass = "lasalle";
-        
+
         if (adminUser.equals(user) && password.equals(pass)) {
             System.out.println("Table to delete --> " + this.selectedTable.getId());
-            
+
             this.productsImpl.deleteTable(this.selectedTable.getId());
-            
+
             this.AdminUserName.setText("");
-            this.AdminUserPassword.setText("");  
+            this.AdminUserPassword.setText("");
         } else {
             JOptionPane.showMessageDialog(null, "Usuario /  Pass Incorrecto");
             this.AdminUserName.setText("");
-            this.AdminUserPassword.setText("");  
+            this.AdminUserPassword.setText("");
         }
-        
-        
+
         /**
-         * Reset de user y pass cuando cierra la ventana, para que no quede 
+         * Reset de user y pass cuando cierra la ventana, para que no quede
          * almacenado ningún dato.
          */
         this.DeleteTableFrm.addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent w) {
                 AdminUserName.setText("");
-                AdminUserPassword.setText("");  
+                AdminUserPassword.setText("");
             }
         });
-        
+
         this.setTableColour(this.selectedTable.getId(), Color.GREEN);
-        
+
         this.closeGenericFrame(this.DeleteTableFrm);
         this.closeGenericFrame(this.SelectOrder);
     }//GEN-LAST:event_deleteTableButtonActionPerformed
@@ -6703,7 +6720,7 @@ public class VittoFrame extends javax.swing.JFrame {
             this.licuados_2_1_TostadoSpinner.setModel(model);
         } else {
             this.licuados_2_1_TostadoSpinner.setEnabled(false);
-        }        
+        }
     }//GEN-LAST:event_licuado2_1_TostadoIndCheckActionPerformed
 
     private void copaYogurtCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_copaYogurtCheckActionPerformed
@@ -6752,7 +6769,6 @@ public class VittoFrame extends javax.swing.JFrame {
 
     private void savePromoBreakfastActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_savePromoBreakfastActionPerformed
         products = new HashMap<>();
-        
 
         if (cafe2medialunasCheck.isSelected() && Integer.parseInt(this.cafe2MedialunasSpinner.getValue().toString()) > 0) {
             Map<Integer, Double> priceQtyAlcoholProduct = new HashMap<>();
@@ -6844,7 +6860,6 @@ public class VittoFrame extends javax.swing.JFrame {
             products.put(PromotionBreakfast.NARANJA_TOSTADOS.toString(), priceQtyAlcoholProduct);
         }
 
-
         if (licuadoMedioTostadoCheck.isSelected() && Integer.parseInt(this.licuadoMedioTostadoSpinner.getValue().toString()) > 0) {
             Map<Integer, Double> priceQtyAlcoholProduct = new HashMap<>();
 
@@ -6935,7 +6950,6 @@ public class VittoFrame extends javax.swing.JFrame {
             products.put(PromotionBreakfast.ICE_CAPPUCCINO.toString(), priceQtyAlcoholProduct);
         }
 
-        
         this.dataStore = new DataStore();
         this.dataStore.setProductTypeEnum(ProductTypeEnum.PROMOCION_MERIENDAS);
 
@@ -6970,7 +6984,7 @@ public class VittoFrame extends javax.swing.JFrame {
         this.showMessageDialog(this.selectedTable.getId());
 
         this.orderValidationActions(this.selectedTable.getId());
-        
+
         this.closeGenericFrame(this.PromosBreakfastFrm);
 
     }//GEN-LAST:event_savePromoBreakfastActionPerformed
@@ -7182,7 +7196,6 @@ public class VittoFrame extends javax.swing.JFrame {
             products.put(PromotionsLunchEnum.EMPANADA_PROMO.toString(), priceQtyAlcoholProduct);
         }
 
-
         if (arabePromoCheck.isSelected() && Integer.parseInt(this.arabePromoSpinner.getValue().toString()) > 0) {
             Map<Integer, Double> priceQtyAlcoholProduct = new HashMap<>();
 
@@ -7202,7 +7215,7 @@ public class VittoFrame extends javax.swing.JFrame {
             );
             products.put(PromotionsLunchEnum.SANDWICH_PROMO.toString(), priceQtyAlcoholProduct);
         }
-        
+
         this.dataStore = new DataStore();
         this.dataStore.setProductTypeEnum(ProductTypeEnum.PROMOCION_COMIDAS);
 
@@ -7237,8 +7250,8 @@ public class VittoFrame extends javax.swing.JFrame {
         this.showMessageDialog(this.selectedTable.getId());
 
         this.orderValidationActions(this.selectedTable.getId());
-        
-        this.closeGenericFrame(this.PromosLunchFrm);        
+
+        this.closeGenericFrame(this.PromosLunchFrm);
     }//GEN-LAST:event_savePromoLunchActionPerformed
 
     private void empleadosPromoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empleadosPromoActionPerformed
@@ -7372,7 +7385,6 @@ public class VittoFrame extends javax.swing.JFrame {
             products.put(SaladsEnum.EMPANADAS.toString(), priceQtyAlcoholProduct);
         }
 
-
         if (sdwTartasCheck.isSelected() && Integer.parseInt(this.sdwTartasSpinner.getValue().toString()) > 0) {
             Map<Integer, Double> priceQtyAlcoholProduct = new HashMap<>();
 
@@ -7382,7 +7394,7 @@ public class VittoFrame extends javax.swing.JFrame {
             );
             products.put(SaladsEnum.TARTA.toString(), priceQtyAlcoholProduct);
         }
-        
+
         this.dataStore = new DataStore();
         this.dataStore.setProductTypeEnum(ProductTypeEnum.SALADOS);
 
@@ -7417,7 +7429,7 @@ public class VittoFrame extends javax.swing.JFrame {
         this.showMessageDialog(this.selectedTable.getId());
 
         this.orderValidationActions(this.selectedTable.getId());
-        
+
         this.closeGenericFrame(this.SaladsProductFrame);
     }//GEN-LAST:event_saveSandwichORderActionPerformed
 
@@ -7452,7 +7464,7 @@ public class VittoFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_medialunaSdwCheckActionPerformed
 
     private void sbtMilanesaCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sbtMilanesaCheckActionPerformed
-       if (sbtMilanesaCheck.isSelected()) {
+        if (sbtMilanesaCheck.isSelected()) {
             SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
             this.sbtMilanesaSpinner.setEnabled(true);
             this.sbtMilanesaSpinner.setModel(model);
@@ -7462,7 +7474,7 @@ public class VittoFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_sbtMilanesaCheckActionPerformed
 
     private void sbtCrudoCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sbtCrudoCheckActionPerformed
-       if (sbtCrudoCheck.isSelected()) {
+        if (sbtCrudoCheck.isSelected()) {
             SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
             this.sbtCrudoSpinner.setEnabled(true);
             this.sbtCrudoSpinner.setModel(model);
@@ -7472,7 +7484,7 @@ public class VittoFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_sbtCrudoCheckActionPerformed
 
     private void sdwEmpandaCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sdwEmpandaCheckActionPerformed
-       if (sdwEmpandaCheck.isSelected()) {
+        if (sdwEmpandaCheck.isSelected()) {
             SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
             this.sdwEmpandaSpinner.setEnabled(true);
             this.sdwEmpandaSpinner.setModel(model);
@@ -7482,7 +7494,7 @@ public class VittoFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_sdwEmpandaCheckActionPerformed
 
     private void sdwTartasCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sdwTartasCheckActionPerformed
-       if (sdwTartasCheck.isSelected()) {
+        if (sdwTartasCheck.isSelected()) {
             SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
             this.sdwTartasSpinner.setEnabled(true);
             this.sdwTartasSpinner.setModel(model);
@@ -7492,7 +7504,7 @@ public class VittoFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_sdwTartasCheckActionPerformed
 
     private void hotCiokCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hotCiokCheckActionPerformed
-       if (hotCiokCheck.isSelected()) {
+        if (hotCiokCheck.isSelected()) {
             SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
             this.hotCiokSpinner.setEnabled(true);
             this.hotCiokSpinner.setModel(model);
@@ -7502,7 +7514,7 @@ public class VittoFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_hotCiokCheckActionPerformed
 
     private void teCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_teCheckActionPerformed
-       if (teCheck.isSelected()) {
+        if (teCheck.isSelected()) {
             SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
             this.teSpinner.setEnabled(true);
             this.teSpinner.setModel(model);
@@ -7512,7 +7524,7 @@ public class VittoFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_teCheckActionPerformed
 
     private void FrapuccinoCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FrapuccinoCheckActionPerformed
-       if (FrapuccinoCheck.isSelected()) {
+        if (FrapuccinoCheck.isSelected()) {
             SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
             this.FrapuccinoSpinner.setEnabled(true);
             this.FrapuccinoSpinner.setModel(model);
@@ -7522,7 +7534,7 @@ public class VittoFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_FrapuccinoCheckActionPerformed
 
     private void milkShakeCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_milkShakeCheckActionPerformed
-       if (milkShakeCheck.isSelected()) {
+        if (milkShakeCheck.isSelected()) {
             SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
             this.MilkshakeSpinner.setEnabled(true);
             this.MilkshakeSpinner.setModel(model);
@@ -7532,7 +7544,7 @@ public class VittoFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_milkShakeCheckActionPerformed
 
     private void LicuadoCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LicuadoCheckActionPerformed
-       if (LicuadoCheck.isSelected()) {
+        if (LicuadoCheck.isSelected()) {
             SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
             this.licuadosSpinner.setEnabled(true);
             this.licuadosSpinner.setModel(model);
@@ -7542,7 +7554,7 @@ public class VittoFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_LicuadoCheckActionPerformed
 
     private void limonadaCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limonadaCheckActionPerformed
-       if (limonadaCheck.isSelected()) {
+        if (limonadaCheck.isSelected()) {
             SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
             this.limonadaSpinner.setEnabled(true);
             this.limonadaSpinner.setModel(model);
@@ -7552,7 +7564,7 @@ public class VittoFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_limonadaCheckActionPerformed
 
     private void batidoExprimidoCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_batidoExprimidoCheckActionPerformed
-       if (batidoExprimidoCheck.isSelected()) {
+        if (batidoExprimidoCheck.isSelected()) {
             SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 50, 1);
             this.batidoExprimidoSpinner.setEnabled(true);
             this.batidoExprimidoSpinner.setModel(model);
@@ -7560,7 +7572,53 @@ public class VittoFrame extends javax.swing.JFrame {
             this.batidoExprimidoSpinner.setEnabled(false);
         }
     }//GEN-LAST:event_batidoExprimidoCheckActionPerformed
-    
+
+    private void fechaCalcularButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaCalcularButtonActionPerformed
+        // sabemos que calcula la fecha 
+        CloseDateDataStore closeDateDataStore = new CloseDateDataStore();
+        closeDateDataStore.setTipo("fecha");
+        
+        // formato -> 2019-12-23
+        String fecha = this.anioSpinner.getValue().toString() + "-" + this.mesSpinner.getValue().toString() + "-" + this.diaSpinner.getValue().toString();
+        closeDateDataStore.setFecha(fecha);
+
+        ClosePaymentDataStore closePaymentDataStore = this.productsImpl.getClosingData(closeDateDataStore);
+        
+        this.efectivoLbl.setText(Double.toString(closePaymentDataStore.getEfectivo()));
+        this.creditoLbl.setText(Double.toString(closePaymentDataStore.getCredito()));
+        this.debitoLbl.setText(Double.toString(closePaymentDataStore.getDebito()));
+        this.mercadoPagoLbl.setText(Double.toString(closePaymentDataStore.getMercadoPago()));
+        this.cuentaCorrienteLbl.setText(Double.toString(closePaymentDataStore.getCuentaCorriente()));
+        this.totalLbl.setText(Double.toString(closePaymentDataStore.getTotal()));
+        
+        
+    }//GEN-LAST:event_fechaCalcularButtonActionPerformed
+
+    private void rangoCalcularButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rangoCalcularButtonActionPerformed
+        // sabemos que calcula el rango de una fecha -> desde hasta
+        CloseDateDataStore closeDateDataStore = new CloseDateDataStore();
+        closeDateDataStore.setTipo("rango");
+        // formato -> 2019-12-23
+        String fechaDesde = this.rangoAnioSpinner.getValue().toString() + "-" + this.rangoMesSpinner.getValue().toString() + "-" + this.rangoDiaSpinner.getValue().toString();
+        String fechaHasta = this.rangoAnio2Spinner.getValue().toString() + "-" + this.rangoMes2Spinner.getValue().toString() + "-" + this.rangoDia2Spinner.getValue().toString();
+        
+        closeDateDataStore.setFechaDesde(fechaDesde);
+        closeDateDataStore.setFechaHasta(fechaHasta);
+
+        ClosePaymentDataStore closePaymentDataStore = this.productsImpl.getClosingData(closeDateDataStore);
+        
+        this.efectivoLbl.setText(Double.toString(closePaymentDataStore.getEfectivo()));
+        this.creditoLbl.setText(Double.toString(closePaymentDataStore.getCredito()));
+        this.debitoLbl.setText(Double.toString(closePaymentDataStore.getDebito()));
+        this.mercadoPagoLbl.setText(Double.toString(closePaymentDataStore.getMercadoPago()));
+        this.cuentaCorrienteLbl.setText(Double.toString(closePaymentDataStore.getCuentaCorriente()));
+        this.totalLbl.setText(Double.toString(closePaymentDataStore.getTotal()));        
+        
+    }//GEN-LAST:event_rangoCalcularButtonActionPerformed
+
+    private void closeCierreButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeCierreButtonActionPerformed
+        this.closeGenericFrame(CloseDayFrame);
+    }//GEN-LAST:event_closeCierreButtonActionPerformed
 
     private void setTableColour(int tableId, Color color) {
 
@@ -7801,7 +7859,7 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JButton closeTable;
     private javax.swing.JCheckBox copaYogurtCheck;
     private javax.swing.JButton cosePromoBreakfast;
-    private javax.swing.JLabel creditoLabel;
+    private javax.swing.JLabel creditoLbl;
     private javax.swing.JCheckBox cuadradoSecoCheck;
     private javax.swing.JLabel cuadradoSecoPrice;
     private javax.swing.JSpinner cuadradoSecoSpinner;
