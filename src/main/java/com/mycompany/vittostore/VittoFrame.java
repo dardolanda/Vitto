@@ -760,6 +760,18 @@ public class VittoFrame extends javax.swing.JFrame {
         savePromoLunch = new javax.swing.JButton();
         cancelPromoLunch = new javax.swing.JButton();
         EmpleadosFrame = new javax.swing.JFrame();
+        LogInFrame = new javax.swing.JFrame();
+        jLabel174 = new javax.swing.JLabel();
+        jLabel180 = new javax.swing.JLabel();
+        jLabel181 = new javax.swing.JLabel();
+        jLabel182 = new javax.swing.JLabel();
+        jLabel183 = new javax.swing.JLabel();
+        sessionLogInButton = new javax.swing.JButton();
+        userLogIn = new javax.swing.JTextField();
+        passwordLogIn = new javax.swing.JTextField();
+        cashInitLogIn = new javax.swing.JTextField();
+        barLogInComboBox = new javax.swing.JComboBox<>();
+        RepositoryBackUp_Frame = new javax.swing.JFrame();
         tableOne = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         tableTwo = new javax.swing.JButton();
@@ -4447,6 +4459,95 @@ public class VittoFrame extends javax.swing.JFrame {
             .addGap(0, 344, Short.MAX_VALUE)
         );
 
+        jLabel174.setText("Usuario");
+
+        jLabel180.setText("Contraseña");
+
+        jLabel181.setText("Bar");
+
+        jLabel182.setText("Incio Caja");
+
+        jLabel183.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel183.setText("Inicio de Sesión");
+
+        sessionLogInButton.setText("Iniciar Sesión");
+
+        userLogIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userLogInActionPerformed(evt);
+            }
+        });
+
+        barLogInComboBox.setFont(new java.awt.Font("Dialog", 0, 13)); // NOI18N
+        barLogInComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "reims", "vitto" }));
+
+        javax.swing.GroupLayout LogInFrameLayout = new javax.swing.GroupLayout(LogInFrame.getContentPane());
+        LogInFrame.getContentPane().setLayout(LogInFrameLayout);
+        LogInFrameLayout.setHorizontalGroup(
+            LogInFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LogInFrameLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(sessionLogInButton)
+                .addGap(24, 24, 24))
+            .addGroup(LogInFrameLayout.createSequentialGroup()
+                .addGroup(LogInFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(LogInFrameLayout.createSequentialGroup()
+                        .addGap(105, 105, 105)
+                        .addGroup(LogInFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel174)
+                            .addComponent(jLabel180)
+                            .addComponent(jLabel181)
+                            .addComponent(jLabel182))
+                        .addGap(43, 43, 43)
+                        .addGroup(LogInFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(userLogIn)
+                            .addComponent(passwordLogIn)
+                            .addComponent(cashInitLogIn)
+                            .addComponent(barLogInComboBox, 0, 153, Short.MAX_VALUE)))
+                    .addGroup(LogInFrameLayout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(jLabel183)))
+                .addContainerGap(140, Short.MAX_VALUE))
+        );
+        LogInFrameLayout.setVerticalGroup(
+            LogInFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(LogInFrameLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jLabel183)
+                .addGap(18, 18, 18)
+                .addGroup(LogInFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(LogInFrameLayout.createSequentialGroup()
+                        .addGroup(LogInFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel174)
+                            .addComponent(userLogIn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(LogInFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel180)
+                            .addComponent(passwordLogIn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(43, 43, 43))
+                    .addGroup(LogInFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(barLogInComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel181)))
+                .addGap(18, 18, 18)
+                .addGroup(LogInFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel182)
+                    .addComponent(cashInitLogIn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33)
+                .addComponent(sessionLogInButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout RepositoryBackUp_FrameLayout = new javax.swing.GroupLayout(RepositoryBackUp_Frame.getContentPane());
+        RepositoryBackUp_Frame.getContentPane().setLayout(RepositoryBackUp_FrameLayout);
+        RepositoryBackUp_FrameLayout.setHorizontalGroup(
+            RepositoryBackUp_FrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 619, Short.MAX_VALUE)
+        );
+        RepositoryBackUp_FrameLayout.setVerticalGroup(
+            RepositoryBackUp_FrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 344, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAutoRequestFocus(false);
         setBackground(new java.awt.Color(107, 106, 104));
@@ -7629,6 +7730,10 @@ public class VittoFrame extends javax.swing.JFrame {
         this.closeGenericFrame(CloseDayFrame);
     }//GEN-LAST:event_closeCierreButtonActionPerformed
 
+    private void userLogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userLogInActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userLogInActionPerformed
+
     private void setTableColour(int tableId, Color color) {
 
         switch (tableId) {
@@ -7767,6 +7872,7 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JLabel LattesaborizadosPrice;
     private javax.swing.JSpinner LattesaborizadosSpinner;
     private javax.swing.JCheckBox LicuadoCheck;
+    private javax.swing.JFrame LogInFrame;
     private javax.swing.JLabel MesaLabel;
     private javax.swing.JLabel MilkshakePrice;
     private javax.swing.JSpinner MilkshakeSpinner;
@@ -7776,6 +7882,7 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JFrame PayTableFrm;
     private javax.swing.JFrame PromosBreakfastFrm;
     private javax.swing.JFrame PromosLunchFrm;
+    private javax.swing.JFrame RepositoryBackUp_Frame;
     private javax.swing.JFrame SaladsProductFrame;
     private javax.swing.JFrame SelectOrder;
     private javax.swing.JLabel TotalLabel;
@@ -7800,6 +7907,7 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JCheckBox arabeSdwCheck;
     private javax.swing.JLabel arabeSdwPrice;
     private javax.swing.JSpinner arabeSdwSpinner;
+    private javax.swing.JComboBox<String> barLogInComboBox;
     private javax.swing.JCheckBox batidoExprimidoCheck;
     private javax.swing.JLabel batidoExprimidoPrice;
     private javax.swing.JSpinner batidoExprimidoSpinner;
@@ -7846,6 +7954,7 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JButton cashCalculateTotal;
     private javax.swing.JLabel cashChangeBack;
     private javax.swing.JComboBox<String> cashDiscountCombo;
+    private javax.swing.JTextField cashInitLogIn;
     private javax.swing.JButton cashPayAction;
     private javax.swing.JCheckBox cashPayDiscountCheck;
     private javax.swing.JButton cashPayment;
@@ -8004,12 +8113,17 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel171;
     private javax.swing.JLabel jLabel172;
     private javax.swing.JLabel jLabel173;
+    private javax.swing.JLabel jLabel174;
     private javax.swing.JLabel jLabel175;
     private javax.swing.JLabel jLabel176;
     private javax.swing.JLabel jLabel177;
     private javax.swing.JLabel jLabel178;
     private javax.swing.JLabel jLabel179;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel180;
+    private javax.swing.JLabel jLabel181;
+    private javax.swing.JLabel jLabel182;
+    private javax.swing.JLabel jLabel183;
     private javax.swing.JLabel jLabel185;
     private javax.swing.JLabel jLabel186;
     private javax.swing.JLabel jLabel19;
@@ -8166,6 +8280,7 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JCheckBox panchoPromoCheck;
     private javax.swing.JLabel panchoPromoPrice;
     private javax.swing.JSpinner panchoPromoSpinner;
+    private javax.swing.JTextField passwordLogIn;
     private javax.swing.JButton payAction;
     private javax.swing.JTextField paymentCash;
     private javax.swing.JCheckBox pizzaPromoCheck;
@@ -8213,6 +8328,7 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JSpinner sdwTartasSpinner;
     private javax.swing.JButton seeConsuming;
     private javax.swing.JLabel seleccionLbl;
+    private javax.swing.JButton sessionLogInButton;
     private javax.swing.JCheckBox submarinoCheck;
     private javax.swing.JLabel submarinoPrice;
     private javax.swing.JSpinner submarinoSpinner;
@@ -8254,6 +8370,7 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JSpinner tostadoSdwSpinner;
     private javax.swing.JLabel totalLbl;
     private javax.swing.JLabel totalPayLabel;
+    private javax.swing.JTextField userLogIn;
     private javax.swing.JLabel userTableCompleteNamePay;
     private javax.swing.JLabel whoAmILbl;
     private javax.swing.JLabel yogurtPrice;
