@@ -27,4 +27,10 @@ public class UsersImpl extends VittoConnection implements Users {
         return this.vittoDDBBStore.findUserByCompleteName(name, surname);
     }
 
+    @Override
+    public boolean isAnyUserLoggedIn() {
+        
+        return false;
+    }
+
 }

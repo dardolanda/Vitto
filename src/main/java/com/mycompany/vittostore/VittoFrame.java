@@ -39,22 +39,14 @@ import java.awt.Component;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.scene.control.CheckBox;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JCheckBox;
-import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.text.MaskFormatter;
 
 public class VittoFrame extends javax.swing.JFrame {
 
@@ -81,23 +73,73 @@ public class VittoFrame extends javax.swing.JFrame {
      * sout -> System.out.println(); -> shortCut
      */
     public VittoFrame() {
+        
+        this.initSession();
+        
+
+        if (this.usersImpl.isAnyUserLoggedIn()) {
+            /**
+             * Existe 1 y solo 1 usuario logged in:
+             */
+            
+       
+            
+            /**
+             * TODO: Cambiar la lista de usuarios por el usuario que está logeado.
+             *       Ya que ahora todas las operaciones las hará este usuario.
+             */
+            this.employeeList = this.usersImpl.getUsers();                        
+            
+            /**
+             * TODO:
+             * Hay que traer todas las mesas operativas Del User Logeado.
+             */
+            List<Map<Integer, String>> operatingTableStateList = this.productsImpl.getOperatingTable();
+
+            for (Map<Integer, String> tableStateMap : operatingTableStateList) {
+                for (Map.Entry<Integer, String> entry : tableStateMap.entrySet()) {
+                    this.setTableColour(
+                            entry.getKey(),
+                            entry.getValue().equals(OperatingTableStateEnum.USO.toString())
+                            ? Color.yellow
+                            : Color.RED);
+                }
+            }
+
+            this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
+            
+        } else {
+            
+            /**
+             * No existe ningún usuario LogedIn => se tiene que mostrar la pantalla
+             * del Logeo.
+             * 
+             * Tener en cuenta que si el user se desLogeo, esta pantalla tiene 
+             * que aparecer por defecto.
+            */
+            
+            LogInDialog.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
+            LogInDialog.setSize(600,400);
+            LogInDialog.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+            LogInDialog.setAlwaysOnTop(true);
+            
+            LogInDialog.setVisible(true);        
+            
+            
+            // El jFram principal -> que es el que tiene todas las mesas 
+            // lo deshabilitamos para que no exista ninguna opción antes del 
+            // logeo
+            this.setEnabled(false);
+            
+            
+
+        }
+    }
+    
+    
+    private void initSession() {
         this.initComponents();
         this.initSelectedComponent();
-
-        List<Map<Integer, String>> operatingTableStateList = this.productsImpl.getOperatingTable();
-
-        for (Map<Integer, String> tableStateMap : operatingTableStateList) {
-            for (Map.Entry<Integer, String> entry : tableStateMap.entrySet()) {
-                this.setTableColour(
-                        entry.getKey(),
-                        entry.getValue().equals(OperatingTableStateEnum.USO.toString())
-                        ? Color.yellow
-                        : Color.RED);
-            }
-        }
-
-        this.employeeList = this.usersImpl.getUsers();
-
         this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
     }
 
@@ -772,6 +814,17 @@ public class VittoFrame extends javax.swing.JFrame {
         cashInitLogIn = new javax.swing.JTextField();
         barLogInComboBox = new javax.swing.JComboBox<>();
         RepositoryBackUp_Frame = new javax.swing.JFrame();
+        LogInDialog = new javax.swing.JDialog();
+        barLogInComboBox1 = new javax.swing.JComboBox<>();
+        jLabel184 = new javax.swing.JLabel();
+        jLabel187 = new javax.swing.JLabel();
+        jLabel188 = new javax.swing.JLabel();
+        jLabel189 = new javax.swing.JLabel();
+        jLabel190 = new javax.swing.JLabel();
+        sessionLogInButton1 = new javax.swing.JButton();
+        userLogIn1 = new javax.swing.JTextField();
+        passwordLogIn1 = new javax.swing.JTextField();
+        cashInitLogIn1 = new javax.swing.JTextField();
         tableOne = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         tableTwo = new javax.swing.JButton();
@@ -4548,6 +4601,84 @@ public class VittoFrame extends javax.swing.JFrame {
             .addGap(0, 344, Short.MAX_VALUE)
         );
 
+        barLogInComboBox1.setFont(new java.awt.Font("Dialog", 0, 13)); // NOI18N
+        barLogInComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "reims", "vitto" }));
+
+        jLabel184.setText("Usuario");
+
+        jLabel187.setText("Contraseña");
+
+        jLabel188.setText("Bar");
+
+        jLabel189.setText("Incio Caja");
+
+        jLabel190.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel190.setText("Inicio de Sesión");
+
+        sessionLogInButton1.setText("Iniciar Sesión");
+
+        userLogIn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userLogIn1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout LogInDialogLayout = new javax.swing.GroupLayout(LogInDialog.getContentPane());
+        LogInDialog.getContentPane().setLayout(LogInDialogLayout);
+        LogInDialogLayout.setHorizontalGroup(
+            LogInDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LogInDialogLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(sessionLogInButton1)
+                .addGap(24, 24, 24))
+            .addGroup(LogInDialogLayout.createSequentialGroup()
+                .addGroup(LogInDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(LogInDialogLayout.createSequentialGroup()
+                        .addGap(105, 105, 105)
+                        .addGroup(LogInDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel184)
+                            .addComponent(jLabel187)
+                            .addComponent(jLabel188)
+                            .addComponent(jLabel189))
+                        .addGap(43, 43, 43)
+                        .addGroup(LogInDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(userLogIn1)
+                            .addComponent(passwordLogIn1)
+                            .addComponent(cashInitLogIn1)
+                            .addComponent(barLogInComboBox1, 0, 153, Short.MAX_VALUE)))
+                    .addGroup(LogInDialogLayout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(jLabel190)))
+                .addContainerGap(223, Short.MAX_VALUE))
+        );
+        LogInDialogLayout.setVerticalGroup(
+            LogInDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(LogInDialogLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jLabel190)
+                .addGap(18, 18, 18)
+                .addGroup(LogInDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(LogInDialogLayout.createSequentialGroup()
+                        .addGroup(LogInDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel184)
+                            .addComponent(userLogIn1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(LogInDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel187)
+                            .addComponent(passwordLogIn1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(43, 43, 43))
+                    .addGroup(LogInDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(barLogInComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel188)))
+                .addGap(18, 18, 18)
+                .addGroup(LogInDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel189)
+                    .addComponent(cashInitLogIn1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33)
+                .addComponent(sessionLogInButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAutoRequestFocus(false);
         setBackground(new java.awt.Color(107, 106, 104));
@@ -6221,7 +6352,7 @@ public class VittoFrame extends javax.swing.JFrame {
 
         for (Component component : CloseDayFrame.getContentPane().getComponents()) {
             if (component instanceof JSpinner) {
-                
+
                 SpinnerNumberModel model = new SpinnerNumberModel(0, 0, 3000, 1);
                 ((JSpinner) component).setEnabled(true);
                 ((JSpinner) component).setModel(model);
@@ -6602,7 +6733,7 @@ public class VittoFrame extends javax.swing.JFrame {
             this.setTableColour(this.selectedTable.getId(), Color.GREEN);
 
             this.closeGenericFrame(this.DeleteTableFrm);
-            this.closeGenericFrame(this.SelectOrder);            
+            this.closeGenericFrame(this.SelectOrder);
         } else {
             JOptionPane.showMessageDialog(null, "Usuario /  Pass Incorrecto");
             this.AdminUserName.setText("");
@@ -7677,53 +7808,53 @@ public class VittoFrame extends javax.swing.JFrame {
         // sabemos que calcula la fecha 
         CloseDateDataStore closeDateDataStore = new CloseDateDataStore();
         closeDateDataStore.setTipo("fecha");
-        
+
         this.seleccionLbl.setText("Por Fecha");
-        
+
         // formato -> 2019-12-23
         String fechaDesde = this.anioSpinner.getValue().toString() + "-" + this.mesSpinner.getValue().toString() + "-" + this.diaSpinner.getValue().toString();
-        
+
         int diaSiguiente = (int) this.diaSpinner.getValue() + 1;
         String fechaHasta = this.anioSpinner.getValue().toString() + "-" + this.mesSpinner.getValue().toString() + "-" + (diaSiguiente);
-        
+
         closeDateDataStore.setFechaDesde(fechaDesde);
         closeDateDataStore.setFechaHasta(fechaHasta);
 
         ClosePaymentDataStore closePaymentDataStore = this.productsImpl.getClosingData(closeDateDataStore);
-        
+
         this.efectivoLbl.setText(Double.toString(closePaymentDataStore.getEfectivo()));
         this.creditoLbl.setText(Double.toString(closePaymentDataStore.getCredito()));
         this.debitoLbl.setText(Double.toString(closePaymentDataStore.getDebito()));
         this.mercadoPagoLbl.setText(Double.toString(closePaymentDataStore.getMercadoPago()));
         this.cuentaCorrienteLbl.setText(Double.toString(closePaymentDataStore.getCuentaCorriente()));
-        
+
         this.totalLbl.setText(Double.toString(closePaymentDataStore.getTotal()));
-        
-        
+
+
     }//GEN-LAST:event_fechaCalcularButtonActionPerformed
 
     private void rangoCalcularButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rangoCalcularButtonActionPerformed
         // sabemos que calcula el rango de una fecha -> desde hasta
         CloseDateDataStore closeDateDataStore = new CloseDateDataStore();
         closeDateDataStore.setTipo("rango");
-        
+
         this.seleccionLbl.setText("Por Rango");
         // formato -> 2019-12-23
         String fechaDesde = this.rangoAnioSpinner.getValue().toString() + "-" + this.rangoMesSpinner.getValue().toString() + "-" + this.rangoDiaSpinner.getValue().toString();
         String fechaHasta = this.rangoAnio2Spinner.getValue().toString() + "-" + this.rangoMes2Spinner.getValue().toString() + "-" + this.rangoDia2Spinner.getValue().toString();
-        
+
         closeDateDataStore.setFechaDesde(fechaDesde);
         closeDateDataStore.setFechaHasta(fechaHasta);
 
         ClosePaymentDataStore closePaymentDataStore = this.productsImpl.getClosingData(closeDateDataStore);
-        
+
         this.efectivoLbl.setText(Double.toString(closePaymentDataStore.getEfectivo()));
         this.creditoLbl.setText(Double.toString(closePaymentDataStore.getCredito()));
         this.debitoLbl.setText(Double.toString(closePaymentDataStore.getDebito()));
         this.mercadoPagoLbl.setText(Double.toString(closePaymentDataStore.getMercadoPago()));
         this.cuentaCorrienteLbl.setText(Double.toString(closePaymentDataStore.getCuentaCorriente()));
-        this.totalLbl.setText(Double.toString(closePaymentDataStore.getTotal()));        
-        
+        this.totalLbl.setText(Double.toString(closePaymentDataStore.getTotal()));
+
     }//GEN-LAST:event_rangoCalcularButtonActionPerformed
 
     private void closeCierreButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeCierreButtonActionPerformed
@@ -7733,6 +7864,10 @@ public class VittoFrame extends javax.swing.JFrame {
     private void userLogInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userLogInActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_userLogInActionPerformed
+
+    private void userLogIn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userLogIn1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_userLogIn1ActionPerformed
 
     private void setTableColour(int tableId, Color color) {
 
@@ -7872,6 +8007,7 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JLabel LattesaborizadosPrice;
     private javax.swing.JSpinner LattesaborizadosSpinner;
     private javax.swing.JCheckBox LicuadoCheck;
+    private javax.swing.JDialog LogInDialog;
     private javax.swing.JFrame LogInFrame;
     private javax.swing.JLabel MesaLabel;
     private javax.swing.JLabel MilkshakePrice;
@@ -7908,6 +8044,7 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JLabel arabeSdwPrice;
     private javax.swing.JSpinner arabeSdwSpinner;
     private javax.swing.JComboBox<String> barLogInComboBox;
+    private javax.swing.JComboBox<String> barLogInComboBox1;
     private javax.swing.JCheckBox batidoExprimidoCheck;
     private javax.swing.JLabel batidoExprimidoPrice;
     private javax.swing.JSpinner batidoExprimidoSpinner;
@@ -7955,6 +8092,7 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JLabel cashChangeBack;
     private javax.swing.JComboBox<String> cashDiscountCombo;
     private javax.swing.JTextField cashInitLogIn;
+    private javax.swing.JTextField cashInitLogIn1;
     private javax.swing.JButton cashPayAction;
     private javax.swing.JCheckBox cashPayDiscountCheck;
     private javax.swing.JButton cashPayment;
@@ -8124,9 +8262,14 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel181;
     private javax.swing.JLabel jLabel182;
     private javax.swing.JLabel jLabel183;
+    private javax.swing.JLabel jLabel184;
     private javax.swing.JLabel jLabel185;
     private javax.swing.JLabel jLabel186;
+    private javax.swing.JLabel jLabel187;
+    private javax.swing.JLabel jLabel188;
+    private javax.swing.JLabel jLabel189;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel190;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
@@ -8281,6 +8424,7 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JLabel panchoPromoPrice;
     private javax.swing.JSpinner panchoPromoSpinner;
     private javax.swing.JTextField passwordLogIn;
+    private javax.swing.JTextField passwordLogIn1;
     private javax.swing.JButton payAction;
     private javax.swing.JTextField paymentCash;
     private javax.swing.JCheckBox pizzaPromoCheck;
@@ -8329,6 +8473,7 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JButton seeConsuming;
     private javax.swing.JLabel seleccionLbl;
     private javax.swing.JButton sessionLogInButton;
+    private javax.swing.JButton sessionLogInButton1;
     private javax.swing.JCheckBox submarinoCheck;
     private javax.swing.JLabel submarinoPrice;
     private javax.swing.JSpinner submarinoSpinner;
@@ -8371,6 +8516,7 @@ public class VittoFrame extends javax.swing.JFrame {
     private javax.swing.JLabel totalLbl;
     private javax.swing.JLabel totalPayLabel;
     private javax.swing.JTextField userLogIn;
+    private javax.swing.JTextField userLogIn1;
     private javax.swing.JLabel userTableCompleteNamePay;
     private javax.swing.JLabel whoAmILbl;
     private javax.swing.JLabel yogurtPrice;

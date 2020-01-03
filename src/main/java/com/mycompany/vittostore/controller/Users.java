@@ -14,4 +14,6 @@ public interface Users {
     
     public User findUserByCompleteName(String name, String surname);
     
+    public boolean isAnyUserLoggedIn();
+    
 }
