@@ -16,4 +16,6 @@ public interface Users {
     
     public boolean isAnyUserLoggedIn();
     
+    public boolean validateLoginData(String user, String pass);
+    
 }

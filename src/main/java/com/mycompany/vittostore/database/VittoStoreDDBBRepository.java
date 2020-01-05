@@ -143,6 +143,10 @@ public class VittoStoreDDBBRepository {
         return user;
 
     }
+    
+    public boolean validateLoginInUser(String user, String pass) {
+        return false;
+    }
 
     public Map<String, Double> getProductFromProductName(String productName) {
         Map<String, Double> productIdPrice = new HashMap<>();

@@ -33,4 +33,9 @@ public class UsersImpl extends VittoConnection implements Users {
         return false;
     }
 
+    @Override
+    public boolean validateLoginData(String user, String pass) {
+        return this.vittoDDBBStore.validateLoginInUser(user, pass);
+    }
+
 }
